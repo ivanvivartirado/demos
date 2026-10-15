@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Talleres Óscar · Taller mecánico en Santa Coloma de Gramenet</title>
+<meta name="description" content="Demo de web para Talleres Óscar, preparada por Grapa Lab.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orange:#F97316; --orange-d:#EA580C; --ink:#111214; --ink-2:#1C1E22; --ink-3:#2A2D33;
+  --txt:#F4F4F5; --muted:#A1A1AA; --paper:#F6F5F2; --dark:#18181B; --line:#E4E2DC;
+  --head:"Barlow Condensed","Arial Narrow",system-ui,sans-serif; --font:"Barlow",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --g:clamp(1rem,5vw,2rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{margin:0;font-family:var(--font);color:var(--dark);background:var(--paper);line-height:1.55;font-size:1.05rem}
+svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{margin:0;font-family:var(--head);text-transform:uppercase;line-height:.98;letter-spacing:.005em}
+p{margin:0}
+.wrap{max-width:70rem;margin-inline:auto;padding-inline:var(--g)}
+.demo{background:var(--orange);color:#111;font-size:.8rem;text-align:center;padding:.45rem var(--g);font-weight:600}
+.demo a{color:#111}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.9rem 1.4rem;border-radius:.5rem;font-weight:700;text-decoration:none;border:2px solid transparent;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn svg{width:1.2rem;height:1.2rem}
+.btn--wa{background:#1FAF5A;color:#fff}.btn--wa:hover{background:#18964C}
+.btn--or{background:var(--orange);color:#111}.btn--or:hover{background:var(--orange-d)}
+.btn--line{border-color:rgba(255,255,255,.4);color:#fff}.btn--line:hover{background:rgba(255,255,255,.08)}
+
+.top{position:sticky;top:0;z-index:20;background:rgba(17,18,20,.94);backdrop-filter:blur(10px);color:var(--txt)}
+.top__in{display:flex;align-items:center;justify-content:space-between;height:4.2rem;gap:1rem}
+.logo{font-family:var(--head);font-weight:800;font-size:1.65rem;text-transform:uppercase;text-decoration:none;letter-spacing:.02em;display:flex;align-items:center;gap:.55rem}
+.logo i{width:2.3rem;height:2.3rem;border-radius:.5rem;background:var(--orange);display:grid;place-items:center}
+.logo i svg{width:1.35rem;height:1.35rem;stroke:#111;fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.logo b{color:var(--orange)}
+.nav{display:none;gap:1.6rem;font-weight:600;font-size:.95rem}
+.nav a{text-decoration:none;color:#d4d4d8}.nav a:hover{color:#fff}
+.top .btn{padding:.55rem 1rem;font-size:.92rem}
+@media (min-width:860px){.nav{display:flex}}
+
+.hero{background:var(--ink);color:var(--txt);padding-block:clamp(3rem,9vw,5.5rem);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:auto -10% -40% auto;width:38rem;height:38rem;border-radius:50%;background:radial-gradient(circle,rgba(249,115,22,.28),transparent 65%)}
+.hero__in{position:relative;display:grid;gap:2.5rem;align-items:center}
+@media (min-width:900px){.hero__in{grid-template-columns:1.2fr 1fr}}
+.badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--ink-3);padding:.4rem .85rem;border-radius:999px;font-weight:600;font-size:.9rem}
+.badge b{color:#FBBF24;letter-spacing:.08em}
+.hero h1{font-size:clamp(3rem,13vw,5.6rem);font-weight:800;margin-top:1.1rem}
+.hero h1 span{color:var(--orange)}
+.lead{margin-top:1.1rem;color:#c4c4cc;font-size:clamp(1.05rem,4vw,1.22rem);max-width:32em}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem}
+.panel{background:var(--ink-2);border:1px solid var(--ink-3);border-radius:1rem;padding:1.4rem;display:grid;gap:.9rem}
+.panel h3{font-size:1.5rem;color:#fff}
+.panel p{color:var(--muted);font-size:.95rem}
+.pill{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:var(--ink);border-radius:.7rem;padding:.85rem 1rem;font-weight:600}
+.pill small{display:block;color:var(--muted);font-weight:500;font-size:.8rem}
+.pill em{font-style:normal;font-size:.78rem;font-weight:700;padding:.25rem .6rem;border-radius:999px;background:rgba(31,175,90,.18);color:#4ADE80;white-space:nowrap}
+.pill em.w{background:rgba(249,115,22,.18);color:#FDBA74}
+
+.strip{background:var(--orange);color:#111}
+.strip__in{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:1rem;padding-block:1.3rem;font-weight:700}
+.strip__in div{display:flex;align-items:center;gap:.6rem}
+.strip svg{width:1.4rem;height:1.4rem;stroke:#111;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+.sec{padding-block:clamp(3rem,9vw,5.5rem)}
+.sec--dark{background:var(--ink);color:var(--txt)}
+.eyebrow{color:var(--orange-d);font-weight:700;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.5rem}
+.sec--dark .eyebrow{color:var(--orange)}
+h2{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;max-width:16em}
+.grid{display:grid;gap:1rem;margin-top:2rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+.card{background:#fff;border:1px solid var(--line);border-radius:.9rem;padding:1.4rem;border-top:4px solid var(--orange)}
+.card h3{font-size:1.5rem}
+.card p{margin-top:.45rem;color:#52525B;font-size:.98rem}
+.why{display:grid;gap:1.4rem;margin-top:2rem;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr))}
+.why div{border-left:3px solid var(--orange);padding-left:1rem}
+.why h3{font-size:1.45rem;color:#fff}
+.why p{margin-top:.4rem;color:var(--muted)}
+
+.rating{display:grid;gap:2rem;align-items:center}
+@media (min-width:860px){.rating{grid-template-columns:1fr 1.4fr}}
+.big{font-family:var(--head);font-size:clamp(5rem,20vw,8rem);font-weight:800;line-height:.9}
+.big small{display:block;font-family:var(--font);font-size:1.05rem;color:#52525B;font-weight:600;margin-top:.5rem;text-transform:none}
+.bigstars{color:#F59E0B;font-size:1.8rem;letter-spacing:.15em;margin-top:.4rem}
+.q{background:#fff;border:1px solid var(--line);border-radius:.9rem;padding:1.2rem 1.3rem}
+.q+.q{margin-top:1rem}
+.q p{color:#52525B}.q b{display:block;margin-top:.5rem;font-size:.85rem}
+.note{font-size:.8rem;color:#71717A;margin-top:.8rem}
+
+.contact{display:grid;gap:2rem}
+@media (min-width:900px){.contact{grid-template-columns:1.1fr 1fr;align-items:start}}
+.info{display:grid;gap:1.1rem;margin-top:1.6rem}
+.info div{display:flex;gap:.8rem;align-items:flex-start}
+.info svg{width:1.5rem;height:1.5rem;flex:none;stroke:var(--orange);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;margin-top:.1rem}
+.info a{font-weight:700;color:#fff}
+.form{background:var(--ink-2);border:1px solid var(--ink-3);border-radius:1rem;padding:1.5rem;display:grid;gap:.9rem}
+.form h3{font-size:1.7rem;color:#fff}
+.form label{display:grid;gap:.35rem;font-weight:600;font-size:.92rem;color:#d4d4d8}
+.form input,.form select{font:inherit;padding:.8rem .9rem;border:1.5px solid var(--ink-3);border-radius:.6rem;background:var(--ink);color:#fff;min-width:0}
+.form input:focus,.form select:focus{outline:none;border-color:var(--orange)}
+.form .row{display:grid;gap:.9rem;grid-template-columns:1fr 1fr}
+.form button{font:inherit;cursor:pointer;border:0}
+.ok{background:rgba(31,175,90,.15);color:#86EFAC;border-radius:.7rem;padding:1rem;font-weight:600}
+
+.foot{background:#0A0A0B;color:#8b8b93;padding-block:2rem;font-size:.9rem}
+.foot__in{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
+.foot a{color:#fff}
+.wa-float{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:30;width:3.6rem;height:3.6rem;border-radius:50%;background:#1FAF5A;display:grid;place-items:center;box-shadow:0 .8rem 1.6rem -.6rem rgba(0,0,0,.5)}
+.wa-float svg{width:1.9rem;height:1.9rem;fill:#fff}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="demo">Demo preparada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> para Talleres Óscar · No es la web oficial</div>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="logo" href="#"><i><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></i>Talleres <b>Óscar</b></a>
+    <nav class="nav" aria-label="Principal"><a href="#servicios">Servicios</a><a href="#por-que">Por qué nosotros</a><a href="#opiniones">Opiniones</a><a href="#contacto">Contacto</a></nav>
+    <a class="btn btn--or" href="#contacto">Pedir presupuesto</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero__in">
+      <div>
+        <span class="badge"><b>★★★★★</b> 4,8 · 81 opiniones en Google</span>
+        <h1>Tu taller de confianza <span>en Santa Coloma</span></h1>
+        <p class="lead">Mecánica general, revisiones, frenos, neumáticos y pre-ITV. Te decimos qué le pasa a tu coche y cuánto cuesta antes de tocar nada.</p>
+        <div class="cta">
+          <a class="btn btn--wa" href="https://wa.me/34640825559" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.2.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg>Escríbenos por WhatsApp</a>
+          <a class="btn btn--line" href="tel:+34640825559">Llamar: 640 82 55 59</a>
+        </div>
+      </div>
+      <aside class="panel" aria-label="Ejemplo de avisos automáticos">
+        <h3>Te avisamos nosotros</h3>
+        <p>Cada cliente recibe un WhatsApp cuando toca revisión o ITV, y cuando su coche está listo.</p>
+        <div class="pill"><div>Seat León · 1234 KLM<small>ITV el 12 de noviembre</small></div><em class="w">Aviso enviado</em></div>
+        <div class="pill"><div>Renault Clio · 5678 JHG<small>Cambio de aceite y filtros</small></div><em>Coche listo</em></div>
+        <div class="pill"><div>VW Golf · 9012 LBC<small>Revisión anual</small></div><em class="w">Toca en enero</em></div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="wrap strip__in">
+      <div><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Presupuesto sin compromiso</div>
+      <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Te decimos el plazo</div>
+      <div><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg>Trabajos con garantía</div>
+      <div><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Carrer de Roma, 62</div>
+    </div>
+  </div>
+
+  <section class="sec" id="servicios">
+    <div class="wrap">
+      <p class="eyebrow">Servicios</p>
+      <h2>Lo que hacemos por tu coche</h2>
+      <div class="grid">
+        <article class="card"><h3>Mecánica general</h3><p>Averías, ruidos raros, testigos encendidos: lo diagnosticamos y te lo explicamos claro.</p></article>
+        <article class="card"><h3>Revisión y aceite</h3><p>Mantenimiento según el fabricante para que tu coche dure más y gaste menos.</p></article>
+        <article class="card"><h3>Frenos</h3><p>Pastillas, discos y líquido de frenos. Tu seguridad no se negocia.</p></article>
+        <article class="card"><h3>Neumáticos</h3><p>Cambio, equilibrado y revisión de presión y desgaste.</p></article>
+        <article class="card"><h3>Pre-ITV</h3><p>Revisamos todo antes de la ITV para que la pases a la primera.</p></article>
+        <article class="card"><h3>Diagnosis</h3><p>Lectura de la centralita y localización de averías electrónicas.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--dark" id="por-que">
+    <div class="wrap">
+      <p class="eyebrow">Por qué Talleres Óscar</p>
+      <h2>Un taller de barrio que te trata como a un vecino</h2>
+      <div class="why">
+        <div><h3>Sin sorpresas</h3><p>Te damos el precio antes de empezar. Si aparece algo más, te llamamos primero.</p></div>
+        <div><h3>Trato directo</h3><p>Hablas con quien repara tu coche, no con una centralita.</p></div>
+        <div><h3>Rápidos</h3><p>Te damos un plazo y lo cumplimos. Te avisamos por WhatsApp en cuanto está listo.</p></div>
+        <div><h3>Cerca de ti</h3><p>En el centro de Santa Coloma de Gramenet, en el Carrer de Roma.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="opiniones">
+    <div class="wrap rating">
+      <div>
+        <p class="eyebrow">Opiniones</p>
+        <div class="big">4,8<small>81 opiniones en Google</small></div>
+        <div class="bigstars" aria-label="5 estrellas">★★★★★</div>
+      </div>
+      <div>
+        <div class="q"><p>«Aquí irán las mejores reseñas de vuestra ficha de Google, actualizadas automáticamente.»</p><b>Reseña de Google</b></div>
+        <div class="q"><p>«Quien llega buscando taller ve al momento lo que opinan vuestros clientes: es lo que más convence.»</p><b>Reseña de Google</b></div>
+        <p class="note">En la web definitiva se muestran reseñas reales de vuestra ficha de Google.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--dark" id="contacto">
+    <div class="wrap contact">
+      <div>
+        <p class="eyebrow">Contacto</p>
+        <h2>Pide presupuesto sin compromiso</h2>
+        <div class="info">
+          <div><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><p>Carrer de Roma, 62 · Santa Coloma de Gramenet<br><a href="https://www.google.com/maps/search/?api=1&query=Talleres+%C3%93scar+Carrer+de+Roma+62+Santa+Coloma+de+Gramenet" target="_blank" rel="noopener">Cómo llegar</a></p></div>
+          <div><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><p><a href="tel:+34640825559">640 82 55 59</a> · llamada o WhatsApp</p></div>
+          <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><p>Lunes a viernes, desde las 9:30 h</p></div>
+        </div>
+      </div>
+      <form class="form" id="form">
+        <h3>Cuéntanos qué le pasa</h3>
+        <div class="row">
+          <label>Nombre<input required autocomplete="name" placeholder="Tu nombre"></label>
+          <label>Teléfono<input required type="tel" autocomplete="tel" placeholder="600 000 000"></label>
+        </div>
+        <label>Coche<input placeholder="Marca, modelo y año"></label>
+        <label>¿Qué necesitas?<select><option>Revisión / aceite</option><option>Avería o ruido</option><option>Frenos</option><option>Neumáticos</option><option>Pre-ITV</option><option>Otro</option></select></label>
+        <button class="btn btn--or" type="submit">Pedir presupuesto</button>
+        <div class="ok" id="ok" hidden>✓ Esto es una demo: en la web real, la petición os llegaría al momento por WhatsApp con los datos del coche.</div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p>© Talleres Óscar · Taller mecánico en Santa Coloma de Gramenet</p>
+    <p>Demo diseñada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a></p>
+  </div>
+</footer>
+<a class="wa-float" href="https://wa.me/34640825559" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.2.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg></a>
+<script>
+document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();document.getElementById('ok').hidden=false;});
+</script>
+</body>
+</html>

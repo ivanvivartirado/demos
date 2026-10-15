@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Moviment i Salut Montilla · Fisioterapia en Santa Coloma de Gramenet</title>
+<meta name="description" content="Demo de web para Moviment i Salut Montilla, preparada por Grapa Lab.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#0F766E; --teal-d:#0B5852; --mint:#CCFBEF; --mint-2:#E8FBF5; --sun:#F59E0B;
+  --ink:#0F1F1D; --muted:#4B5F5B; --line:#D7E7E2; --bg:#FAFDFC; --card:#FFFFFF;
+  --font:"Outfit",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --g:clamp(1rem,5vw,2rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.55;font-size:1.04rem}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{margin:0;line-height:1.08;letter-spacing:-.02em}
+p{margin:0}
+.wrap{max-width:70rem;margin-inline:auto;padding-inline:var(--g)}
+.demo{background:var(--ink);color:#cfe;font-size:.8rem;text-align:center;padding:.45rem var(--g)}
+.demo a{color:#fff;font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:.55rem;justify-content:center;padding:.9rem 1.4rem;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid transparent;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn--wa{background:#1FAF5A;color:#fff}.btn--wa:hover{background:#18964C}
+.btn--ghost{border-color:var(--teal);color:var(--teal)}.btn--ghost:hover{background:var(--mint-2)}
+.btn svg{width:1.2rem;height:1.2rem}
+
+/* cabecera */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top__in{display:flex;align-items:center;justify-content:space-between;height:4.2rem;gap:1rem}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-weight:800;font-size:1.1rem;line-height:1}
+.logo small{display:block;font-weight:500;font-size:.72rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-top:.2rem}
+.logo i{width:2.4rem;height:2.4rem;border-radius:.8rem;background:var(--teal);display:grid;place-items:center}
+.logo i svg{width:1.4rem;height:1.4rem;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.nav{display:none;gap:1.6rem;font-weight:600;font-size:.95rem}
+.nav a{text-decoration:none}.nav a:hover{color:var(--teal)}
+.top .btn{padding:.6rem 1.05rem;font-size:.92rem}
+@media (min-width:860px){.nav{display:flex}}
+
+/* hero */
+.hero{padding-block:clamp(2.5rem,8vw,5rem);background:radial-gradient(60rem 30rem at 85% 10%,var(--mint) 0,transparent 60%)}
+.hero__in{display:grid;gap:2.5rem;align-items:center}
+@media (min-width:900px){.hero__in{grid-template-columns:1.15fr 1fr}}
+.stars{display:inline-flex;align-items:center;gap:.5rem;background:#fff;border:1px solid var(--line);padding:.4rem .85rem;border-radius:999px;font-weight:600;font-size:.9rem}
+.stars b{color:var(--sun);letter-spacing:.08em}
+.hero h1{font-size:clamp(2.3rem,8.5vw,4.1rem);font-weight:800;margin-top:1.1rem;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--teal)}
+.lead{margin-top:1.1rem;color:var(--muted);font-size:clamp(1.05rem,4vw,1.22rem);max-width:33em}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem}
+.hero__art{position:relative;aspect-ratio:1/1;max-width:30rem;width:100%;margin-inline:auto}
+.blob{position:absolute;inset:6%;border-radius:42% 58% 55% 45%/48% 42% 58% 52%;background:linear-gradient(140deg,var(--teal),#14B8A6)}
+.hero__art svg.fig{position:absolute;inset:14%;width:72%;height:72%}
+.chip{position:absolute;background:#fff;border-radius:1rem;padding:.7rem .95rem;box-shadow:0 1rem 2rem -1rem rgba(15,31,29,.35);font-size:.85rem;font-weight:600;display:flex;gap:.55rem;align-items:center}
+.chip span{display:block;font-weight:500;color:var(--muted);font-size:.75rem}
+.chip i{width:2rem;height:2rem;border-radius:.6rem;display:grid;place-items:center;background:var(--mint);font-style:normal}
+.chip--a{left:-2%;bottom:14%}.chip--b{right:-2%;top:10%}
+
+/* secciones */
+.sec{padding-block:clamp(3rem,9vw,5.5rem)}
+.sec--mint{background:var(--mint-2)}
+.eyebrow{color:var(--teal);font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.6rem}
+h2{font-size:clamp(1.8rem,6vw,2.7rem);font-weight:800;max-width:20em;text-wrap:balance}
+.grid{display:grid;gap:1rem;margin-top:2rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:1.2rem;padding:1.5rem}
+.card .ic{width:3rem;height:3rem;border-radius:.9rem;background:var(--mint);display:grid;place-items:center;margin-bottom:1rem}
+.card .ic svg{width:1.5rem;height:1.5rem;stroke:var(--teal);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:1.18rem}
+.card p{margin-top:.5rem;color:var(--muted);font-size:.98rem}
+.steps{counter-reset:s;list-style:none;padding:0;margin:2rem 0 0;display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr))}
+.steps li{counter-increment:s;background:#fff;border-radius:1.2rem;padding:1.5rem;border:1px solid var(--line)}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:2.3rem;height:2.3rem;border-radius:50%;background:var(--teal);color:#fff;font-weight:800;margin-bottom:.9rem}
+.steps p{margin-top:.4rem;color:var(--muted)}
+
+/* reseñas */
+.rating{display:grid;gap:2rem;align-items:center}
+@media (min-width:860px){.rating{grid-template-columns:1fr 1.4fr}}
+.big{font-size:clamp(4rem,16vw,6.5rem);font-weight:800;line-height:1;color:var(--teal)}
+.big small{font-size:1.1rem;color:var(--muted);font-weight:600;display:block;margin-top:.4rem}
+.bigstars{color:var(--sun);font-size:1.8rem;letter-spacing:.15em;margin-top:.6rem}
+.quotes{display:grid;gap:1rem}
+.q{background:#fff;border:1px solid var(--line);border-radius:1.2rem;padding:1.3rem 1.4rem}
+.q p{color:var(--muted)}.q b{display:block;margin-top:.6rem;font-size:.85rem;color:var(--ink)}
+.note{font-size:.8rem;color:var(--muted);margin-top:.6rem}
+
+/* reservar */
+.book{display:grid;gap:2rem}
+@media (min-width:900px){.book{grid-template-columns:1fr 1fr;align-items:start}}
+.form{background:#fff;border:1px solid var(--line);border-radius:1.4rem;padding:1.6rem;display:grid;gap:.9rem}
+.form label{display:grid;gap:.35rem;font-weight:600;font-size:.92rem}
+.form input,.form select{font:inherit;padding:.8rem .9rem;border:1.5px solid var(--line);border-radius:.8rem;background:var(--bg);min-width:0}
+.form input:focus,.form select:focus{outline:none;border-color:var(--teal)}
+.form .row{display:grid;gap:.9rem;grid-template-columns:1fr 1fr}
+.form button{font:inherit;cursor:pointer;border:0}
+.ok{background:var(--mint);border-radius:1rem;padding:1rem;font-weight:600;color:var(--teal-d)}
+.auto{display:flex;gap:.9rem;align-items:flex-start;margin-top:1.4rem;padding:1.1rem 1.2rem;background:#fff;border-radius:1rem;border:1px dashed var(--teal)}
+.auto i{font-style:normal;font-size:1.4rem}
+.auto p{color:var(--muted);font-size:.95rem}.auto b{color:var(--ink)}
+.info{display:grid;gap:1rem;margin-top:1.6rem}
+.info div{display:flex;gap:.8rem;align-items:flex-start}
+.info svg{width:1.4rem;height:1.4rem;flex:none;stroke:var(--teal);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;margin-top:.15rem}
+.info a{font-weight:600}
+
+.foot{background:var(--ink);color:#b9cbc7;padding-block:2.2rem;font-size:.9rem}
+.foot__in{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center}
+.foot a{color:#fff}
+.wa-float{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:30;width:3.6rem;height:3.6rem;border-radius:50%;background:#1FAF5A;display:grid;place-items:center;box-shadow:0 .8rem 1.6rem -.6rem rgba(0,0,0,.4)}
+.wa-float svg{width:1.9rem;height:1.9rem;fill:#fff}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="demo">Demo preparada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> para Moviment i Salut Montilla · No es la web oficial</div>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="logo" href="#"><i><svg viewBox="0 0 24 24"><circle cx="13" cy="4.5" r="2"/><path d="M8 21l3-7 3 3v4M6 11l4-3 3 1 3 3 3 1"/></svg></i><span>Moviment i Salut<small>Fisioteràpia · Montilla</small></span></a>
+    <nav class="nav" aria-label="Principal"><a href="#servicios">Servicios</a><a href="#como">Cómo trabajamos</a><a href="#opiniones">Opiniones</a><a href="#cita">Contacto</a></nav>
+    <a class="btn btn--wa" href="#cita">Pedir cita</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero__in">
+      <div>
+        <span class="stars"><b>★★★★★</b> 5,0 · 118 opiniones en Google</span>
+        <h1>Vuelve a <em>moverte sin dolor</em>.</h1>
+        <p class="lead">Fisioterapia y ejercicio terapéutico en Santa Coloma de Gramenet. Te valoramos, tratamos el origen del problema y te acompañamos hasta que vuelvas a hacer lo que te gusta.</p>
+        <div class="cta">
+          <a class="btn btn--wa" href="#cita"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.2.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg>Reserva tu cita</a>
+          <a class="btn btn--ghost" href="#servicios">Ver tratamientos</a>
+        </div>
+      </div>
+      <div class="hero__art" aria-hidden="true">
+        <div class="blob"></div>
+        <svg class="fig" viewBox="0 0 200 200" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="118" cy="38" r="15" fill="#fff" stroke="none"/>
+          <path d="M112 60l-14 46 28 24 6 46M98 106l-30 40M70 82l30-16 26 8 22 26"/>
+        </svg>
+        <div class="chip chip--a"><i>📅</i><div>Cita confirmada<span>Mañana · 18:00 h</span></div></div>
+        <div class="chip chip--b"><i>💪</i><div>Plan de ejercicios<span>Semana 3 de 6</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="servicios">
+    <div class="wrap">
+      <p class="eyebrow">Tratamientos</p>
+      <h2>Todo lo que necesitas para recuperarte, en un mismo centro</h2>
+      <div class="grid">
+        <article class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg></div><h3>Fisioterapia</h3><p>Dolor de espalda, cuello, hombro o rodilla. Terapia manual y técnicas adaptadas a cada caso.</p></article>
+        <article class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 14l4-4 4 4 8-8M14 6h6v6"/></svg></div><h3>Readaptación de lesiones</h3><p>Después de un esguince, una rotura o una operación, te ayudamos a volver al 100 %.</p></article>
+        <article class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M6.5 6.5h11M6.5 17.5h11M3 9v6M21 9v6M6.5 6.5v11M17.5 6.5v11"/></svg></div><h3>Ejercicio terapéutico</h3><p>Ejercicios guiados para fortalecer, ganar movilidad y que el dolor no vuelva.</p></article>
+        <article class="card"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><path d="M12 7v6l-3 7M12 13l3 7M7 10h10"/></svg></div><h3>Entrenamiento personal</h3><p>Sesiones individuales o en grupo reducido para ponerte en forma con seguridad.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--mint" id="como">
+    <div class="wrap">
+      <p class="eyebrow">Cómo trabajamos</p>
+      <h2>Un plan pensado para ti, no un tratamiento en serie</h2>
+      <ol class="steps">
+        <li><h3>Valoración</h3><p>Escuchamos qué te pasa y exploramos el origen del dolor.</p></li>
+        <li><h3>Tratamiento</h3><p>Sesiones de fisioterapia adaptadas a tu lesión y a tu ritmo.</p></li>
+        <li><h3>Ejercicio</h3><p>Te damos ejercicios para casa y los revisamos contigo.</p></li>
+        <li><h3>Seguimiento</h3><p>Medimos tu progreso hasta que vuelvas a hacer tu vida normal.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec" id="opiniones">
+    <div class="wrap rating">
+      <div>
+        <p class="eyebrow">Opiniones</p>
+        <div class="big">5,0<small>118 opiniones en Google</small></div>
+        <div class="bigstars" aria-label="5 estrellas">★★★★★</div>
+      </div>
+      <div class="quotes">
+        <div class="q"><p>«Aquí irán vuestras mejores reseñas de Google, actualizadas automáticamente.»</p><b>Reseña de Google</b></div>
+        <div class="q"><p>«Cada paciente que llega a la web ve al momento lo que opinan los demás: es lo que más convence.»</p><b>Reseña de Google</b></div>
+        <p class="note">En la web definitiva se muestran reseñas reales de vuestra ficha de Google.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--mint" id="cita">
+    <div class="wrap book">
+      <div>
+        <p class="eyebrow">Pide tu cita</p>
+        <h2>Reserva en un minuto, sin llamar</h2>
+        <div class="info">
+          <div><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><p>Carrer de la Vistalegre, 23<br>Santa Coloma de Gramenet<br><a href="https://www.google.com/maps/search/?api=1&query=Moviment+i+Salut+Montilla+Santa+Coloma+de+Gramenet" target="_blank" rel="noopener">Cómo llegar</a></p></div>
+          <div><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><p><a href="tel:+34645188234">645 18 82 34</a> · también por WhatsApp</p></div>
+          <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><p>Lunes a viernes, desde las 8:00 h</p></div>
+        </div>
+        <div class="auto"><i>🔔</i><p><b>Recordatorio automático.</b> El día antes de tu cita te llega un WhatsApp para confirmarla. Menos olvidos, menos huecos vacíos en la agenda.</p></div>
+      </div>
+      <form class="form" id="form">
+        <label>Nombre<input name="n" required autocomplete="name" placeholder="Tu nombre"></label>
+        <label>Teléfono<input name="t" required type="tel" autocomplete="tel" placeholder="600 000 000"></label>
+        <label>¿Qué te pasa?<select name="m"><option>Dolor de espalda o cuello</option><option>Lesión deportiva</option><option>Recuperación tras una operación</option><option>Entrenamiento personal</option><option>Otro</option></select></label>
+        <div class="row">
+          <label>Día<select name="d"><option>Lo antes posible</option><option>Esta semana</option><option>La semana que viene</option></select></label>
+          <label>Franja<select name="f"><option>Mañana</option><option>Tarde</option></select></label>
+        </div>
+        <button class="btn btn--wa" type="submit">Pedir cita</button>
+        <div class="ok" id="ok" hidden>✓ Esto es una demo: en la web real, la petición os llegaría al momento por WhatsApp y al correo, y el paciente recibiría la confirmación.</div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p>© Moviment i Salut Montilla · Fisioterapia en Santa Coloma de Gramenet · <a href="https://www.instagram.com/movimentisalut_montilla/" target="_blank" rel="noopener">@movimentisalut_montilla</a></p>
+    <p>Demo diseñada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a></p>
+  </div>
+</footer>
+<a class="wa-float" href="#cita" aria-label="Pedir cita"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.2.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg></a>
+<script>
+document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();document.getElementById('ok').hidden=false;});
+</script>
+</body>
+</html>
