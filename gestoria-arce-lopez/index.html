@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Gestoría Arce y López · Asesoría laboral, fiscal y jurídica en Santa Coloma de Gramenet</title>
+<meta name="description" content="Demo de web para Gestoría Arce y López, preparada por Grapa Lab.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#123A5E; --blue-2:#1B4D7A; --gold:#C69A2B; --gold-l:#F7EFD9;
+  --ink:#14202B; --muted:#55616D; --bg:#FAF9F6; --line:#E3E1DA; --card:#FFFFFF; --soft:#EEF2F6;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif; --font:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --g:clamp(1rem,5vw,2rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.6;font-size:1.02rem}
+svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{margin:0;font-family:var(--serif);line-height:1.12;letter-spacing:-.01em}
+p{margin:0}
+.wrap{max-width:70rem;margin-inline:auto;padding-inline:var(--g)}
+.demo{background:var(--ink);color:#cfd8e1;font-size:.8rem;text-align:center;padding:.45rem var(--g)}
+.demo a{color:#fff;font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.85rem 1.35rem;border-radius:.45rem;font-weight:600;text-decoration:none;border:2px solid transparent;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn--gold{background:var(--gold);color:#fff}.btn--gold:hover{background:#AD8521}
+.btn--blue{background:var(--blue);color:#fff}.btn--blue:hover{background:var(--blue-2)}
+.btn--line{border-color:rgba(255,255,255,.5);color:#fff}.btn--line:hover{background:rgba(255,255,255,.08)}
+.btn svg{width:1.15rem;height:1.15rem;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top__in{display:flex;align-items:center;justify-content:space-between;height:4.4rem;gap:1rem}
+.logo{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.logo i{width:2.5rem;height:2.5rem;border-radius:.4rem;background:var(--blue);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-style:normal;font-weight:700;font-size:1.05rem;letter-spacing:.02em}
+.logo b{display:block;font-family:var(--serif);font-size:1.15rem;line-height:1.1;color:var(--blue)}
+.logo small{display:block;font-size:.72rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.nav{display:none;gap:1.6rem;font-weight:500;font-size:.95rem}
+.nav a{text-decoration:none}.nav a:hover{color:var(--gold)}
+.top .btn{padding:.6rem 1rem;font-size:.92rem}
+@media (min-width:880px){.nav{display:flex}}
+
+.hero{background:linear-gradient(135deg,var(--blue) 0%,#0D2C48 100%);color:#fff;padding-block:clamp(3rem,9vw,5.5rem)}
+.hero__in{display:grid;gap:2.5rem;align-items:center}
+@media (min-width:900px){.hero__in{grid-template-columns:1.25fr 1fr}}
+.kicker{color:#E7C76A;font-weight:600;letter-spacing:.14em;font-size:.8rem;text-transform:uppercase}
+.hero h1{font-size:clamp(2.2rem,7.5vw,3.6rem);margin-top:.9rem;text-wrap:balance}
+.hero h1 em{font-style:italic;color:#E7C76A}
+.lead{margin-top:1.1rem;color:#C9D6E3;font-size:clamp(1.03rem,4vw,1.17rem);max-width:34em}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.15);border-radius:.8rem;overflow:hidden}
+.facts div{background:#0F3150;padding:1.3rem}
+.facts b{display:block;font-family:var(--serif);font-size:2rem;color:#fff;line-height:1}
+.facts span{display:block;margin-top:.45rem;color:#B9C8D8;font-size:.9rem}
+
+.sec{padding-block:clamp(3rem,9vw,5.5rem)}
+.sec--soft{background:var(--soft)}
+.eyebrow{color:var(--gold);font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.6rem}
+h2{font-size:clamp(1.8rem,5.5vw,2.6rem);color:var(--blue);max-width:20em;text-wrap:balance}
+.intro{margin-top:.9rem;color:var(--muted);max-width:40em}
+.areas{display:grid;gap:1rem;margin-top:2rem;grid-template-columns:repeat(auto-fit,minmax(15.5rem,1fr))}
+.area{background:var(--card);border:1px solid var(--line);border-radius:.8rem;padding:1.5rem;border-top:4px solid var(--blue)}
+.area h3{font-size:1.3rem;color:var(--blue)}
+.area ul{list-style:none;margin:.9rem 0 0;padding:0;display:grid;gap:.4rem}
+.area li{position:relative;padding-left:1.2rem;color:#36424E;font-size:.96rem}
+.area li::before{content:"";position:absolute;left:0;top:.62em;width:.45rem;height:.45rem;border-radius:50%;background:var(--gold)}
+
+.who{display:grid;gap:1rem;margin-top:2rem;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr))}
+.who div{background:#fff;border-radius:.8rem;padding:1.6rem;border:1px solid var(--line)}
+.who h3{font-size:1.35rem;color:var(--blue)}
+.who p{margin-top:.5rem;color:var(--muted)}
+
+.plazos{display:grid;gap:2rem;align-items:start}
+@media (min-width:900px){.plazos{grid-template-columns:1fr 1.2fr}}
+.cal{background:#fff;border:1px solid var(--line);border-radius:.9rem;overflow:hidden}
+.cal div{display:grid;grid-template-columns:7.5rem 1fr;gap:1rem;padding:1rem 1.2rem;border-bottom:1px solid var(--line);align-items:center}
+.cal div:last-child{border-bottom:0}
+.cal b{font-family:var(--serif);color:var(--blue);font-size:1.05rem}
+.cal span{color:#36424E;font-size:.95rem}
+.opt{display:flex;gap:.9rem;align-items:flex-start;margin-top:1.4rem;padding:1.1rem 1.2rem;background:var(--gold-l);border-radius:.8rem}
+.opt em{font-style:normal;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--gold);color:#fff;padding:.15rem .5rem;border-radius:999px;white-space:nowrap;margin-top:.2rem}
+.opt p{color:#4A4030;font-size:.95rem}.opt b{color:var(--ink)}
+
+.contact{display:grid;gap:2rem}
+@media (min-width:900px){.contact{grid-template-columns:1fr 1fr;align-items:start}}
+.info{display:grid;gap:1.1rem;margin-top:1.6rem}
+.info div{display:flex;gap:.85rem;align-items:flex-start}
+.info svg{width:1.4rem;height:1.4rem;flex:none;stroke:var(--gold);fill:none;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round;margin-top:.15rem}
+.info a{font-weight:600;color:var(--blue)}
+.form{background:#fff;border:1px solid var(--line);border-radius:.9rem;padding:1.6rem;display:grid;gap:.9rem}
+.form h3{font-size:1.4rem;color:var(--blue)}
+.form label{display:grid;gap:.35rem;font-weight:600;font-size:.9rem}
+.form input,.form select,.form textarea{font:inherit;padding:.8rem .9rem;border:1.5px solid var(--line);border-radius:.5rem;background:var(--bg);min-width:0}
+.form textarea{min-height:5.5rem;resize:vertical}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--blue)}
+.form .row{display:grid;gap:.9rem;grid-template-columns:1fr 1fr}
+.form button{font:inherit;cursor:pointer;border:0}
+.hint{font-size:.85rem;color:var(--muted);text-align:center}
+
+.foot{background:#0B2238;color:#9FB1C3;padding-block:2rem;font-size:.9rem}
+.foot__in{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
+.foot a{color:#fff}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="demo">Demo preparada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> para Gestoría Arce y López · No es la web oficial</div>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="logo" href="#"><i>A·L</i><span><b>Arce y López</b><small>Gestoría · Asesoría</small></span></a>
+    <nav class="nav" aria-label="Principal"><a href="#servicios">Servicios</a><a href="#para-quien">Para quién</a><a href="#plazos">Plazos</a><a href="#contacto">Contacto</a></nav>
+    <a class="btn btn--blue" href="#contacto">Pedir cita</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero__in">
+      <div>
+        <p class="kicker">Gestoría en Santa Coloma de Gramenet</p>
+        <h1>Tus impuestos, nóminas y trámites, <em>en buenas manos</em></h1>
+        <p class="lead">Asesoramiento laboral, fiscal, contable y jurídico para empresas, autónomos y particulares. Un equipo de abogados y asesores con más de 30 años de experiencia, con cuotas ajustadas a lo que necesitas.</p>
+        <div class="cta">
+          <a class="btn btn--gold" href="#contacto">Pide cita sin compromiso</a>
+          <a class="btn btn--line" href="tel:+34934666520"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>93 466 65 20</a>
+        </div>
+      </div>
+      <div class="facts">
+        <div><b>+30</b><span>años de experiencia</span></div>
+        <div><b>4</b><span>áreas: laboral, fiscal, jurídica y gestiones</span></div>
+        <div><b>100 m</b><span>del Metro L1 Santa Coloma</span></div>
+        <div><b>A medida</b><span>cuotas según tus necesidades</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="servicios">
+    <div class="wrap">
+      <p class="eyebrow">Servicios</p>
+      <h2>Todo lo que tu empresa o tu familia necesita, en un mismo despacho</h2>
+      <div class="areas">
+        <article class="area"><h3>Laboral</h3><ul><li>Nóminas y finiquitos</li><li>Contratos y bonificaciones</li><li>Seguros sociales</li><li>Despidos y conciliaciones</li><li>Pensiones e invalidez</li><li>Inspecciones</li></ul></article>
+        <article class="area"><h3>Fiscal y contable</h3><ul><li>IVA, IRPF y Sociedades</li><li>Declaración de la Renta</li><li>Transmisiones, donaciones y sucesiones</li><li>Impuestos locales</li><li>Contabilidad y cuentas anuales</li><li>Estimaciones</li></ul></article>
+        <article class="area"><h3>Jurídica</h3><ul><li>Laboral</li><li>Civil</li><li>Matrimonial</li><li>Mercantil</li></ul></article>
+        <article class="area"><h3>Otros trámites</h3><ul><li>Administración de fincas y alquileres</li><li>Seguros</li><li>Transferencias de vehículos</li><li>Herencias y compraventas</li><li>Certificados digitales</li></ul></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--soft" id="para-quien">
+    <div class="wrap">
+      <p class="eyebrow">Para quién</p>
+      <h2>Te acompañamos, tengas una empresa o un trámite puntual</h2>
+      <div class="who">
+        <div><h3>Empresas y autónomos</h3><p>Servicio integral para la pequeña y mediana empresa: laboral, fiscal y contable, con asesoramiento jurídico y representación cuando hace falta.</p></div>
+        <div><h3>Particulares</h3><p>La Renta, una herencia, una compraventa, un alquiler o la transferencia de un coche: nos encargamos del papeleo y te lo explicamos claro.</p></div>
+        <div><h3>Ante la Administración</h3><p>Defendemos tus intereses ante Hacienda, la Seguridad Social y los juzgados con un equipo de abogados y asesores.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="plazos">
+    <div class="wrap plazos">
+      <div>
+        <p class="eyebrow">Calendario del contribuyente</p>
+        <h2>Que no se te pase ningún plazo</h2>
+        <p class="intro">Las fechas clave del año, siempre actualizadas. Y si eres cliente, te avisamos nosotros.</p>
+        <div class="opt"><em>Opcional</em><p><b>Envía tus facturas y tickets desde el móvil.</b> Un área de clientes para mandar la documentación con una foto, sin pasar por el despacho ni buscar correos.</p></div>
+      </div>
+      <div class="cal">
+        <div><b>1 – 30 ene</b><span>4.º trimestre: IVA y pagos fraccionados (retenciones, hasta el 20)</span></div>
+        <div><b>1 – 20 abr</b><span>1.er trimestre: IVA, retenciones y pagos fraccionados</span></div>
+        <div><b>Abr – jun</b><span>Campaña de la Renta y Patrimonio</span></div>
+        <div><b>1 – 20 jul</b><span>2.º trimestre: IVA, retenciones y pagos fraccionados</span></div>
+        <div><b>1 – 25 jul</b><span>Impuesto sobre Sociedades</span></div>
+        <div><b>1 – 20 oct</b><span>3.er trimestre: IVA, retenciones y pagos fraccionados</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--soft" id="contacto">
+    <div class="wrap contact">
+      <div>
+        <p class="eyebrow">Contacto</p>
+        <h2>Cuéntanos tu caso y te damos cita</h2>
+        <div class="info">
+          <div><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><p>Rambla de Sant Sebastià, 7, 1.º 2.ª<br>08921 Santa Coloma de Gramenet<br><span style="color:var(--muted)">A 100 m del Metro L1 Santa Coloma</span><br><a href="https://www.google.com/maps/search/?api=1&query=Gestor%C3%ADa+Arce+y+L%C3%B3pez+Santa+Coloma+de+Gramenet" target="_blank" rel="noopener">Cómo llegar</a></p></div>
+          <div><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><p><a href="tel:+34934666520">93 466 65 20</a></p></div>
+          <div><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><p><a href="mailto:gestoria@arcelopez.com">gestoria@arcelopez.com</a></p></div>
+        </div>
+      </div>
+      <form class="form" id="form">
+        <h3>Pide cita</h3>
+        <div class="row">
+          <label>Nombre<input required autocomplete="name" placeholder="Tu nombre"></label>
+          <label>Teléfono<input required type="tel" autocomplete="tel" placeholder="600 000 000"></label>
+        </div>
+        <label>Eres…<select><option>Particular</option><option>Autónomo</option><option>Empresa</option></select></label>
+        <label>¿En qué te ayudamos?<select><option>Declaración de la Renta</option><option>Nóminas y contratos</option><option>Impuestos trimestrales</option><option>Contabilidad</option><option>Herencia o compraventa</option><option>Asunto jurídico</option><option>Otro trámite</option></select></label>
+        <label>Cuéntanos brevemente (opcional)<textarea placeholder="Por ejemplo: me acabo de dar de alta como autónomo y necesito que me llevéis los impuestos."></textarea></label>
+        <button class="btn btn--blue" type="submit">Enviar</button>
+        <p class="hint" id="hint">Te contestamos lo antes posible.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p>© Gestoría Arce y López, S.L. · Santa Coloma de Gramenet</p>
+    <p>Demo diseñada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a></p>
+  </div>
+</footer>
+<script>
+document.getElementById('form').addEventListener('submit',function(e){
+  e.preventDefault();
+  document.getElementById('hint').textContent='✓ Esto es una demo: en la web real, la petición os llegaría al momento al correo con todos los datos del cliente.';
+});
+</script>
+</body>
+</html>
