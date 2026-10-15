@@ -237,10 +237,7 @@ h2{font-size:clamp(2.3rem,8vw,3.6rem);font-weight:800;max-width:16em}
 <script>
 document.getElementById('form').addEventListener('submit',function(e){
   e.preventDefault(); var f=e.target;
-  var txt='Hola! Soy '+f.n.value+'. Quería pedir presupuesto.
-Necesito: '+f.s.value+(f.c.value?'
-Coche: '+f.c.value:'')+'
-Mi teléfono: '+f.t.value;
+  var txt='Hola! Soy '+f.n.value+'. Quería pedir presupuesto.\nNecesito: '+f.s.value+(f.c.value?'\nCoche: '+f.c.value:'')+'\nMi teléfono: '+f.t.value;
   window.open('https://wa.me/34640825559?text='+encodeURIComponent(txt),'_blank');
 });
 </script>

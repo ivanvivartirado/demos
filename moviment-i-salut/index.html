@@ -229,10 +229,7 @@ h2{font-size:clamp(1.8rem,6vw,2.7rem);font-weight:800;max-width:20em;text-wrap:b
 <script>
 document.getElementById('form').addEventListener('submit',function(e){
   e.preventDefault(); var f=e.target;
-  var txt='Hola! Soy '+f.n.value+'. Me gustaría pedir cita.
-Motivo: '+f.m.value+'
-Cuándo: '+f.d.value+', por la '+f.f.value.toLowerCase()+'
-Mi teléfono: '+f.t.value;
+  var txt='Hola! Soy '+f.n.value+'. Me gustaría pedir cita.\nMotivo: '+f.m.value+'\nCuándo: '+f.d.value+', por la '+f.f.value.toLowerCase()+'\nMi teléfono: '+f.t.value;
   window.open('https://wa.me/34645188234?text='+encodeURIComponent(txt),'_blank');
 });
 </script>
