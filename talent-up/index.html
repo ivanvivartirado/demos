@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Talent Up · Refuerzo escolar e inglés en Santa Coloma de Gramenet</title>
+<meta name="description" content="Demo de web para Talent Up Refuerzo y Formación, preparada por Grapa Lab.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1E2160; --navy-2:#2B2F7A; --lime:#8DC63F; --lime-d:#6FA62A; --lime-l:#EEF7E1;
+  --ink:#16183A; --muted:#565A78; --bg:#FBFBF7; --line:#E3E4EE; --card:#FFFFFF; --sun:#F5A524;
+  --font:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --g:clamp(1rem,5vw,2rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.55;font-size:1.03rem}
+svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{margin:0;line-height:1.1;letter-spacing:-.02em}
+p{margin:0}
+.wrap{max-width:70rem;margin-inline:auto;padding-inline:var(--g)}
+.demo{background:var(--ink);color:#d8daf0;font-size:.8rem;text-align:center;padding:.45rem var(--g)}
+.demo a{color:#fff;font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.9rem 1.4rem;border-radius:.8rem;font-weight:700;text-decoration:none;border:2px solid transparent;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn--lime{background:var(--lime);color:var(--ink)}.btn--lime:hover{background:var(--lime-d)}
+.btn--navy{background:var(--navy);color:#fff}.btn--navy:hover{background:var(--navy-2)}
+.btn--ghost{border-color:rgba(255,255,255,.45);color:#fff}.btn--ghost:hover{background:rgba(255,255,255,.08)}
+.btn svg{width:1.2rem;height:1.2rem}
+
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top__in{display:flex;align-items:center;justify-content:space-between;height:4.3rem;gap:1rem}
+.logo{text-decoration:none;font-weight:800;font-size:1.55rem;letter-spacing:.04em;color:var(--navy)}
+.logo b{color:var(--lime);font-style:italic;font-weight:700;letter-spacing:0;font-size:1.2rem;margin-left:.1rem}
+.nav{display:none;gap:1.5rem;font-weight:600;font-size:.94rem}
+.nav a{text-decoration:none}.nav a:hover{color:var(--lime-d)}
+.top .btn{padding:.6rem 1rem;font-size:.92rem}
+@media (min-width:880px){.nav{display:flex}}
+
+.hero{background:var(--navy);color:#fff;padding-block:clamp(3rem,9vw,5.5rem);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-8rem;top:-8rem;width:26rem;height:26rem;border-radius:50%;border:3.5rem solid rgba(141,198,63,.18)}
+.hero__in{position:relative;z-index:1;display:grid;gap:2.5rem;align-items:center}
+@media (min-width:900px){.hero__in{grid-template-columns:1.2fr 1fr}}
+.kicker{color:var(--lime);font-weight:800;letter-spacing:.14em;font-size:.85rem;text-transform:uppercase}
+.hero h1{font-size:clamp(2.2rem,8vw,3.9rem);font-weight:800;margin-top:.8rem;text-wrap:balance}
+.hero h1 span{color:var(--lime)}
+.lead{margin-top:1.1rem;color:#c9cbe8;font-size:clamp(1.03rem,4vw,1.18rem);max-width:33em}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem}
+.rate{display:inline-flex;gap:.5rem;align-items:center;margin-top:1.4rem;font-size:.9rem;color:#c9cbe8}
+.rate b{color:var(--sun);letter-spacing:.08em}
+
+.picker{background:#fff;color:var(--ink);border-radius:1.2rem;padding:1.5rem;box-shadow:0 1.5rem 3rem -1.5rem rgba(0,0,0,.5)}
+.picker h2{font-size:1.3rem}
+.picker p{color:var(--muted);font-size:.93rem;margin-top:.3rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.chips button{font:inherit;font-weight:600;font-size:.92rem;cursor:pointer;padding:.55rem .9rem;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink)}
+.chips button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.answer{margin-top:1.1rem;padding:1rem;border-radius:.9rem;background:var(--lime-l);font-size:.95rem;min-height:5.2rem}
+.answer b{display:block;margin-bottom:.2rem}
+.answer a{font-weight:700;color:var(--navy)}
+
+.sec{padding-block:clamp(3rem,9vw,5.5rem)}
+.sec--tint{background:#F1F2F8}
+.eyebrow{color:var(--lime-d);font-weight:800;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.6rem}
+h2{font-size:clamp(1.8rem,6vw,2.6rem);font-weight:800;max-width:20em;text-wrap:balance;color:var(--navy)}
+.grid{display:grid;gap:1rem;margin-top:2rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:1.1rem;padding:1.5rem;display:flex;flex-direction:column}
+.card .tag{align-self:flex-start;font-size:.75rem;font-weight:700;padding:.2rem .6rem;border-radius:999px;background:var(--lime-l);color:var(--lime-d);margin-bottom:.9rem}
+.card h3{font-size:1.2rem;color:var(--navy)}
+.card p{margin-top:.5rem;color:var(--muted);font-size:.97rem}
+.card ul{margin:.8rem 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:.4rem}
+.card li{font-size:.82rem;font-weight:600;padding:.25rem .6rem;border-radius:.5rem;background:#F1F2F8}
+.card--feat{background:var(--navy);border-color:var(--navy);color:#fff}
+.card--feat h3{color:#fff}.card--feat p{color:#c9cbe8}
+.card--feat .tag{background:var(--lime);color:var(--ink)}
+
+.team{display:grid;gap:2rem;align-items:center}
+@media (min-width:900px){.team{grid-template-columns:1fr 1fr}}
+.subjects{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.4rem}
+.subjects span{padding:.5rem .9rem;border-radius:999px;background:#fff;border:1px solid var(--line);font-weight:600;font-size:.92rem}
+.values{display:grid;gap:1rem}
+.values div{background:#fff;border-radius:1rem;padding:1.2rem 1.3rem;border-left:5px solid var(--lime)}
+.values h3{color:var(--navy);font-size:1.1rem}.values p{color:var(--muted);margin-top:.3rem;font-size:.95rem}
+
+.rating{display:grid;gap:2rem;align-items:center}
+@media (min-width:860px){.rating{grid-template-columns:1fr 1.4fr}}
+.big{font-size:clamp(4rem,16vw,6rem);font-weight:800;line-height:1;color:var(--navy)}
+.big small{display:block;font-size:1.05rem;color:var(--muted);font-weight:600;margin-top:.4rem}
+.bigstars{color:var(--sun);font-size:1.7rem;letter-spacing:.15em;margin-top:.5rem}
+.q{background:#fff;border:1px solid var(--line);border-radius:1rem;padding:1.2rem 1.3rem}
+.q+.q{margin-top:1rem}
+.q p{color:var(--muted)}.q b{display:block;margin-top:.5rem;font-size:.85rem}
+.note{font-size:.8rem;color:var(--muted);margin-top:.8rem}
+
+.contact{display:grid;gap:2rem}
+@media (min-width:900px){.contact{grid-template-columns:1fr 1fr;align-items:start}}
+.info{display:grid;gap:1rem;margin-top:1.6rem}
+.info div{display:flex;gap:.8rem;align-items:flex-start}
+.info svg{width:1.4rem;height:1.4rem;flex:none;stroke:var(--lime-d);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;margin-top:.15rem}
+.info a{font-weight:700}
+.form{background:#fff;border:1px solid var(--line);border-radius:1.2rem;padding:1.6rem;display:grid;gap:.9rem}
+.form h3{color:var(--navy);font-size:1.3rem}
+.form label{display:grid;gap:.35rem;font-weight:600;font-size:.92rem}
+.form input,.form select{font:inherit;padding:.8rem .9rem;border:1.5px solid var(--line);border-radius:.7rem;background:var(--bg);min-width:0}
+.form input:focus,.form select:focus{outline:none;border-color:var(--navy)}
+.form .row{display:grid;gap:.9rem;grid-template-columns:1fr 1fr}
+.form button{font:inherit;cursor:pointer;border:0}
+.hint{font-size:.85rem;color:var(--muted);text-align:center}
+
+.foot{background:var(--ink);color:#a9abc8;padding-block:2rem;font-size:.9rem}
+.foot__in{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
+.foot a{color:#fff}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="demo">Demo preparada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> para Talent Up · No es la web oficial</div>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="logo" href="#">TALENT<b>up</b></a>
+    <nav class="nav" aria-label="Principal"><a href="#refuerzo">Refuerzo</a><a href="#acceso">Pruebas de acceso</a><a href="#ingles">Inglés</a><a href="#equipo">Equipo</a><a href="#contacto">Contacto</a></nav>
+    <a class="btn btn--navy" href="#contacto">Pedir información</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero__in">
+      <div>
+        <p class="kicker">Aprende, crece, triunfa</p>
+        <h1>Refuerzo escolar e inglés <span>para todos los niveles</span></h1>
+        <p class="lead">Primaria, ESO, Bachillerato, Universidad y pruebas de acceso en Santa Coloma de Gramenet. Profesores especialistas en cada materia y apoyo psicológico, en clase o online.</p>
+        <div class="cta">
+          <a class="btn btn--lime" href="#contacto">Prueba gratis una clase de inglés</a>
+          <a class="btn btn--ghost" href="tel:+34931281920">Llamar: 93 128 19 20</a>
+        </div>
+        <p class="rate"><b>★★★★★</b> 4,6 · 31 opiniones en Google</p>
+      </div>
+      <div class="picker" aria-live="polite">
+        <h2>¿Qué necesitas?</h2>
+        <p>Elige el curso y te decimos cómo te podemos ayudar.</p>
+        <div class="chips" id="chips">
+          <button type="button" aria-pressed="true" data-k="pri">Primaria</button>
+          <button type="button" aria-pressed="false" data-k="eso">ESO</button>
+          <button type="button" aria-pressed="false" data-k="bat">Bachillerato</button>
+          <button type="button" aria-pressed="false" data-k="pau">Selectividad</button>
+          <button type="button" aria-pressed="false" data-k="gr">Acceso a grado</button>
+          <button type="button" aria-pressed="false" data-k="uni">Universidad / +25</button>
+          <button type="button" aria-pressed="false" data-k="en">Inglés</button>
+        </div>
+        <div class="answer" id="answer"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="refuerzo">
+    <div class="wrap">
+      <p class="eyebrow">Refuerzo académico</p>
+      <h2>Clases de refuerzo y técnicas de estudio en cada etapa</h2>
+      <div class="grid">
+        <article class="card"><span class="tag">6 – 12 años</span><h3>Primaria</h3><p>Base sólida, hábitos de estudio y confianza para que disfruten aprendiendo.</p></article>
+        <article class="card"><span class="tag">12 – 16 años</span><h3>ESO</h3><p>Una etapa decisiva: acompañamos en cada asignatura para llegar a fin de curso con todo aprobado.</p></article>
+        <article class="card"><span class="tag">16 – 18 años</span><h3>Bachillerato</h3><p>Materias más exigentes con profesores especialistas: física, química, matemáticas, economía…</p></article>
+        <article class="card"><span class="tag">Grados</span><h3>Universidad</h3><p>Apoyo en las asignaturas que más se atascan en el primer año de carrera.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--tint" id="acceso">
+    <div class="wrap">
+      <p class="eyebrow">Pruebas de acceso</p>
+      <h2>Prepara tu prueba con un plan hecho para ti</h2>
+      <div class="grid">
+        <article class="card card--feat"><span class="tag">La más pedida</span><h3>Selectividad (PAU)</h3><p>Repaso por materias, exámenes de otros años y técnica de examen para sacar la nota que necesitas.</p></article>
+        <article class="card"><h3>Grado Superior y Grado Medio</h3><p>Preparación de las pruebas de acceso PAGS y PAGM para entrar en el ciclo que quieres.</p><ul><li>PAGS</li><li>PAGM</li></ul></article>
+        <article class="card"><h3>Acceso a la Universidad +25</h3><p>Para quien quiere volver a estudiar: horarios compatibles con el trabajo.</p></article>
+        <article class="card"><h3>Prueba de aptitud personal (PAP)</h3><p>Para acceder a los grados de Educación Infantil y Primaria.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="ingles">
+    <div class="wrap">
+      <div class="grid" style="margin-top:0;align-items:center">
+        <div>
+          <p class="eyebrow">Idiomas</p>
+          <h2>Inglés para todas las edades</h2>
+          <p class="lead" style="color:var(--muted)">Clases para niños, adolescentes y adultos, para el colegio, para un título oficial o para el trabajo.</p>
+          <div class="cta"><a class="btn btn--navy" href="#contacto">Reserva tu clase de prueba gratis</a></div>
+        </div>
+        <article class="card card--feat"><span class="tag">Gratis</span><h3>Ven a probar una clase</h3><p>Conoce al profesor, el grupo y el método antes de decidir. Sin compromiso.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--tint" id="equipo">
+    <div class="wrap team">
+      <div>
+        <p class="eyebrow">Nuestro equipo</p>
+        <h2>Cada materia, con un especialista</h2>
+        <p class="lead" style="color:var(--muted)">Un equipo de profesores apasionados por la enseñanza y una psicóloga que acompaña a los alumnos que lo necesitan.</p>
+        <div class="subjects"><span>Físicos</span><span>Ingenieros</span><span>Biólogos</span><span>Economistas</span><span>Filólogos</span><span>Psicólogos</span></div>
+      </div>
+      <div class="values">
+        <div><h3>Esfuerzo</h3><p>Constancia y técnicas de estudio para que el alumno avance cada semana.</p></div>
+        <div><h3>Compromiso</h3><p>Atención a cada alumno y comunicación con las familias.</p></div>
+        <div><h3>Empatía</h3><p>Apoyo psicológico para la motivación, la ansiedad ante los exámenes o la organización.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="opiniones">
+    <div class="wrap rating">
+      <div>
+        <p class="eyebrow">Opiniones</p>
+        <div class="big">4,6<small>31 opiniones en Google</small></div>
+        <div class="bigstars" aria-label="5 estrellas">★★★★★</div>
+      </div>
+      <div>
+        <div class="q"><p>«Aquí irán las opiniones de vuestros alumnos y familias, actualizadas automáticamente desde Google.»</p><b>Reseña de Google</b></div>
+        <div class="q"><p>«Los padres que llegan a la web ven al momento lo que opinan otras familias: es lo que más convence.»</p><b>Reseña de Google</b></div>
+        <p class="note">En la web definitiva se muestran reseñas reales de vuestra ficha de Google.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--tint" id="contacto">
+    <div class="wrap contact">
+      <div>
+        <p class="eyebrow">Contacto</p>
+        <h2>Pide información o tu clase de prueba</h2>
+        <div class="info">
+          <div><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><p>Carrer de Sant Josep, 21<br>08922 Santa Coloma de Gramenet<br><a href="https://www.google.com/maps/search/?api=1&query=Talent+Up+Carrer+de+Sant+Josep+21+Santa+Coloma+de+Gramenet" target="_blank" rel="noopener">Cómo llegar</a></p></div>
+          <div><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><p><a href="tel:+34931281920">93 128 19 20</a></p></div>
+          <div><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><p><a href="mailto:info@talentup.es">info@talentup.es</a></p></div>
+          <div><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg><p>Clases presenciales y online</p></div>
+        </div>
+      </div>
+      <form class="form" id="form">
+        <h3>Te llamamos nosotros</h3>
+        <div class="row">
+          <label>Nombre<input name="n" required autocomplete="name" placeholder="Tu nombre"></label>
+          <label>Teléfono<input name="t" required type="tel" autocomplete="tel" placeholder="600 000 000"></label>
+        </div>
+        <label>¿Para quién es?<select name="q"><option>Para mi hijo/a</option><option>Para mí</option></select></label>
+        <label>¿Qué necesitáis?<select name="s"><option>Refuerzo Primaria</option><option>Refuerzo ESO</option><option>Refuerzo Bachillerato</option><option>Selectividad (PAU)</option><option>Prueba de acceso a grado</option><option>Universidad / +25</option><option>Clase de prueba de inglés</option><option>Apoyo psicológico</option></select></label>
+        <button class="btn btn--lime" type="submit">Enviar</button>
+        <p class="hint" id="hint">Os responderemos lo antes posible.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p>© Talent Up Refuerzo y Formación · Santa Coloma de Gramenet</p>
+    <p>Demo diseñada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a></p>
+  </div>
+</footer>
+<script>
+(function(){
+  var R={
+    pri:['Refuerzo de Primaria','Hábitos de estudio, lectura y matemáticas para que lleguen seguros al instituto.'],
+    eso:['Refuerzo de ESO','Todas las asignaturas, técnicas de estudio y preparación de exámenes trimestre a trimestre.'],
+    bat:['Refuerzo de Bachillerato','Profesores especialistas en física, química, matemáticas, economía y más.'],
+    pau:['Preparación de Selectividad','Repaso por materias, exámenes de otros años y técnica de examen.'],
+    gr:['Pruebas de acceso a Grado Medio y Superior','Preparación de PAGM y PAGS con un plan adaptado a tu prueba.'],
+    uni:['Universidad y acceso +25','Apoyo en asignaturas de carrera y preparación del acceso para mayores de 25.'],
+    en:['Inglés para todas las edades','Ven a probar una clase gratis, sin compromiso.']
+  };
+  var chips=document.getElementById('chips'), ans=document.getElementById('answer');
+  function set(k){
+    chips.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.k===k));});
+    ans.innerHTML='<b>'+R[k][0]+'</b>'+R[k][1]+' <a href="#contacto">Pide información</a>';
+  }
+  chips.addEventListener('click',function(e){var b=e.target.closest('button'); if(b) set(b.dataset.k);});
+  set('pri');
+  document.getElementById('form').addEventListener('submit',function(e){
+    e.preventDefault();
+    document.getElementById('hint').textContent='✓ Esto es una demo: en la web real, la petición os llegaría al momento al correo y podríais llamar a la familia ese mismo día.';
+  });
+})();
+</script>
+</body>
+</html>
