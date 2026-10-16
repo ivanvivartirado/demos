@@ -9,129 +9,149 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
 <style>
+/* Direccion: un solo motivo, el arco del goniometro (el instrumento con el que el fisio mide cuanto se mueve una articulacion).
+   Paleta: azul petroleo sobre papel, de dos tonos. */
 :root{
-  --sand:#F4EEE4; --sand-2:#EAE1D2; --forest:#1E3A2C; --forest-2:#2A4D3B; --terra:#D2643A; --terra-l:#F6D9C9;
-  --sage:#A8BFA4; --ink:#1A2A21; --muted:#5D6B62; --line:#DCD3C3;
-  --serif:"Instrument Serif",Georgia,"Times New Roman",serif; --font:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-  --g:clamp(1rem,5vw,2rem);
+  --bg:#F7F9F8; --surface:#EBF0EE; --ink:#06525C; --deep:#043B42; --muted:#2F737D; --paper:#F7F9F8;
+  --font:"Albert Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; --g:clamp(1rem,4vw,2rem);
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
-body{margin:0;font-family:var(--font);color:var(--ink);background:var(--sand);line-height:1.6;font-size:1.03rem}
-svg{display:block;max-width:100%}
+body{margin:0;font-family:var(--font);font-size:1.08rem;line-height:1.55;color:var(--ink);background:var(--bg);overflow-x:hidden}
+img,svg{display:block;max-width:100%;height:auto}
 a{color:inherit}
-h1,h2,h3{margin:0;font-weight:400;line-height:1}
+h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.035em;line-height:.98;text-wrap:balance}
 p{margin:0}
-.wrap{max-width:72rem;margin-inline:auto;padding-inline:var(--g)}
-.demo{background:var(--forest);color:#cfdccf;font-size:.8rem;text-align:center;padding:.45rem var(--g)}
-.demo a{color:#fff;font-weight:700}
-.pill{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.4rem;border-radius:999px;text-decoration:none;border:0;cursor:pointer;font:inherit;font-weight:700;transition:transform .15s,background .15s}
-.pill:hover{transform:translateY(-1px)}
-.pill--terra{background:var(--terra);color:#fff}.pill--terra:hover{background:#B9532C}
-.pill--wa{background:#1FAF5A;color:#fff}.pill--wa:hover{background:#18964C}
-.pill--line{background:transparent;color:var(--forest);box-shadow:inset 0 0 0 2px var(--forest)}
-.pill svg{width:1.2rem;height:1.2rem;fill:currentColor}
+.wrap{max-width:78rem;margin-inline:auto;padding-inline:var(--g)}
+.demo{background:var(--deep);color:#CFE3E0;font-size:.82rem;text-align:center;padding:.5rem var(--g)}
+.demo a{color:#fff;font-weight:600}
+/* el boton lleva el motivo: una esquina en arco */
+.btn{display:inline-flex;align-items:center;gap:.55rem;padding:1rem 1.7rem 1rem 1.5rem;border-radius:0 2.2rem 0 0;font:inherit;font-weight:600;text-decoration:none;border:0;cursor:pointer;transition:transform .2s,background-color .2s}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:translateY(1px)}
+.btn--ink{background:var(--ink);color:var(--paper)}.btn--ink:hover{background:var(--deep)}
+.btn--paper{background:var(--paper);color:var(--ink)}.btn--paper:hover{background:#fff}
+.btn--wa{background:#1B9E52;color:#fff}.btn--wa:hover{background:#15843F}
+.btn svg{width:1.2rem;height:1.2rem;fill:currentColor}
 
-.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--sand) 92%,transparent);backdrop-filter:blur(10px)}
-.top__in{display:flex;align-items:center;justify-content:space-between;height:4.2rem;gap:1rem}
-.logo{text-decoration:none;font-family:var(--serif);font-size:1.6rem;line-height:1}
-.logo em{color:var(--terra)}
-.nav{display:none;gap:1.6rem;font-weight:600;font-size:.95rem}
-.nav a{text-decoration:none}.nav a:hover{color:var(--terra)}
-.top .pill{padding:.6rem 1.1rem;font-size:.92rem}
-@media (min-width:880px){.nav{display:flex}}
+.top{position:sticky;top:0;z-index:20;background:var(--bg)}
+.top__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:4.3rem}
+.logo{text-decoration:none;font-weight:700;font-size:1.25rem;letter-spacing:-.02em}
+.nav{display:none;gap:1.8rem}
+.nav a{text-decoration:none}.nav a:hover{text-decoration:underline;text-underline-offset:.3em}
+.top .btn{padding:.65rem 1.2rem .65rem 1rem}
+@media (min-width:900px){.nav{display:flex}}
 
-.hero{padding-block:clamp(2.5rem,8vw,5rem) clamp(2rem,6vw,3.5rem);position:relative;overflow:hidden}
-.hero h1{font-family:var(--serif);font-size:clamp(3.6rem,15vw,9rem);letter-spacing:-.03em;line-height:.92;position:relative}
-.hero h1 em{color:var(--terra)}
-.hero__row{display:grid;gap:1.6rem;margin-top:1.8rem;align-items:end;position:relative}
-@media (min-width:860px){.hero__row{grid-template-columns:1.3fr 1fr}}
-.lead{color:var(--muted);font-size:clamp(1.05rem,4vw,1.2rem);max-width:30em}
-.hero__cta{display:flex;flex-wrap:wrap;gap:.8rem}
-@media (min-width:860px){.hero__cta{justify-content:flex-end}}
-.wave{position:absolute;right:-4rem;top:1.2rem;width:min(60vw,34rem);opacity:.5;pointer-events:none}
-.rating{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;margin-top:1.4rem;font-weight:600;font-size:.92rem;color:var(--muted)}
-.rating b{color:var(--terra);letter-spacing:.1em}
+/* portada: el arco enorme, con una foto del parque fluvial dentro */
+.hero{position:relative;min-height:min(90svh,52rem);display:grid;align-items:center;padding-block:3rem 4rem}
+.hero__arc{position:absolute;right:-4vw;bottom:0;width:min(47vw,46rem);aspect-ratio:1;border-radius:100% 0 0 0;overflow:hidden;background:var(--ink)}
+.hero__arc img{width:100%;height:100%;object-fit:cover}
+.hero>.wrap{width:100%}
+.hero__text{position:relative;max-width:min(34rem,44vw)}
+.hero h1{font-size:clamp(3.4rem,9vw,7.6rem)}
+.hero .lead{margin-top:1.4rem;font-size:clamp(1.12rem,3.4vw,1.3rem);max-width:28em;color:var(--ink)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem}
+.hero .meta{margin-top:1.6rem;color:var(--muted)}
+@media (max-width:820px){
+  .hero__text{max-width:none}
+  .hero{min-height:auto;padding-block:2.5rem 0}
+  .hero__arc{position:relative;right:auto;margin:2.5rem calc(-1 * var(--g)) 0 auto;width:92vw}
+}
 
-.map{background:var(--forest);color:#EAF0E8;border-radius:2rem;margin-inline:clamp(.5rem,2vw,1.5rem);padding-block:clamp(2.5rem,7vw,4.5rem)}
-.map__in{display:grid;gap:2rem;align-items:center}
-@media (min-width:900px){.map__in{grid-template-columns:.9fr 1.1fr}}
-.kicker{font-size:.8rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--terra)}
-.map h2{font-family:var(--serif);font-size:clamp(2.6rem,9vw,4.4rem);color:#fff;margin-top:.5rem}
-.map h2 em{color:var(--sage)}
-.body{position:relative;max-width:min(18rem,58vw);margin-inline:auto;width:100%}
-.body svg .fig{fill:#3C6450}
+/* mapa del cuerpo: un campo de color entero */
+.field{background:var(--ink);color:var(--paper);padding-block:clamp(4.5rem,10vw,8rem)}
+.map{display:grid;gap:2.5rem;align-items:center}
+@media (min-width:900px){.map{grid-template-columns:.85fr 1.15fr}}
+.field h2{font-size:clamp(2.6rem,7vw,5rem)}
+.field .lead{margin-top:1rem;color:#CFE3E0;max-width:30em}
+.body{max-width:min(19rem,62vw);margin-inline:auto;width:100%}
+.body .fig{fill:#0B6B77}
 .spot{cursor:pointer;outline:none}
-.spot circle.dot{fill:var(--terra);stroke:#fff;stroke-width:3}
-.spot circle.halo{fill:var(--terra);opacity:.35;transform-box:fill-box;transform-origin:center;animation:pulse 2s infinite}
-.spot[aria-pressed="true"] circle.dot{fill:#fff;stroke:var(--terra);stroke-width:5}
-.spot:focus-visible circle.dot{stroke:#FFD27A;stroke-width:5}
-@keyframes pulse{0%{transform:scale(.6);opacity:.5}100%{transform:scale(1.8);opacity:0}}
-.zones{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.4rem}
-.zones button{font:inherit;font-weight:700;font-size:.9rem;cursor:pointer;padding:.5rem .95rem;border-radius:999px;border:1.5px solid rgba(234,240,232,.35);background:transparent;color:#EAF0E8}
-.zones button[aria-pressed="true"]{background:var(--terra);border-color:var(--terra);color:#fff}
-.panel{margin-top:1.6rem;background:var(--forest-2);border-radius:1.2rem;padding:1.5rem}
-.panel h3{font-family:var(--serif);font-size:2.2rem;color:#fff}
-.panel .cols{display:grid;gap:1.2rem;margin-top:1rem}
+.spot path{fill:var(--paper);transition:transform .2s;transform-box:fill-box;transform-origin:center}
+.spot:hover path,.spot:focus-visible path{transform:scale(1.25)}
+.spot[aria-pressed="true"] path{fill:#9EE6D8;transform:scale(1.35)}
+.zones{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.8rem}
+.zones button{font:inherit;font-weight:500;cursor:pointer;padding:.55rem 1.1rem .55rem .9rem;border:0;border-radius:0 1.4rem 0 0;background:#0B6B77;color:var(--paper);transition:background-color .2s}
+.zones button:hover{background:#0E7C8A}
+.zones button[aria-pressed="true"]{background:var(--paper);color:var(--ink)}
+.panel{margin-top:1.8rem;background:var(--deep);padding:1.8rem;border-radius:0 3rem 0 0}
+.panel h3{font-size:clamp(1.8rem,4vw,2.6rem)}
+.panel .cols{display:grid;gap:1.4rem;margin-top:1.2rem}
 @media (min-width:560px){.panel .cols{grid-template-columns:1fr 1fr}}
-.panel h4{margin:0 0 .4rem;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sage)}
-.panel ul{margin:0;padding-left:1.1rem;color:#D4DED2;font-size:.95rem}
-.panel .pill{margin-top:1.3rem}
+.panel h4{margin:0 0 .5rem;font-size:1.05rem;font-weight:600;color:#9EE6D8}
+.panel ul{margin:0;padding:0;list-style:none;display:grid;gap:.35rem}
+.panel li{display:flex;gap:.6rem;align-items:baseline}
+.panel li::before,.arcs li::before{content:"";flex:none;width:.7em;height:.7em;background:currentColor;border-radius:100% 0 0 0}
+.panel .btn{margin-top:1.6rem}
 
-.sec{padding-block:clamp(3.5rem,9vw,6rem)}
-.sec h2{font-family:var(--serif);font-size:clamp(2.5rem,8vw,4rem);max-width:14em;margin-top:.4rem}
-.sec h2 em{color:var(--terra)}
-.road{list-style:none;margin:2.6rem 0 0;padding:0;display:grid;gap:1.6rem;position:relative}
-@media (min-width:860px){.road{grid-template-columns:repeat(4,1fr);gap:1.2rem}
-  .road::before{content:"";position:absolute;left:0;right:0;top:1.05rem;height:3px;background:linear-gradient(90deg,var(--terra),var(--sage))}}
-.road li{position:relative;padding-left:3rem}
-@media (min-width:860px){.road li{padding-left:0;padding-top:3.2rem}}
-.road li::before{content:"";position:absolute;left:0;top:0;width:2.2rem;height:2.2rem;border-radius:50%;background:var(--sand);border:3px solid var(--terra)}
-.road li:last-child::before{background:var(--terra)}
-.road small{font-weight:800;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--terra)}
-.road h3{font-family:var(--serif);font-size:1.9rem;margin-top:.2rem}
-.road p{color:var(--muted);margin-top:.4rem;font-size:.97rem}
+/* el goniometro: la recuperacion de 0 a 90 grados */
+.sec{padding-block:clamp(4.5rem,10vw,8rem)}
+.sec h2{font-size:clamp(2.6rem,7vw,5rem);max-width:12em}
+.sec .lead{margin-top:1rem;max-width:32em;font-size:1.15rem}
+.gonio{display:grid;gap:2rem;margin-top:3rem;align-items:end}
+@media (min-width:900px){.gonio{grid-template-columns:1.1fr 1fr}}
+.gonio svg text{font-family:var(--font);fill:var(--ink)}
+.stages{list-style:none;margin:0;padding:0;display:grid;gap:1.6rem}
+.stages h3{font-size:1.6rem}
+.stages p{margin-top:.3rem;color:var(--muted)}
+.stages b{font-weight:600;color:var(--muted)}
 
-.list{margin-top:2rem;border-top:1.5px solid var(--ink)}
-.item{display:grid;grid-template-columns:3.5rem 1fr;gap:.4rem 1.2rem;padding:1.5rem 0;border-bottom:1.5px solid var(--line)}
-@media (min-width:860px){.item{grid-template-columns:6rem 1fr 1.2fr;align-items:baseline}}
-.item span{font-family:var(--serif);font-size:2.2rem;color:var(--terra);line-height:1}
-.item h3{font-family:var(--serif);font-size:clamp(1.8rem,5vw,2.4rem)}
-.item p{color:var(--muted);grid-column:2}
-@media (min-width:860px){.item p{grid-column:auto}}
+/* tratamientos con foto en el arco */
+.treat{display:grid;gap:3rem;align-items:center}
+@media (min-width:900px){.treat{grid-template-columns:1fr 1fr}}
+.arcs{list-style:none;margin:2rem 0 0;padding:0;display:grid;gap:1.6rem}
+.arcs li{display:flex;gap:1rem;align-items:baseline}
+.arcs h3{font-size:clamp(1.6rem,4vw,2.2rem)}
+.arcs p{margin-top:.35rem;color:var(--muted);max-width:30em}
+.masked{border-radius:0 100% 0 0;overflow:hidden;aspect-ratio:1}
+.masked img{width:100%;height:100%;object-fit:cover}
 
-.band{background:var(--terra);color:#fff;padding-block:clamp(2.5rem,7vw,4rem)}
-.band__in{display:flex;flex-wrap:wrap;gap:1rem 2.5rem;align-items:center}
-.band b{font-family:var(--serif);font-weight:400;font-size:clamp(4.5rem,18vw,8rem);line-height:.85}
-.band p{font-family:var(--serif);font-size:clamp(1.7rem,5vw,2.6rem);line-height:1.1;max-width:16em}
-.band small{display:block;font-family:var(--font);font-size:.9rem;opacity:.85;margin-top:.6rem}
+/* barrio */
+.pair{display:grid;gap:1.2rem;margin-top:3rem}
+@media (min-width:820px){.pair{grid-template-columns:1.4fr 1fr;align-items:end}}
+.pair figure{margin:0}
+.pair .a{border-radius:0 0 0 12rem;overflow:hidden}.pair .b{border-radius:10rem 0 0 0;overflow:hidden}
+.pair img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.pair .b img{aspect-ratio:1}
+.pair figcaption{padding-top:.6rem;color:var(--muted);font-size:.95rem}
 
-.book{display:grid;gap:2.5rem;align-items:start}
-@media (min-width:900px){.book{grid-template-columns:1fr 1fr;align-items:center}}
-.form{display:grid;gap:1rem;margin-top:1.8rem}
-.form label{display:grid;gap:.35rem;font-weight:700;font-size:.9rem}
-.form input,.form select{font:inherit;padding:.85rem 1rem;border:1.5px solid var(--line);border-radius:.9rem;background:#fff;min-width:0}
-.form input:focus,.form select:focus{outline:none;border-color:var(--forest)}
+/* cita */
+.book{background:var(--surface)}
+.book .wrap{display:grid;gap:3rem;align-items:center}
+@media (min-width:900px){.book .wrap{grid-template-columns:1fr 1fr}}
+.form{display:grid;gap:1rem;margin-top:2rem}
+.form label{display:grid;gap:.35rem;font-weight:500}
+.form input,.form select{font:inherit;color:var(--ink);padding:.85rem 1rem;border:0;border-bottom:2px solid var(--ink);background:var(--bg);min-width:0;border-radius:0}
+.form input:focus,.form select:focus{outline:3px solid #9EE6D8;outline-offset:0}
 .form .row{display:grid;gap:1rem;grid-template-columns:1fr 1fr}
-.phone{background:#E9E2D6;border-radius:2rem;padding:1rem;max-width:22rem;margin-inline:auto;width:100%;border:8px solid var(--ink)}
-.phone__bar{display:flex;align-items:center;gap:.6rem;padding:.4rem .4rem .9rem;border-bottom:1px solid #D5CCBD}
-.phone__bar i{width:2.3rem;height:2.3rem;border-radius:50%;background:var(--forest);display:grid;place-items:center;color:#fff;font-style:normal;font-family:var(--serif);font-size:1.2rem}
-.phone__bar b{display:block;font-size:.92rem}.phone__bar span{font-size:.75rem;color:var(--muted)}
-.chat{min-height:16rem;display:flex;flex-direction:column;justify-content:flex-end;padding:1rem .2rem .4rem;gap:.5rem}
-.bubble{align-self:flex-end;background:#D9FDD3;border-radius:1rem 1rem .2rem 1rem;padding:.7rem .9rem;font-size:.92rem;max-width:88%;white-space:pre-line;box-shadow:0 1px 1px rgba(0,0,0,.08)}
-.bubble--in{align-self:flex-start;background:#fff;border-radius:1rem 1rem 1rem .2rem}
-.phone__note{text-align:center;font-size:.78rem;color:var(--muted);margin-top:.6rem}
-.opt{margin-top:1rem;font-size:.85rem;color:var(--muted)}
-.opt b{color:var(--ink)}
-.opt em{font-style:normal;font-weight:800;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;background:var(--terra-l);color:#9A4423;padding:.15rem .5rem;border-radius:999px;margin-right:.3rem}
-.info{display:flex;flex-wrap:wrap;gap:.6rem 2rem;margin-top:1.6rem;font-weight:600;font-size:.95rem}
-.info a{text-decoration:none;border-bottom:2px solid var(--terra)}
-.foot{background:var(--ink);color:#b6c2b9;padding-block:2rem;font-size:.9rem}
-.foot__in{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
+.opt{margin-top:1.4rem;color:var(--muted)}
+.info{margin-top:1.4rem;display:grid;gap:.3rem}
+.info a{font-weight:600}
+.phone{background:var(--deep);padding:.9rem;border-radius:2.4rem;max-width:22rem;margin-inline:auto;width:100%}
+.screen{background:#E7EEEB;border-radius:1.7rem;overflow:hidden}
+.screen__bar{display:flex;align-items:center;gap:.7rem;background:var(--ink);color:var(--paper);padding:.9rem 1rem}
+.screen__bar i{width:2.2rem;height:2.2rem;background:var(--paper);border-radius:100% 0 0 0}
+.screen__bar b{display:block;font-weight:600;font-size:.95rem}.screen__bar span{font-size:.8rem;opacity:.8}
+.chat{min-height:17rem;display:flex;flex-direction:column;justify-content:flex-end;gap:.5rem;padding:1rem}
+.bubble{align-self:flex-end;background:#D3F5DE;padding:.75rem .9rem;border-radius:1rem 1rem 0 1rem;font-size:.93rem;max-width:90%;white-space:pre-line;color:#123}
+.bubble--in{align-self:flex-start;background:#fff;border-radius:1rem 1rem 1rem 0}
+.phone__note{text-align:center;color:var(--muted);font-size:.9rem;margin-top:.8rem}
+
+.foot{background:var(--ink);color:#CFE3E0;padding-block:4rem 2rem}
+.foot__name{font-size:clamp(3.4rem,14.5vw,12rem);font-weight:600;letter-spacing:-.06em;line-height:.85;color:var(--paper)}
+.foot__row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:2rem;font-size:.92rem}
 .foot a{color:#fff}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.spot circle.halo{animation:none}.pill{transition:none}}
+.credits{margin-top:1rem;font-size:.8rem;color:#A9CFCB}
+
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+.js .hero__arc.rv{transform:scale(.92);transform-origin:100% 100%}
+.js .hero__arc.rv.in{transform:none}
+.gonio .needle{transform-origin:40px 360px;transform:rotate(0deg);transition:transform 1.6s cubic-bezier(.2,.7,.2,1) .3s}
+.js .gonio.in .needle{transform:rotate(-90deg)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}.btn,.zones button,.spot path{transition:none}.gonio .needle{transition:none}}
 </style>
 </head>
 <body>
@@ -139,28 +159,28 @@ p{margin:0}
 
 <header class="top">
   <div class="wrap top__in">
-    <a class="logo" href="#">Moviment <em>i</em> Salut</a>
+    <a class="logo" href="#">Moviment i Salut</a>
     <nav class="nav" aria-label="Principal"><a href="#donde">¿Dónde te duele?</a><a href="#proceso">Cómo trabajamos</a><a href="#tratamientos">Tratamientos</a><a href="#cita">Cita</a></nav>
-    <a class="pill pill--terra" href="#cita">Pedir cita</a>
+    <a class="btn btn--ink" href="#cita">Pedir cita</a>
   </div>
 </header>
 
 <main>
   <section class="hero">
-    <svg class="wave" viewBox="0 0 400 300" fill="none" aria-hidden="true"><path d="M10 240C80 240 90 60 170 60s90 180 170 180 50-120 50-120" stroke="#D2643A" stroke-width="3" stroke-linecap="round"/><path d="M10 270C90 270 100 110 180 110s80 140 160 140" stroke="#A8BFA4" stroke-width="3" stroke-linecap="round"/></svg>
+    <div class="hero__arc rv"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Parc_Fluvial_del_Bes%C3%B2s_-_panoramio.jpg" alt="El parque fluvial del Besòs, junto a Santa Coloma" width="1920" height="1080"></div>
     <div class="wrap">
-      <h1>Muévete<br><em>sin dolor.</em></h1>
-      <div class="hero__row">
-        <p class="lead">Fisioterapia, readaptación y ejercicio terapéutico en Santa Coloma de Gramenet. Buscamos el origen del problema y te acompañamos hasta que vuelvas a hacer lo que te gusta.</p>
-        <div class="hero__cta"><a class="pill pill--terra" href="#donde">¿Dónde te duele?</a><a class="pill pill--line" href="#cita">Pedir cita</a></div>
+      <div class="hero__text">
+        <h1 class="rv">Muévete sin dolor.</h1>
+        <p class="lead rv">Fisioterapia, readaptación y ejercicio terapéutico en Santa Coloma de Gramenet. Buscamos el origen del problema y te acompañamos hasta que vuelvas a hacer lo que te gusta.</p>
+        <div class="cta rv"><a class="btn btn--ink" href="#donde">¿Dónde te duele?</a></div>
+        <p class="meta rv">5,0 de 5 en Google, con 118 opiniones · Carrer de la Vistalegre, 23</p>
       </div>
-      <p class="rating"><span><b>★★★★★</b> 5,0 en Google</span><span>118 opiniones</span><span>Carrer de la Vistalegre, 23</span></p>
     </div>
   </section>
 
-  <section class="map" id="donde">
-    <div class="wrap map__in">
-      <div class="body">
+  <section class="field" id="donde">
+    <div class="wrap map">
+      <div class="body rv">
         <svg viewBox="0 0 200 400" role="group" aria-label="Mapa del cuerpo: elige la zona">
           <g class="fig">
             <circle cx="100" cy="38" r="24"/>
@@ -172,89 +192,106 @@ p{margin:0}
             <path d="M56 206h40l-6 104 4 66q0 10-12 10h-14q-8 0-6-10l4-66z"/>
             <path d="M104 206h40l-10 104 4 66q2 10-6 10h-14q-12 0-12-10l4-66z"/>
           </g>
-          <g class="spot" data-z="cuello" tabindex="0" role="button" aria-label="Cuello"><circle class="halo" cx="100" cy="68" r="10"/><circle class="dot" cx="100" cy="68" r="9"/></g>
-          <g class="spot" data-z="hombro" tabindex="0" role="button" aria-label="Hombro"><circle class="halo" cx="60" cy="92" r="10"/><circle class="dot" cx="60" cy="92" r="9"/></g>
-          <g class="spot" data-z="espalda" tabindex="0" role="button" aria-label="Espalda y lumbares"><circle class="halo" cx="100" cy="160" r="10"/><circle class="dot" cx="100" cy="160" r="9"/></g>
-          <g class="spot" data-z="rodilla" tabindex="0" role="button" aria-label="Rodilla"><circle class="halo" cx="126" cy="300" r="10"/><circle class="dot" cx="126" cy="300" r="9"/></g>
-          <g class="spot" data-z="tobillo" tabindex="0" role="button" aria-label="Tobillo y pie"><circle class="halo" cx="76" cy="372" r="10"/><circle class="dot" cx="76" cy="372" r="9"/></g>
+          <g class="spot" data-z="cuello" tabindex="0" role="button" aria-label="Cuello"><path d="M110 80A20 20 0 0 0 90 60V80Z"/></g>
+          <g class="spot" data-z="hombro" tabindex="0" role="button" aria-label="Hombro"><path d="M70 104A20 20 0 0 0 50 84V104Z"/></g>
+          <g class="spot" data-z="espalda" tabindex="0" role="button" aria-label="Espalda y lumbares"><path d="M110 172A20 20 0 0 0 90 152V172Z"/></g>
+          <g class="spot" data-z="rodilla" tabindex="0" role="button" aria-label="Rodilla"><path d="M136 312A20 20 0 0 0 116 292V312Z"/></g>
+          <g class="spot" data-z="tobillo" tabindex="0" role="button" aria-label="Tobillo y pie"><path d="M86 384A20 20 0 0 0 66 364V384Z"/></g>
         </svg>
       </div>
       <div>
-        <p class="kicker">Empieza por aquí</p>
-        <h2>¿Dónde te <em>duele?</em></h2>
-        <div class="zones">
+        <h2 class="rv">¿Dónde te duele?</h2>
+        <p class="lead rv">Toca la zona y te contamos cómo lo trabajamos.</p>
+        <div class="zones rv">
           <button type="button" data-z="cuello">Cuello</button>
           <button type="button" data-z="hombro">Hombro</button>
           <button type="button" data-z="espalda">Espalda</button>
           <button type="button" data-z="rodilla">Rodilla</button>
           <button type="button" data-z="tobillo">Tobillo y pie</button>
         </div>
-        <div class="panel" id="panel" aria-live="polite"></div>
+        <div class="panel rv" id="panel" aria-live="polite"></div>
       </div>
     </div>
   </section>
 
   <section class="sec" id="proceso">
     <div class="wrap">
-      <p class="kicker">Cómo trabajamos</p>
-      <h2>Tu recuperación, <em>paso a paso</em></h2>
-      <ol class="road">
-        <li><small>Primera visita</small><h3>Valoración</h3><p>Escuchamos qué te pasa, exploramos y buscamos el origen del dolor.</p></li>
-        <li><small>Primeras semanas</small><h3>Tratamiento</h3><p>Sesiones de fisioterapia adaptadas a tu lesión y a tu ritmo.</p></li>
-        <li><small>Durante todo el proceso</small><h3>Ejercicio</h3><p>Ejercicios guiados en el centro y para casa, revisados contigo.</p></li>
-        <li><small>Al final</small><h3>Alta y prevención</h3><p>Vuelves a tu vida normal con pautas para que no se repita.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="sec" id="tratamientos" style="padding-top:0">
-    <div class="wrap">
-      <p class="kicker">Tratamientos</p>
-      <h2>Todo en un <em>mismo centro</em></h2>
-      <div class="list">
-        <div class="item"><span>01</span><h3>Fisioterapia</h3><p>Dolor de espalda, cuello, hombro o rodilla. Terapia manual y técnicas adaptadas a cada caso.</p></div>
-        <div class="item"><span>02</span><h3>Readaptación de lesiones</h3><p>Después de un esguince, una rotura o una operación, te ayudamos a volver al 100 %.</p></div>
-        <div class="item"><span>03</span><h3>Ejercicio terapéutico</h3><p>Fuerza y movilidad guiadas para que el dolor no vuelva.</p></div>
-        <div class="item"><span>04</span><h3>Entrenamiento personal</h3><p>Sesiones individuales o en grupo reducido para ponerte en forma con seguridad.</p></div>
+      <h2 class="rv">De cero a noventa grados</h2>
+      <p class="lead rv">Así medimos el movimiento en consulta, con un goniómetro. Y así es tu recuperación: paso a paso, hasta recuperar todo el recorrido.</p>
+      <div class="gonio rv">
+        <svg viewBox="0 0 420 400" aria-hidden="true">
+          <path d="M40 360V40A320 320 0 0 1 360 360Z" fill="#EBF0EE"/>
+          <path d="M40 40A320 320 0 0 1 360 360" fill="none" stroke="#06525C" stroke-width="10"/>
+          <g fill="#06525C"><circle cx="360" cy="360" r="9"/><circle cx="317" cy="200" r="9"/><circle cx="200" cy="83" r="9"/><circle cx="40" cy="40" r="9"/></g>
+          <text x="372" y="350" font-size="17" font-weight="600">0°</text>
+          <text x="330" y="196" font-size="17" font-weight="600">30°</text>
+          <text x="206" y="72" font-size="17" font-weight="600">60°</text>
+          <text x="52" y="32" font-size="17" font-weight="600">90°</text>
+          <rect x="40" y="350" width="330" height="20" fill="#06525C"/>
+          <g class="needle"><rect x="40" y="350" width="300" height="20" fill="#0E7C8A"/></g>
+          <circle cx="40" cy="360" r="22" fill="#043B42"/>
+        </svg>
+        <ol class="stages">
+          <li><b>0°</b><h3>Valoración</h3><p>Escuchamos qué te pasa, exploramos y buscamos el origen del dolor.</p></li>
+          <li><b>30°</b><h3>Tratamiento</h3><p>Sesiones de fisioterapia adaptadas a tu lesión y a tu ritmo.</p></li>
+          <li><b>60°</b><h3>Ejercicio</h3><p>Ejercicios guiados en el centro y para casa, revisados contigo.</p></li>
+          <li><b>90°</b><h3>Alta y prevención</h3><p>Vuelves a tu vida normal con pautas para que no se repita.</p></li>
+        </ol>
       </div>
     </div>
   </section>
 
-  <section class="band">
-    <div class="wrap band__in">
-      <b>5,0</b>
-      <p>118 personas nos han puntuado con 5 estrellas en Google.<small>La web definitiva muestra vuestras reseñas reales, actualizadas solas.</small></p>
+  <section class="sec" id="tratamientos" style="padding-top:0">
+    <div class="wrap treat">
+      <div>
+        <h2 class="rv">Todo en un mismo centro</h2>
+        <ul class="arcs">
+          <li class="rv"><div><h3>Fisioterapia</h3><p>Dolor de espalda, cuello, hombro o rodilla. Terapia manual y técnicas adaptadas a cada caso.</p></div></li>
+          <li class="rv"><div><h3>Readaptación de lesiones</h3><p>Después de un esguince, una rotura o una operación, te ayudamos a volver al cien por cien.</p></div></li>
+          <li class="rv"><div><h3>Ejercicio terapéutico</h3><p>Fuerza y movilidad guiadas para que el dolor no vuelva.</p></div></li>
+          <li class="rv"><div><h3>Entrenamiento personal</h3><p>Sesiones individuales o en grupo reducido para ponerte en forma con seguridad.</p></div></li>
+        </ul>
+      </div>
+      <div class="masked rv"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Parc_de_Can_Zam_Llac.jpg/1280px-Parc_de_Can_Zam_Llac.jpg" alt="El lago del parque de Can Zam" loading="lazy" width="1280" height="961"></div>
     </div>
   </section>
 
-  <section class="sec" id="cita">
-    <div class="wrap book">
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <h2 class="rv">El objetivo: volver a tu paseo</h2>
+      <p class="lead rv">La orilla del Besòs, los puentes y el parque de Can Zam. Que vuelvas a recorrerlos sin pensar en el dolor.</p>
+      <div class="pair">
+        <figure class="rv"><div class="a"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Passarel%C2%B7la_i_pont_del_Molinet_-_20220823_173917.jpg/1280px-Passarel%C2%B7la_i_pont_del_Molinet_-_20220823_173917.jpg" alt="Pasarela y puente del Molinet sobre el Besòs" loading="lazy" width="1280" height="960"></div><figcaption>Pasarela del Molinet, sobre el Besòs</figcaption></figure>
+        <figure class="rv"><div class="b"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Pont_de_Can_Zam_-_20220823_171455.jpg/1280px-Pont_de_Can_Zam_-_20220823_171455.jpg" alt="El Besòs visto desde el puente de Can Zam" loading="lazy" width="1280" height="960"></div><figcaption>Desde el puente de Can Zam</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec book" id="cita">
+    <div class="wrap">
       <div>
-        <p class="kicker">Pide tu cita</p>
-        <h2>Reserva en un minuto, <em>sin llamar</em></h2>
-        <form class="form" id="form">
+        <h2 class="rv">Reserva en un minuto, sin llamar</h2>
+        <form class="form rv" id="form">
           <div class="row">
-            <label>Nombre<input id="fn" required autocomplete="name" placeholder="Tu nombre"></label>
-            <label>Teléfono<input id="ft" required type="tel" autocomplete="tel" placeholder="600 000 000"></label>
+            <label>Nombre<input id="fn" required autocomplete="name"></label>
+            <label>Teléfono<input id="ft" required type="tel" autocomplete="tel"></label>
           </div>
           <label>¿Qué te pasa?<select id="fm"><option>Dolor de espalda</option><option>Dolor de cuello</option><option>Dolor de hombro</option><option>Dolor de rodilla</option><option>Tobillo o pie</option><option>Recuperación tras una operación</option><option>Entrenamiento personal</option><option>Otro</option></select></label>
           <div class="row">
             <label>Cuándo<select id="fd"><option>Lo antes posible</option><option>Esta semana</option><option>La semana que viene</option></select></label>
             <label>Franja<select id="ff"><option>Por la mañana</option><option>Por la tarde</option></select></label>
           </div>
-          <button class="pill pill--wa" type="submit"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.2.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg>Enviar por WhatsApp</button>
+          <button class="btn btn--wa" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.2.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg>Enviar por WhatsApp</button>
         </form>
-        <p class="opt"><em>Opcional</em><b>Recordatorios automáticos:</b> más adelante, cada paciente puede recibir un WhatsApp el día antes para confirmar su cita.</p>
-        <div class="info">
-          <span>📍 Carrer de la Vistalegre, 23 · <a href="https://www.google.com/maps/search/?api=1&query=Moviment+i+Salut+Montilla+Santa+Coloma+de+Gramenet" target="_blank" rel="noopener">Cómo llegar</a></span>
-          <span>📞 <a href="tel:+34645188234">645 18 82 34</a></span>
-          <span>🕗 Lunes a viernes desde las 8:00</span>
-        </div>
+        <p class="opt">Opcional, más adelante: un WhatsApp automático el día antes para que cada paciente confirme su cita.</p>
+        <div class="info"><p>Carrer de la Vistalegre, 23, Santa Coloma de Gramenet · <a href="https://www.google.com/maps/search/?api=1&query=Moviment+i+Salut+Montilla+Santa+Coloma+de+Gramenet" target="_blank" rel="noopener">Cómo llegar</a></p><p><a href="tel:+34645188234">645 18 82 34</a> · de lunes a viernes, desde las 8:00</p></div>
       </div>
-      <div>
+      <div class="rv">
         <div class="phone" aria-label="Vista previa del mensaje">
-          <div class="phone__bar"><i>M</i><div><b>Moviment i Salut</b><span>en línea</span></div></div>
-          <div class="chat"><div class="bubble bubble--in">¡Hola! 👋 Cuéntanos qué te pasa y te damos cita.</div><div class="bubble" id="preview"></div></div>
+          <div class="screen">
+            <div class="screen__bar"><i></i><div><b>Moviment i Salut</b><span>en línea</span></div></div>
+            <div class="chat"><div class="bubble bubble--in">Hola. Cuéntanos qué te pasa y te damos cita.</div><div class="bubble" id="preview"></div></div>
+          </div>
         </div>
         <p class="phone__note">Así os llegará el mensaje, escrito mientras el paciente rellena el formulario.</p>
       </div>
@@ -263,9 +300,10 @@ p{margin:0}
 </main>
 
 <footer class="foot">
-  <div class="wrap foot__in">
-    <p>© Moviment i Salut Montilla · Fisioterapia en Santa Coloma de Gramenet · <a href="https://www.instagram.com/movimentisalut_montilla/" target="_blank" rel="noopener">@movimentisalut_montilla</a></p>
-    <p>Demo diseñada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a></p>
+  <div class="wrap">
+    <p class="foot__name">Moviment i Salut</p>
+    <div class="foot__row"><p>Fisioterapia en Santa Coloma de Gramenet · <a href="https://www.instagram.com/movimentisalut_montilla/" target="_blank" rel="noopener">@movimentisalut_montilla</a></p><p>Demo diseñada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a></p></div>
+    <p class="credits">Fotos en Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Parc_Fluvial_del_Bes%C3%B2s_-_panoramio.jpg" target="_blank" rel="noopener">Parc Fluvial del Besòs</a>, Jorge Franganillo (CC BY 3.0) · <a href="https://commons.wikimedia.org/wiki/File:Parc_de_Can_Zam_Llac.jpg" target="_blank" rel="noopener">lago de Can Zam</a>, IM027 (CC BY-SA 4.0) · <a href="https://commons.wikimedia.org/wiki/File:Passarel%C2%B7la_i_pont_del_Molinet_-_20220823_173917.jpg" target="_blank" rel="noopener">pasarela del Molinet</a> y <a href="https://commons.wikimedia.org/wiki/File:Pont_de_Can_Zam_-_20220823_171455.jpg" target="_blank" rel="noopener">puente de Can Zam</a>, Pere López Brosa (CC BY-SA 4.0).</p>
   </div>
 </footer>
 <script>
@@ -279,12 +317,13 @@ p{margin:0}
   };
   var panel=document.getElementById('panel'), fm=document.getElementById('fm'), prev=document.getElementById('preview');
   function v(id){return document.getElementById(id).value;}
-  function texto(){return 'Hola! Soy '+(v('fn')||'…')+'. Me gustaría pedir cita.\nMotivo: '+v('fm')+'\nCuándo: '+v('fd')+', '+v('ff').toLowerCase()+'\nMi teléfono: '+(v('ft')||'…');}
+  function texto(){return 'Hola, soy '+(v('fn')||'…')+'. Me gustaría pedir cita.\nMotivo: '+v('fm')+'\nCuándo: '+v('fd')+', '+v('ff').toLowerCase()+'\nMi teléfono: '+(v('ft')||'…');}
   function msg(){prev.textContent=texto();}
+  function li(a){return a.map(function(x){return '<li>'+x+'</li>';}).join('');}
   function pick(z){
     var d=Z[z];
     document.querySelectorAll('[data-z]').forEach(function(el){el.setAttribute('aria-pressed',String(el.dataset.z===z));});
-    panel.innerHTML='<h3>'+d.t+'</h3><div class="cols"><div><h4>Lo más habitual</h4><ul>'+d.p.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul></div><div><h4>Qué hacemos</h4><ul>'+d.h.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul></div></div><a class="pill pill--terra" href="#cita" data-m="'+d.m+'">Pedir cita para '+d.t.toLowerCase()+'</a>';
+    panel.innerHTML='<h3>'+d.t+'</h3><div class="cols"><div><h4>Lo más habitual</h4><ul>'+li(d.p)+'</ul></div><div><h4>Qué hacemos</h4><ul>'+li(d.h)+'</ul></div></div><a class="btn btn--paper" href="#cita" data-m="'+d.m+'">Pedir cita para '+d.t.toLowerCase()+'</a>';
   }
   document.querySelectorAll('[data-z]').forEach(function(el){
     el.addEventListener('click',function(){pick(el.dataset.z);});
@@ -293,10 +332,11 @@ p{margin:0}
   panel.addEventListener('click',function(e){var a=e.target.closest('[data-m]'); if(!a) return; for(var i=0;i<fm.options.length;i++){if(fm.options[i].text===a.dataset.m) fm.selectedIndex=i;} msg();});
   ['fn','ft','fm','fd','ff'].forEach(function(id){var el=document.getElementById(id); el.addEventListener('input',msg); el.addEventListener('change',msg);});
   pick('espalda'); msg();
-  document.getElementById('form').addEventListener('submit',function(e){
-    e.preventDefault();
-    window.open('https://wa.me/34645188234?text='+encodeURIComponent(texto()),'_blank');
-  });
+  document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();window.open('https://wa.me/34645188234?text='+encodeURIComponent(texto()),'_blank');});
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if(!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting) return; var sib=[].slice.call(e.target.parentNode.children).filter(function(x){return x.classList.contains('rv');}); e.target.style.transitionDelay=(Math.max(0,sib.indexOf(e.target))*80)+'ms'; e.target.classList.add('in'); io.unobserve(e.target);});},{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(el){io.observe(el);});
 })();
 </script>
 </body>
