@@ -9,126 +9,105 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@600;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
 <style>
+/* Direccion: la memoria impresa (un informe anual bien editado). Paleta: granate sobre gris papel, a dos tintas. */
 :root{
-  --paper:#F7F3EA; --paper-2:#EFE8D8; --ink:#13263F; --ink-2:#2B4466; --red:#B3261E; --manila:#E9D9B1; --manila-d:#D9C38E;
-  --muted:#5B6576; --rule:#CFC6B3;
-  --serif:"Libre Caslon Text",Georgia,"Times New Roman",serif; --font:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
-  --g:clamp(1rem,5vw,2rem);
+  --bg:#E4E3E0; --surface:#D8D6D2; --ink:#7D0C14; --deep:#5E0910; --text:#2B1214; --muted:#6E4A4D; --paper:#E4E3E0;
+  --head:"Libre Franklin",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --g:clamp(1rem,4vw,2rem);
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
-body{margin:0;font-family:var(--font);color:var(--ink);background:var(--paper);line-height:1.6;font-size:1.02rem}
-svg{display:block;max-width:100%}
+body{margin:0;font-family:var(--serif);font-size:1.15rem;line-height:1.55;color:var(--text);background:var(--bg)}
+img{display:block;max-width:100%;height:auto}
 a{color:inherit}
-h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;line-height:1.1}
+h1,h2,h3{margin:0;font-family:var(--head);font-weight:800;letter-spacing:-.035em;line-height:.98;color:var(--ink);text-wrap:balance}
 p{margin:0}
-.wrap{max-width:70rem;margin-inline:auto;padding-inline:var(--g)}
-.demo{background:var(--ink);color:#c9d3e0;font-size:.8rem;text-align:center;padding:.45rem var(--g)}
-.demo a{color:#fff;font-weight:600}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.35rem;font-weight:600;text-decoration:none;border:1.5px solid var(--ink);background:var(--ink);color:#fff;letter-spacing:.02em;transition:background .15s}
-.btn:hover{background:var(--ink-2)}
-.btn--ghost{background:transparent;color:var(--ink)}.btn--ghost:hover{background:var(--paper-2)}
-.mono{font-family:var(--mono)}
-.smallcaps{font-variant:small-caps;letter-spacing:.08em}
+.wrap{max-width:84rem;margin-inline:auto;padding-inline:var(--g)}
+.demo{background:var(--deep);color:#F1D9DB;font-family:var(--head);font-size:.8rem;text-align:center;padding:.5rem var(--g)}
+.demo a{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:1rem 1.5rem;font-family:var(--head);font-weight:600;text-decoration:none;border:0;border-radius:0;cursor:pointer;transition:transform .18s,background-color .18s}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:translateY(1px)}
+.btn--ink{background:var(--ink);color:var(--paper)}.btn--ink:hover{background:var(--deep)}
+.btn--paper{background:var(--paper);color:var(--ink)}.btn--paper:hover{background:#fff}
 
-/* membrete */
-.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 95%,transparent);backdrop-filter:blur(8px);border-bottom:3px double var(--ink)}
-.top__in{display:flex;align-items:center;justify-content:space-between;height:4.3rem;gap:1rem}
-.mark{text-decoration:none;font-family:var(--serif);font-size:1.35rem;letter-spacing:.14em;text-transform:uppercase}
-.mark small{display:block;font-family:var(--font);font-size:.68rem;letter-spacing:.22em;color:var(--muted)}
-.nav{display:none;gap:1.6rem;font-size:.93rem}
+.top{position:sticky;top:0;z-index:20;background:var(--bg)}
+.top__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:4.4rem;font-family:var(--head)}
+.mark{text-decoration:none;font-weight:800;font-size:1.3rem;letter-spacing:-.02em;color:var(--ink)}
+.nav{display:none;gap:1.8rem;font-weight:600;color:var(--ink)}
 .nav a{text-decoration:none}.nav a:hover{text-decoration:underline;text-underline-offset:.3em}
-.top .btn{padding:.55rem 1rem;font-size:.9rem}
-@media (min-width:880px){.nav{display:flex}}
+.top .btn{padding:.65rem 1.1rem}
+@media (min-width:900px){.nav{display:flex}}
 
-/* portada */
-.hero{padding-block:clamp(2.5rem,8vw,5rem)}
-.hero__in{display:grid;gap:2.5rem;align-items:center}
-@media (min-width:900px){.hero__in{grid-template-columns:1.3fr 1fr}}
-.ref{font-family:var(--mono);font-size:.8rem;color:var(--muted);border-bottom:1px solid var(--rule);padding-bottom:.6rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-.hero h1{font-size:clamp(2.4rem,8vw,4.4rem);margin-top:1.4rem;text-wrap:balance}
-.hero h1 em{color:var(--red)}
-.lead{margin-top:1.2rem;color:var(--muted);font-size:clamp(1.03rem,4vw,1.15rem);max-width:34em}
-.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem}
-.facts{display:flex;flex-wrap:wrap;gap:1.4rem 2.4rem;margin-top:2rem}
-.facts div{display:flex;align-items:center;gap:.7rem}
-.facts b{font-family:var(--serif);font-size:2.2rem;font-weight:400;line-height:1}
-.facts span{font-size:.85rem;color:var(--muted);line-height:1.3}
-.metro{display:inline-grid;place-items:center;width:2.4rem;height:2.4rem;border-radius:50%;background:#D72A2A;color:#fff;font-weight:700;font-size:.85rem;font-family:var(--font)}
+/* el eje: todo cuelga de una linea al 42 % */
+.axis{display:grid;gap:1.4rem}
+@media (min-width:900px){.axis{grid-template-columns:42fr 58fr;gap:0}.axis>.side{padding-right:3rem}}
+.side{font-family:var(--head);font-size:.98rem;color:var(--muted);line-height:1.45}
+.side b{display:block;color:var(--ink);font-size:1.05rem}
 
-/* hoja de calendario con cuenta atrás */
-.cal{position:relative;background:#fff;border:1px solid var(--rule);box-shadow:0 1.4rem 2.4rem -1.6rem rgba(19,38,63,.5);max-width:22rem;margin-inline:auto;width:100%}
-.cal__head{background:var(--red);color:#fff;text-align:center;padding:.6rem;font-family:var(--mono);font-size:.82rem;letter-spacing:.14em;text-transform:uppercase}
-.cal__rings{position:absolute;top:-.7rem;left:0;right:0;display:flex;justify-content:space-around;padding-inline:3rem}
-.cal__rings i{width:.8rem;height:1.6rem;border-radius:.4rem;background:var(--ink)}
-.cal__body{text-align:center;padding:1.4rem 1.2rem 1.6rem}
-.cal__day{font-family:var(--serif);font-size:6rem;line-height:1}
-.cal__month{font-family:var(--mono);text-transform:uppercase;letter-spacing:.2em;color:var(--muted)}
-.cal__what{margin-top:1rem;font-weight:600}
-.cal__left{margin-top:.6rem;font-family:var(--mono);font-size:.95rem;color:var(--red)}
-.stamp{position:absolute;right:-1rem;bottom:-1.2rem;transform:rotate(-12deg);border:3px solid var(--red);color:var(--red);font-family:var(--mono);font-weight:600;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem .7rem;background:rgba(247,243,234,.92);text-align:center;line-height:1.25}
+/* cabecera de la memoria: mosaico sin separaciones */
+.mosaic{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:clamp(9rem,30vw,15rem)}
+@media (min-width:900px){.mosaic{grid-template-columns:repeat(6,1fr);grid-auto-rows:clamp(12rem,38svh,22rem)}}
+.mosaic img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.06)}
+.tile{display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(.6rem,2vw,1rem) clamp(.6rem,2vw,1.2rem);font-family:var(--head)}
+.tile b{font-size:clamp(1.9rem,6vw,4.4rem);font-weight:800;line-height:.9;letter-spacing:-.04em}
+.tile span{margin-top:.4rem;font-size:clamp(.78rem,2.4vw,.95rem);line-height:1.25}
+.tile--ink{background:var(--ink);color:var(--paper)}
+.tile--metro{background:#D2232A;color:#fff}
+.masthead{padding-block:clamp(2.5rem,7vw,5rem) clamp(4rem,9vw,7rem)}
+.masthead h1{font-size:clamp(3.2rem,8.5vw,8rem)}
+.stand{margin-top:1.6rem;font-size:clamp(1.25rem,3vw,1.55rem);line-height:1.4;max-width:30em}
+.masthead .cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
 
-/* índice */
-.sec{padding-block:clamp(3rem,9vw,5.5rem)}
-.sec--alt{background:var(--paper-2)}
-.label{font-family:var(--mono);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
-h2{font-size:clamp(2rem,6vw,3rem);margin-top:.5rem;max-width:18em;text-wrap:balance}
-.index{display:grid;gap:2.2rem 3rem;margin-top:2.4rem}
-@media (min-width:860px){.index{grid-template-columns:1fr 1fr}}
-.chap h3{font-size:1.5rem;display:flex;gap:.8rem;align-items:baseline;border-bottom:1.5px solid var(--ink);padding-bottom:.5rem}
-.chap h3 span{font-family:var(--mono);font-size:.9rem;color:var(--red)}
-.chap ol{list-style:none;margin:.6rem 0 0;padding:0}
-.chap li{display:flex;align-items:baseline;gap:.5rem;padding:.35rem 0;font-size:.98rem}
-.chap li::after{content:"";order:2;flex:1;border-bottom:1.5px dotted var(--rule);transform:translateY(-.25rem)}
-.chap li b{order:3;font-family:var(--mono);font-weight:500;font-size:.82rem;color:var(--muted)}
+/* pagina de color con la cuenta atras */
+.colour{background:var(--ink);color:var(--paper);padding-block:clamp(4.5rem,10vw,8rem)}
+.colour h2{color:var(--paper)}
+.colour .side{color:#E6BFC2}
+.colour .side b{color:#fff}
+.count{font-family:var(--head);font-weight:800;font-size:clamp(5rem,17vw,15rem);line-height:.82;letter-spacing:-.06em}
+.count small{display:block;font-size:clamp(1.6rem,4vw,2.8rem);letter-spacing:-.03em;margin-top:1rem}
+.deadline{margin-top:1.8rem;font-size:clamp(1.25rem,3vw,1.6rem);max-width:28em}
+.later{margin-top:2.6rem;display:grid;gap:.6rem;font-family:var(--head);font-size:1rem;color:#F1D9DB}
+.later p{display:flex;gap:1.2rem}
+.later span{min-width:6.5rem;font-weight:600;color:#fff}
 
-/* carpetas */
-.folders{display:grid;gap:2.2rem 1.2rem;margin-top:3.4rem;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr))}
-.folder{position:relative;background:var(--manila);padding:1.6rem 1.5rem 1.5rem;border-radius:0 .5rem .5rem .5rem}
-.folder::before{content:attr(data-tab);position:absolute;left:0;top:-1.6rem;height:1.6rem;padding:0 1rem;display:flex;align-items:center;background:var(--manila);border-radius:.5rem .5rem 0 0;font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:#6B5A2E}
-.folder h3{font-size:1.45rem}
-.folder p{margin-top:.6rem;color:#4A4434;font-size:.97rem}
+/* paginas de texto */
+.text{padding-block:clamp(4.5rem,10vw,8rem)}
+.text h2{font-size:clamp(2.4rem,6vw,4.6rem)}
+.cols{display:grid;gap:2rem 3rem;margin-top:2.6rem}
+@media (min-width:700px){.cols{grid-template-columns:1fr 1fr}}
+.cols h3{font-size:1.45rem;letter-spacing:-.02em}
+.cols p{margin-top:.6rem;max-width:36ch}
+.lead{margin-top:1.4rem;max-width:34em;font-size:1.25rem}
+.text--grey{background:var(--surface)}
 
-/* área de clientes opcional */
-.app{display:grid;gap:2rem;align-items:center}
-@media (min-width:860px){.app{grid-template-columns:1.1fr 1fr}}
-.app p{color:var(--muted);margin-top:1rem;max-width:32em}
-.tag{display:inline-block;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;border:1.5px solid var(--red);color:var(--red);padding:.15rem .5rem;margin-bottom:.8rem}
-.flow{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap}
-.flow .box{background:#fff;border:1px solid var(--rule);padding:1rem 1.1rem;text-align:center;min-width:7.5rem}
-.flow .box b{display:block;font-size:1.8rem}
-.flow .box span{font-size:.82rem;color:var(--muted)}
-.flow .arrow{font-family:var(--mono);color:var(--red);font-size:1.4rem}
+.contact .btn{margin-top:1.4rem}
+.data{display:grid;gap:1.2rem;margin-top:2.4rem}
+.data p{font-size:1.2rem}
+.data b{display:block;font-family:var(--head);font-size:.98rem;color:var(--muted);font-weight:600}
+.data a{color:var(--ink);font-weight:600}
+.form{display:grid;gap:1.1rem;margin-top:2.6rem;max-width:40rem}
+.form label{display:grid;gap:.3rem;font-family:var(--head);font-weight:600;font-size:.98rem;color:var(--ink)}
+.form input,.form select,.form textarea{font:inherit;color:var(--text);padding:.7rem 0;border:0;border-bottom:2px solid var(--ink);background:transparent;border-radius:0;min-width:0}
+.form textarea{min-height:5rem;resize:vertical}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-bottom-color:var(--text);background:rgba(125,12,20,.05)}
+.form .row{display:grid;gap:1.1rem;grid-template-columns:1fr 1fr}
+.hint{font-size:1rem;color:var(--muted)}
 
-/* solicitud de cita */
-.contact{display:grid;gap:2.4rem}
-@media (min-width:900px){.contact{grid-template-columns:1fr 1.15fr;align-items:start}}
-.data{margin-top:1.6rem;border-top:1px solid var(--rule)}
-.data div{display:grid;grid-template-columns:7rem 1fr;gap:1rem;padding:.8rem 0;border-bottom:1px solid var(--rule);font-size:.97rem}
-.data dt,.data .k{font-family:var(--mono);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:.15rem}
-.data a{font-weight:600}
-.sheet{background:#fff;border:1px solid var(--rule);padding:clamp(1.4rem,4vw,2.2rem);position:relative;box-shadow:0 1rem 2rem -1.6rem rgba(19,38,63,.5)}
-.sheet h3{font-size:1.6rem;text-align:center}
-.sheet .sub{text-align:center;font-family:var(--mono);font-size:.75rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-top:.3rem}
-.field{display:grid;gap:.15rem;margin-top:1.1rem}
-.field span{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.field input,.field select,.field textarea{font:inherit;border:0;border-bottom:1.5px solid var(--ink);background:transparent;padding:.45rem 0;border-radius:0;min-width:0}
-.field textarea{min-height:4.5rem;resize:vertical}
-.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-bottom-color:var(--red)}
-.two{display:grid;gap:0 1.2rem;grid-template-columns:1fr 1fr}
-.send{display:flex;justify-content:flex-end;margin-top:1.6rem}
-.send button{font:inherit;cursor:pointer;border:3px solid var(--red);color:var(--red);background:transparent;font-family:var(--mono);font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:.7rem 1.3rem;transform:rotate(-3deg);transition:transform .15s,background .15s}
-.send button:hover{transform:rotate(0);background:rgba(179,38,30,.06)}
-.hint{margin-top:1rem;font-size:.85rem;color:var(--muted);text-align:right}
-
-.foot{background:var(--ink);color:#a7b4c6;padding-block:2rem;font-size:.9rem}
-.foot__in{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
+.foot{background:var(--deep);color:#E6BFC2;padding-block:4rem 2rem;font-family:var(--head)}
+.foot__name{font-size:clamp(3.4rem,13vw,11.5rem);font-weight:800;letter-spacing:-.06em;line-height:.85;color:var(--paper)}
+.foot__row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:2rem;font-size:.92rem}
 .foot a{color:#fff}
-.facts .metro{color:#fff;font-size:.85rem;font-weight:700}
-@media (max-width:600px){.stamp{right:.3rem}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.send button{transition:none}}
+.credits{margin-top:1rem;font-size:.8rem;color:#D4A6AA}
+
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+.js .mosaic>*{opacity:0;transition:opacity .9s ease}
+.js .mosaic.in>*{opacity:1}
+.mosaic>*:nth-child(2){transition-delay:.08s}.mosaic>*:nth-child(3){transition-delay:.16s}.mosaic>*:nth-child(4){transition-delay:.24s}.mosaic>*:nth-child(5){transition-delay:.32s}.mosaic>*:nth-child(6){transition-delay:.4s}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv,.js .mosaic>*{opacity:1;transform:none;transition:none}.btn{transition:none}}
 </style>
 </head>
 <body>
@@ -136,140 +115,136 @@ h2{font-size:clamp(2rem,6vw,3rem);margin-top:.5rem;max-width:18em;text-wrap:bala
 
 <header class="top">
   <div class="wrap top__in">
-    <a class="mark" href="#">Arce y López<small>Gestoría · Asesoría · Abogados</small></a>
-    <nav class="nav" aria-label="Principal"><a href="#servicios">Servicios</a><a href="#para-quien">Para quién</a><a href="#clientes">Área de clientes</a><a href="#cita">Cita</a></nav>
-    <a class="btn" href="#cita">Pedir cita</a>
+    <a class="mark" href="#">Arce y López</a>
+    <nav class="nav" aria-label="Principal"><a href="#plazos">Plazos</a><a href="#servicios">Servicios</a><a href="#clientes">Área de clientes</a><a href="#cita">Cita</a></nav>
+    <a class="btn btn--ink" href="#cita">Pedir cita</a>
   </div>
 </header>
 
 <main>
-  <section class="hero">
-    <div class="wrap hero__in">
+  <div class="mosaic" id="mosaic" aria-hidden="true">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/43_Casa_al_carrer_del_Pedr%C3%B3%2C_14_%28Santa_Coloma_de_Gramenet%29.jpg/960px-43_Casa_al_carrer_del_Pedr%C3%B3%2C_14_%28Santa_Coloma_de_Gramenet%29.jpg" alt="" width="960" height="720">
+    <div class="tile tile--ink"><b>+30</b><span>años llevando papeles en Santa Coloma</span></div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/138_Casa_al_c._Bonavista%2C_1_%28Santa_Coloma_de_Gramenet%29.jpg/960px-138_Casa_al_c._Bonavista%2C_1_%28Santa_Coloma_de_Gramenet%29.jpg" alt="" width="960" height="720">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Santa_Coloma_de_Gramenet_05.JPG" alt="" width="1536" height="2048">
+    <div class="tile tile--metro"><b>L1</b><span>a 100 m del Metro Santa Coloma</span></div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/036_Cases_al_c._Rafael_de_Casanova%2C_45-49_%28Santa_Coloma_de_Gramenet%29.jpg/960px-036_Cases_al_c._Rafael_de_Casanova%2C_45-49_%28Santa_Coloma_de_Gramenet%29.jpg" alt="" width="960" height="720">
+  </div>
+
+  <section class="masthead">
+    <div class="wrap axis">
+      <p class="side rv"><b>Gestoría y asesoría</b>Rambla de Sant Sebastià, 7, 1.º 2.ª<br>Santa Coloma de Gramenet</p>
       <div>
-        <div class="ref"><span>Gestoría en Santa Coloma de Gramenet</span><span>Rambla de Sant Sebastià, 7</span></div>
-        <h1>Sus impuestos, nóminas y trámites, <em>al día y en orden.</em></h1>
-        <p class="lead">Asesoramiento laboral, fiscal, contable y jurídico para empresas, autónomos y particulares. Un equipo de abogados y asesores con más de 30 años de experiencia, con cuotas ajustadas a cada cliente.</p>
-        <div class="cta">
-          <a class="btn" href="#cita">Solicitar cita</a>
-          <a class="btn btn--ghost" href="tel:+34934666520">Llamar · <span class="mono">93 466 65 20</span></a>
-        </div>
-        <div class="facts">
-          <div><b>+30</b><span>años de<br>experiencia</span></div>
-          <div><span class="metro">L1</span><span>a 100 m del Metro<br>Santa Coloma</span></div>
-        </div>
-      </div>
-      <aside class="cal" aria-live="polite">
-        <div class="cal__rings" aria-hidden="true"><i></i><i></i></div>
-        <div class="cal__head">Próximo plazo</div>
-        <div class="cal__body">
-          <div class="cal__day" id="cd">20</div>
-          <div class="cal__month" id="cm">octubre</div>
-          <p class="cal__what" id="cw">3.er trimestre: IVA, retenciones y pagos fraccionados</p>
-          <p class="cal__left" id="cl">Faltan — días</p>
-        </div>
-        <div class="stamp">Nosotros<br>se lo recordamos</div>
-      </aside>
-    </div>
-  </section>
-
-  <section class="sec sec--alt" id="servicios">
-    <div class="wrap">
-      <p class="label">Índice de servicios</p>
-      <h2>Todo lo que su empresa o su familia necesita, en un mismo despacho</h2>
-      <div class="index">
-        <div class="chap"><h3><span>I.</span>Área laboral</h3><ol><li>Nóminas y finiquitos<b>1.1</b></li><li>Contratos y bonificaciones<b>1.2</b></li><li>Seguros sociales<b>1.3</b></li><li>Despidos y conciliaciones<b>1.4</b></li><li>Pensiones e invalidez<b>1.5</b></li><li>Inspecciones<b>1.6</b></li></ol></div>
-        <div class="chap"><h3><span>II.</span>Área fiscal y contable</h3><ol><li>IVA, IRPF y Sociedades<b>2.1</b></li><li>Declaración de la Renta<b>2.2</b></li><li>Transmisiones, donaciones y sucesiones<b>2.3</b></li><li>Impuestos locales<b>2.4</b></li><li>Contabilidad y cuentas anuales<b>2.5</b></li></ol></div>
-        <div class="chap"><h3><span>III.</span>Área jurídica</h3><ol><li>Derecho laboral<b>3.1</b></li><li>Derecho civil<b>3.2</b></li><li>Derecho matrimonial<b>3.3</b></li><li>Derecho mercantil<b>3.4</b></li></ol></div>
-        <div class="chap"><h3><span>IV.</span>Otros trámites</h3><ol><li>Administración de fincas y alquileres<b>4.1</b></li><li>Seguros<b>4.2</b></li><li>Transferencias de vehículos<b>4.3</b></li><li>Herencias y compraventas<b>4.4</b></li><li>Certificados digitales<b>4.5</b></li></ol></div>
+        <h1 class="rv">Sus papeles, en orden.</h1>
+        <p class="stand rv">Asesoramiento laboral, fiscal, contable y jurídico para empresas, autónomos y particulares. Un equipo de abogados y asesores con más de treinta años de oficio y cuotas ajustadas a cada cliente.</p>
+        <div class="cta rv"><a class="btn btn--ink" href="#cita">Solicitar cita</a><a class="btn btn--paper" href="tel:+34934666520">Llamar al 93 466 65 20</a></div>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="para-quien">
-    <div class="wrap">
-      <p class="label">Para quién</p>
-      <h2>Le acompañamos, tenga una empresa o un trámite puntual</h2>
-      <div class="folders">
-        <div class="folder" data-tab="Expediente 01"><h3>Empresas y autónomos</h3><p>Servicio integral para la pequeña y mediana empresa: laboral, fiscal y contable, con asesoramiento jurídico y representación cuando hace falta.</p></div>
-        <div class="folder" data-tab="Expediente 02"><h3>Particulares</h3><p>La Renta, una herencia, una compraventa, un alquiler o la transferencia de un coche: nos encargamos del papeleo y se lo explicamos claro.</p></div>
-        <div class="folder" data-tab="Expediente 03"><h3>Ante la Administración</h3><p>Defendemos sus intereses ante Hacienda, la Seguridad Social y los juzgados con un equipo de abogados y asesores.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec sec--alt" id="clientes">
-    <div class="wrap app">
+  <section class="colour" id="plazos" aria-live="polite">
+    <div class="wrap axis">
+      <p class="side rv"><b>Próximo plazo con Hacienda</b>Se actualiza solo, cada día, con el calendario del contribuyente.</p>
       <div>
-        <span class="tag">Opcional</span>
-        <h2>Sus facturas, enviadas con una foto</h2>
-        <p>Un área de clientes para que nos mande tickets y facturas desde el móvil, sin pasar por el despacho ni buscar correos. Usted hace la foto; nosotros la recibimos ordenada en su expediente.</p>
-      </div>
-      <div class="flow" aria-hidden="true">
-        <div class="box"><b>📷</b><span>Foto del ticket</span></div>
-        <span class="arrow">→</span>
-        <div class="box"><b>📁</b><span>Su expediente</span></div>
-        <span class="arrow">→</span>
-        <div class="box"><b>✓</b><span>Contabilizado</span></div>
+        <p class="count rv"><span id="cl">5 días</span><small id="cdate">hasta el 20 de octubre</small></p>
+        <p class="deadline rv" id="cw">3.er trimestre: IVA, retenciones y pagos fraccionados. Si es cliente, nosotros se lo recordamos.</p>
+        <div class="later rv" id="later"></div>
       </div>
     </div>
   </section>
 
-  <section class="sec" id="cita">
-    <div class="wrap contact">
+  <section class="text" id="servicios">
+    <div class="wrap axis">
+      <p class="side rv"><b>Qué llevamos</b>Todo lo que una empresa o una familia necesita, en un mismo despacho.</p>
       <div>
-        <p class="label">Contacto</p>
-        <h2>Cuéntenos su caso y le damos cita</h2>
+        <h2 class="rv">Cuatro áreas, un solo interlocutor</h2>
+        <div class="cols">
+          <div class="rv"><h3>Laboral</h3><p>Nóminas y finiquitos, contratos y bonificaciones, seguros sociales, despidos y conciliaciones, pensiones e invalidez, inspecciones.</p></div>
+          <div class="rv"><h3>Fiscal y contable</h3><p>IVA, IRPF y Sociedades, la Renta, transmisiones, donaciones y sucesiones, impuestos locales, contabilidad y cuentas anuales.</p></div>
+          <div class="rv"><h3>Jurídica</h3><p>Derecho laboral, civil, matrimonial y mercantil, con representación ante la Administración y los juzgados.</p></div>
+          <div class="rv"><h3>Otros trámites</h3><p>Administración de fincas y alquileres, seguros, transferencias de vehículos, herencias, compraventas y certificados digitales.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="text text--grey">
+    <div class="wrap axis">
+      <p class="side rv"><b>Para quién</b>Empresas, autónomos y particulares.</p>
+      <div>
+        <h2 class="rv">Para empresas y para familias</h2>
+        <div class="cols">
+          <div class="rv"><h3>Empresas y autónomos</h3><p>Servicio integral para la pequeña y mediana empresa: laboral, fiscal y contable, con asesoramiento jurídico cuando hace falta.</p></div>
+          <div class="rv"><h3>Particulares</h3><p>La Renta, una herencia, una compraventa o la transferencia de un coche: nos encargamos del papeleo y se lo explicamos claro.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="text" id="clientes">
+    <div class="wrap axis">
+      <p class="side rv"><b>Opcional</b>Un servicio que se puede añadir a la web.</p>
+      <div>
+        <h2 class="rv">Facturas con una foto</h2>
+        <p class="lead rv">Un área de clientes para mandar tickets y facturas desde el móvil, sin pasar por el despacho ni buscar correos. Usted hace la foto; nosotros la recibimos ordenada en su expediente.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="text text--grey contact" id="cita">
+    <div class="wrap axis">
+      <div class="side rv">
         <div class="data">
-          <div><span class="k">Dirección</span><span>Rambla de Sant Sebastià, 7, 1.º 2.ª<br>08921 Santa Coloma de Gramenet · <a href="https://www.google.com/maps/search/?api=1&query=Gestor%C3%ADa+Arce+y+L%C3%B3pez+Santa+Coloma+de+Gramenet" target="_blank" rel="noopener">Cómo llegar</a></span></div>
-          <div><span class="k">Teléfono</span><a class="mono" href="tel:+34934666520">93 466 65 20</a></div>
-          <div><span class="k">Correo</span><a href="mailto:gestoria@arcelopez.com">gestoria@arcelopez.com</a></div>
-          <div><span class="k">Metro</span><span>L1 Santa Coloma, a 100 m</span></div>
+          <p><b>Dirección</b>Rambla de Sant Sebastià, 7, 1.º 2.ª, 08921 Santa Coloma de Gramenet · <a href="https://www.google.com/maps/search/?api=1&query=Gestor%C3%ADa+Arce+y+L%C3%B3pez+Santa+Coloma+de+Gramenet" target="_blank" rel="noopener">Cómo llegar</a></p>
+          <p><b>Teléfono</b><a href="tel:+34934666520">93 466 65 20</a></p>
+          <p><b>Correo</b><a href="mailto:gestoria@arcelopez.com">gestoria@arcelopez.com</a></p>
         </div>
       </div>
-      <form class="sheet" id="form">
-        <h3>Solicitud de cita</h3>
-        <p class="sub">Arce y López, S.L.</p>
-        <div class="two">
-          <label class="field"><span>Nombre</span><input required autocomplete="name"></label>
-          <label class="field"><span>Teléfono</span><input required type="tel" autocomplete="tel"></label>
-        </div>
-        <div class="two">
-          <label class="field"><span>Usted es</span><select><option>Particular</option><option>Autónomo</option><option>Empresa</option></select></label>
-          <label class="field"><span>Asunto</span><select><option>Declaración de la Renta</option><option>Nóminas y contratos</option><option>Impuestos trimestrales</option><option>Contabilidad</option><option>Herencia o compraventa</option><option>Asunto jurídico</option><option>Otro trámite</option></select></label>
-        </div>
-        <label class="field"><span>Exposición breve (opcional)</span><textarea></textarea></label>
-        <div class="send"><button type="submit">Solicitar</button></div>
-        <p class="hint" id="hint">Le contestaremos lo antes posible.</p>
-      </form>
+      <div>
+        <h2 class="rv">Cuéntenos su caso y le damos cita</h2>
+        <form class="form rv" id="form">
+          <div class="row">
+            <label>Nombre<input required autocomplete="name"></label>
+            <label>Teléfono<input required type="tel" autocomplete="tel"></label>
+          </div>
+          <div class="row">
+            <label>Usted es<select><option>Particular</option><option>Autónomo</option><option>Empresa</option></select></label>
+            <label>Asunto<select><option>Declaración de la Renta</option><option>Nóminas y contratos</option><option>Impuestos trimestrales</option><option>Contabilidad</option><option>Herencia o compraventa</option><option>Asunto jurídico</option><option>Otro trámite</option></select></label>
+          </div>
+          <label>Explíquelo brevemente (opcional)<textarea></textarea></label>
+          <div><button class="btn btn--ink" type="submit">Solicitar cita</button></div>
+          <p class="hint" id="hint">Le contestaremos lo antes posible.</p>
+        </form>
+      </div>
     </div>
   </section>
 </main>
 
 <footer class="foot">
-  <div class="wrap foot__in">
-    <p>© Gestoría Arce y López, S.L. · Santa Coloma de Gramenet</p>
-    <p>Demo diseñada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a></p>
+  <div class="wrap">
+    <p class="foot__name">Arce y López</p>
+    <div class="foot__row"><p>Gestoría Arce y López, S.L. · Santa Coloma de Gramenet</p><p>Demo diseñada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a></p></div>
+    <p class="credits">Fotos de Santa Coloma en Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:43_Casa_al_carrer_del_Pedr%C3%B3,_14_(Santa_Coloma_de_Gramenet).jpg" target="_blank" rel="noopener">carrer del Pedró</a>, <a href="https://commons.wikimedia.org/wiki/File:138_Casa_al_c._Bonavista,_1_(Santa_Coloma_de_Gramenet).jpg" target="_blank" rel="noopener">carrer Bonavista</a> y <a href="https://commons.wikimedia.org/wiki/File:036_Cases_al_c._Rafael_de_Casanova,_45-49_(Santa_Coloma_de_Gramenet).jpg" target="_blank" rel="noopener">carrer Rafael de Casanova</a>, Enric (CC BY-SA 4.0) · <a href="https://commons.wikimedia.org/wiki/File:Santa_Coloma_de_Gramenet_05.JPG" target="_blank" rel="noopener">calle de Santa Coloma</a>, Zarateman (CC BY-SA 4.0). En blanco y negro.</p>
   </div>
 </footer>
 <script>
 (function(){
-  // Plazos habituales de la Agencia Tributaria (mes 0 = enero)
-  var P=[[0,20,'4.º trimestre: retenciones (modelo 111)'],[0,30,'4.º trimestre: IVA y pagos fraccionados'],[3,20,'1.er trimestre: IVA, retenciones y pagos fraccionados'],[5,30,'Fin de la campaña de la Renta'],[6,20,'2.º trimestre: IVA, retenciones y pagos fraccionados'],[6,25,'Impuesto sobre Sociedades'],[9,20,'3.er trimestre: IVA, retenciones y pagos fraccionados']];
+  var P=[[0,20,'4.º trimestre: retenciones'],[0,30,'4.º trimestre: IVA y pagos fraccionados'],[3,20,'1.er trimestre: IVA, retenciones y pagos fraccionados'],[5,30,'Fin de la campaña de la Renta'],[6,20,'2.º trimestre: IVA, retenciones y pagos fraccionados'],[6,25,'Impuesto sobre Sociedades'],[9,20,'3.er trimestre: IVA, retenciones y pagos fraccionados']];
   var M=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
   var hoy=new Date(); hoy.setHours(0,0,0,0);
-  var next=null;
-  for(var y=hoy.getFullYear(); y<=hoy.getFullYear()+1 && !next; y++){
-    for(var i=0;i<P.length;i++){var d=new Date(y,P[i][0],P[i][1]); if(d>=hoy){next={d:d,t:P[i][2]};break;}}
-  }
-  var dias=Math.round((next.d-hoy)/864e5);
-  document.getElementById('cd').textContent=next.d.getDate();
-  document.getElementById('cm').textContent=M[next.d.getMonth()]+' '+next.d.getFullYear();
-  document.getElementById('cw').textContent=next.t;
-  document.getElementById('cl').textContent=dias===0?'Vence hoy':dias===1?'Falta 1 día':'Faltan '+dias+' días';
-  document.getElementById('form').addEventListener('submit',function(e){
-    e.preventDefault();
-    document.getElementById('hint').textContent='✓ Esto es una demo: en la web real, la solicitud les llegaría al momento al correo con todos los datos.';
-  });
+  var lista=[];
+  for(var y=hoy.getFullYear(); y<=hoy.getFullYear()+1; y++) P.forEach(function(p){var d=new Date(y,p[0],p[1]); if(d>=hoy) lista.push({d:d,t:p[2]});});
+  lista.sort(function(a,b){return a.d-b.d;});
+  var n=lista[0], dias=Math.round((n.d-hoy)/864e5);
+  document.getElementById('cl').textContent=dias===0?'Hoy':dias===1?'1 día':dias+' días';
+  document.getElementById('cdate').textContent=(dias===0?'vence hoy, ':'hasta el ')+n.d.getDate()+' de '+M[n.d.getMonth()];
+  document.getElementById('cw').textContent=n.t+'. Si es cliente, nosotros se lo recordamos.';
+  document.getElementById('later').innerHTML='<p style="color:#fff;font-weight:600">Después</p>'+lista.slice(1,4).map(function(x){return '<p><span>'+x.d.getDate()+' de '+M[x.d.getMonth()]+'</span>'+x.t+'</p>';}).join('');
+  document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();document.getElementById('hint').textContent='Esto es una demo: en la web real, la solicitud les llegaría al momento al correo con todos los datos.';});
+  var els=[].slice.call(document.querySelectorAll('.rv,#mosaic'));
+  if(!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting) return; var sib=[].slice.call(e.target.parentNode.children).filter(function(x){return x.classList.contains('rv');}); e.target.style.transitionDelay=(Math.max(0,sib.indexOf(e.target))*80)+'ms'; e.target.classList.add('in'); io.unobserve(e.target);});},{rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(el){io.observe(el);});
 })();
 </script>
 </body>
