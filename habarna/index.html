@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>HaBarna Dance Studio · Salsa cubana en Santa Coloma, Sabadell y L'Hospitalet</title>
+<meta name="description" content="Demo de web para HaBarna Dance Studio, preparada por Grapa Lab.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Direccion: cartel plano y fuerte, como un cartel de concierto cubano. Campos rojos, mostaza y azul sobre papel.
+   Dos familias: Anton para los titulares, Work Sans para el texto. */
+:root{
+  --paper:#EFE7D6; --ink:#20100E; --red:#D81E2A; --wine:#8E1F24; --mustard:#E3A812; --blue:#24418F; --white:#FFFDF8;
+  --head:"Anton","Impact","Arial Narrow",sans-serif; --font:"Work Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --g:clamp(1rem,4vw,2.5rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4rem}
+body{margin:0;font-family:var(--font);font-size:1.12rem;line-height:1.55;color:var(--ink);background:var(--paper)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;font-family:var(--head);font-weight:400;text-transform:uppercase;line-height:.92;letter-spacing:.005em}
+p{margin:0}
+.wrap{max-width:82rem;margin-inline:auto;padding-inline:var(--g)}
+.demo{background:var(--ink);color:#e7dcc8;font-size:.82rem;text-align:center;padding:.5rem var(--g)}
+.demo a{color:#fff;font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:1rem 1.5rem;font:inherit;font-weight:700;text-decoration:none;border:0;border-radius:999px;cursor:pointer;transition:transform .18s,background-color .18s}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:translateY(1px)}
+.btn--ink{background:var(--ink);color:var(--white)}
+.btn--white{background:var(--white);color:var(--red)}
+.btn--wa{background:#1B9E52;color:#fff}
+
+.top{position:sticky;top:0;z-index:20;background:var(--red);color:var(--white)}
+.top__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:4rem}
+.logo{font-family:var(--head);font-size:1.7rem;text-decoration:none;letter-spacing:.02em}
+.nav{display:none;gap:1.6rem;font-weight:700}
+.nav a{text-decoration:none}.nav a:hover{text-decoration:underline;text-underline-offset:.3em}
+.top .btn{padding:.55rem 1.1rem}
+@media (min-width:900px){.nav{display:flex}}
+
+/* cartel de portada */
+.poster{background:var(--red);color:var(--white);overflow:hidden}
+.poster__in{display:grid;gap:1.5rem;align-items:end;padding-block:clamp(2rem,6vw,4rem) 0}
+@media (min-width:900px){.poster__in{grid-template-columns:1.25fr 1fr}}
+.poster h1{font-size:clamp(4.6rem,17vw,13.5rem);line-height:.84}
+.poster h1 span{display:block;color:var(--mustard)}
+.poster .p{margin-top:1.4rem;font-size:clamp(1.15rem,2.6vw,1.4rem);max-width:30em}
+.poster .cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.8rem;padding-bottom:clamp(2rem,5vw,3.5rem)}
+.poster figure{margin:0;align-self:end}
+.poster figure img{width:100%;max-height:78svh;object-fit:cover;object-position:top;filter:contrast(1.05)}
+.cities{background:var(--mustard);color:var(--ink);font-family:var(--head);font-size:clamp(1.6rem,4.5vw,3rem);text-transform:uppercase;padding-block:.9rem;white-space:nowrap;overflow:hidden}
+.cities span{display:inline-block;padding-right:2rem}
+.cities .track{display:inline-block;animation:ticker 22s linear infinite}
+@keyframes ticker{to{transform:translateX(-50%)}}
+
+/* la cosa viva: el paso basico */
+.sec{padding-block:clamp(4.5rem,10vw,8rem)}
+.sec h2{font-size:clamp(3rem,10vw,7.5rem)}
+.sec .p{margin-top:1.2rem;max-width:34em;font-size:1.2rem}
+.step{background:var(--blue);color:var(--white)}
+.counts{display:grid;grid-template-columns:repeat(8,1fr);gap:.4rem;margin-top:2.4rem}
+.counts div{aspect-ratio:1;display:grid;place-items:center;font-family:var(--head);font-size:clamp(2rem,7vw,5rem);background:rgba(255,253,248,.1);transition:background-color .12s,color .12s,transform .12s}
+.counts div.pause{color:rgba(255,253,248,.35)}
+.counts div.on{background:var(--mustard);color:var(--ink);transform:translateY(-6px)}
+.now{margin-top:1.6rem;font-size:clamp(1.3rem,3.2vw,2rem);font-weight:700;min-height:2.6em}
+.ctrl{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center;margin-top:1rem}
+.ctrl button{font:inherit;font-weight:700;cursor:pointer;border:0;border-radius:999px;padding:.8rem 1.3rem;background:var(--white);color:var(--blue)}
+.ctrl button[aria-pressed="true"]{background:var(--mustard);color:var(--ink)}
+.ctrl small{opacity:.8}
+
+/* profes */
+.teach{display:grid;gap:3rem;margin-top:3rem}
+@media (min-width:900px){.teach{grid-template-columns:1fr 1fr}}
+.teach figure{margin:0}
+.teach img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top}
+.teach h3{font-size:clamp(2.4rem,6vw,4rem);margin-top:1.2rem}
+.teach .from{font-weight:700;color:var(--red)}
+.teach ul{margin:1rem 0 0;padding-left:1.1rem;display:grid;gap:.4rem}
+
+/* sedes */
+.where{background:var(--wine);color:var(--white)}
+.places{display:grid;gap:2.5rem;margin-top:3rem}
+@media (min-width:900px){.places{grid-template-columns:repeat(3,1fr)}}
+.places img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.places h3{font-size:clamp(2.2rem,4vw,3rem);margin-top:1rem;color:var(--mustard)}
+.places p{margin-top:.4rem}
+.places .tbc{opacity:.75;font-size:.95rem}
+
+/* clase de prueba */
+.trial{background:var(--mustard)}
+.form{display:grid;gap:1rem;margin-top:2.2rem;max-width:42rem}
+.form label{display:grid;gap:.3rem;font-weight:700}
+.form input,.form select{font:inherit;padding:.8rem 0;border:0;border-bottom:3px solid var(--ink);background:transparent;border-radius:0;min-width:0;color:var(--ink)}
+.form input:focus,.form select:focus{outline:none;border-bottom-color:var(--red)}
+.form .row{display:grid;gap:1rem;grid-template-columns:1fr 1fr}
+.hint{font-size:.95rem}
+
+.foot{background:var(--ink);color:#d9cdb8;padding:3rem 0 2rem}
+.foot__name{font-family:var(--head);font-size:clamp(3.5rem,14vw,11rem);text-transform:uppercase;line-height:1;color:var(--red);padding-bottom:.4rem}
+.foot__row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:1.4rem;font-size:.92rem}
+.foot a{color:#fff}
+
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}.cities .track{animation:none}.btn,.counts div{transition:none}}
+</style>
+</head>
+<body>
+<div class="demo">Demo preparada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> para HaBarna Dance Studio · No es la web oficial</div>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="logo" href="#">HaBarna</a>
+    <nav class="nav" aria-label="Principal"><a href="#paso">Paso básico</a><a href="#profes">Profes</a><a href="#donde">Dónde</a><a href="#prueba">Clase de prueba</a></nav>
+    <a class="btn btn--white" href="#prueba">Clase de prueba</a>
+  </div>
+</header>
+
+<main>
+  <section class="poster">
+    <div class="wrap poster__in">
+      <div>
+        <h1 class="rv">Salsa <span>cubana</span></h1>
+        <p class="p rv">Salsa, timba y rumba con profes formados por grandes maestros cubanos. Aprende a bailar de verdad, desde el primer día, aunque no hayas bailado nunca.</p>
+        <div class="cta rv"><a class="btn btn--white" href="#prueba">Reserva tu clase de prueba</a><a class="btn btn--ink" href="#paso">Prueba el paso básico</a></div>
+      </div>
+      <figure class="rv"><img src="https://www.habarna.com/img/kevin3.jpg" alt="Kevin Cano, profesor de HaBarna" width="600" height="750"></figure>
+    </div>
+  </section>
+  <div class="cities" aria-hidden="true"><div class="track"><span>Santa Coloma ✦ Sabadell ✦ L'Hospitalet ✦ Santa Coloma ✦ Sabadell ✦ L'Hospitalet ✦</span><span>Santa Coloma ✦ Sabadell ✦ L'Hospitalet ✦ Santa Coloma ✦ Sabadell ✦ L'Hospitalet ✦</span></div></div>
+
+  <section class="sec step" id="paso">
+    <div class="wrap">
+      <h2 class="rv">El paso básico</h2>
+      <p class="p rv">La salsa se cuenta en ocho tiempos y se pisa en seis: uno, dos, tres… cinco, seis, siete. Dale al play y cuenta con nosotros.</p>
+      <div class="counts" id="counts" aria-hidden="true">
+        <div>1</div><div>2</div><div>3</div><div class="pause">4</div><div>5</div><div>6</div><div>7</div><div class="pause">8</div>
+      </div>
+      <p class="now" id="now" aria-live="polite">Pulsa «Empezar» y sigue los números.</p>
+      <div class="ctrl">
+        <button type="button" id="play">▶ Empezar</button>
+        <button type="button" data-bpm="80" aria-pressed="true">Despacio</button>
+        <button type="button" data-bpm="110" aria-pressed="false">Ritmo de clase</button>
+        <button type="button" data-bpm="160" aria-pressed="false">Como en la pista</button>
+        <small>Con sonido de clave. Sube el volumen.</small>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="profes">
+    <div class="wrap">
+      <h2 class="rv">Tus profes</h2>
+      <div class="teach">
+        <article class="rv">
+          <figure><img src="https://www.habarna.com/img/kevin3.jpg" alt="Kevin Cano" loading="lazy" width="600" height="750"></figure>
+          <h3>Kevin Cano</h3>
+          <p class="from">Barcelona</p>
+          <ul><li>Formado por grandes maestros de la cultura cubana como Jorge Camagüey y Héctor Oviedo.</li><li>Más de 8 años bailando y enseñando cultura popular y tradicional cubana.</li><li>Campeón del concurso «Buscando al Rumbero» (rumba columbia) en el Festival Internacional Guaguancó 2018.</li></ul>
+        </article>
+        <article class="rv">
+          <figure><img src="https://www.habarna.com/img/geysa3.jpg" alt="Geysa Martínez" loading="lazy" width="600" height="750"></figure>
+          <h3>Geysa Martínez</h3>
+          <p class="from">La Habana</p>
+          <ul><li>Graduada en ballet clásico en la escuela Alejo Carpentier de La Habana (2009).</li><li>Bailarina de Espectáculos Musicales por el Instituto Cubano de la Música (2015).</li><li>Segundo premio y Premio a la Mejor Coreografía Novel en el concurso Jóvenes Talentos.</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec where" id="donde">
+    <div class="wrap">
+      <h2 class="rv">Dónde bailamos</h2>
+      <div class="places">
+        <div class="rv"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Santa_Coloma_%2816381794060%29.jpg/1280px-Santa_Coloma_%2816381794060%29.jpg" alt="Vista de Santa Coloma de Gramenet" loading="lazy" width="1280" height="853"><h3>Santa Coloma</h3><p>Carrer de Sant Josep, 29</p><p class="tbc">Días y horarios: a confirmar</p></div>
+        <div class="rv"><img src="https://www.habarna.com/img/sabadell02.jpg" alt="Sala de Sabadell" loading="lazy" width="600" height="450"><h3>Sabadell</h3><p>Carrer de Nàpols, 10</p><p>Martes, miércoles y jueves</p></div>
+        <div class="rv"><img src="https://www.habarna.com/img/hospitalet.jpg" alt="Sala de L'Hospitalet" loading="lazy" width="600" height="450"><h3>L'Hospitalet</h3><p>Carrer de Corominas, 38-40</p><p>Lunes y viernes</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec trial" id="prueba">
+    <div class="wrap">
+      <h2 class="rv">Tu clase de prueba</h2>
+      <p class="p rv">Elige sede y día, y te escribimos por WhatsApp para confirmarla.</p>
+      <form class="form rv" id="form">
+        <div class="row">
+          <label>Nombre<input id="fn" required autocomplete="name"></label>
+          <label>Teléfono<input id="ft" required type="tel" autocomplete="tel"></label>
+        </div>
+        <div class="row">
+          <label>Sede<select id="fs"><option>Santa Coloma</option><option>Sabadell</option><option>L'Hospitalet</option></select></label>
+          <label>Nivel<select id="fl"><option>Nunca he bailado</option><option>Sé lo básico</option><option>Bailo ya</option></select></label>
+        </div>
+        <div><button class="btn btn--wa" type="submit">Pedir clase de prueba por WhatsApp</button></div>
+        <p class="hint">Se abrirá WhatsApp con tu mensaje escrito. Solo tienes que enviarlo.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot__name">HaBarna</p>
+    <div class="foot__row"><p>Dance Studio · Santa Coloma · Sabadell · L'Hospitalet · <a href="https://www.instagram.com/habarna_bcn/" target="_blank" rel="noopener">@habarna_bcn</a></p><p>Vista de Santa Coloma: <a href="https://commons.wikimedia.org/wiki/File:Santa_Coloma_(16381794060).jpg" target="_blank" rel="noopener">Núria Parlon Gil</a> (CC BY 2.0) · Demo diseñada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a></p></div>
+  </div>
+</footer>
+<script>
+(function(){
+  // el paso basico: 8 tiempos con clave (WebAudio, solo tras pulsar)
+  var cells=document.querySelectorAll('#counts div'), now=document.getElementById('now'), play=document.getElementById('play');
+  var T=['Izquierdo adelante','Cambio de peso','Junta los pies','Pausa','Derecho atrás','Cambio de peso','Junta los pies','Pausa'];
+  var clave=[1,0,0,1,0,0,1,0, 0,0,1,0,1,0,0,0]; // clave 3-2 en corcheas a lo largo de dos compases
+  var bpm=80, timer=null, i=0, ctx=null;
+  function click(strong){
+    if(!ctx) return; var o=ctx.createOscillator(), g=ctx.createGain();
+    o.frequency.value=strong?1650:1250; g.gain.setValueAtTime(.0001,ctx.currentTime); g.gain.exponentialRampToValueAtTime(strong?.6:.25,ctx.currentTime+.005); g.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+.12);
+    o.connect(g).connect(ctx.destination); o.start(); o.stop(ctx.currentTime+.13);
+  }
+  function tick(){
+    var beat=Math.floor(i/2)%8, half=i%2;
+    if(clave[i%16]) click(true);
+    if(!half){ cells.forEach(function(c,k){c.classList.toggle('on',k===beat);}); now.textContent=(beat+1)+' · '+T[beat]; }
+    i++;
+  }
+  function start(){
+    if(!ctx){ try{ ctx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} }
+    stop(); i=0; tick(); timer=setInterval(tick,60000/bpm/2); play.textContent='■ Parar'; play.setAttribute('aria-pressed','true');
+  }
+  function stop(){ clearInterval(timer); timer=null; play.textContent='▶ Empezar'; play.setAttribute('aria-pressed','false'); }
+  play.addEventListener('click',function(){ timer?stop():start(); });
+  document.querySelectorAll('[data-bpm]').forEach(function(b){ b.addEventListener('click',function(){
+    bpm=+b.dataset.bpm; document.querySelectorAll('[data-bpm]').forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});
+    if(timer) start();
+  }); });
+  // clase de prueba por WhatsApp
+  function v(id){return document.getElementById(id).value;}
+  document.getElementById('form').addEventListener('submit',function(e){
+    e.preventDefault();
+    var t='Hola! Soy '+v('fn')+'. Me gustaría hacer una clase de prueba de salsa.\nSede: '+v('fs')+'\nNivel: '+v('fl')+'\nMi teléfono: '+v('ft');
+    window.open('https://wa.me/34654325518?text='+encodeURIComponent(t),'_blank');
+  });
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if(!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting) return; var sib=[].slice.call(e.target.parentNode.children).filter(function(x){return x.classList.contains('rv');}); e.target.style.transitionDelay=(Math.max(0,sib.indexOf(e.target))*80)+'ms'; e.target.classList.add('in'); io.unobserve(e.target);});},{rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(el){io.observe(el);});
+  setTimeout(function(){els.forEach(function(el){el.classList.add('in');});},3000);
+})();
+</script>
+</body>
+</html>
