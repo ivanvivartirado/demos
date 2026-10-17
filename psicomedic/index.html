@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Psicomedic · Psicología, logopedia y psicopedagogía en Santa Coloma de Gramenet</title>
+<meta name="description" content="Demo de web para Psicomedic, preparada por Grapa Lab.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;800&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Direccion: capitulos de color. Cada especialidad es una pared de un color de arriba abajo, y el color significa esa especialidad.
+   Una sola familia (Figtree) en dos pesos. */
+:root{
+  --lav:#C3CBE5; --pink:#EFD3DA; --sage:#CFD3CB; --peach:#F9CDBD; --teal:#0F5257; --ink:#141414; --paper:#F8F8F6;
+  --font:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; --g:clamp(1rem,4vw,2.5rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4rem}
+body{margin:0;font-family:var(--font);font-size:1.15rem;line-height:1.55;color:var(--ink);background:var(--lav)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:800;letter-spacing:-.04em;line-height:.95;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:80rem;margin-inline:auto;padding-inline:var(--g)}
+.demo{background:var(--ink);color:#ddd;font-size:.82rem;text-align:center;padding:.5rem var(--g)}
+.demo a{color:#fff;font-weight:500}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:1rem 1.5rem;font:inherit;font-weight:800;text-decoration:none;border:0;border-radius:0;cursor:pointer;transition:transform .18s,background-color .18s}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:translateY(1px)}
+.btn--ink{background:var(--ink);color:var(--paper)}.btn--ink:hover{background:var(--teal)}
+.btn--paper{background:var(--paper);color:var(--ink)}.btn--paper:hover{background:#fff}
+
+.top{position:sticky;top:0;z-index:20;background:var(--lav)}
+.top__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:4rem}
+.mark{text-decoration:none;font-weight:800;font-size:1.3rem;letter-spacing:-.03em}
+.nav{display:none;gap:1.6rem;font-weight:500}
+.nav a{text-decoration:none}.nav a:hover{text-decoration:underline;text-underline-offset:.3em}
+.top .btn{padding:.6rem 1rem}
+@media (min-width:900px){.nav{display:flex}}
+
+/* capitulos */
+.ch{min-height:90svh;display:flex;align-items:center;padding-block:clamp(4rem,10vw,7rem)}
+.ch>.wrap{width:100%}
+.ch h1,.ch h2{font-size:clamp(3rem,10vw,8.6rem);max-width:11em}
+.ch .p{margin-top:1.6rem;max-width:34em;font-size:clamp(1.15rem,2.4vw,1.35rem)}
+.ch .cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2.2rem}
+.ch--lav{background:var(--lav)}.ch--pink{background:var(--pink)}.ch--sage{background:var(--sage)}.ch--peach{background:var(--peach)}
+.ch--teal{background:var(--teal);color:var(--paper)}.ch--ink{background:var(--ink);color:var(--paper)}.ch--paper{background:var(--paper)}
+.split{display:grid;gap:2.5rem;align-items:center}
+@media (min-width:900px){.split{grid-template-columns:1.25fr 1fr}}
+.split figure{margin:0}
+.split img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.split figcaption{margin-top:.6rem;font-size:.92rem}
+.list{list-style:none;margin:2rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.list li{background:rgba(255,255,255,.55);padding:.5rem .9rem;font-weight:500}
+.ch--teal .list li{background:rgba(255,255,255,.14)}
+
+.opener{display:grid;gap:2.5rem;align-items:center}
+.opener h1{font-size:clamp(3rem,6.6vw,6.2rem)}
+@media (min-width:980px){.opener{grid-template-columns:1.5fr 1fr}}
+.chapters{display:grid;gap:0}
+.chapters a{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:1.5rem 1.4rem;text-decoration:none;transition:padding .25s}
+.chapters a:hover{padding-left:2rem}
+.chapters b{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;letter-spacing:-.03em}
+.chapters span{font-size:.98rem}
+/* la cosa viva */
+.notes{display:grid;gap:.6rem;margin-top:2.2rem}
+@media (min-width:760px){.notes{grid-template-columns:1fr 1fr}}
+.notes button{font:inherit;font-weight:500;text-align:left;cursor:pointer;border:0;padding:1rem 1.2rem;background:#fff;color:var(--ink);transition:background-color .18s,color .18s}
+.notes button:hover{background:#EDEDF5}
+.notes button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.result{margin-top:2.2rem;padding:clamp(1.4rem,4vw,2.4rem);transition:background-color .4s}
+.result h3{font-size:clamp(2rem,5vw,3.4rem)}
+.result p{margin-top:.8rem;max-width:36em}
+.result .btn{margin-top:1.4rem}
+
+.facts{display:grid;gap:1.6rem 3rem;margin-top:2.6rem}
+@media (min-width:760px){.facts{grid-template-columns:1fr 1fr}}
+.facts h3{font-size:1.5rem;letter-spacing:-.02em}
+.facts p{margin-top:.4rem;color:#d6d6d0}
+.facts a{color:#fff;font-weight:800}
+.form{display:grid;gap:1rem;margin-top:2.6rem;max-width:40rem}
+.form label{display:grid;gap:.3rem;font-weight:500}
+.form input,.form select{font:inherit;color:var(--paper);padding:.7rem 0;border:0;border-bottom:2px solid var(--paper);background:transparent;border-radius:0;min-width:0}
+.form select option{color:var(--ink)}
+.form input:focus,.form select:focus{outline:none;border-bottom-color:var(--peach)}
+.form .row{display:grid;gap:1rem;grid-template-columns:1fr 1fr}
+.hint{color:#bdbdb6;font-size:.95rem}
+
+.foot{background:var(--ink);color:#cfcfc8;padding:1rem 0 2rem}
+.foot__name{font-size:clamp(3rem,13vw,10rem);font-weight:800;letter-spacing:-.06em;line-height:1.05;color:var(--lav);padding-bottom:.4rem}
+.foot__row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:1.4rem;font-size:.92rem}
+.foot a{color:#fff}
+.credits{margin-top:1rem;font-size:.8rem;color:#9a9a94}
+
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}.btn,.notes button,.result{transition:none}}
+</style>
+</head>
+<body>
+<div class="demo">Demo preparada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> para Psicomedic · No es la web oficial</div>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="mark" href="#">Psicomedic</a>
+    <nav class="nav" aria-label="Principal"><a href="#notas">¿Qué notas?</a><a href="#psicologia">Psicología</a><a href="#logopedia">Logopedia</a><a href="#psicopedagogia">Psicopedagogía</a><a href="#visita">Visita</a></nav>
+    <a class="btn btn--ink" href="#visita">Pedir visita</a>
+  </div>
+</header>
+
+<main>
+  <section class="ch ch--lav">
+    <div class="wrap opener">
+      <div>
+        <h1 class="rv">Cuidamos la mente desde 1964.</h1>
+        <p class="p rv">Psicología, logopedia y psicopedagogía en Santa Coloma de Gramenet, para niños, adolescentes, adultos, parejas y familias. En el centro o en línea.</p>
+        <div class="cta rv"><a class="btn btn--ink" href="#notas">¿Qué notas?</a><a class="btn btn--paper" href="tel:+34933861201">933 861 201</a></div>
+      </div>
+      <nav class="chapters rv" aria-label="Especialidades">
+        <a href="#psicologia" style="background:var(--sage)"><b>Psicología</b><span>Niños, adultos, parejas</span></a>
+        <a href="#logopedia" style="background:var(--pink)"><b>Logopedia</b><span>Habla y lenguaje</span></a>
+        <a href="#psicopedagogia" style="background:var(--peach)"><b>Psicopedagogía</b><span>Aprendizaje</span></a>
+        <a href="#becas" style="background:var(--teal);color:#F8F8F6"><b>Becas</b><span>Os la tramitamos</span></a>
+      </nav>
+    </div>
+  </section>
+
+  <section class="ch ch--paper" id="notas">
+    <div class="wrap">
+      <h2 class="rv">¿Qué notas?</h2>
+      <p class="p rv">Elige lo que más se parezca y te decimos qué especialista te puede ayudar.</p>
+      <div class="notes rv" id="notes">
+        <button type="button" aria-pressed="true" data-k="habla">A mi hijo o hija le cuesta hablar o pronunciar</button>
+        <button type="button" aria-pressed="false" data-k="lectura">Le cuesta leer, escribir o concentrarse en clase</button>
+        <button type="button" aria-pressed="false" data-k="emocion">Está triste, nervioso o se porta distinto</button>
+        <button type="button" aria-pressed="false" data-k="adulto">Soy yo quien está pasando una mala época</button>
+        <button type="button" aria-pressed="false" data-k="pareja">Tenemos problemas de pareja o en familia</button>
+        <button type="button" aria-pressed="false" data-k="lejos">No puedo venir al centro</button>
+      </div>
+      <div class="result rv" id="result" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="ch ch--sage" id="psicologia">
+    <div class="wrap split">
+      <div>
+        <h2 class="rv">Psicología clínica</h2>
+        <p class="p rv">Buscamos contigo, con método científico, soluciones a los problemas y malestares que te preocupan. Ansiedad, tristeza, duelo, autoestima o conflictos, a cualquier edad.</p>
+        <ul class="list rv"><li>Infantil y adolescente</li><li>Adultos</li><li>Parejas</li><li>Familias</li></ul>
+      </div>
+      <figure class="rv"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Parc_de_Can_Zam_Llac.jpg/1280px-Parc_de_Can_Zam_Llac.jpg" alt="El lago del parque de Can Zam, en Santa Coloma" width="1280" height="961" loading="lazy"><figcaption>El lago de Can Zam, en Santa Coloma</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="ch ch--pink" id="logopedia">
+    <div class="wrap split">
+      <figure class="rv"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Mural_ocells_20231020.jpg/960px-Mural_ocells_20231020.jpg" alt="Mural de pájaros en un parque de Santa Coloma" width="960" height="720" loading="lazy"><figcaption>Mural de pájaros en un parque de la ciudad</figcaption></figure>
+      <div>
+        <h2 class="rv">Logopedia</h2>
+        <p class="p rv">Evaluamos y tratamos las dificultades del habla y del lenguaje oral y escrito, en niños, adolescentes y adultos.</p>
+        <ul class="list rv"><li>Pronunciación</li><li>Retraso del lenguaje</li><li>Lectura y escritura</li><li>Voz</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="ch ch--peach" id="psicopedagogia">
+    <div class="wrap">
+      <h2 class="rv">Psicopedagogía</h2>
+      <p class="p rv">Evaluamos las dificultades de aprendizaje y damos estrategias a cada alumno, orientando también a sus padres y profesores.</p>
+      <ul class="list rv"><li>Dificultades de aprendizaje</li><li>Atención y concentración</li><li>Técnicas de estudio</li><li>Orientación a familias y escuelas</li></ul>
+    </div>
+  </section>
+
+  <section class="ch ch--teal" id="becas">
+    <div class="wrap">
+      <h2 class="rv">Te ayudamos con la beca</h2>
+      <p class="p rv">Tramitamos las becas y ayudas del Ministerio de Educación para alumnos con necesidad específica de apoyo educativo. Si tu hijo o hija necesita logopedia o psicología, os informamos y nos encargamos del papeleo.</p>
+      <ul class="list rv"><li>Infantil y Primaria</li><li>Secundaria y Bachillerato</li><li>Formación Profesional</li><li>Enseñanzas artísticas</li></ul>
+    </div>
+  </section>
+
+  <section class="ch ch--ink" id="visita">
+    <div class="wrap">
+      <h2 class="rv">Pide tu visita</h2>
+      <div class="facts">
+        <div class="rv"><h3>Dónde</h3><p>Av. de la Generalitat, 68, Santa Coloma de Gramenet. También en Linares (Jaén) y en línea.</p></div>
+        <div class="rv"><h3>Cuándo</h3><p>Atención en el centro de lunes a jueves, de 16:00 a 20:00. Por teléfono, de lunes a viernes de 9:00 a 13:00 y de 16:00 a 20:00.</p></div>
+        <div class="rv"><h3>Teléfono</h3><p><a href="tel:+34933861201">933 861 201</a> · <a href="tel:+34616065502">616 065 502</a></p></div>
+        <div class="rv"><h3>Pago</h3><p>Efectivo en el centro, o transferencia y Bizum en las sesiones en línea.</p></div>
+      </div>
+      <form class="form rv" id="form">
+        <div class="row">
+          <label>Nombre<input required autocomplete="name"></label>
+          <label>Teléfono<input required type="tel" autocomplete="tel"></label>
+        </div>
+        <label>Especialidad<select id="esp"><option>Psicología infantil</option><option>Psicología de adultos</option><option>Terapia de pareja o familia</option><option>Logopedia</option><option>Psicopedagogía</option><option>No lo sé, quiero orientación</option></select></label>
+        <div><button class="btn btn--paper" type="submit">Pedir visita</button></div>
+        <p class="hint" id="hint">Te llamamos para darte día y hora.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot__name">Psicomedic</p>
+    <div class="foot__row"><p>Psicología, logopedia y psicopedagogía · Santa Coloma de Gramenet · Desde 1964</p><p>Demo diseñada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a></p></div>
+    <p class="credits">Fotos de Santa Coloma en Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Parc_de_Can_Zam_Llac.jpg" target="_blank" rel="noopener">lago de Can Zam</a>, IM027 (CC BY-SA 4.0) · <a href="https://commons.wikimedia.org/wiki/File:Mural_ocells_20231020.jpg" target="_blank" rel="noopener">mural de pájaros</a>, Manuel C. (CC BY-SA 4.0).</p>
+  </div>
+</footer>
+<script>
+(function(){
+  var C={sage:'#CFD3CB',pink:'#EFD3DA',peach:'#F9CDBD',lav:'#C3CBE5',teal:'#0F5257'};
+  var N={
+    habla:{t:'Logopedia',c:'pink',d:'Evaluamos el habla y el lenguaje y preparamos un plan con ejercicios para la consulta y para casa. Y si le corresponde, te ayudamos con la beca.',o:'Logopedia'},
+    lectura:{t:'Psicopedagogía',c:'peach',d:'Vemos dónde está la dificultad (lectura, escritura, atención) y damos estrategias al alumno, a la familia y a la escuela.',o:'Psicopedagogía'},
+    emocion:{t:'Psicología infantil',c:'sage',d:'Un espacio seguro para que tu hijo o hija entienda lo que siente, con pautas para vosotros en casa.',o:'Psicología infantil'},
+    adulto:{t:'Psicología de adultos',c:'sage',d:'Ansiedad, tristeza, duelo o un momento difícil. Te acompañamos con un trato cercano y continuado.',o:'Psicología de adultos'},
+    pareja:{t:'Terapia de pareja y familia',c:'lav',d:'Para recuperar la comunicación y encontrar acuerdos, con un profesional neutral.',o:'Terapia de pareja o familia'},
+    lejos:{t:'Sesiones en línea',c:'lav',d:'Las mismas sesiones por videollamada, desde casa, con pago por transferencia o Bizum.',o:'No lo sé, quiero orientación'}
+  };
+  var box=document.getElementById('result'), wrap=document.getElementById('notes'), esp=document.getElementById('esp');
+  function show(k){
+    var n=N[k];
+    wrap.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.k===k));});
+    box.style.background=C[n.c];
+    box.innerHTML='<h3>'+n.t+'</h3><p>'+n.d+'</p><a class="btn btn--ink" href="#visita" data-o="'+n.o+'">Pedir visita</a>';
+  }
+  wrap.addEventListener('click',function(e){var b=e.target.closest('button'); if(b) show(b.dataset.k);});
+  box.addEventListener('click',function(e){var a=e.target.closest('[data-o]'); if(!a) return; for(var i=0;i<esp.options.length;i++){if(esp.options[i].text===a.dataset.o) esp.selectedIndex=i;}});
+  show('habla');
+  document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();document.getElementById('hint').textContent='Esto es una demo: en la web real, la petición os llegaría al momento al correo.';});
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if(!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting) return; var sib=[].slice.call(e.target.parentNode.children).filter(function(x){return x.classList.contains('rv');}); e.target.style.transitionDelay=(Math.max(0,sib.indexOf(e.target))*80)+'ms'; e.target.classList.add('in'); io.unobserve(e.target);});},{rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(el){io.observe(el);});
+  setTimeout(function(){els.forEach(function(el){el.classList.add('in');});},3000);
+})();
+</script>
+</body>
+</html>
