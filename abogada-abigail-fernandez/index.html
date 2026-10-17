@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Abigail Fernández García · Abogada de familia en Santa Coloma de Gramenet</title>
+<meta name="description" content="Demo de web para el despacho de Abigail Fernández García, preparada por Grapa Lab.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Direccion: media pantalla fija (split stage). La foto fija es el camino hasta su puerta:
+   la Iglesia Mayor y Can Roig i Torres, que su propia web nombra. Paleta: el rosa topo de su marca sobre papel. */
+:root{
+  --paper:#F7F2EE; --paper-2:#EFE6E0; --ink:#2F2724; --muted:#6B5D57; --rose:#B98F7C; --rose-deep:#8E6553; --night:#2F2724;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif; --sans:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --g:clamp(1rem,4vw,2rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;font-family:var(--serif);font-size:1.2rem;line-height:1.55;color:var(--ink);background:var(--paper)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:500;letter-spacing:-.02em;line-height:1.05;text-wrap:balance}
+p{margin:0}
+.demo{background:var(--night);color:#E9DCD5;font-family:var(--sans);font-size:.8rem;text-align:center;padding:.5rem var(--g)}
+.demo a{color:#fff;font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.9rem 1.4rem;font-family:var(--sans);font-size:1rem;font-weight:600;text-decoration:none;border:0;border-radius:999px;cursor:pointer;transition:transform .18s,background-color .18s}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:translateY(1px)}
+.btn--ink{background:var(--ink);color:var(--paper)}.btn--ink:hover{background:var(--rose-deep)}
+.btn--rose{background:var(--rose);color:#fff}.btn--rose:hover{background:var(--rose-deep)}
+
+.top{position:sticky;top:0;z-index:30;background:var(--paper)}
+.top__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:4.3rem;padding-inline:var(--g)}
+.mark{text-decoration:none;font-family:var(--sans);font-weight:600;font-size:1.05rem;letter-spacing:-.01em}
+.mark span{color:var(--rose-deep);font-weight:500}
+.nav{display:none;gap:1.6rem;font-family:var(--sans);font-size:.98rem}
+.nav a{text-decoration:none}.nav a:hover{color:var(--rose-deep)}
+.top .btn{padding:.6rem 1.1rem}
+@media (min-width:980px){.nav{display:flex}}
+
+/* el escenario: foto fija a la izquierda, lectura a la derecha */
+.stage{display:grid}
+@media (min-width:980px){.stage{grid-template-columns:45fr 55fr}}
+.fixed{position:relative;height:56svh;overflow:hidden;background:#d9cbc3}
+@media (min-width:980px){.fixed{position:sticky;top:4.3rem;height:calc(100svh - 4.3rem)}}
+.fixed img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.1s ease}
+.fixed img.on{opacity:1}
+.fixed figcaption{position:absolute;left:1rem;bottom:1rem;font-family:var(--sans);font-size:.85rem;color:#fff;background:rgba(47,39,36,.55);padding:.35rem .7rem;border-radius:999px}
+.read{padding:clamp(2.5rem,6vw,4.5rem) clamp(1.2rem,5vw,4.5rem)}
+.read section{max-width:46ch}
+.read section+section{margin-top:clamp(5rem,12vw,9rem)}
+.read h1{font-size:clamp(2.6rem,5.6vw,4.6rem)}
+.read h2{font-size:clamp(2rem,4vw,3rem)}
+.lead{margin-top:1.4rem;font-size:clamp(1.25rem,2.4vw,1.45rem)}
+.cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem}
+.meta{margin-top:1.6rem;font-family:var(--sans);font-size:.98rem;color:var(--muted)}
+
+/* la cosa viva: que le preocupa */
+.worries{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.6rem}
+.worries button{font-family:var(--sans);font-size:.98rem;font-weight:500;cursor:pointer;border:0;border-radius:999px;padding:.6rem 1rem;background:var(--paper-2);color:var(--ink);transition:background-color .18s}
+.worries button:hover{background:#E6D8CF}
+.worries button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.answer{margin-top:1.8rem}
+.answer h3{font-size:1.7rem}
+.answer p{margin-top:.6rem}
+.answer h4{margin:1.4rem 0 .5rem;font-family:var(--sans);font-size:.98rem;font-weight:600;color:var(--rose-deep)}
+.answer ul{margin:0;padding:0;list-style:none;display:grid;gap:.35rem}
+.answer li{font-style:italic}
+.answer .btn{margin-top:1.6rem}
+
+.areas{list-style:none;margin:2rem 0 0;padding:0;display:grid;gap:1.4rem}
+.areas h3{font-size:1.45rem}
+.areas p{margin-top:.25rem;color:var(--muted);font-size:1.08rem}
+
+/* el corte: una seccion a todo lo ancho */
+.break{background:var(--rose);color:#fff;padding:clamp(4.5rem,11vw,8rem) var(--g)}
+.break__in{max-width:70rem;margin-inline:auto}
+.break p.big{font-size:clamp(2.4rem,6.5vw,5.2rem);line-height:1.02;letter-spacing:-.03em;max-width:16em;text-wrap:balance}
+.break p.small{margin-top:1.6rem;font-size:1.3rem;max-width:34em}
+
+.hours{margin-top:1.6rem;display:grid;gap:.4rem;font-family:var(--sans);font-size:1.02rem}
+.hours div{display:flex;justify-content:space-between;gap:1rem;max-width:26rem;font-variant-numeric:tabular-nums}
+.hours small{color:var(--muted)}
+.form{display:grid;gap:1rem;margin-top:1.8rem;font-family:var(--sans)}
+.form label{display:grid;gap:.3rem;font-weight:500;font-size:.98rem}
+.form input,.form select,.form textarea{font:inherit;font-family:var(--serif);font-size:1.1rem;color:var(--ink);padding:.6rem 0;border:0;border-bottom:2px solid var(--ink);background:transparent;border-radius:0;min-width:0}
+.form textarea{min-height:5rem;resize:vertical}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-bottom-color:var(--rose-deep)}
+.form .row{display:grid;gap:1rem;grid-template-columns:1fr 1fr}
+.hint{font-size:.95rem;color:var(--muted)}
+
+.foot{background:var(--night);color:#D9C8BF;padding:4rem var(--g) 2rem;font-family:var(--sans)}
+.foot__in{max-width:84rem;margin-inline:auto}
+.foot__name{font-family:var(--serif);font-size:clamp(2.6rem,8.5vw,7rem);letter-spacing:-.03em;line-height:1.05;color:#fff;padding-bottom:.4rem}
+.foot__row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:1.6rem;font-size:.92rem}
+.foot a{color:#fff}
+.credits{margin-top:1rem;font-size:.8rem;color:#B9A79E}
+
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}.fixed img{transition:none}.btn,.worries button{transition:none}}
+</style>
+</head>
+<body>
+<div class="demo">Demo preparada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> para el despacho de Abigail Fernández García · No es la web oficial</div>
+
+<header class="top">
+  <div class="top__in">
+    <a class="mark" href="#">Abigail Fernández García <span>· Abogada</span></a>
+    <nav class="nav" aria-label="Principal"><a href="#preocupa">Su caso</a><a href="#areas">Áreas</a><a href="#despacho">Despacho</a><a href="#cita">Cita</a></nav>
+    <a class="btn btn--ink" href="#cita">Pedir cita</a>
+  </div>
+</header>
+
+<main>
+  <div class="stage">
+    <figure class="fixed" aria-hidden="true" style="margin:0">
+      <img class="on" data-k="iglesia" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/29_Esgl%C3%A9sia_Major_de_Santa_Coloma_de_Gramenet%2C_des_del_pg._Jaume_Gordi.jpg/1280px-29_Esgl%C3%A9sia_Major_de_Santa_Coloma_de_Gramenet%2C_des_del_pg._Jaume_Gordi.jpg" alt="" width="1280" height="1707">
+      <img data-k="rosetón" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Santa_Coloma_de_Gramenet_-_Esgl%C3%A9sia_Major_07.JPG/960px-Santa_Coloma_de_Gramenet_-_Esgl%C3%A9sia_Major_07.JPG" alt="" width="960" height="1280" loading="lazy">
+      <img data-k="canroig" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Can_Roig_i_Torres.jpg/1280px-Can_Roig_i_Torres.jpg" alt="" width="1280" height="960" loading="lazy">
+      <img data-k="torre" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/191_Can_Roig_i_Torres_%28Santa_Coloma_de_Gramenet%29.JPG/960px-191_Can_Roig_i_Torres_%28Santa_Coloma_de_Gramenet%29.JPG" alt="" width="960" height="1280" loading="lazy">
+      <img data-k="puerta" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/188_Can_Roig_i_Torres_%28Santa_Coloma_de_Gramenet%29.JPG/960px-188_Can_Roig_i_Torres_%28Santa_Coloma_de_Gramenet%29.JPG" alt="" width="960" height="1280" loading="lazy">
+      <figcaption id="cap">La Iglesia Mayor, a unos minutos del despacho</figcaption>
+    </figure>
+
+    <div class="read">
+      <section data-img="iglesia" data-cap="La Iglesia Mayor, a unos minutos del despacho">
+        <h1 class="rv">Abogada de familia en Santa Coloma</h1>
+        <p class="lead rv">Un despacho unipersonal: desde la primera consulta hasta el final, su caso lo lleva siempre la misma persona. Y siempre que se pueda, por acuerdo, sin llegar a juicio.</p>
+        <div class="cta rv"><a class="btn btn--ink" href="#preocupa">Cuénteme qué le preocupa</a><a class="btn btn--rose" href="tel:+34933921697">933 921 697</a></div>
+        <p class="meta rv">C/ Mossèn Camil Rosell, 15 · Visitas con cita previa</p>
+      </section>
+
+      <section id="preocupa" data-img="rosetón" data-cap="Rosetón de la Iglesia Mayor">
+        <h2 class="rv">¿Qué le preocupa?</h2>
+        <p class="lead rv">Elija lo que se parezca más a su situación.</p>
+        <div class="worries rv" id="worries">
+          <button type="button" aria-pressed="true" data-k="separacion">Me voy a separar</button>
+          <button type="button" aria-pressed="false" data-k="pension">Pensión de alimentos</button>
+          <button type="button" aria-pressed="false" data-k="custodia">Custodia de los hijos</button>
+          <button type="button" aria-pressed="false" data-k="mayores">Mis padres necesitan apoyo</button>
+          <button type="button" aria-pressed="false" data-k="herencia">Una herencia</button>
+          <button type="button" aria-pressed="false" data-k="accidente">He tenido un accidente</button>
+          <button type="button" aria-pressed="false" data-k="impago">Me deben dinero</button>
+        </div>
+        <div class="answer" id="answer" aria-live="polite"></div>
+      </section>
+
+      <section id="areas" data-img="canroig" data-cap="Can Roig i Torres, junto al despacho">
+        <h2 class="rv">Áreas de trabajo</h2>
+        <ul class="areas">
+          <li class="rv"><h3>Derecho de familia</h3><p>Separación y divorcio, custodia, pensiones, régimen de visitas, también con abuelos y mascotas.</p></li>
+          <li class="rv"><h3>Derecho civil</h3><p>Impagos, desahucios, compraventas entre particulares, cuotas de la comunidad de propietarios.</p></li>
+          <li class="rv"><h3>Medidas de apoyo a personas con discapacidad</h3><p>La antigua incapacitación, para cuidar de quien empieza a perder capacidades.</p></li>
+          <li class="rv"><h3>Herencias</h3><p>Planificación sucesoria en vida, testamentos y reparto de la herencia.</p></li>
+          <li class="rv"><h3>Accidentes</h3><p>Reclamación de lesiones, bajas y gastos tras un accidente de tráfico o un atropello.</p></li>
+          <li class="rv"><h3>Penal, laboral y Seguridad Social</h3><p>Y fiscal, mercantil y extranjería, con profesionales de confianza de su red.</p></li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <section class="break">
+    <div class="break__in">
+      <p class="big rv">Muchas veces no hace falta llegar a los tribunales.</p>
+      <p class="small rv">La negociación es la primera vía para resolver un conflicto: más rápida, más barata y menos dura para la familia. Si no hay acuerdo, el juicio lo lleva la misma abogada que ya conoce el caso.</p>
+    </div>
+  </section>
+
+  <div class="stage">
+    <figure class="fixed" aria-hidden="true" style="margin:0">
+      <img class="on" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/191_Can_Roig_i_Torres_%28Santa_Coloma_de_Gramenet%29.JPG/960px-191_Can_Roig_i_Torres_%28Santa_Coloma_de_Gramenet%29.JPG" alt="" width="960" height="1280" loading="lazy">
+      <figcaption>Can Roig i Torres, en el casco antiguo</figcaption>
+    </figure>
+    <div class="read">
+      <section id="despacho">
+        <h2 class="rv">El despacho</h2>
+        <p class="lead rv">En el casco antiguo de Santa Coloma, en la calle Mossèn Camil Rosell, 15, a los pies de los Jardines Ernest Lluch y a unos minutos de la Iglesia Mayor y del Conservatorio Can Roig i Torres.</p>
+        <div class="hours rv">
+          <div><span>Lunes a viernes</span><span>9:00 – 13:30</span></div>
+          <div><span>Lunes a jueves</span><span>16:00 – 19:00</span></div>
+          <small>Visitas con cita previa. Horario sujeto a compromisos fuera del despacho.</small>
+        </div>
+        <p class="meta rv"><a href="https://www.google.com/maps/search/?api=1&query=Abigail+Fern%C3%A1ndez+Garc%C3%ADa+Abogada+Santa+Coloma+de+Gramenet" target="_blank" rel="noopener">Cómo llegar</a> · <a href="tel:+34933921697">933 921 697</a> · <a href="mailto:abigail@afgabogada.com">abigail@afgabogada.com</a></p>
+      </section>
+
+      <section id="cita">
+        <h2 class="rv">Pida su cita</h2>
+        <form class="form rv" id="form">
+          <div class="row">
+            <label>Nombre<input required autocomplete="name"></label>
+            <label>Teléfono<input required type="tel" autocomplete="tel"></label>
+          </div>
+          <label>Asunto<select id="asunto"><option>Separación o divorcio</option><option>Pensión de alimentos</option><option>Custodia de los hijos</option><option>Apoyo a un familiar mayor</option><option>Herencia</option><option>Accidente</option><option>Reclamación de una deuda</option><option>Otro asunto</option></select></label>
+          <label>Cuénteme brevemente (opcional)<textarea></textarea></label>
+          <div><button class="btn btn--ink" type="submit">Pedir cita</button></div>
+          <p class="hint" id="hint">Le responderé lo antes posible.</p>
+        </form>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="foot__in">
+    <p class="foot__name">Abigail Fernández García</p>
+    <div class="foot__row"><p>Abogada · Santa Coloma de Gramenet</p><p>Demo diseñada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a></p></div>
+    <p class="credits">Fotos en Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:29_Esgl%C3%A9sia_Major_de_Santa_Coloma_de_Gramenet,_des_del_pg._Jaume_Gordi.jpg" target="_blank" rel="noopener">Iglesia Mayor</a>, Enric (CC BY-SA 4.0) · <a href="https://commons.wikimedia.org/wiki/File:Santa_Coloma_de_Gramenet_-_Esgl%C3%A9sia_Major_07.JPG" target="_blank" rel="noopener">rosetón</a>, Zarateman (CC BY-SA 4.0) · <a href="https://commons.wikimedia.org/wiki/File:Can_Roig_i_Torres.jpg" target="_blank" rel="noopener">Can Roig i Torres</a>, Herodotptlomeu (CC BY-SA 3.0) · <a href="https://commons.wikimedia.org/wiki/File:191_Can_Roig_i_Torres_(Santa_Coloma_de_Gramenet).JPG" target="_blank" rel="noopener">torre</a> y <a href="https://commons.wikimedia.org/wiki/File:188_Can_Roig_i_Torres_(Santa_Coloma_de_Gramenet).JPG" target="_blank" rel="noopener">puerta</a> de Can Roig i Torres, Enfo (CC BY-SA 4.0).</p>
+  </div>
+</footer>
+<script>
+(function(){
+  var W={
+    separacion:{t:'Separación o divorcio',d:'Le acompaño en todo el proceso, buscando primero un acuerdo que proteja a los hijos y evite un juicio largo. Si hace falta, también ante el juez.',a:['Separación o divorcio','Sobrevivir a un divorcio','Divorcio notarial'],o:'Separación o divorcio'},
+    pension:{t:'Pensión de alimentos',d:'Reclamar, modificar o extinguir una pensión, y qué hacer cuando no se paga.',a:['Pensión de alimentos','Modificación de los alimentos','Reclamación por impago de alimentos'],o:'Pensión de alimentos'},
+    custodia:{t:'Custodia de los hijos',d:'Guarda compartida o exclusiva, cambios de domicilio o de colegio y régimen de visitas, con el interés del menor por delante.',a:['El interés superior del menor','Guarda compartida y pensión de alimentos','Régimen de visitas entre abuelos y nietos'],o:'Custodia de los hijos'},
+    mayores:{t:'Apoyo a un familiar mayor',d:'Cuando un ser querido empieza a perder capacidades, las medidas judiciales de apoyo le protegen sin quitarle la voz.',a:['Medidas judiciales de apoyo','Aceptación del cargo','Rendición de cuentas'],o:'Apoyo a un familiar mayor'},
+    herencia:{t:'Herencias',d:'Planificar en vida quién recibe qué, y tramitar la herencia cuando llega el momento.',a:[],o:'Herencia'},
+    accidente:{t:'Accidentes',d:'Reclamación de lesiones, días de baja y gastos médicos tras un accidente de tráfico o un atropello.',a:[],o:'Accidente'},
+    impago:{t:'Reclamación de deudas',d:'Impagos entre particulares, alquileres o cuotas de la comunidad, por la vía más rápida posible.',a:['Procedimiento monitorio','Reclamación de menos de 2.000 euros'],o:'Reclamación de una deuda'}
+  };
+  var box=document.getElementById('answer'), wrap=document.getElementById('worries'), as=document.getElementById('asunto');
+  function show(k){
+    var w=W[k];
+    wrap.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.k===k));});
+    box.innerHTML='<h3>'+w.t+'</h3><p>'+w.d+'</p>'+(w.a.length?'<h4>Lo explico en el blog del despacho</h4><ul>'+w.a.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>':'')+'<a class="btn btn--ink" href="#cita" data-o="'+w.o+'">Pedir cita sobre esto</a>';
+  }
+  wrap.addEventListener('click',function(e){var b=e.target.closest('button'); if(b) show(b.dataset.k);});
+  box.addEventListener('click',function(e){var a=e.target.closest('[data-o]'); if(!a) return; for(var i=0;i<as.options.length;i++){if(as.options[i].text===a.dataset.o) as.selectedIndex=i;}});
+  show('separacion');
+  document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();document.getElementById('hint').textContent='Esto es una demo: en la web real, la solicitud llegaría al momento a su correo con el asunto ya indicado.';});
+  // la foto fija cambia con la seccion que se lee
+  var imgs=document.querySelectorAll('.stage:first-child .fixed img'), cap=document.getElementById('cap');
+  if('IntersectionObserver' in window){
+    var so=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting) return; var k=e.target.dataset.img; imgs.forEach(function(im){im.classList.toggle('on',im.dataset.k===k);}); cap.textContent=e.target.dataset.cap;});},{rootMargin:'-45% 0px -45% 0px'});
+    document.querySelectorAll('section[data-img]').forEach(function(s){so.observe(s);});
+  }
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if(!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting) return; var sib=[].slice.call(e.target.parentNode.children).filter(function(x){return x.classList.contains('rv');}); e.target.style.transitionDelay=(Math.max(0,sib.indexOf(e.target))*80)+'ms'; e.target.classList.add('in'); io.unobserve(e.target);});},{rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(el){io.observe(el);});
+  setTimeout(function(){els.forEach(function(el){el.classList.add('in');});},3000);
+})();
+</script>
+</body>
+</html>
