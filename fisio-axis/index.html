@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Centre de Fisioteràpia Axis · Santa Coloma de Gramenet</title>
+<meta name="description" content="Demo de web para el Centre de Fisioteràpia Axis, preparada por Grapa Lab.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Direccion: su rotulo. El azul de "CENTRE DE FISIOTERAPIA", el naranja del corredor de su logo y la cruz como unico motivo.
+   Sin fotos (en Google solo tienen la persiana): la pieza fuerte es el mapa del cuerpo, grande, en el centro de la pagina. */
+:root{
+  --blue:#1D5FC4; --blue-d:#154A9C; --orange:#F08A24; --sky:#EAF1FB; --white:#FFFFFF; --ink:#14243D; --muted:#53627A; --line:#D8E2F0;
+  --head:"Barlow Condensed","Arial Narrow",system-ui,sans-serif; --font:"Barlow",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --g:clamp(1rem,4vw,2.5rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;font-family:var(--font);font-size:1.1rem;line-height:1.55;color:var(--ink);background:var(--white)}
+a{color:inherit}
+h1,h2,h3{margin:0;font-family:var(--head);font-weight:800;line-height:.95;letter-spacing:-.005em;text-transform:uppercase;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:78rem;margin-inline:auto;padding-inline:var(--g)}
+.demo{background:var(--ink);color:#D4DDEB;font-size:.82rem;text-align:center;padding:.5rem var(--g)}
+.demo a{color:#fff;font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.95rem 1.5rem;font:inherit;font-weight:700;text-decoration:none;border:0;border-radius:6px;cursor:pointer;transition:transform .18s,background-color .18s}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:translateY(1px)}
+.btn--blue{background:var(--blue);color:#fff}.btn--blue:hover{background:var(--blue-d)}
+.btn--orange{background:var(--orange);color:var(--ink)}
+.btn--wa{background:#1B9E52;color:#fff}
+.btn svg{width:1.15rem;height:1.15rem;fill:currentColor}
+.cruz{display:inline-block;width:.8em;height:.8em;background:var(--orange);clip-path:polygon(35% 0,65% 0,65% 35%,100% 35%,100% 65%,65% 65%,65% 100%,35% 100%,35% 65%,0 65%,0 35%,35% 35%)}
+
+.top{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}
+.top__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:4.3rem}
+.logo{display:flex;gap:.6rem;align-items:center;text-decoration:none}
+.logo .cruz{width:1.6rem;height:1.6rem;background:var(--blue)}
+.logo b{font-family:var(--head);font-size:1.7rem;font-weight:800;color:var(--blue);line-height:1}
+.logo small{display:block;font-size:.62rem;letter-spacing:.14em;font-weight:600;color:var(--muted);text-transform:uppercase}
+.nav{display:none;gap:1.8rem;font-weight:600}
+.nav a{text-decoration:none}.nav a:hover{color:var(--blue)}
+.top .btn{padding:.6rem 1rem}
+@media (min-width:960px){.nav{display:flex}}
+
+/* portada: texto grande sobre azul y una cruz enorme recortada */
+.hero{background:var(--blue);color:#fff;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-6rem;top:50%;width:min(34rem,70vw);aspect-ratio:1;transform:translateY(-50%);background:rgba(255,255,255,.08);clip-path:polygon(35% 0,65% 0,65% 35%,100% 35%,100% 65%,65% 65%,65% 100%,35% 100%,35% 65%,0 65%,0 35%,35% 35%)}
+.hero__in{position:relative;z-index:1;padding-block:clamp(4rem,10vw,7.5rem)}
+.hero h1{font-size:clamp(3.6rem,11vw,8.4rem);max-width:10ch}
+.hero h1 + p{margin-top:1.4rem;max-width:32em;font-size:clamp(1.15rem,2.6vw,1.35rem);color:#DCE7F8}
+.hero .cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem}
+.hero .dato{display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;margin-top:2rem;font-weight:600}
+.hero .dato b{color:var(--orange)}
+
+.franja{background:var(--orange);color:var(--ink);font-family:var(--head);font-weight:700;text-transform:uppercase;font-size:clamp(1.2rem,3vw,1.7rem)}
+.franja .wrap{display:flex;flex-wrap:wrap;gap:.4rem 2rem;padding-block:.9rem;align-items:center}
+.franja span{display:inline-flex;gap:.6rem;align-items:center}
+.franja .cruz{background:var(--ink);width:.6em;height:.6em}
+
+.sec{padding-block:clamp(4.5rem,10vw,8rem)}
+.sec h2{font-size:clamp(2.8rem,7.5vw,5.4rem);color:var(--ink)}
+.sec .lead{margin-top:1rem;max-width:34em;font-size:1.15rem;color:var(--muted)}
+
+/* mapa del cuerpo */
+.mapa{background:var(--sky)}
+.mapa__in{display:grid;gap:2.5rem;align-items:center;margin-top:2.6rem}
+@media (min-width:900px){.mapa__in{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr)}}
+.cuerpo{max-width:min(20rem,70vw);margin-inline:auto;width:100%}
+.cuerpo .fig{fill:#BFD0EA}
+.spot{cursor:pointer}
+.spot circle{fill:var(--blue);transition:r .2s,fill .2s}
+.spot .pulso{fill:none;stroke:var(--blue);stroke-width:2;opacity:.35}
+.spot[aria-pressed="true"] circle:not(.pulso){fill:var(--orange)}
+.spot[aria-pressed="true"] .pulso{stroke:var(--orange);opacity:.6}
+.spot:focus-visible{outline:none}.spot:focus-visible circle:not(.pulso){stroke:var(--ink);stroke-width:3}
+.zonas{display:flex;flex-wrap:wrap;gap:.5rem}
+.zonas button{font:inherit;font-weight:600;border:1.5px solid var(--blue);background:#fff;color:var(--blue);border-radius:6px;padding:.5rem .9rem;cursor:pointer}
+.zonas button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.ficha{background:#fff;margin-top:1.4rem;padding:clamp(1.3rem,3vw,2rem);border-left:6px solid var(--orange)}
+.ficha h3{font-size:clamp(2rem,4.5vw,2.8rem);color:var(--blue)}
+.ficha p{margin-top:.7rem}
+.ficha ul{margin:1rem 0 0;padding:0;list-style:none;display:grid;gap:.45rem}
+.ficha li{display:flex;gap:.6rem;align-items:center;font-weight:600}
+.ficha li .cruz{flex:none;width:.75rem;height:.75rem}
+.ficha .cta{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.4rem}
+
+/* como trabajamos */
+.pasos{display:grid;gap:2rem;margin-top:2.6rem}
+@media (min-width:860px){.pasos{grid-template-columns:repeat(3,1fr);gap:3rem}}
+.pasos h3{font-size:2rem;color:var(--blue);display:flex;gap:.6rem;align-items:center}
+.pasos p{margin-top:.6rem;color:var(--muted)}
+
+/* opiniones */
+.ops{background:var(--ink);color:#fff}
+.ops h2{color:#fff}
+.ops__in{display:grid;gap:2.4rem;margin-top:2.4rem;align-items:center}
+@media (min-width:860px){.ops__in{grid-template-columns:1fr 2fr}}
+.nota{font-family:var(--head);font-weight:800;font-size:clamp(6rem,17vw,10rem);line-height:.85;color:var(--orange)}
+.nota small{display:block;font-family:var(--font);font-weight:600;font-size:1rem;color:#B9C6DA;margin-top:.8rem}
+.quotes{display:grid;gap:1.6rem}
+.quotes p{font-size:clamp(1.3rem,2.8vw,1.7rem);font-weight:500;line-height:1.3}
+.quotes span{display:block;font-size:.88rem;color:#B9C6DA;margin-top:.3rem}
+
+/* contacto */
+.cont{display:grid;gap:2.5rem}
+@media (min-width:900px){.cont{grid-template-columns:1fr 1fr;align-items:start}}
+.datos{display:grid;gap:1.1rem;margin-top:1.6rem;font-size:1.15rem}
+.datos b{display:block;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.datos a{color:var(--blue);font-weight:700}
+.form{display:grid;gap:1rem;background:var(--sky);padding:clamp(1.4rem,4vw,2.2rem)}
+.form label{display:grid;gap:.3rem;font-weight:600}
+.form input,.form select{font:inherit;padding:.75rem .9rem;border:1.5px solid var(--line);border-radius:6px;background:#fff;min-width:0}
+.form input:focus,.form select:focus{outline:none;border-color:var(--blue)}
+
+.foot{background:var(--blue);color:#DCE7F8;padding:3rem 0 2rem}
+.foot__name{font-family:var(--head);font-weight:800;text-transform:uppercase;font-size:clamp(4.5rem,18vw,12rem);line-height:1.05;color:#fff}
+.foot__row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:1rem;font-size:.92rem}
+.foot a{color:#fff}
+
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}.btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="demo">Demo preparada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> para el Centre de Fisioteràpia Axis · No es la web oficial</div>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="logo" href="#"><span class="cruz" aria-hidden="true"></span><span><b>AXIS</b><small>Centre de Fisioteràpia</small></span></a>
+    <nav class="nav" aria-label="Principal"><a href="#dolor">¿Dónde te duele?</a><a href="#como">Cómo trabajamos</a><a href="#opiniones">Opiniones</a><a href="#cita">Cita</a></nav>
+    <a class="btn btn--blue" href="#cita">Pedir cita</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero__in">
+      <h1 class="rv">Vuelve a moverte sin dolor.</h1>
+      <p class="rv">Fisioterapia en Singuerlín desde hace años: lesiones, cervicales, espalda y rodilla, con un tratamiento pensado para ti y siempre con cita previa.</p>
+      <div class="cta rv"><a class="btn btn--orange" href="#dolor">¿Dónde te duele?</a><a class="btn btn--blue" style="box-shadow:inset 0 0 0 2px #fff" href="tel:+34618324040">Llamar al 618 32 40 40</a></div>
+      <p class="dato rv"><span><b>★★★★★</b> 4,9 en Google · 48 opiniones</span><span>C/ Santiago Rusiñol, 53</span></p>
+    </div>
+  </section>
+  <div class="franja" aria-hidden="true"><div class="wrap"><span><i class="cruz"></i>Con cita previa</span><span><i class="cruz"></i>Lesiones deportivas</span><span><i class="cruz"></i>Cervicales y espalda</span><span><i class="cruz"></i>Rodilla</span></div></div>
+
+  <section class="sec mapa" id="dolor">
+    <div class="wrap">
+      <h2 class="rv">¿Dónde te duele?</h2>
+      <p class="lead rv">Toca la zona y te contamos cómo la trabajamos en Axis.</p>
+      <div class="mapa__in">
+        <div class="cuerpo rv">
+          <svg viewBox="0 0 200 400" role="group" aria-label="Mapa del cuerpo: elige la zona">
+            <g class="fig">
+              <circle cx="100" cy="38" r="24"/>
+              <rect x="90" y="58" width="20" height="18" rx="6"/>
+              <path d="M58 82q42-14 84 0l8 92q-50 14-100 0z"/>
+              <path d="M58 84q-16 6-20 26l-10 78q-1 9 7 10t10-8l12-70z"/>
+              <path d="M142 84q16 6 20 26l10 78q1 9-7 10t-10-8l-12-70z"/>
+              <path d="M52 172q48 16 96 0l-4 40q-44 10-88 0z"/>
+              <path d="M56 206h40l-6 104 4 66q0 10-12 10h-14q-8 0-6-10l4-66z"/>
+              <path d="M104 206h40l-10 104 4 66q2 10-6 10h-14q-12 0-12-10l4-66z"/>
+            </g>
+            <g class="spot" data-z="cuello" tabindex="0" role="button" aria-label="Cervicales"><circle class="pulso" cx="100" cy="68" r="15"/><circle cx="100" cy="68" r="9"/></g>
+            <g class="spot" data-z="hombro" tabindex="0" role="button" aria-label="Hombro"><circle class="pulso" cx="56" cy="94" r="15"/><circle cx="56" cy="94" r="9"/></g>
+            <g class="spot" data-z="espalda" tabindex="0" role="button" aria-label="Espalda y lumbares"><circle class="pulso" cx="100" cy="160" r="15"/><circle cx="100" cy="160" r="9"/></g>
+            <g class="spot" data-z="rodilla" tabindex="0" role="button" aria-label="Rodilla"><circle class="pulso" cx="126" cy="302" r="15"/><circle cx="126" cy="302" r="9"/></g>
+            <g class="spot" data-z="tobillo" tabindex="0" role="button" aria-label="Tobillo y pie"><circle class="pulso" cx="76" cy="374" r="15"/><circle cx="76" cy="374" r="9"/></g>
+          </svg>
+        </div>
+        <div class="rv">
+          <div class="zonas" role="group" aria-label="Zonas">
+            <button type="button" data-z="cuello">Cervicales</button>
+            <button type="button" data-z="hombro">Hombro</button>
+            <button type="button" data-z="espalda">Espalda</button>
+            <button type="button" data-z="rodilla">Rodilla</button>
+            <button type="button" data-z="tobillo">Tobillo y pie</button>
+          </div>
+          <div class="ficha" aria-live="polite">
+            <h3 id="f-t"></h3>
+            <p id="f-p"></p>
+            <ul id="f-l"></ul>
+            <div class="cta"><a class="btn btn--wa" id="f-wa" href="#" target="_blank" rel="noopener">Pedir cita por WhatsApp</a><a class="btn btn--blue" href="tel:+34618324040">Llamar</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="como">
+    <div class="wrap">
+      <h2 class="rv">Cómo trabajamos</h2>
+      <p class="lead rv">Entras con un problema y sales con un plan. Siempre con cita, para dedicarte el tiempo que necesitas.</p>
+      <div class="pasos">
+        <div class="rv"><h3><span class="cruz" aria-hidden="true"></span>Valoración</h3><p>Escuchamos qué te pasa, desde cuándo y qué te impide hacer, y exploramos la zona antes de tocar nada.</p></div>
+        <div class="rv"><h3><span class="cruz" aria-hidden="true"></span>Tratamiento</h3><p>Terapia manual y las técnicas que necesite tu lesión, en sesiones a tu hora, sin esperas ni prisas.</p></div>
+        <div class="rv"><h3><span class="cruz" aria-hidden="true"></span>Para casa</h3><p>Te llevas ejercicios sencillos para que la mejora dure y no vuelvas por lo mismo.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec ops" id="opiniones">
+    <div class="wrap">
+      <h2 class="rv">Lo que dicen de Axis</h2>
+      <div class="ops__in">
+        <div class="nota rv">4,9<small>48 opiniones en Google</small></div>
+        <div class="quotes">
+          <div class="rv"><p>«Entras con un mal y sales como nuevo.»</p><span>Opinión en Google</span></div>
+          <div class="rv"><p>«Llevan años en Santa Coloma y no me extraña. Super recomendable.»</p><span>Opinión en Google</span></div>
+          <div class="rv"><p>«La atención y el trato, inmejorables.»</p><span>Opinión en Google</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="cita">
+    <div class="wrap cont">
+      <div>
+        <h2 class="rv">Pide tu cita</h2>
+        <div class="datos rv">
+          <p><b>Dirección</b>C/ Santiago Rusiñol, 53, local 1 · 08924 Santa Coloma de Gramenet (Singuerlín) · <a href="https://www.google.com/maps/search/?api=1&query=Centre+Fisioter%C3%A0pia+Axis+Santa+Coloma+de+Gramenet" target="_blank" rel="noopener">Cómo llegar</a></p>
+          <p><b>Móvil</b><a href="tel:+34618324040">618 32 40 40</a></p>
+          <p><b>Teléfono</b><a href="tel:+34933912404">93 391 24 04</a></p>
+          <p><b>Horario</b>Con cita previa</p>
+        </div>
+      </div>
+      <form class="form rv" id="form">
+        <label for="fn">Nombre<input id="fn" required autocomplete="name"></label>
+        <label for="ft">Teléfono<input id="ft" required type="tel" autocomplete="tel"></label>
+        <label for="fz">¿Qué te pasa?<select id="fz"><option>Cervicales o cuello</option><option>Hombro</option><option>Espalda o lumbares</option><option>Rodilla</option><option>Tobillo o pie</option><option>Lesión deportiva</option><option>Otra cosa</option></select></label>
+        <label for="fh">¿Cuándo te va mejor?<select id="fh"><option>Por la mañana</option><option>Al mediodía</option><option>Por la tarde</option></select></label>
+        <div><button class="btn btn--wa" type="submit">Enviar por WhatsApp</button></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot__name">Axis</p>
+    <div class="foot__row"><p>Centre de Fisioteràpia · C/ Santiago Rusiñol, 53 · Santa Coloma de Gramenet</p><p>Demo diseñada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a></p></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var WA='34618324040';
+  var Z={
+    cuello:{t:'Cervicales',p:'Dolor de cuello, rigidez al girar la cabeza o dolores de cabeza que salen de la nuca. Muy típico de horas de ordenador y de móvil.',l:['Terapia manual cervical','Liberar la tensión de hombros y trapecios','Ejercicios de postura para el trabajo']},
+    hombro:{t:'Hombro',p:'Dolor al levantar el brazo, al dormir de ese lado o después de entrenar. Vemos de dónde viene antes de tratarlo.',l:['Valoración del movimiento','Terapia manual y vendaje','Ejercicios para recuperar fuerza']},
+    espalda:{t:'Espalda y lumbares',p:'Lumbalgias, contracturas y ese dolor que aparece al agacharte o al estar mucho rato de pie o sentado.',l:['Terapia manual y masaje','Movilidad de la columna','Rutina corta para hacer en casa']},
+    rodilla:{t:'Rodilla',p:'Esguinces, dolor al bajar escaleras, al correr o después de una operación. Te acompañamos hasta que vuelves a tu ritmo.',l:['Recuperación de lesiones','Rehabilitación tras operación','Vuelta progresiva al deporte']},
+    tobillo:{t:'Tobillo y pie',p:'Torceduras, fascitis o molestias al caminar. Cuanto antes se trata, antes vuelves a apoyar sin miedo.',l:['Tratamiento del esguince','Fascitis plantar','Ejercicios de equilibrio']}
+  };
+  function elegir(z){
+    var d=Z[z]; document.getElementById('f-t').textContent=d.t; document.getElementById('f-p').textContent=d.p;
+    var ul=document.getElementById('f-l'); ul.innerHTML='';
+    d.l.forEach(function(x){var li=document.createElement('li');var c=document.createElement('span');c.className='cruz';li.appendChild(c);li.appendChild(document.createTextNode(x));ul.appendChild(li);});
+    document.getElementById('f-wa').href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hola, me gustaría pedir cita en Axis. Tengo molestias en: '+d.t.toLowerCase()+'.');
+    document.querySelectorAll('[data-z]').forEach(function(el){el.setAttribute('aria-pressed',String(el.dataset.z===z));});
+  }
+  document.querySelectorAll('[data-z]').forEach(function(el){
+    el.addEventListener('click',function(){elegir(el.dataset.z);});
+    el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();elegir(el.dataset.z);}});
+  });
+  elegir('espalda');
+  function v(id){return document.getElementById(id).value;}
+  document.getElementById('form').addEventListener('submit',function(e){
+    e.preventDefault();
+    var t='Hola, soy '+v('fn')+'. Me gustaría pedir cita en Axis.\nQué me pasa: '+v('fz')+'\nMejor: '+v('fh')+'\nMi teléfono: '+v('ft');
+    window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(t),'_blank');
+  });
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);});},{rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(e){io.observe(e);});
+  setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},3000);
+})();
+</script>
+</body>
+</html>

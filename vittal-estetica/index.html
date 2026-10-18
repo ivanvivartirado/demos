@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Vittal Estética Integral · Santa Coloma de Gramenet</title>
+<meta name="description" content="Demo de web para Vittal Estética Integral, preparada por Grapa Lab.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Direccion: su propio rotulo. "Vittal" en una romana clasica, ESTETICA INTEGRAL en mayusculas espaciadas y el morado del cartel.
+   Un solo motivo: la V de hojas de su logo, usada como vineta y como marca de agua. Blanco, morado y el verde de sus plantas. */
+:root{
+  --violet:#4A3F8F; --violet-d:#372E70; --lilac:#ECE8F6; --sage:#5E7F5A; --sage-soft:#E6EEE4; --white:#FFFFFF; --ink:#24213A; --muted:#625E78; --line:#E2DFEC;
+  --head:"Marcellus",Georgia,serif; --font:"Mulish",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --g:clamp(1rem,4vw,2.5rem);
+  --hoja:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 38C14 30 8 22 9 12c6 4 10 12 11 26zM20 38c6-8 12-16 11-26-6 4-10 12-11 26zM20 36c-2-10-1-22 0-32 1 10 2 22 0 32z' fill='%235E7F5A'/%3E%3C/svg%3E");
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;font-family:var(--font);font-size:1.08rem;line-height:1.6;color:var(--ink);background:var(--white)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;font-family:var(--head);font-weight:400;line-height:1.05;letter-spacing:.005em;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:78rem;margin-inline:auto;padding-inline:var(--g)}
+.caps{text-transform:uppercase;letter-spacing:.28em;font-size:.78rem;font-weight:600}
+.demo{background:var(--ink);color:#DCD8EC;font-size:.82rem;text-align:center;padding:.5rem var(--g)}
+.demo a{color:#fff;font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.95rem 1.5rem;font:inherit;font-weight:700;text-decoration:none;border:0;border-radius:999px;cursor:pointer;transition:transform .18s,background-color .18s}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:translateY(1px)}
+.btn--violet{background:var(--violet);color:#fff}.btn--violet:hover{background:var(--violet-d)}
+.btn--line{background:transparent;color:var(--violet);box-shadow:inset 0 0 0 2px var(--violet)}
+.btn--wa{background:#1B9E52;color:#fff}.btn--wa:hover{background:#15843F}
+.btn svg{width:1.15rem;height:1.15rem;fill:currentColor}
+
+.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px)}
+.top__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:4.4rem}
+.logo{text-decoration:none;display:grid;line-height:1}
+.logo b{font-family:var(--head);font-weight:400;font-size:1.9rem;color:var(--violet)}
+.logo small{font-size:.58rem;letter-spacing:.3em;color:var(--muted);font-weight:600;margin-top:.15rem}
+.nav{display:none;gap:1.8rem;font-weight:600;font-size:.95rem}
+.nav a{text-decoration:none}.nav a:hover{color:var(--violet)}
+.top .btn{padding:.6rem 1.1rem}
+@media (min-width:960px){.nav{display:flex}}
+
+/* portada: foto a sangre a la derecha, texto a la izquierda */
+.hero{position:relative;background:var(--lilac);overflow:hidden}
+.hero__in{display:grid;align-items:center;min-height:min(46rem,88svh)}
+.hero__txt{position:relative;z-index:1;padding-block:clamp(3rem,8vw,5rem)}
+.hero .caps{color:var(--violet)}
+.hero h1{font-size:clamp(3rem,8.5vw,6.4rem);color:var(--ink);margin-top:1rem}
+.hero .p{margin-top:1.4rem;font-size:clamp(1.1rem,2.4vw,1.25rem);max-width:30em;color:var(--muted)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem}
+.dato{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;margin-top:1.8rem;font-weight:600;font-size:.95rem}
+.dato b{color:#C99A2E;letter-spacing:.08em}
+.estado{display:inline-flex;align-items:center;gap:.45rem}
+.estado i{width:.6rem;height:.6rem;border-radius:50%;background:var(--muted)}
+.estado.abierto i{background:#1B9E52}
+.hero__foto{height:22rem;margin-inline:calc(-1 * var(--g))}
+.hero__foto img{width:100%;height:100%;object-fit:cover}
+@media (min-width:900px){
+  .hero__in{grid-template-columns:1fr 1fr}
+  .hero__foto{position:absolute;inset:0 0 0 50%;height:auto;margin:0}
+}
+
+.marca{position:relative}
+.marca::after{content:"";position:absolute;width:clamp(10rem,28vw,20rem);aspect-ratio:1;right:-2rem;top:-3rem;background:var(--hoja) center/contain no-repeat;opacity:.08;pointer-events:none}
+
+.sec{padding-block:clamp(4.5rem,10vw,8rem)}
+.sec h2{font-size:clamp(2.5rem,6.5vw,4.4rem)}
+.sec .lead{margin-top:1.1rem;max-width:34em;font-size:1.15rem;color:var(--muted)}
+
+/* tratamientos: filas con foto, alternadas */
+.trats{display:grid;gap:clamp(2.5rem,6vw,4.5rem);margin-top:3rem}
+.trat{display:grid;gap:1.4rem;align-items:center}
+.trat img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.trat h3{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--violet)}
+.trat p{margin-top:.6rem;max-width:30em}
+.trat ul{list-style:none;padding:0;margin:1rem 0 0;display:grid;gap:.4rem}
+.trat li{display:flex;gap:.6rem;align-items:center;font-weight:600}
+.trat li::before{content:"";flex:none;width:1.1rem;height:1.1rem;background:var(--hoja) center/contain no-repeat}
+@media (min-width:860px){.trat{grid-template-columns:1fr 1fr;gap:3.5rem}.trat:nth-child(even) .trat__foto{order:2}}
+
+/* ritual: lo vivo de la pagina */
+.ritual{background:var(--violet);color:#fff}
+.ritual h2{color:#fff}
+.ritual .lead{color:#D7D2EE}
+.opts{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2.2rem}
+.opt{font:inherit;font-weight:600;border:0;border-radius:999px;padding:.75rem 1.2rem;background:rgba(255,255,255,.12);color:#fff;cursor:pointer;transition:background-color .2s}
+.opt:hover{background:rgba(255,255,255,.22)}
+.opt[aria-pressed="true"]{background:#fff;color:var(--violet)}
+.res{display:grid;gap:1.6rem;margin-top:2.4rem;background:#fff;color:var(--ink);padding:clamp(1.4rem,4vw,2.4rem);align-items:center}
+@media (min-width:860px){.res{grid-template-columns:1.2fr 1fr}}
+.res .caps{color:var(--sage)}
+.res h3{font-size:clamp(1.8rem,4vw,2.6rem);color:var(--violet);margin-top:.5rem}
+.res p{margin-top:.6rem;color:var(--muted)}
+.res .cta{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.4rem}
+.res img{width:100%;aspect-ratio:4/3;object-fit:cover}
+
+/* el centro */
+.centro{display:grid;gap:.8rem;margin-top:2.6rem;grid-template-columns:1fr 1fr}
+.centro figure:first-child{grid-column:1/-1}
+.centro img{width:100%;height:100%;object-fit:cover}
+@media (min-width:860px){.centro{grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:20rem 20rem}.centro figure:first-child{grid-row:1/3;grid-column:auto}}
+.centro figure{margin:0;position:relative;min-height:12rem}
+.centro figcaption{position:absolute;left:0;bottom:0;background:#fff;padding:.4rem .8rem;font-size:.85rem;font-weight:600}
+
+/* opiniones */
+.ops{display:grid;gap:2.4rem;margin-top:2.4rem;align-items:center}
+@media (min-width:860px){.ops{grid-template-columns:1fr 2fr}}
+.nota{font-family:var(--head);font-size:clamp(5rem,15vw,8.5rem);color:var(--violet);line-height:.9}
+.nota small{display:block;font-family:var(--font);font-size:1rem;color:var(--muted);font-weight:600;margin-top:.8rem}
+.quotes{display:grid;gap:1.6rem}
+.quotes p{font-family:var(--head);font-size:clamp(1.4rem,3vw,1.9rem);line-height:1.25}
+.quotes span{display:block;font-size:.88rem;color:var(--muted);margin-top:.3rem}
+
+/* contacto */
+.contacto{background:var(--sage-soft)}
+.cont{display:grid;gap:2.5rem}
+@media (min-width:900px){.cont{grid-template-columns:1fr 1fr;align-items:start}}
+.horario{width:100%;border-collapse:collapse;margin-top:1.4rem;font-variant-numeric:tabular-nums}
+.horario td{padding:.55rem 0;border-bottom:1px solid #CFDCCB}
+.horario td:last-child{text-align:right;font-weight:600}
+.horario tr.hoy td{color:var(--violet);font-weight:700}
+.datos{display:grid;gap:1rem;font-size:1.1rem}
+.datos b{display:block;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.datos a{color:var(--violet);font-weight:700}
+
+.foot{background:var(--ink);color:#CFCBE2;padding:3rem 0 2rem}
+.foot__name{font-family:var(--head);font-size:clamp(4rem,16vw,11rem);line-height:1.05;color:#fff}
+.foot__row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:1rem;font-size:.92rem}
+.foot a{color:#fff}
+
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}.btn,.opt{transition:none}}
+</style>
+</head>
+<body>
+<div class="demo">Demo preparada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> para Vittal Estética Integral · No es la web oficial</div>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="logo" href="#"><b>Vittal</b><small>ESTÉTICA INTEGRAL</small></a>
+    <nav class="nav" aria-label="Principal"><a href="#tratamientos">Tratamientos</a><a href="#ritual">Tu ritual</a><a href="#centro">El centro</a><a href="#cita">Cita</a></nav>
+    <a class="btn btn--wa" href="https://wa.me/34692604067" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.2.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg>Reservar</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero__in">
+      <div class="hero__txt">
+        <p class="caps rv">Estética integral · by Virginia Gelvez</p>
+        <h1 class="rv">Tu pausa en Santa Coloma.</h1>
+        <p class="p rv">Masajes, tratamientos faciales y corporales, micropigmentación y beauty parties en la Plaça de les Cultures.</p>
+        <div class="cta rv"><a class="btn btn--violet" href="#ritual">Elige tu tratamiento</a><a class="btn btn--line" href="#cita">Horario y dirección</a></div>
+        <p class="dato rv"><span><b>★★★★★</b> 4,9 en Google · 159 opiniones</span><span class="estado" id="estado"><i></i><span>Horario</span></span></p>
+      </div>
+    </div>
+    <div class="hero__foto"><img src="img/9.jpg" alt="Masaje facial en una cabina de Vittal" width="800" height="1199"></div>
+  </section>
+
+  <section class="sec marca" id="tratamientos">
+    <div class="wrap">
+      <p class="caps rv" style="color:var(--sage)">Nuestros tratamientos</p>
+      <h2 class="rv" style="margin-top:.8rem">Lo que hacemos por ti</h2>
+      <div class="trats">
+        <div class="trat rv"><div class="trat__foto"><img src="img/8.jpg" alt="Mascarilla de fibra de cristal de Mesoestetic" loading="lazy" width="1080" height="1920"></div><div><h3>Tratamientos faciales</h3><p>Higiene facial completa con masaje incluido y tratamientos con cosmética profesional para que tu piel salga limpia y luminosa, sin marcas.</p><ul><li>Higiene facial profunda</li><li>Tratamientos para piel sensible</li><li>Cosmética Mesoestetic</li></ul></div></div>
+        <div class="trat rv"><div class="trat__foto"><img src="img/3.jpg" alt="Rodillos de madera para maderoterapia" loading="lazy" width="1200" height="1600"></div><div><h3>Masajes y corporales</h3><p>Masajes relajantes para desconectar y tratamientos corporales, como la maderoterapia, para moldear y activar la circulación.</p><ul><li>Masaje relajante</li><li>Maderoterapia</li><li>Tratamientos corporales</li></ul></div></div>
+        <div class="trat rv"><div class="trat__foto"><img src="img/10.jpg" alt="Cuenco de pétalos secos en el centro" loading="lazy" width="1080" height="1920"></div><div><h3>Micropigmentación y beauty party</h3><p>Cejas y labios definidos con micropigmentación, y beauty parties para celebrar con tus amigas un día distinto.</p><ul><li>Micropigmentación de cejas y labios</li><li>Beauty party para grupos</li><li>Bonos y ofertas</li></ul></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec ritual" id="ritual">
+    <div class="wrap">
+      <h2 class="rv">¿Qué te apetece hoy?</h2>
+      <p class="lead rv">Elige cómo quieres salir de Vittal y te decimos qué tratamiento te va mejor. Lo pides por WhatsApp en un toque.</p>
+      <div class="opts rv" id="opts" role="group" aria-label="Elegir objetivo"></div>
+      <div class="res rv" aria-live="polite">
+        <div><p class="caps" id="r-cuando"></p><h3 id="r-titulo"></h3><p id="r-texto"></p><div class="cta"><a class="btn btn--wa" id="r-wa" href="#" target="_blank" rel="noopener">Pedir cita por WhatsApp</a></div></div>
+        <img id="r-img" src="img/4.jpg" alt="" loading="lazy" width="1200" height="1600">
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="centro">
+    <div class="wrap">
+      <h2 class="rv">Así es Vittal</h2>
+      <p class="lead rv">Un centro pequeño y tranquilo, con plantas, luz natural y cabinas preparadas para que solo pienses en ti.</p>
+      <div class="centro rv">
+        <figure><img src="img/6.jpg" alt="Recepción de Vittal con plantas" loading="lazy" width="1200" height="1600"><figcaption>La recepción</figcaption></figure>
+        <figure><img src="img/4.jpg" alt="Cabina de tratamientos" loading="lazy" width="1200" height="1600"><figcaption>La cabina</figcaption></figure>
+        <figure><img src="img/5.jpg" alt="Fachada de Vittal en la Plaça de les Cultures" loading="lazy" width="586" height="700"><figcaption>Plaça de les Cultures, 3</figcaption></figure>
+        <figure><img src="img/1.jpg" alt="Masaje relajante" loading="lazy" width="1400" height="788"><figcaption>Masajes</figcaption></figure>
+        <figure><img src="img/7.jpg" alt="Rincón del centro con plantas" loading="lazy" width="1080" height="1920"><figcaption>Rincón de espera</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="background:var(--lilac)">
+    <div class="wrap">
+      <h2 class="rv">Lo que dicen de Vittal</h2>
+      <div class="ops">
+        <div class="nota rv">4,9<small>159 opiniones en Google</small></div>
+        <div class="quotes">
+          <div class="rv"><p>«Te atienden súper bien, muy atentos a ti. Cumplieron todas las expectativas.»</p><span>Opinión en Google</span></div>
+          <div class="rv"><p>«Sales con un glow up espectacular, y la higiene es súper completa.»</p><span>Opinión en Google</span></div>
+          <div class="rv"><p>«Fui por una oferta y ya me he hecho clienta fija.»</p><span>Opinión en Google</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec contacto" id="cita">
+    <div class="wrap cont">
+      <div>
+        <h2 class="rv">Pide tu cita</h2>
+        <div class="datos rv" style="margin-top:1.6rem">
+          <p><b>Dirección</b>Plaça de les Cultures, 3, local 5 · 08923 Santa Coloma de Gramenet · <a href="https://www.google.com/maps/search/?api=1&query=Vittal+Est%C3%A9tica+Avanzada+Santa+Coloma+de+Gramenet" target="_blank" rel="noopener">Cómo llegar</a></p>
+          <p><b>WhatsApp</b><a href="https://wa.me/34692604067" target="_blank" rel="noopener">692 60 40 67</a></p>
+          <p><b>Teléfono</b><a href="tel:+34933857446">933 85 74 46</a></p>
+        </div>
+      </div>
+      <div class="rv">
+        <p class="caps" style="color:var(--sage)">Horario</p>
+        <table class="horario" id="horario" aria-label="Horario de apertura"></table>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot__name">Vittal</p>
+    <div class="foot__row"><p>Estética integral by Virginia Gelvez · Plaça de les Cultures, 3 · Santa Coloma de Gramenet</p><p>Demo diseñada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> con las fotos del propio centro</p></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var WA='34692604067';
+  // Horario real de su ficha de Google (0 = domingo)
+  var H={0:null,1:['16:00','20:00'],2:['16:00','20:00'],3:['16:00','20:00'],4:['9:15','20:00'],5:['9:15','20:00'],6:null};
+  var NOM=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+  var ahora=new Date(), d=ahora.getDay(), min=ahora.getHours()*60+ahora.getMinutes();
+  var m=function(t){var p=t.split(':');return +p[0]*60+ +p[1];};
+  var tabla=document.getElementById('horario');
+  [1,2,3,4,5,6,0].forEach(function(k){
+    var tr=document.createElement('tr'); if(k===d) tr.className='hoy';
+    var a=document.createElement('td'); a.textContent=NOM[k]; var b=document.createElement('td'); b.textContent=H[k]?H[k][0]+' – '+H[k][1]:'Cerrado';
+    tr.appendChild(a); tr.appendChild(b); tabla.appendChild(tr);
+  });
+  var est=document.getElementById('estado'), txt=est.querySelector('span');
+  if(H[d]&&min>=m(H[d][0])&&min<m(H[d][1])){est.classList.add('abierto');txt.textContent='Abierto ahora, hasta las '+H[d][1];}
+  else{for(var i=0;i<8;i++){var k=(d+i)%7;if(H[k]&&(i>0||min<m(H[k][0]))){txt.textContent='Cerrado · abre '+(i===0?'hoy':i===1?'mañana':'el '+NOM[k].toLowerCase())+' a las '+H[k][0];break;}}}
+
+  var OPC=[
+    {id:'relax',txt:'Desconectar',t:'Masaje relajante',c:'Para cuando necesitas parar',p:'Un masaje para soltar tensión y salir ligera. Ideal después de una semana larga.',img:'img/1.jpg'},
+    {id:'piel',txt:'Una piel más luminosa',t:'Higiene facial profunda',c:'Para tu piel',p:'Limpieza completa con masaje incluido y cosmética profesional. Sales con la cara limpia y luminosa, sin marcas.',img:'img/8.jpg'},
+    {id:'cuerpo',txt:'Moldear el cuerpo',t:'Maderoterapia',c:'Para tu cuerpo',p:'Masaje con rodillos de madera que activa la circulación y ayuda a moldear. Se nota más en un bono de varias sesiones.',img:'img/3.jpg'},
+    {id:'cejas',txt:'Cejas y labios perfectos',t:'Micropigmentación',c:'Para ganar tiempo cada mañana',p:'Cejas y labios definidos que se mantienen. En la primera visita vemos juntas el diseño que te favorece.',img:'img/4.jpg'},
+    {id:'party',txt:'Celebrar con amigas',t:'Beauty party',c:'Para un día especial',p:'Un rato de tratamientos y risas para tu grupo: cumpleaños, despedidas o porque sí.',img:'img/10.jpg'}
+  ];
+  var cont=document.getElementById('opts'), btns=[];
+  function elegir(o){
+    btns.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.id===o.id));});
+    document.getElementById('r-cuando').textContent=o.c;
+    document.getElementById('r-titulo').textContent=o.t;
+    document.getElementById('r-texto').textContent=o.p;
+    var img=document.getElementById('r-img'); img.src=o.img; img.alt=o.t;
+    document.getElementById('r-wa').href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hola Vittal, me gustaría pedir cita para '+o.t.toLowerCase()+'. ¿Qué día tenéis libre?');
+  }
+  OPC.forEach(function(o){var b=document.createElement('button');b.type='button';b.className='opt';b.dataset.id=o.id;b.textContent=o.txt;b.addEventListener('click',function(){elegir(o);});cont.appendChild(b);btns.push(b);});
+  elegir(OPC[1]);
+
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);});},{rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(e){io.observe(e);});
+  setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},3000);
+})();
+</script>
+</body>
+</html>
