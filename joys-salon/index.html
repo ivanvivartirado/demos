@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Joys Boutique Salon · Peluquería en Santa Coloma y Barcelona</title>
+<meta name="description" content="Demo de web para Joys Boutique Salon, preparada por Grapa Lab.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Direccion: su rotulo. JOYS en mayusculas finas y plateadas con un trazo rojo, y un salon blanco y luminoso.
+   Blanco, gris plata, negro y un solo rojo. Una sola familia (Jost) en fino para titulares y normal para el texto.
+   Motivo: el trazo rojo de su logo, como subrayado y como marca de seleccion. */
+:root{
+  --white:#FFFFFF; --mist:#F4F4F3; --silver:#B9BBBE; --ink:#1B1B1D; --muted:#66676B; --red:#D3262E; --line:#E4E4E2;
+  --font:"Jost",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --g:clamp(1rem,4vw,2.5rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;font-family:var(--font);font-size:1.08rem;line-height:1.6;color:var(--ink);background:var(--white)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:300;line-height:1.02;letter-spacing:.01em;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:78rem;margin-inline:auto;padding-inline:var(--g)}
+.trazo{display:inline-block;width:4.5rem;height:.35rem;background:var(--red);border-radius:999px;transform:skewX(-20deg)}
+.demo{background:var(--ink);color:#CFCFD2;font-size:.82rem;text-align:center;padding:.5rem var(--g)}
+.demo a{color:#fff;font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.95rem 1.6rem;font:inherit;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:.88rem;text-decoration:none;border:0;cursor:pointer;transition:transform .18s,background-color .18s}
+.btn:hover{transform:translateY(-2px)}
+.btn--red{background:var(--red);color:#fff}.btn--red:hover{background:#B31E25}
+.btn--ink{background:var(--ink);color:#fff}
+.btn--line{box-shadow:inset 0 0 0 1px var(--ink)}
+.btn--wa{background:#1B9E52;color:#fff}
+
+.top{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}
+.top__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:4.3rem}
+.logo{text-decoration:none;display:flex;align-items:baseline;gap:.5rem;line-height:1}
+.logo b{font-weight:300;font-size:1.9rem;letter-spacing:.18em;color:#8E9094;position:relative}
+.logo b::after{content:"";position:absolute;right:-.2rem;top:.15rem;width:1.1rem;height:.22rem;background:var(--red);transform:rotate(-28deg);border-radius:999px}
+.logo small{font-size:.78rem;font-style:italic;color:var(--red)}
+.nav{display:none;gap:1.8rem;font-weight:400;text-transform:uppercase;letter-spacing:.08em;font-size:.85rem}
+.nav a{text-decoration:none}.nav a:hover{color:var(--red)}
+.top .btn{padding:.6rem 1rem}
+@media (min-width:960px){.nav{display:flex}}
+
+.hero{position:relative;background:var(--mist)}
+.hero__in{display:grid;gap:2.4rem;align-items:center;padding-block:clamp(2.5rem,7vw,5rem)}
+@media (min-width:900px){.hero__in{grid-template-columns:1fr 1.1fr}}
+.hero h1{font-size:clamp(3.2rem,9vw,6.8rem)}
+.hero h1 + .trazo{margin-top:1.4rem}
+.hero .p{margin-top:1.4rem;font-size:clamp(1.12rem,2.4vw,1.28rem);color:var(--muted);max-width:30em}
+.hero .cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.8rem}
+.dato{display:flex;flex-wrap:wrap;gap:.3rem 1.4rem;margin-top:1.6rem;font-weight:500;font-size:.95rem}
+.dato b{color:var(--red);font-weight:600}
+.hero__foto img{width:100%;aspect-ratio:4/3;object-fit:cover}
+
+.sec{padding-block:clamp(4.5rem,10vw,8rem)}
+.sec h2{font-size:clamp(2.6rem,6.5vw,4.6rem)}
+.sec .lead{margin-top:1rem;max-width:34em;font-size:1.12rem;color:var(--muted)}
+
+/* elige tu salon: lo vivo */
+.salones{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:2rem}
+.salones button{font:inherit;font-weight:500;text-transform:uppercase;letter-spacing:.08em;font-size:.9rem;border:1px solid var(--ink);background:#fff;color:var(--ink);padding:.75rem 1.2rem;cursor:pointer;position:relative}
+.salones button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.salones button[aria-pressed="true"]::after{content:"";position:absolute;left:1.2rem;bottom:-.5rem;width:2.4rem;height:.3rem;background:var(--red);transform:skewX(-20deg)}
+.ficha{display:grid;gap:2rem;margin-top:2.4rem;align-items:center}
+@media (min-width:900px){.ficha{grid-template-columns:1.1fr 1fr}}
+.ficha img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.ficha h3{font-size:clamp(2rem,4.5vw,3rem)}
+.ficha .datos{display:grid;gap:.9rem;margin-top:1.4rem}
+.ficha .datos b{display:block;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.ficha .cta{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem}
+.estado{display:inline-flex;gap:.45rem;align-items:center;font-weight:500}
+.estado i{width:.6rem;height:.6rem;border-radius:50%;background:var(--silver)}
+.estado.abierto i{background:#1B9E52}
+
+/* servicios */
+.servs{display:grid;gap:0;margin-top:2.4rem;border-top:1px solid var(--line)}
+@media (min-width:860px){.servs{grid-template-columns:1fr 1fr;column-gap:3rem}}
+.serv{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;padding-block:1.2rem;border-bottom:1px solid var(--line)}
+.serv h3{font-size:1.5rem;font-weight:400}
+.serv p{color:var(--muted);font-size:.95rem}
+.promesa{display:flex;gap:1rem;align-items:center;margin-top:2rem;padding:1.2rem 1.4rem;background:var(--mist);font-weight:500}
+.promesa .trazo{flex:none;width:2.4rem}
+
+/* trabajos */
+.trab{display:grid;gap:.8rem;margin-top:2.4rem;grid-template-columns:repeat(2,1fr)}
+@media (min-width:900px){.trab{grid-template-columns:repeat(4,1fr)}}
+.trab figure{margin:0}
+.trab img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.trab figcaption{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;margin-top:.5rem}
+
+.ops{background:var(--ink);color:#fff}
+.ops__in{display:grid;gap:2.4rem;margin-top:2.4rem;align-items:center}
+@media (min-width:860px){.ops__in{grid-template-columns:1fr 2fr}}
+.nota{font-weight:300;font-size:clamp(5.5rem,16vw,9rem);line-height:.85}
+.nota small{display:block;font-size:1rem;color:var(--silver);margin-top:.8rem}
+.quotes{display:grid;gap:1.6rem}
+.quotes p{font-weight:300;font-size:clamp(1.35rem,2.8vw,1.85rem);line-height:1.3}
+.quotes span{display:block;font-size:.88rem;color:var(--silver);margin-top:.3rem}
+
+.foot{background:var(--mist);color:var(--muted);padding:3rem 0 2rem}
+.foot__name{font-weight:300;font-size:clamp(4.5rem,17vw,12rem);line-height:1.05;letter-spacing:.12em;color:#8E9094}
+.foot__row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:1rem;font-size:.92rem}
+
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}.btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="demo">Demo preparada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> para Joys Boutique Salon · No es la web oficial</div>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="logo" href="#"><b>JOYS</b><small>Hair Salon</small></a>
+    <nav class="nav" aria-label="Principal"><a href="#salones">Salones</a><a href="#servicios">Servicios</a><a href="#trabajos">Trabajos</a><a href="#opiniones">Opiniones</a></nav>
+    <a class="btn btn--red" href="#salones">Reservar</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero__in">
+      <div>
+        <h1 class="rv">Expertas en color, corte y cuidado.</h1>
+        <span class="trazo rv" aria-hidden="true"></span>
+        <p class="p rv">Peluquería boutique en el Carrer de Sant Carles de Santa Coloma y en Barcelona. Color, cortes, recogidos y tratamientos capilares con producto profesional.</p>
+        <div class="cta rv"><a class="btn btn--ink" href="#salones">Elige tu salón</a><a class="btn btn--line" href="#trabajos">Ver trabajos</a></div>
+        <p class="dato rv"><span><b>★★★★★</b> 4,7 en Google · 57 opiniones</span><span>2 salones</span></p>
+      </div>
+      <div class="hero__foto rv"><img src="img/2.jpg" alt="Fachada de Joys Hair Salon en Santa Coloma" width="1400" height="1102"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="salones">
+    <div class="wrap">
+      <h2 class="rv">Elige tu salón</h2>
+      <p class="lead rv">Mismo equipo y mismo cuidado en los dos. Toca el tuyo y te mostramos cómo llegar, el horario y su WhatsApp para reservar.</p>
+      <div class="salones rv" id="salones-btns" role="group" aria-label="Salón"></div>
+      <div class="ficha rv" aria-live="polite">
+        <img id="s-img" src="img/1.jpg" alt="" width="1400" height="1867">
+        <div>
+          <h3 id="s-nom"></h3>
+          <div class="datos">
+            <p><b>Dirección</b><span id="s-dir"></span></p>
+            <p><b>Horario</b><span id="s-hor"></span></p>
+            <p><b>Estado</b><span class="estado" id="s-est"><i></i><span></span></span></p>
+          </div>
+          <div class="cta"><a class="btn btn--wa" id="s-wa" href="#" target="_blank" rel="noopener">Reservar por WhatsApp</a><a class="btn btn--line" id="s-map" href="#" target="_blank" rel="noopener">Cómo llegar</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="servicios" style="background:var(--mist)">
+    <div class="wrap">
+      <h2 class="rv">Servicios</h2>
+      <div class="servs">
+        <div class="serv rv"><h3>Color y mechas</h3><p>Tintes, babylights y balayage</p></div>
+        <div class="serv rv"><h3>Corte y peinado</h3><p>Melenas, bobs y cortes cortos</p></div>
+        <div class="serv rv"><h3>Recogidos</h3><p>Bodas, comuniones y eventos</p></div>
+        <div class="serv rv"><h3>Tratamientos capilares</h3><p>Hidratación y reparación</p></div>
+        <div class="serv rv"><h3>Maquillaje</h3><p>Para eventos y novias</p></div>
+        <div class="serv rv"><h3>Tienda</h3><p>Productos profesionales para casa</p></div>
+      </div>
+      <p class="promesa rv"><span class="trazo" aria-hidden="true"></span>Te decimos el precio antes de empezar, sin sorpresas al pagar.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="trabajos">
+    <div class="wrap">
+      <h2 class="rv">Trabajos del salón</h2>
+      <div class="trab">
+        <figure class="rv"><img src="img/7.jpg" alt="Bob con mechas" loading="lazy" width="1400" height="1867"><figcaption>Bob con mechas</figcaption></figure>
+        <figure class="rv"><img src="img/3.jpg" alt="Trenza de fiesta" loading="lazy" width="1152" height="2048"><figcaption>Trenza de fiesta</figcaption></figure>
+        <figure class="rv"><img src="img/8.jpg" alt="Recogido de novia con flores" loading="lazy" width="1152" height="2048"><figcaption>Recogido de novia</figcaption></figure>
+        <figure class="rv"><img src="img/5.jpg" alt="Bob cobrizo" loading="lazy" width="1400" height="788"><figcaption>Bob cobrizo</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec ops" id="opiniones">
+    <div class="wrap">
+      <h2 class="rv">Lo que dicen de Joys</h2>
+      <div class="ops__in">
+        <div class="nota rv">4,7<small>57 opiniones en Google</small></div>
+        <div class="quotes">
+          <div class="rv"><p>«Mi peluquería de confianza. Todo el equipo es muy bueno y los productos, de calidad.»</p><span>Opinión en Google</span></div>
+          <div class="rv"><p>«El trato excelente, toda una profesional y un amor en el trato personal.»</p><span>Opinión en Google</span></div>
+          <div class="rv"><p>«Totalmente recompensado, buen trato y mucha profesionalidad.»</p><span>Opinión en Google</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot__name">JOYS</p>
+    <div class="foot__row"><p>Boutique Salon · Santa Coloma de Gramenet y Barcelona</p><p>Demo diseñada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> con las fotos del propio salón</p></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var NOM=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+  var m=function(t){var p=t.split(':');return +p[0]*60+ +p[1];};
+  var SAL=[
+    {id:'sc',n:'Santa Coloma',dir:'Carrer de Sant Carles, 22 · 08922 Santa Coloma de Gramenet',wa:'34657852432',img:'img/1.jpg',
+     H:{0:null,1:['9:00','20:00'],2:['9:00','20:00'],3:['9:00','20:00'],4:['9:00','20:00'],5:['9:00','20:00'],6:['9:00','14:00']},
+     hor:'Lunes a viernes de 9:00 a 20:00 · Sábado de 9:00 a 14:00',map:'https://www.google.com/maps/search/?api=1&query=Joys+Salon+Carrer+de+Sant+Carles+22+Santa+Coloma'},
+    {id:'bcn',n:'Barcelona',dir:'Carrer de Guillem Tell · Barcelona',wa:'34663245657',img:'img/4.jpg',H:null,
+     hor:'Pregunta por WhatsApp',map:'https://www.google.com/maps/search/?api=1&query=Joys+Boutique+Salon+Guillem+Tell+Barcelona'}
+  ];
+  var cont=document.getElementById('salones-btns'), bs=[];
+  function estado(s){
+    var est=document.getElementById('s-est'), tx=est.querySelector('span'); est.classList.remove('abierto');
+    if(!s.H){tx.textContent='Consulta el horario por WhatsApp';return;}
+    var now=new Date(), d=now.getDay(), min=now.getHours()*60+now.getMinutes(), h=s.H[d];
+    if(h&&min>=m(h[0])&&min<m(h[1])){est.classList.add('abierto');tx.textContent='Abierto ahora, hasta las '+h[1];return;}
+    for(var i=0;i<8;i++){var k=(d+i)%7,r=s.H[k];if(r&&(i>0||min<m(r[0]))){tx.textContent='Cerrado · abre '+(i===0?'hoy':i===1?'mañana':'el '+NOM[k])+' a las '+r[0];return;}}
+  }
+  function elegir(s){
+    bs.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.id===s.id));});
+    document.getElementById('s-nom').textContent='Joys '+s.n;
+    document.getElementById('s-dir').textContent=s.dir;
+    document.getElementById('s-hor').textContent=s.hor;
+    var im=document.getElementById('s-img');im.src=s.img;im.alt='Salón de Joys en '+s.n;
+    document.getElementById('s-wa').href='https://wa.me/'+s.wa+'?text='+encodeURIComponent('Hola Joys '+s.n+', me gustaría pedir cita. ¿Qué día tenéis libre?');
+    document.getElementById('s-map').href=s.map;
+    estado(s);
+  }
+  SAL.forEach(function(s){var b=document.createElement('button');b.type='button';b.dataset.id=s.id;b.textContent=s.n;b.addEventListener('click',function(){elegir(s);});cont.appendChild(b);bs.push(b);});
+  elegir(SAL[0]);
+
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);});},{rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(e){io.observe(e);});
+  setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},3000);
+})();
+</script>
+</body>
+</html>

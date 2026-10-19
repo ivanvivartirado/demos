@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Saløn33 · Peluquería de autor y spa capilar en Santa Coloma</title>
+<meta name="description" content="Demo de web para Saløn33 HairStudio & Rituals, preparada por Grapa Lab.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Direccion: revista de moda. Su escaparate es negro con letras blancas y el "33" del mural es dorado sobre un sol.
+   Negro, blanco "Cloud Dancer" (el Pantone del ano que ellos mismos anuncian) y un dorado. La ø de su nombre es el unico motivo. */
+:root{
+  --black:#141312; --cloud:#F1EFEA; --white:#FFFFFF; --gold:#B88A3B; --gold-l:#D9B46C; --muted:#6A655E; --line:#DEDAD2;
+  --head:"Bodoni Moda",Didot,Georgia,serif; --font:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --g:clamp(1rem,4vw,2.5rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;font-family:var(--font);font-size:1.06rem;line-height:1.6;color:var(--black);background:var(--cloud)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;font-family:var(--head);font-weight:500;line-height:1;letter-spacing:-.01em;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:80rem;margin-inline:auto;padding-inline:var(--g)}
+.demo{background:var(--black);color:#CFCAC1;font-size:.82rem;text-align:center;padding:.5rem var(--g)}
+.demo a{color:#fff;font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:1rem 1.6rem;font:inherit;font-weight:700;font-size:.95rem;text-decoration:none;border:0;cursor:pointer;letter-spacing:.04em;transition:transform .18s,background-color .18s}
+.btn:hover{transform:translateY(-2px)}
+.btn--black{background:var(--black);color:#fff}.btn--black:hover{background:#2A2826}
+.btn--gold{background:var(--gold);color:#fff}.btn--gold:hover{background:#9E7430}
+.btn--line{box-shadow:inset 0 0 0 1.5px currentColor;background:transparent}
+.btn svg{width:1.1rem;height:1.1rem;fill:currentColor}
+.o{color:var(--gold)}
+
+.top{position:sticky;top:0;z-index:20;background:var(--black);color:#fff}
+.top__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:4.3rem}
+.logo{font-family:var(--head);font-size:1.7rem;text-decoration:none;line-height:1}
+.logo small{display:block;font-family:var(--font);font-size:.58rem;letter-spacing:.3em;color:#BDB7AC;margin-top:.2rem}
+.nav{display:none;gap:1.8rem;font-size:.92rem;font-weight:600}
+.nav a{text-decoration:none}.nav a:hover{color:var(--gold-l)}
+.top .btn{padding:.6rem 1rem}
+@media (min-width:960px){.nav{display:flex}}
+
+/* portada: rejilla tipo portada de revista */
+.hero__in{display:grid;gap:1rem;padding-block:clamp(2rem,5vw,3.5rem) clamp(3rem,7vw,5rem)}
+.hero h1{font-size:clamp(3.4rem,10vw,8.5rem);line-height:.92}
+.hero__grid{display:grid;gap:1rem;grid-template-columns:1fr 1fr}
+.hero__grid img{width:100%;height:100%;object-fit:cover}
+.hero__grid figure{margin:0;aspect-ratio:3/4}
+.hero__txt{display:grid;gap:1.2rem;align-content:end}
+.hero__txt .p{font-size:1.12rem;color:var(--muted);max-width:30em}
+.hero .cta{display:flex;flex-wrap:wrap;gap:.7rem}
+.dato{display:flex;flex-wrap:wrap;gap:.3rem 1.4rem;font-weight:600;font-size:.92rem}
+.dato b{color:var(--gold)}
+@media (min-width:900px){.hero__in{grid-template-columns:1.1fr 1fr;align-items:end;column-gap:3rem}.hero h1{grid-column:1/-1}}
+
+.sec{padding-block:clamp(4.5rem,10vw,8rem)}
+.sec h2{font-size:clamp(2.6rem,7vw,5rem)}
+.sec .lead{margin-top:1rem;max-width:34em;font-size:1.12rem;color:var(--muted)}
+
+/* elige tu color: lo vivo */
+.color{background:var(--black);color:#fff}
+.color .lead{color:#BDB7AC}
+.color__in{display:grid;gap:2.5rem;margin-top:2.6rem;align-items:center}
+@media (min-width:900px){.color__in{grid-template-columns:1fr 1fr}}
+.tonos{display:grid;gap:.6rem}
+.tono{display:flex;gap:1rem;align-items:center;width:100%;font:inherit;text-align:left;color:#fff;background:transparent;border:0;border-bottom:1px solid #3A3733;padding:1rem 0;cursor:pointer}
+.tono i{flex:none;width:2.6rem;height:2.6rem;border-radius:50%;box-shadow:0 0 0 2px #141312,0 0 0 3px transparent;transition:box-shadow .2s}
+.tono span{font-family:var(--head);font-size:clamp(1.4rem,3vw,2rem)}
+.tono small{display:block;font-family:var(--font);font-size:.85rem;color:#BDB7AC}
+.tono[aria-pressed="true"] i{box-shadow:0 0 0 2px #141312,0 0 0 4px var(--gold-l)}
+.tono[aria-pressed="true"] span{color:var(--gold-l)}
+.muestra{position:relative}
+.muestra img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.muestra p{margin-top:1rem;color:#D9D4CA}
+.muestra .btn{margin-top:1.2rem}
+
+/* servicios */
+.servs{display:grid;gap:0;margin-top:2.6rem;border-top:1px solid var(--line)}
+.serv{display:grid;gap:.4rem 2rem;padding-block:1.6rem;border-bottom:1px solid var(--line)}
+@media (min-width:860px){.serv{grid-template-columns:1fr 1.4fr}}
+.serv h3{font-size:clamp(1.7rem,3.5vw,2.4rem)}
+.serv p{color:var(--muted);max-width:36em}
+
+/* head spa */
+.spa{display:grid;gap:2.5rem;align-items:center}
+@media (min-width:900px){.spa{grid-template-columns:1fr 1fr}}
+.spa img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.spa ul{list-style:none;padding:0;margin:1.4rem 0 0;display:grid;gap:.6rem}
+.spa li{display:flex;gap:.7rem;align-items:baseline;font-weight:600}
+.spa li::before{content:"ø";font-family:var(--head);color:var(--gold);font-size:1.3rem;line-height:1}
+
+/* salon */
+.salon{display:grid;gap:1rem;margin-top:2.6rem;grid-template-columns:1fr 1fr}
+.salon figure{margin:0}
+.salon img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/4}
+.salon figure:first-child{grid-column:1/-1}
+.salon figure:first-child img{aspect-ratio:16/9}
+@media (min-width:900px){.salon{grid-template-columns:2fr 1fr 1fr}.salon figure:first-child{grid-column:auto;grid-row:1/3}.salon figure:first-child img{aspect-ratio:auto}}
+
+.ops{background:var(--white)}
+.ops__in{display:grid;gap:2.4rem;margin-top:2.4rem;align-items:center}
+@media (min-width:860px){.ops__in{grid-template-columns:1fr 2fr}}
+.nota{font-family:var(--head);font-size:clamp(5.5rem,16vw,9rem);line-height:.85}
+.nota small{display:block;font-family:var(--font);font-size:1rem;color:var(--muted);font-weight:600;margin-top:.8rem}
+.quotes{display:grid;gap:1.6rem}
+.quotes p{font-family:var(--head);font-size:clamp(1.35rem,2.8vw,1.85rem);line-height:1.25}
+.quotes span{display:block;font-size:.88rem;color:var(--muted);margin-top:.3rem}
+
+.cont{display:grid;gap:2.5rem}
+@media (min-width:900px){.cont{grid-template-columns:1fr 1fr;align-items:start}}
+.datos{display:grid;gap:1.1rem;margin-top:1.6rem;font-size:1.1rem}
+.datos b{display:block;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.datos a{font-weight:700}
+.horario{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;margin-top:1rem}
+.horario td{padding:.55rem 0;border-bottom:1px solid var(--line)}
+.horario td:last-child{text-align:right;font-weight:600}
+.horario tr.hoy td{color:var(--gold);font-weight:700}
+.estado{display:inline-flex;gap:.45rem;align-items:center;font-weight:700}
+.estado i{width:.6rem;height:.6rem;border-radius:50%;background:var(--muted)}
+.estado.abierto i{background:#1B9E52}
+
+.foot{background:var(--black);color:#BDB7AC;padding:3rem 0 2rem}
+.foot__name{font-family:var(--head);font-size:clamp(4.5rem,17vw,12rem);line-height:1.05;color:#fff}
+.foot__row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:1rem;font-size:.92rem}
+.foot a{color:#fff}
+
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}.btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="demo">Demo preparada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> para Saløn33 · No es la web oficial</div>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="logo" href="#">Sal<span class="o">ø</span>n33<small>HAIRSTUDIO &amp; RITUALS</small></a>
+    <nav class="nav" aria-label="Principal"><a href="#color">Tu color</a><a href="#servicios">Servicios</a><a href="#spa">Head spa</a><a href="#cita">Cita</a></nav>
+    <a class="btn btn--gold" href="https://wa.me/34623163883" target="_blank" rel="noopener">Reservar</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero__in">
+      <h1 class="rv">Color de autor en Santa Coloma.</h1>
+      <div class="hero__grid rv">
+        <figure><img src="img/7.jpg" alt="Balayage miel delante del mural del 33" width="1079" height="1430"></figure>
+        <figure><img src="img/2.jpg" alt="Melena en rubio rosé" width="1080" height="1920"></figure>
+      </div>
+      <div class="hero__txt">
+        <p class="p rv">Balayage, foilayage, cortes y el primer head spa del barrio. Andrés y Alejandro hacen un diagnóstico de tu pelo antes de tocar el color.</p>
+        <div class="cta rv"><a class="btn btn--black" href="#color">Elige tu color</a><a class="btn btn--line" href="#spa">Descubre el head spa</a></div>
+        <p class="dato rv"><span><b>★★★★★</b> 4,8 en Google · 219 opiniones</span><span class="estado" id="estado"><i></i><span>Horario</span></span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec color" id="color">
+    <div class="wrap">
+      <h2 class="rv">¿Qué color buscas?</h2>
+      <p class="lead rv">Toca un tono y mira un trabajo real del salón. Luego nos lo pides por WhatsApp y te damos cita para el diagnóstico.</p>
+      <div class="color__in">
+        <div class="tonos rv" id="tonos" role="group" aria-label="Elegir tono"></div>
+        <div class="muestra rv" aria-live="polite"><img id="m-img" src="img/7.jpg" alt="" loading="lazy" width="1079" height="1430"><p id="m-txt"></p><a class="btn btn--gold" id="m-wa" href="#" target="_blank" rel="noopener">Pedir este color</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="servicios">
+    <div class="wrap">
+      <h2 class="rv">Servicios</h2>
+      <div class="servs">
+        <div class="serv rv"><h3>Balayage y foilayage</h3><p>Las mechas de ahora: degradados suaves y luminosos, hechos a mano según tu tono de piel y tu base.</p></div>
+        <div class="serv rv"><h3>Color y rubios</h3><p>Rubios fríos, rosé, cobres intensos. Siempre con diagnóstico previo para cuidar la fibra del pelo.</p></div>
+        <div class="serv rv"><h3>Corte y peinado</h3><p>Cortes pensados para tu tipo de pelo y tu día a día, y peinados para eventos.</p></div>
+        <div class="serv rv"><h3>Alisado y tratamientos</h3><p>Alisados y tratamientos de reparación con productos profesionales para un pelo sano y con brillo.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="spa" style="background:var(--white)">
+    <div class="wrap spa">
+      <img class="rv" src="img/4.jpg" alt="Cabina del head spa de Saløn33" loading="lazy" width="1400" height="1867">
+      <div>
+        <h2 class="rv">Head spa: tu ritual capilar</h2>
+        <p class="lead rv">Una experiencia dermo capilar para cuidar el cuero cabelludo y darte un respiro: diagnóstico, limpieza profunda, masaje y tratamiento, en una cabina pensada para desconectar.</p>
+        <ul class="rv"><li>Head Spa Essential</li><li>Ritual Amazonia</li><li>Scalp care para cuero cabelludo sensible o graso</li></ul>
+        <a class="btn btn--black rv" style="margin-top:1.6rem" href="https://wa.me/34623163883?text=Hola%20Sal%C3%B8n33%2C%20me%20gustar%C3%ADa%20reservar%20un%20head%20spa." target="_blank" rel="noopener">Reservar un head spa</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <h2 class="rv">El salón</h2>
+      <p class="lead rv">En el número 33 del Carrer de Sant Ramon: farolillos, madera y un rincón para cada cliente.</p>
+      <div class="salon rv">
+        <figure><img src="img/3.jpg" alt="Interior del salón con farolillos" loading="lazy" width="1400" height="2489"></figure>
+        <figure><img src="img/8.jpg" alt="Tocador con espejo iluminado" loading="lazy" width="1400" height="1060"></figure>
+        <figure><img src="img/6.jpg" alt="Fachada de Saløn33" loading="lazy" width="1400" height="1050"></figure>
+        <figure><img src="img/9.jpg" alt="Melena cobre intenso" loading="lazy" width="720" height="1280"></figure>
+        <figure><img src="img/5.jpg" alt="Rubio liso" loading="lazy" width="1204" height="1600"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec ops">
+    <div class="wrap">
+      <h2 class="rv">Lo que dicen de Saløn33</h2>
+      <div class="ops__in">
+        <div class="nota rv">4,8<small>219 opiniones en Google</small></div>
+        <div class="quotes">
+          <div class="rv"><p>«Un 10/10. Las balayage quedaron únicas, preciosas, perfectamente difuminadas.»</p><span>Opinión en Google</span></div>
+          <div class="rv"><p>«El spa capilar es una experiencia única y sensorial. Volveré.»</p><span>Opinión en Google</span></div>
+          <div class="rv"><p>«Grandes profesionales y trato exquisito, totalmente recomendable.»</p><span>Opinión en Google</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="cita">
+    <div class="wrap cont">
+      <div>
+        <h2 class="rv">Pide tu cita</h2>
+        <div class="datos rv">
+          <p><b>Dirección</b>Carrer de Sant Ramon, 33, baixos 2 · 08922 Santa Coloma de Gramenet · <a href="https://www.google.com/maps/search/?api=1&query=Sal%C3%B8n33+Santa+Coloma+de+Gramenet" target="_blank" rel="noopener">Cómo llegar</a></p>
+          <p><b>Teléfono y WhatsApp</b><a href="https://wa.me/34623163883" target="_blank" rel="noopener">623 16 38 83</a></p>
+          <p><b>Instagram</b><a href="https://www.instagram.com/salon33.hairstudiorituals.i/" target="_blank" rel="noopener">@salon33.hairstudiorituals.i</a></p>
+        </div>
+      </div>
+      <div class="rv"><p class="datos" style="margin:0"><b>Horario</b></p><table class="horario" id="horario" aria-label="Horario"></table></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot__name">Sal<span class="o">ø</span>n33</p>
+    <div class="foot__row"><p>HairStudio &amp; Rituals · Carrer de Sant Ramon, 33 · Santa Coloma de Gramenet</p><p>Demo diseñada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> con las fotos del propio salón</p></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var WA='34623163883';
+  var H={0:null,1:null,2:[['9:00','13:00'],['15:00','19:30']],3:[['9:00','13:00'],['15:00','19:30']],4:[['9:00','13:00'],['15:00','19:30']],5:[['9:00','13:00'],['15:00','19:30']],6:[['9:00','15:00']]};
+  var NOM=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+  var m=function(t){var p=t.split(':');return +p[0]*60+ +p[1];};
+  var now=new Date(), d=now.getDay(), min=now.getHours()*60+now.getMinutes();
+  var tb=document.getElementById('horario');
+  [1,2,3,4,5,6,0].forEach(function(k){var tr=document.createElement('tr');if(k===d)tr.className='hoy';var a=document.createElement('td');a.textContent=NOM[k];var b=document.createElement('td');b.textContent=H[k]?H[k].map(function(r){return r[0]+'–'+r[1];}).join(' · '):'Cerrado';tr.appendChild(a);tr.appendChild(b);tb.appendChild(tr);});
+  var est=document.getElementById('estado'), tx=est.querySelector('span'), abierto=null;
+  (H[d]||[]).forEach(function(r){if(min>=m(r[0])&&min<m(r[1]))abierto=r;});
+  if(abierto){est.classList.add('abierto');tx.textContent='Abierto ahora, hasta las '+abierto[1];}
+  else{for(var i=0;i<8;i++){var k=(d+i)%7,r=(H[k]||[]).filter(function(x){return i>0||m(x[0])>min;})[0];if(r){tx.textContent='Cerrado · abre '+(i===0?'hoy':i===1?'mañana':'el '+NOM[k].toLowerCase())+' a las '+r[0];break;}}}
+
+  var T=[
+    {n:'Balayage miel',s:'Degradado cálido y natural',c:'linear-gradient(135deg,#5A3B22,#C9944E,#E9C88C)',img:'img/7.jpg',t:'Un degradado de castaño a miel, suave desde la raíz. Es el color que más nos piden.'},
+    {n:'Rubio rosé',s:'Rubio frío con reflejo rosa',c:'linear-gradient(135deg,#B98F8A,#E6C3BE,#F4E3DA)',img:'img/2.jpg',t:'Un rubio luminoso con un toque rosado. Necesita una base aclarada y un buen tratamiento para mantener el brillo.'},
+    {n:'Rubio platino',s:'Liso, limpio y muy luminoso',c:'linear-gradient(135deg,#BFB39A,#E7DFCB,#FBF7EC)',img:'img/5.jpg',t:'Rubio claro y uniforme, sin tonos amarillos. Lo trabajamos por fases para cuidar la fibra.'},
+    {n:'Cobre intenso',s:'Color que se ve desde lejos',c:'linear-gradient(135deg,#7A2A0E,#C8501E,#EB7A3A)',img:'img/9.jpg',t:'Un cobre vivo y brillante para un cambio total. Te enseñamos a mantenerlo en casa.'}
+  ];
+  var cont=document.getElementById('tonos'), bs=[];
+  function elegir(o){bs.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.n===o.n));});
+    var im=document.getElementById('m-img');im.src=o.img;im.alt=o.n+', trabajo de Saløn33';document.getElementById('m-txt').textContent=o.t;
+    document.getElementById('m-wa').href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hola Saløn33, me gustaría un '+o.n.toLowerCase()+'. ¿Cuándo puedo pasar para el diagnóstico?');}
+  T.forEach(function(o){var b=document.createElement('button');b.type='button';b.className='tono';b.dataset.n=o.n;var i=document.createElement('i');i.style.background=o.c;var sp=document.createElement('span');sp.textContent=o.n;var sm=document.createElement('small');sm.textContent=o.s;sp.appendChild(sm);b.appendChild(i);b.appendChild(sp);b.addEventListener('click',function(){elegir(o);});cont.appendChild(b);bs.push(b);});
+  elegir(T[0]);
+
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);});},{rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(e){io.observe(e);});
+  setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},3000);
+})();
+</script>
+</body>
+</html>

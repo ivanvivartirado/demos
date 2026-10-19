@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>GoEn Estilistes · Balayage y color en Santa Coloma de Gramenet</title>
+<meta name="description" content="Demo de web para la Peluquería GoEn Estilistes, preparada por Grapa Lab.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Direccion: su local. Rotulo de madera con letras en relieve, espejos con marco de madera y sillones negros.
+   Miel de balayage, cafe oscuro y blanco calido. Un solo motivo: la onda de una melena, como linea que separa y subraya. */
+:root{
+  --honey:#C4873A; --honey-d:#A06C28; --espresso:#2A1C13; --white:#FFFDF9; --sand:#F3ECE2; --muted:#6E6056; --line:#E6DCCF;
+  --head:"Young Serif",Georgia,serif; --font:"Outfit",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --g:clamp(1rem,4vw,2.5rem);
+  --onda:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12'%3E%3Cpath d='M0 6c10-8 20-8 30 0s20 8 30 0 20-8 30 0 20 8 30 0' fill='none' stroke='%23C4873A' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;font-family:var(--font);font-size:1.08rem;line-height:1.6;color:var(--espresso);background:var(--white)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;font-family:var(--head);font-weight:400;line-height:1.02;letter-spacing:-.01em;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:78rem;margin-inline:auto;padding-inline:var(--g)}
+.onda{display:block;width:7.5rem;height:.75rem;background:var(--onda) left center/contain no-repeat;margin:1.2rem 0}
+.demo{background:var(--espresso);color:#E6D8C6;font-size:.82rem;text-align:center;padding:.5rem var(--g)}
+.demo a{color:#fff;font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.95rem 1.5rem;font:inherit;font-weight:600;text-decoration:none;border:0;border-radius:999px;cursor:pointer;transition:transform .18s,background-color .18s}
+.btn:hover{transform:translateY(-2px)}
+.btn--honey{background:var(--honey);color:#fff}.btn--honey:hover{background:var(--honey-d)}
+.btn--dark{background:var(--espresso);color:#fff}
+.btn--line{box-shadow:inset 0 0 0 1.5px var(--espresso)}
+.btn--wa{background:#1B9E52;color:#fff}
+
+.top{position:sticky;top:0;z-index:20;background:rgba(255,253,249,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.top__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:4.3rem}
+.logo{font-family:var(--head);font-size:1.6rem;text-decoration:none;line-height:1}
+.logo span{color:var(--honey)}
+.logo small{display:block;font-family:var(--font);font-size:.62rem;letter-spacing:.24em;color:var(--muted);margin-top:.15rem}
+.nav{display:none;gap:1.8rem;font-weight:500}
+.nav a{text-decoration:none}.nav a:hover{color:var(--honey-d)}
+.top .btn{padding:.6rem 1.1rem}
+@media (min-width:960px){.nav{display:flex}}
+
+.hero__in{display:grid;gap:2.4rem;align-items:center;padding-block:clamp(2.5rem,7vw,5rem)}
+@media (min-width:900px){.hero__in{grid-template-columns:1fr 1fr}}
+.hero h1{font-size:clamp(3.2rem,8.5vw,6.6rem)}
+.hero .p{font-size:clamp(1.12rem,2.4vw,1.28rem);color:var(--muted);max-width:30em}
+.hero .cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.8rem}
+.dato{display:flex;flex-wrap:wrap;gap:.3rem 1.4rem;margin-top:1.6rem;font-weight:600;font-size:.95rem}
+.dato b{color:var(--honey)}
+.hero__fotos{display:grid;grid-template-columns:1.2fr 1fr;gap:.8rem;align-items:end}
+.hero__fotos img{width:100%;object-fit:cover;border-radius:999px 999px 18px 18px}
+.hero__fotos img:first-child{aspect-ratio:3/4.4}
+.hero__fotos img:last-child{aspect-ratio:3/4}
+
+.sec{padding-block:clamp(4.5rem,10vw,8rem)}
+.sec h2{font-size:clamp(2.6rem,6.5vw,4.6rem)}
+.sec .lead{max-width:34em;font-size:1.12rem;color:var(--muted)}
+
+/* calcula tu cita: lo vivo */
+.cita{background:var(--sand)}
+.calc{display:grid;gap:2.4rem;margin-top:2.4rem;align-items:start}
+@media (min-width:900px){.calc{grid-template-columns:1.3fr 1fr}}
+.servs{display:grid;gap:.7rem}
+.srv{display:flex;align-items:center;gap:1rem;width:100%;text-align:left;font:inherit;background:var(--white);border:1.5px solid var(--line);border-radius:16px;padding:1rem 1.2rem;cursor:pointer;color:inherit;transition:border-color .2s}
+.srv b{font-weight:600;flex:1}
+.srv small{color:var(--muted);font-variant-numeric:tabular-nums}
+.srv i{flex:none;width:1.5rem;height:1.5rem;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-style:normal;font-size:.9rem;color:#fff}
+.srv[aria-pressed="true"]{border-color:var(--honey)}
+.srv[aria-pressed="true"] i{background:var(--honey);border-color:var(--honey)}
+.srv[aria-pressed="true"] i::after{content:"✓"}
+.resumen{background:var(--espresso);color:#fff;border-radius:22px;padding:clamp(1.4rem,4vw,2.2rem);position:sticky;top:6rem}
+.resumen .caps{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#D9C2A3}
+.resumen .t{font-family:var(--head);font-size:clamp(3rem,8vw,4.6rem);line-height:1;margin-top:.4rem}
+.resumen p{color:#E6D8C6;margin-top:.8rem}
+.resumen .cta{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.4rem}
+
+/* trabajos */
+.trab{display:grid;gap:.8rem;margin-top:2.4rem;grid-template-columns:repeat(2,1fr)}
+@media (min-width:900px){.trab{grid-template-columns:repeat(4,1fr)}}
+.trab figure{margin:0}
+.trab img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:16px}
+.trab figcaption{font-weight:600;font-size:.95rem;margin-top:.5rem}
+
+/* el salon */
+.salon{display:grid;gap:2.4rem;align-items:center}
+@media (min-width:900px){.salon{grid-template-columns:1fr 1fr}}
+.salon__fotos{display:grid;gap:.8rem}
+.salon__fotos img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:18px}
+.salon ul{list-style:none;padding:0;margin:1.2rem 0 0;display:grid;gap:.5rem}
+.salon li{display:flex;gap:.7rem;align-items:center;font-weight:500}
+.salon li::before{content:"";flex:none;width:1.6rem;height:.5rem;background:var(--onda) center/contain no-repeat}
+
+.ops{background:var(--espresso);color:#fff}
+.ops__in{display:grid;gap:2.4rem;margin-top:2.4rem;align-items:center}
+@media (min-width:860px){.ops__in{grid-template-columns:1fr 2fr}}
+.nota{font-family:var(--head);font-size:clamp(5.5rem,16vw,9rem);line-height:.85;color:var(--honey)}
+.nota small{display:block;font-family:var(--font);font-size:1rem;color:#D9C2A3;font-weight:500;margin-top:.8rem}
+.quotes{display:grid;gap:1.6rem}
+.quotes p{font-family:var(--head);font-size:clamp(1.35rem,2.8vw,1.85rem);line-height:1.25}
+.quotes span{display:block;font-size:.88rem;color:#D9C2A3;margin-top:.3rem}
+
+.cont{display:grid;gap:2.5rem}
+@media (min-width:900px){.cont{grid-template-columns:1fr 1fr;align-items:start}}
+.datos{display:grid;gap:1.1rem;margin-top:1.6rem;font-size:1.1rem}
+.datos b{display:block;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.datos a{font-weight:600;color:var(--honey-d)}
+.horario{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.horario td{padding:.55rem 0;border-bottom:1px solid var(--line)}
+.horario td:last-child{text-align:right;font-weight:600}
+.horario tr.hoy td{color:var(--honey-d);font-weight:700}
+.estado{display:inline-flex;gap:.45rem;align-items:center}
+.estado i{width:.6rem;height:.6rem;border-radius:50%;background:var(--muted)}
+.estado.abierto i{background:#1B9E52}
+
+.foot{background:var(--sand);color:var(--muted);padding:3rem 0 2rem}
+.foot__name{font-family:var(--head);font-size:clamp(4.5rem,17vw,12rem);line-height:1.05;color:var(--espresso)}
+.foot__name span{color:var(--honey)}
+.foot__row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:1rem;font-size:.92rem}
+
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}.btn,.srv{transition:none}}
+</style>
+</head>
+<body>
+<div class="demo">Demo preparada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> para GoEn Estilistes · No es la web oficial</div>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="logo" href="#">Go<span>En</span><small>ESTILISTES</small></a>
+    <nav class="nav" aria-label="Principal"><a href="#cita">Calcula tu cita</a><a href="#trabajos">Trabajos</a><a href="#salon">El salón</a><a href="#contacto">Contacto</a></nav>
+    <a class="btn btn--honey" href="https://peluqueriagoenestilistes.booksy.com/a" target="_blank" rel="noopener">Reservar</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero__in">
+      <div>
+        <h1 class="rv">El balayage que te mereces.</h1>
+        <span class="onda rv" aria-hidden="true"></span>
+        <p class="p rv">Especialistas en balayage, coloración y tratamientos para un pelo sano, en el Carrer de Pompeu Fabra. Salón Redken.</p>
+        <div class="cta rv"><a class="btn btn--dark" href="#cita">Calcula tu cita</a><a class="btn btn--line" href="#trabajos">Ver trabajos</a></div>
+        <p class="dato rv"><span><b>★★★★★</b> 4,8 en Google · 129 opiniones</span><span class="estado" id="estado"><i></i><span>Horario</span></span></p>
+      </div>
+      <div class="hero__fotos rv">
+        <img src="img/9.jpg" alt="Balayage rubio miel hecho en GoEn" width="1367" height="2048">
+        <img src="img/5.jpg" alt="Melena con ondas y balayage" width="1400" height="1867">
+      </div>
+    </div>
+  </section>
+
+  <section class="sec cita" id="cita">
+    <div class="wrap">
+      <h2 class="rv">Calcula tu cita</h2>
+      <span class="onda rv" aria-hidden="true"></span>
+      <p class="lead rv">Marca lo que te quieres hacer y te decimos cuánto tiempo reservarte. Luego lo pides en un toque.</p>
+      <div class="calc">
+        <div class="servs rv" id="servs" role="group" aria-label="Servicios"></div>
+        <div class="resumen rv" aria-live="polite">
+          <p class="caps">Tiempo aproximado</p>
+          <p class="t num" id="tiempo">–</p>
+          <p id="lista">Elige al menos un servicio.</p>
+          <div class="cta"><a class="btn btn--wa" id="wa" href="#" target="_blank" rel="noopener">Pedir por WhatsApp</a><a class="btn btn--honey" href="https://peluqueriagoenestilistes.booksy.com/a" target="_blank" rel="noopener">Reservar en Booksy</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="trabajos">
+    <div class="wrap">
+      <h2 class="rv">Trabajos del salón</h2>
+      <span class="onda rv" aria-hidden="true"></span>
+      <div class="trab">
+        <figure class="rv"><img src="img/4.jpg" alt="Rubio dorado con ondas" loading="lazy" width="1367" height="2048"><figcaption>Rubio dorado</figcaption></figure>
+        <figure class="rv"><img src="img/7.jpg" alt="Castaño cobrizo con ondas" loading="lazy" width="1366" height="2048"><figcaption>Castaño cobrizo</figcaption></figure>
+        <figure class="rv"><img src="img/10.jpg" alt="Balayage castaño" loading="lazy" width="1400" height="1867"><figcaption>Balayage castaño</figcaption></figure>
+        <figure class="rv"><img src="img/8.jpg" alt="Recogido de novia con trenza" loading="lazy" width="1400" height="2100"><figcaption>Recogidos</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="salon" style="background:var(--sand)">
+    <div class="wrap salon">
+      <div class="salon__fotos rv"><img src="img/6.jpg" alt="Fachada de GoEn Estilistes" loading="lazy" width="1400" height="1050"><img src="img/3.jpg" alt="Interior del salón con espejos de madera" loading="lazy" width="1400" height="1050"></div>
+      <div>
+        <h2 class="rv">Montse y su equipo</h2>
+        <span class="onda rv" aria-hidden="true"></span>
+        <p class="lead rv">Te escuchan, entienden la idea que traes y te dicen con sinceridad lo que le va a tu pelo. Y si prefieres estar tranquila y en silencio, también se respeta.</p>
+        <ul class="rv"><li>Diagnóstico antes de cada color</li><li>Productos profesionales Redken</li><li>Tarjeta de fidelidad para clientas habituales</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec ops">
+    <div class="wrap">
+      <h2 class="rv">Lo que dicen de GoEn</h2>
+      <div class="ops__in">
+        <div class="nota rv">4,8<small>129 opiniones en Google</small></div>
+        <div class="quotes">
+          <div class="rv"><p>«Montse es súper profesional, te escucha y enseguida capta la idea que llevas.»</p><span>Opinión en Google</span></div>
+          <div class="rv"><p>«Simpáticas, trabajos impecables, tratamientos excelentes. La mejor de Santako.»</p><span>Opinión en Google</span></div>
+          <div class="rv"><p>«Ya he encontrado mi salón de confianza.»</p><span>Opinión en Google</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contacto">
+    <div class="wrap cont">
+      <div>
+        <h2 class="rv">Ven a vernos</h2>
+        <div class="datos rv">
+          <p><b>Dirección</b>Carrer de Pompeu Fabra, 26 · 08922 Santa Coloma de Gramenet · <a href="https://www.google.com/maps/search/?api=1&query=Peluquer%C3%ADa+GoEn+Estilistes+Santa+Coloma" target="_blank" rel="noopener">Cómo llegar</a></p>
+          <p><b>Teléfono</b><a href="tel:+34930154577">930 15 45 77</a></p>
+          <p><b>WhatsApp</b><a href="https://wa.me/34689534806" target="_blank" rel="noopener">689 53 48 06</a></p>
+          <p><b>Instagram</b><a href="https://www.instagram.com/goen_estilistas/" target="_blank" rel="noopener">@goen_estilistas</a></p>
+        </div>
+      </div>
+      <div class="rv"><p class="datos" style="margin:0 0 .8rem"><b>Horario</b></p><table class="horario" id="horario" aria-label="Horario"></table></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot__name">Go<span>En</span></p>
+    <div class="foot__row"><p>Estilistes · Carrer de Pompeu Fabra, 26 · Santa Coloma de Gramenet</p><p>Demo diseñada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> con las fotos del propio salón</p></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var WA='34689534806';
+  var H={0:null,1:[['9:30','19:00']],2:null,3:[['9:30','19:30']],4:[['9:30','19:30']],5:[['9:30','19:30']],6:[['9:00','14:00']]};
+  var NOM=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+  var m=function(t){var p=t.split(':');return +p[0]*60+ +p[1];};
+  var now=new Date(), d=now.getDay(), min=now.getHours()*60+now.getMinutes();
+  var tb=document.getElementById('horario');
+  [1,2,3,4,5,6,0].forEach(function(k){var tr=document.createElement('tr');if(k===d)tr.className='hoy';var a=document.createElement('td');a.textContent=NOM[k];var b=document.createElement('td');b.textContent=H[k]?H[k].map(function(r){return r[0]+'–'+r[1];}).join(' · '):'Cerrado';tr.appendChild(a);tr.appendChild(b);tb.appendChild(tr);});
+  var est=document.getElementById('estado'), tx=est.querySelector('span'), ab=null;
+  (H[d]||[]).forEach(function(r){if(min>=m(r[0])&&min<m(r[1]))ab=r;});
+  if(ab){est.classList.add('abierto');tx.textContent='Abierto ahora, hasta las '+ab[1];}
+  else{for(var i=0;i<8;i++){var k=(d+i)%7,r=(H[k]||[]).filter(function(x){return i>0||m(x[0])>min;})[0];if(r){tx.textContent='Cerrado · abre '+(i===0?'hoy':i===1?'mañana':'el '+NOM[k].toLowerCase())+' a las '+r[0];break;}}}
+
+  var S=[{n:'Corte y peinado',t:45},{n:'Color o tinte de raíz',t:90},{n:'Balayage',t:180},{n:'Tratamiento de hidratación',t:30},{n:'Peinado o recogido',t:60}];
+  var sel={2:true}, cont=document.getElementById('servs'), bs=[];
+  function dur(x){var h=Math.floor(x/60),r=x%60;return (h?h+' h':'')+(r?(h?' ':'')+r+' min':'');}
+  function pintar(){
+    var el=S.filter(function(s,i){return sel[i];}), tot=el.reduce(function(a,s){return a+s.t;},0);
+    bs.forEach(function(b,i){b.setAttribute('aria-pressed',String(!!sel[i]));});
+    document.getElementById('tiempo').textContent=tot?dur(tot):'–';
+    document.getElementById('lista').textContent=el.length?el.map(function(s){return s.n;}).join(' + '):'Elige al menos un servicio.';
+    document.getElementById('wa').href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hola GoEn, me gustaría pedir cita para: '+(el.map(function(s){return s.n.toLowerCase();}).join(', ')||'una consulta')+'. ¿Qué día tenéis libre?');
+  }
+  S.forEach(function(s,i){var b=document.createElement('button');b.type='button';b.className='srv';var c=document.createElement('i');var n=document.createElement('b');n.textContent=s.n;var t=document.createElement('small');t.textContent=dur(s.t);b.appendChild(c);b.appendChild(n);b.appendChild(t);b.addEventListener('click',function(){sel[i]=!sel[i];pintar();});cont.appendChild(b);bs.push(b);});
+  pintar();
+
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);});},{rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(e){io.observe(e);});
+  setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},3000);
+})();
+</script>
+</body>
+</html>

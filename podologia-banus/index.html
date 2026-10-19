@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Centre Podològic Banús · Podología en Santa Coloma de Gramenet</title>
+<meta name="description" content="Demo de web para el Centre Podològic Banús, preparada por Grapa Lab.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Direccion: su rotulo. Letras negras BANUS sobre blanco y un pie morado como logo; el local es blanco, con suelo de madera.
+   Blanco clinico, negro y el morado del pie. Motivo: la huella (cinco dedos y planta), como vineta y marca de agua. */
+:root{
+  --purple:#7A3D96; --purple-d:#5E2B76; --lila:#F2EAF6; --white:#FFFFFF; --ink:#16131A; --muted:#5F5A66; --line:#E5E0EA;
+  --head:"Sora",system-ui,sans-serif; --font:"Source Sans 3",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --g:clamp(1rem,4vw,2.5rem);
+  --huella:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 56'%3E%3Cg fill='%237A3D96'%3E%3Cellipse cx='21' cy='36' rx='11' ry='17'/%3E%3Ccircle cx='9' cy='12' r='4.6'/%3E%3Ccircle cx='17' cy='7' r='3.6'/%3E%3Ccircle cx='24' cy='6' r='3.2'/%3E%3Ccircle cx='30' cy='9' r='2.8'/%3E%3Ccircle cx='34.5' cy='14' r='2.4'/%3E%3C/g%3E%3C/svg%3E");
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;font-family:var(--font);font-size:1.12rem;line-height:1.6;color:var(--ink);background:var(--white)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;font-family:var(--head);font-weight:700;line-height:1.02;letter-spacing:-.02em;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:76rem;margin-inline:auto;padding-inline:var(--g)}
+.demo{background:var(--ink);color:#D9D3E0;font-size:.82rem;text-align:center;padding:.5rem var(--g)}
+.demo a{color:#fff;font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.95rem 1.5rem;font:inherit;font-weight:700;text-decoration:none;border:0;border-radius:10px;cursor:pointer;transition:transform .18s,background-color .18s}
+.btn:hover{transform:translateY(-2px)}
+.btn--purple{background:var(--purple);color:#fff}.btn--purple:hover{background:var(--purple-d)}
+.btn--ink{background:var(--ink);color:#fff}
+.btn--line{box-shadow:inset 0 0 0 2px var(--purple);color:var(--purple)}
+
+.top{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}
+.top__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:4.3rem}
+.logo{display:flex;gap:.6rem;align-items:center;text-decoration:none}
+.logo i{width:1.4rem;height:1.95rem;background:var(--huella) center/contain no-repeat}
+.logo small{display:block;font-size:.6rem;letter-spacing:.14em;color:var(--muted);font-weight:600;line-height:1.2}
+.logo b{font-family:var(--head);font-size:1.5rem;letter-spacing:.02em;line-height:1}
+.nav{display:none;gap:1.8rem;font-weight:600}
+.nav a{text-decoration:none}.nav a:hover{color:var(--purple)}
+.top .btn{padding:.6rem 1rem}
+@media (min-width:960px){.nav{display:flex}}
+
+.hero{background:var(--lila);overflow:hidden}
+.hero__in{display:grid;gap:2.4rem;align-items:center;padding-block:clamp(2.5rem,7vw,5rem)}
+@media (min-width:900px){.hero__in{grid-template-columns:1.1fr 1fr}}
+.hero h1{font-size:clamp(3rem,8vw,6rem)}
+.hero .p{margin-top:1.4rem;font-size:clamp(1.15rem,2.4vw,1.3rem);color:var(--muted);max-width:30em}
+.hero .cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.8rem}
+.dato{display:flex;flex-wrap:wrap;gap:.3rem 1.4rem;margin-top:1.6rem;font-weight:600}
+.dato b{color:var(--purple)}
+.hero__foto{position:relative}
+.hero__foto img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:18px}
+
+.sec{padding-block:clamp(4.5rem,10vw,8rem)}
+.sec h2{font-size:clamp(2.5rem,6vw,4.2rem)}
+.sec .lead{margin-top:1rem;max-width:34em;font-size:1.15rem;color:var(--muted)}
+
+/* que le pasa a tu pie: lo vivo */
+.pie__in{display:grid;gap:2.4rem;margin-top:2.4rem;align-items:start}
+@media (min-width:900px){.pie__in{grid-template-columns:1fr 1.2fr}}
+.probs{display:grid;gap:.6rem}
+.prob{display:flex;gap:.9rem;align-items:center;width:100%;font:inherit;font-weight:600;text-align:left;background:#fff;border:2px solid var(--line);border-radius:12px;padding:.9rem 1.1rem;cursor:pointer;color:inherit;transition:border-color .2s}
+.prob i{flex:none;width:1.1rem;height:1.55rem;background:var(--huella) center/contain no-repeat;opacity:.35}
+.prob[aria-pressed="true"]{border-color:var(--purple);color:var(--purple)}
+.prob[aria-pressed="true"] i{opacity:1}
+.resp{background:var(--purple);color:#fff;border-radius:18px;padding:clamp(1.4rem,4vw,2.4rem)}
+.resp h3{font-size:clamp(1.8rem,4vw,2.6rem)}
+.resp p{margin-top:.8rem;color:#EEE3F4}
+.resp ul{margin:1rem 0 0;padding:0;list-style:none;display:grid;gap:.45rem}
+.resp li{display:flex;gap:.6rem;align-items:center;font-weight:600}
+.resp li::before{content:"";flex:none;width:.55rem;height:.55rem;border-radius:50%;background:#fff}
+.resp .tel{margin-top:1.6rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.25)}
+.resp .tel b{display:block;font-family:var(--head);font-size:clamp(1.8rem,4vw,2.4rem)}
+.resp .btn{margin-top:1rem;background:#fff;color:var(--purple)}
+
+.ops{background:var(--lila)}
+.ops__in{display:grid;gap:2.4rem;margin-top:2.4rem;align-items:center}
+@media (min-width:860px){.ops__in{grid-template-columns:1fr 2fr}}
+.nota{font-family:var(--head);font-size:clamp(5.5rem,16vw,9rem);line-height:.85;color:var(--purple)}
+.nota small{display:block;font-family:var(--font);font-size:1rem;color:var(--muted);font-weight:600;margin-top:.8rem}
+.quotes{display:grid;gap:1.6rem}
+.quotes p{font-size:clamp(1.35rem,2.8vw,1.8rem);font-weight:600;line-height:1.3}
+.quotes span{display:block;font-size:.9rem;color:var(--muted);margin-top:.3rem;font-weight:400}
+
+.cont{display:grid;gap:2.5rem}
+@media (min-width:900px){.cont{grid-template-columns:1fr 1fr;align-items:start}}
+.datos{display:grid;gap:1.1rem;margin-top:1.6rem;font-size:1.15rem}
+.datos b{display:block;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.datos a{font-weight:700;color:var(--purple)}
+.horario{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.horario td{padding:.55rem 0;border-bottom:1px solid var(--line)}
+.horario td:last-child{text-align:right;font-weight:600}
+.horario tr.hoy td{color:var(--purple);font-weight:700}
+.estado{display:inline-flex;gap:.45rem;align-items:center}
+.estado i{width:.6rem;height:.6rem;border-radius:50%;background:var(--muted)}
+.estado.abierto i{background:#1B9E52}
+
+.foot{background:var(--ink);color:#C9C2D2;padding:3rem 0 2rem}
+.foot__name{font-family:var(--head);font-weight:700;font-size:clamp(4.5rem,17vw,12rem);line-height:1.05;color:#fff}
+.foot__row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:1rem;font-size:.92rem}
+.foot a{color:#fff}
+
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}.btn,.prob{transition:none}}
+</style>
+</head>
+<body>
+<div class="demo">Demo preparada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> para el Centre Podològic Banús · No es la web oficial</div>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="logo" href="#"><i aria-hidden="true"></i><span><small>CENTRE<br>PODOLÒGIC</small></span><b>BANÚS</b></a>
+    <nav class="nav" aria-label="Principal"><a href="#pie">¿Qué te pasa?</a><a href="#opiniones">Opiniones</a><a href="#contacto">Contacto</a></nav>
+    <a class="btn btn--purple" href="tel:+34933860579">933 86 05 79</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero__in">
+      <div>
+        <h1 class="rv">Pies sanos, pasos sin dolor.</h1>
+        <p class="p rv">Podología en la Avinguda dels Banús de Santa Coloma: uñas encarnadas, durezas, estudio de la pisada y plantillas, con el trato cercano de Susana y su equipo.</p>
+        <div class="cta rv"><a class="btn btn--ink" href="#pie">¿Qué te pasa en el pie?</a><a class="btn btn--line" href="tel:+34933860579">Llamar para cita</a></div>
+        <p class="dato rv"><span><b>★★★★★</b> 4,7 en Google · 42 opiniones</span><span class="estado" id="estado"><i></i><span>Horario</span></span></p>
+      </div>
+      <div class="hero__foto rv"><img src="img/1.jpg" alt="Fachada del Centre Podològic Banús" width="1400" height="1867"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="pie">
+    <div class="wrap">
+      <h2 class="rv">¿Qué te pasa en el pie?</h2>
+      <p class="lead rv">Elige lo que notas y te explicamos cómo lo tratamos. Si te duele mucho, llámanos: muchas veces te podemos atender el mismo día.</p>
+      <div class="pie__in">
+        <div class="probs rv" id="probs" role="group" aria-label="Problemas del pie"></div>
+        <div class="resp rv" aria-live="polite">
+          <h3 id="r-t"></h3>
+          <p id="r-p"></p>
+          <ul id="r-l"></ul>
+          <div class="tel"><span>Pide cita por teléfono</span><b>933 86 05 79</b><a class="btn" href="tel:+34933860579">Llamar ahora</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec ops" id="opiniones">
+    <div class="wrap">
+      <h2 class="rv">Lo que dicen del centro</h2>
+      <div class="ops__in">
+        <div class="nota rv">4,7<small>42 opiniones en Google</small></div>
+        <div class="quotes">
+          <div class="rv"><p>«Trato cercano y profesionalidad máxima. Te dejan los pies maravillosos.»</p><span>Opinión en Google</span></div>
+          <div class="rv"><p>«Llevo prácticamente 10 años yendo allí, el trato es inmejorable.»</p><span>Opinión en Google</span></div>
+          <div class="rv"><p>«Me sacó un cristal de la planta del pie sin cita y desde entonces va toda mi familia.»</p><span>Opinión en Google</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contacto">
+    <div class="wrap cont">
+      <div>
+        <h2 class="rv">Ven al centro</h2>
+        <div class="datos rv">
+          <p><b>Dirección</b>Avinguda dels Banús, 23 · 08923 Santa Coloma de Gramenet · <a href="https://www.google.com/maps/search/?api=1&query=Centre+de+podolog%C3%ADa+Ban%C3%BAs+Santa+Coloma" target="_blank" rel="noopener">Cómo llegar</a></p>
+          <p><b>Teléfono</b><a href="tel:+34933860579">933 86 05 79</a></p>
+        </div>
+      </div>
+      <div class="rv"><p class="datos" style="margin:0 0 .8rem"><b>Horario</b></p><table class="horario" id="horario" aria-label="Horario"></table></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot__name">BANÚS</p>
+    <div class="foot__row"><p>Centre Podològic · Avinguda dels Banús, 23 · Santa Coloma de Gramenet</p><p>Demo diseñada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a></p></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var H={0:null,1:['9:00','19:30'],2:['9:00','19:30'],3:['9:00','19:30'],4:['9:00','19:30'],5:['9:00','17:00'],6:null};
+  var NOM=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+  var m=function(t){var p=t.split(':');return +p[0]*60+ +p[1];};
+  var now=new Date(), d=now.getDay(), min=now.getHours()*60+now.getMinutes();
+  var tb=document.getElementById('horario');
+  [1,2,3,4,5,6,0].forEach(function(k){var tr=document.createElement('tr');if(k===d)tr.className='hoy';var a=document.createElement('td');a.textContent=NOM[k];var b=document.createElement('td');b.textContent=H[k]?H[k][0]+' – '+H[k][1]:'Cerrado';tr.appendChild(a);tr.appendChild(b);tb.appendChild(tr);});
+  var est=document.getElementById('estado'), tx=est.querySelector('span');
+  if(H[d]&&min>=m(H[d][0])&&min<m(H[d][1])){est.classList.add('abierto');tx.textContent='Abierto ahora, hasta las '+H[d][1];}
+  else{for(var i=0;i<8;i++){var k=(d+i)%7;if(H[k]&&(i>0||min<m(H[k][0]))){tx.textContent='Cerrado · abre '+(i===0?'hoy':i===1?'mañana':'el '+NOM[k].toLowerCase())+' a las '+H[k][0];break;}}}
+
+  var P=[
+    {n:'Uña encarnada',p:'La uña se clava en la piel y duele al caminar o al ponerte zapatos. Cuanto antes se trata, menos se complica.',l:['Tratamiento sin dolor con anestesia local','Corrección para que no vuelva a pasar','Curas de seguimiento']},
+    {n:'Durezas y callos',p:'Piel dura en la planta o en los dedos que molesta al andar. Se quita en la consulta y te explicamos por qué aparece.',l:['Quiropodia completa','Consejo de calzado','Revisión de la pisada si se repite']},
+    {n:'Dolor de talón',p:'Dolor al dar los primeros pasos por la mañana o después de estar sentado. Muchas veces es fascitis plantar.',l:['Valoración del dolor','Estudio de la pisada','Plantillas a medida si hacen falta']},
+    {n:'Estudio de la pisada',p:'Para saber cómo apoyas y si unas plantillas te pueden quitar molestias en pies, rodillas o espalda.',l:['Análisis de la marcha','Plantillas personalizadas','Revisión al cabo de unas semanas']},
+    {n:'Verrugas plantares',p:'Pequeñas lesiones en la planta que duelen al pisar y se contagian. Se tratan en varias sesiones cortas.',l:['Diagnóstico en consulta','Tratamiento por sesiones','Consejos para evitar el contagio']},
+    {n:'Pie diabético',p:'Si tienes diabetes, revisar los pies con regularidad evita problemas serios. Te hacemos el control y te enseñamos a cuidarlos.',l:['Revisión periódica','Cuidado de uñas y piel','Pautas para casa']}
+  ];
+  var cont=document.getElementById('probs'), bs=[];
+  function elegir(o){bs.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.n===o.n));});
+    document.getElementById('r-t').textContent=o.n;document.getElementById('r-p').textContent=o.p;
+    var ul=document.getElementById('r-l');ul.innerHTML='';o.l.forEach(function(x){var li=document.createElement('li');li.textContent=x;ul.appendChild(li);});}
+  P.forEach(function(o){var b=document.createElement('button');b.type='button';b.className='prob';b.dataset.n=o.n;var i=document.createElement('i');b.appendChild(i);b.appendChild(document.createTextNode(o.n));b.addEventListener('click',function(){elegir(o);});cont.appendChild(b);bs.push(b);});
+  elegir(P[0]);
+
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);});},{rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(e){io.observe(e);});
+  setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},3000);
+})();
+</script>
+</body>
+</html>
