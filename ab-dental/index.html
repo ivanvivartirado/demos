@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>AB Santa Coloma Clínica Dental · Dentista en Fondo, Santa Coloma</title>
+<meta name="description" content="Demo de web para AB Santa Coloma Clínica Dental, preparada por Grapa Lab.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Direccion: su clinica. Recepcion de madera con luz azul, sillas azules y verde lima en la sala de espera, y su sello turquesa
+   de "financiacion a su medida". Turquesa, lima y blanco. Motivo: el sello redondo, como etiqueta de cada tratamiento. */
+:root{
+  --teal:#0E7C86; --teal-d:#0A5E66; --lime:#A6C83A; --mint:#E6F4F3; --white:#FFFFFF; --ink:#12262A; --muted:#55686B; --line:#D6E6E5;
+  --font:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --g:clamp(1rem,4vw,2.5rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;font-family:var(--font);font-size:1.06rem;line-height:1.6;color:var(--ink);background:var(--white)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:800;line-height:1.02;letter-spacing:-.025em;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:76rem;margin-inline:auto;padding-inline:var(--g)}
+.demo{background:var(--ink);color:#CFE0E1;font-size:.82rem;text-align:center;padding:.5rem var(--g)}
+.demo a{color:#fff;font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.95rem 1.5rem;font:inherit;font-weight:700;text-decoration:none;border:0;border-radius:999px;cursor:pointer;transition:transform .18s,background-color .18s}
+.btn:hover{transform:translateY(-2px)}
+.btn--teal{background:var(--teal);color:#fff}.btn--teal:hover{background:var(--teal-d)}
+.btn--lime{background:var(--lime);color:var(--ink)}
+.btn--line{box-shadow:inset 0 0 0 2px var(--teal);color:var(--teal)}
+.sello{display:inline-grid;place-items:center;text-align:center;width:7.5rem;height:7.5rem;border-radius:50%;border:2.5px dashed currentColor;font-weight:800;line-height:1.05;font-size:.92rem;padding:.6rem;transform:rotate(-8deg)}
+
+.top{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}
+.top__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:4.3rem}
+.logo{text-decoration:none;display:flex;gap:.6rem;align-items:center;line-height:1.05}
+.logo i{width:2.2rem;height:2.2rem;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:.85rem}
+.logo b{display:block;font-size:1.05rem}
+.logo small{font-size:.72rem;color:var(--muted)}
+.nav{display:none;gap:1.8rem;font-weight:600}
+.nav a{text-decoration:none}.nav a:hover{color:var(--teal)}
+.top .btn{padding:.6rem 1rem}
+@media (min-width:960px){.nav{display:flex}}
+
+.hero{background:var(--mint);overflow:hidden}
+.hero__in{display:grid;gap:2.4rem;align-items:center;padding-block:clamp(2.5rem,7vw,5rem)}
+@media (min-width:900px){.hero__in{grid-template-columns:1.05fr 1fr}}
+.hero h1{font-size:clamp(2.8rem,7.5vw,5.6rem)}
+.hero .p{margin-top:1.3rem;font-size:1.18rem;color:var(--muted);max-width:30em}
+.hero .cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.8rem}
+.dato{display:flex;flex-wrap:wrap;gap:.3rem 1.4rem;margin-top:1.6rem;font-weight:600;font-size:.96rem}
+.dato b{color:#D9A21B}
+.estado{display:inline-flex;gap:.45rem;align-items:center}
+.estado i{width:.6rem;height:.6rem;border-radius:50%;background:var(--muted)}
+.estado.abierto i{background:#1B9E52}
+.hero__foto{position:relative}
+.hero__foto img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:24px}
+.hero__foto .sello{position:absolute;left:-1.2rem;bottom:-1.2rem;background:var(--lime);color:var(--ink);border-color:var(--ink)}
+
+.sec{padding-block:clamp(4.5rem,10vw,8rem)}
+.sec h2{font-size:clamp(2.4rem,6vw,4rem)}
+.sec .lead{margin-top:1rem;max-width:34em;font-size:1.12rem;color:var(--muted)}
+
+/* tratamientos: lo vivo */
+.trat{display:grid;gap:2.4rem;margin-top:2.4rem;align-items:start}
+@media (min-width:900px){.trat{grid-template-columns:1fr 1.15fr}}
+.lista{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.tb{font:inherit;font-weight:700;text-align:left;background:#fff;border:2px solid var(--line);border-radius:16px;padding:1rem;cursor:pointer;color:inherit;transition:border-color .2s,background-color .2s}
+.tb small{display:block;font-weight:500;color:var(--muted);font-size:.85rem;margin-top:.15rem}
+.tb[aria-pressed="true"]{border-color:var(--teal);background:var(--mint)}
+.panel{background:var(--teal);color:#fff;border-radius:24px;padding:clamp(1.4rem,4vw,2.4rem);position:relative}
+.panel h3{font-size:clamp(1.9rem,4vw,2.6rem)}
+.panel p{margin-top:.8rem;color:#D8F0EF}
+.panel ul{margin:1rem 0 0;padding:0;list-style:none;display:grid;gap:.5rem}
+.panel li{display:flex;gap:.6rem;align-items:center;font-weight:600}
+.panel li::before{content:"";flex:none;width:.6rem;height:.6rem;border-radius:50%;background:var(--lime)}
+.panel .cta{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem}
+.panel .btn--line{box-shadow:inset 0 0 0 2px #fff;color:#fff}
+
+/* clinica */
+.clin{display:grid;gap:1rem;margin-top:2.4rem}
+@media (min-width:860px){.clin{grid-template-columns:1.3fr 1fr 1fr}}
+.clin figure{margin:0}
+.clin img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:20px}
+.clin figcaption{font-weight:700;margin-top:.5rem}
+.ventajas{display:grid;gap:1rem;margin-top:2.4rem}
+@media (min-width:760px){.ventajas{grid-template-columns:repeat(3,1fr)}}
+.ventaja{background:var(--mint);border-radius:20px;padding:1.4rem}
+.ventaja h3{font-size:1.3rem}
+.ventaja p{margin-top:.4rem;color:var(--muted);font-size:.98rem}
+
+.ops{background:var(--ink);color:#fff}
+.ops__in{display:grid;gap:2.4rem;margin-top:2.4rem;align-items:center}
+@media (min-width:860px){.ops__in{grid-template-columns:1fr 2fr}}
+.nota{font-weight:800;font-size:clamp(5.5rem,16vw,9rem);line-height:.85;color:var(--lime);letter-spacing:-.05em}
+.nota small{display:block;font-size:1rem;color:#B9CDCF;font-weight:600;margin-top:.8rem;letter-spacing:0}
+.quotes{display:grid;gap:1.6rem}
+.quotes p{font-size:clamp(1.3rem,2.8vw,1.75rem);font-weight:600;line-height:1.3}
+.quotes span{display:block;font-size:.88rem;color:#B9CDCF;margin-top:.3rem;font-weight:400}
+
+.cont{display:grid;gap:2.5rem}
+@media (min-width:900px){.cont{grid-template-columns:1fr 1fr;align-items:start}}
+.datos{display:grid;gap:1.1rem;margin-top:1.6rem;font-size:1.1rem}
+.datos b{display:block;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.datos a{font-weight:700;color:var(--teal)}
+.horario{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.horario td{padding:.55rem 0;border-bottom:1px solid var(--line)}
+.horario td:last-child{text-align:right;font-weight:600}
+.horario tr.hoy td{color:var(--teal);font-weight:800}
+
+.foot{background:var(--teal);color:#D8F0EF;padding:3rem 0 2rem}
+.foot__name{font-weight:800;font-size:clamp(4rem,15vw,10rem);line-height:1.05;letter-spacing:-.04em;color:#fff}
+.foot__row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:1rem;font-size:.92rem}
+.foot a{color:#fff}
+
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}.btn,.tb{transition:none}}
+</style>
+</head>
+<body>
+<div class="demo">Demo preparada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> para AB Santa Coloma Clínica Dental · No es la web oficial</div>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="logo" href="#"><i>AB</i><span><b>AB Santa Coloma</b><small>Clínica dental · Fondo</small></span></a>
+    <nav class="nav" aria-label="Principal"><a href="#tratamientos">Tratamientos</a><a href="#clinica">La clínica</a><a href="#opiniones">Opiniones</a><a href="#contacto">Contacto</a></nav>
+    <a class="btn btn--teal" href="tel:+34933923989">933 92 39 89</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero__in">
+      <div>
+        <h1 class="rv">Tu dentista de confianza en Fondo.</h1>
+        <p class="p rv">Clínica dental en el Carrer de Mozart, a un minuto del metro Fondo (L1). Revisiones, ortodoncia, implantes y tratamientos para toda la familia, con financiación a tu medida.</p>
+        <div class="cta rv"><a class="btn btn--teal" href="#tratamientos">¿Qué necesitas?</a><a class="btn btn--line" href="#contacto">Pedir primera visita</a></div>
+        <p class="dato rv"><span><b>★★★★★</b> 4,8 en Google · 32 opiniones</span><span class="estado" id="estado"><i></i><span>Horario</span></span></p>
+      </div>
+      <div class="hero__foto rv"><img src="img/2.jpg" alt="Recepción de AB Santa Coloma Clínica Dental" width="1400" height="1050"><span class="sello">Financiación a tu medida</span></div>
+    </div>
+  </section>
+
+  <section class="sec" id="tratamientos">
+    <div class="wrap">
+      <h2 class="rv">¿Qué necesitas?</h2>
+      <p class="lead rv">Toca un tratamiento y te contamos en qué consiste. En la primera visita te hacemos el diagnóstico y un presupuesto cerrado.</p>
+      <div class="trat">
+        <div class="lista rv" id="lista" role="group" aria-label="Tratamientos"></div>
+        <div class="panel rv" aria-live="polite">
+          <h3 id="t-t"></h3>
+          <p id="t-p"></p>
+          <ul id="t-l"></ul>
+          <div class="cta"><a class="btn btn--lime" href="tel:+34933923989">Pedir cita: 933 92 39 89</a><a class="btn btn--line" href="mailto:pacientes@absantacolomadental.com">Escribir un correo</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="clinica" style="background:var(--mint)">
+    <div class="wrap">
+      <h2 class="rv">La clínica</h2>
+      <p class="lead rv">Un espacio luminoso y tranquilo, con sala de espera para los más pequeños y gabinetes con equipos de primera línea.</p>
+      <div class="clin">
+        <figure class="rv"><img src="img/1.jpg" alt="Sala de espera con rincón infantil" loading="lazy" width="1400" height="1050"><figcaption>Sala de espera</figcaption></figure>
+        <figure class="rv"><img src="img/2.jpg" alt="Recepción" loading="lazy" width="1400" height="1050"><figcaption>Recepción</figcaption></figure>
+        <figure class="rv"><img src="img/3.jpg" alt="Gabinete dental" loading="lazy" width="1400" height="2183"><figcaption>Gabinete</figcaption></figure>
+      </div>
+      <div class="ventajas">
+        <div class="ventaja rv"><h3>Financiación a tu medida</h3><p>Pagas tu tratamiento en cómodas cuotas, adaptadas a ti.</p></div>
+        <div class="ventaja rv"><h3>Para toda la familia</h3><p>Odontopediatría para los peques y tratamientos para adultos.</p></div>
+        <div class="ventaja rv"><h3>Al lado del metro</h3><p>Carrer de Mozart, esquina Sicília, junto a Fondo (L1).</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec ops" id="opiniones">
+    <div class="wrap">
+      <h2 class="rv">Lo que dicen nuestros pacientes</h2>
+      <div class="ops__in">
+        <div class="nota rv">4,8<small>32 opiniones en Google</small></div>
+        <div class="quotes">
+          <div class="rv"><p>«Excelente atención, profesionalidad y calidad humana.»</p><span>Opinión en Google</span></div>
+          <div class="rv"><p>«Nos asesoraron muy bien sobre las posibles soluciones. Muy profesionales y amables.»</p><span>Opinión en Google</span></div>
+          <div class="rv"><p>«Buena atención y buenos precios.»</p><span>Opinión en Google</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contacto">
+    <div class="wrap cont">
+      <div>
+        <h2 class="rv">Pide tu primera visita</h2>
+        <div class="datos rv">
+          <p><b>Dirección</b>Carrer de Mozart, 41, local 2 (esquina Sicília) · 08921 Santa Coloma de Gramenet · Metro Fondo L1 · <a href="https://www.google.com/maps/search/?api=1&query=AB+Santa+Coloma+Clinica+Dental" target="_blank" rel="noopener">Cómo llegar</a></p>
+          <p><b>Teléfono</b><a href="tel:+34933923989">933 92 39 89</a></p>
+          <p><b>Correo</b><a href="mailto:pacientes@absantacolomadental.com">pacientes@absantacolomadental.com</a></p>
+        </div>
+      </div>
+      <div class="rv"><p class="datos" style="margin:0 0 .8rem"><b>Horario</b></p><table class="horario" id="horario" aria-label="Horario"></table></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot__name">AB Dental</p>
+    <div class="foot__row"><p>AB Santa Coloma Clínica Dental · Carrer de Mozart, 41 · Santa Coloma de Gramenet</p><p>Demo diseñada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> con las fotos de la propia clínica</p></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var H={0:null,1:[['9:00','14:00'],['15:00','20:00']],2:[['9:00','14:00'],['15:00','20:00']],3:[['9:00','14:00'],['15:00','20:00']],4:[['9:00','14:00'],['15:00','20:00']],5:[['9:00','14:00']],6:null};
+  var NOM=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+  var m=function(t){var p=t.split(':');return +p[0]*60+ +p[1];};
+  var now=new Date(), d=now.getDay(), min=now.getHours()*60+now.getMinutes();
+  var tb=document.getElementById('horario');
+  [1,2,3,4,5,6,0].forEach(function(k){var tr=document.createElement('tr');if(k===d)tr.className='hoy';var a=document.createElement('td');a.textContent=NOM[k];var b=document.createElement('td');b.textContent=H[k]?H[k].map(function(r){return r[0]+'–'+r[1];}).join(' · '):'Cerrado';tr.appendChild(a);tr.appendChild(b);tb.appendChild(tr);});
+  var est=document.getElementById('estado'), tx=est.querySelector('span'), ab=null;
+  (H[d]||[]).forEach(function(r){if(min>=m(r[0])&&min<m(r[1]))ab=r;});
+  if(ab){est.classList.add('abierto');tx.textContent='Abierto ahora, hasta las '+ab[1];}
+  else{for(var i=0;i<8;i++){var k=(d+i)%7,r=(H[k]||[]).filter(function(x){return i>0||m(x[0])>min;})[0];if(r){tx.textContent='Cerrado · abre '+(i===0?'hoy':i===1?'mañana':'el '+NOM[k].toLowerCase())+' a las '+r[0];break;}}}
+
+  var T=[
+    {n:'Limpieza',s:'Profilaxis',p:'Limpieza profesional para quitar sarro y manchas y prevenir caries y encías inflamadas.',l:['Una o dos veces al año','Revisión incluida','Consejos para tu cepillado']},
+    {n:'Encías',s:'Periodoncia',p:'Si te sangran las encías o notas los dientes más largos, tratamos la enfermedad periodontal a tiempo.',l:['Diagnóstico de encías','Curetajes','Mantenimiento periódico']},
+    {n:'Bruxismo',s:'Férulas de descarga',p:'Si aprietas o rechinas los dientes por la noche, una férula a medida protege tus dientes y tu mandíbula.',l:['Férula a medida','Revisión del desgaste','Alivio de dolor de mandíbula']},
+    {n:'Ortodoncia',s:'Brackets y alineadores',p:'Para corregir la posición de los dientes y la mordida, en niños y en adultos.',l:['Estudio previo','Brackets o alineadores','Retenedores al terminar']},
+    {n:'Niños',s:'Odontopediatría',p:'Revisiones y tratamientos adaptados a los más pequeños, para que vengan al dentista sin miedo.',l:['Primera revisión','Selladores y flúor','Empastes de dientes de leche']},
+    {n:'Implantes',s:'Implantología',p:'Para reponer uno o varios dientes de forma fija, con materiales de primera línea.',l:['Estudio con radiografía','Implante y corona','Presupuesto cerrado y financiación']},
+    {n:'Endodoncia',s:'Matar el nervio',p:'Cuando una caries llega al nervio, la endodoncia salva el diente y quita el dolor.',l:['Tratamiento en una o dos sesiones','Reconstrucción del diente','Revisión posterior']},
+    {n:'Prótesis',s:'Fijas y removibles',p:'Coronas, puentes y dentaduras para recuperar la función y la estética.',l:['Coronas y puentes','Prótesis removibles','Ajustes incluidos']}
+  ];
+  var cont=document.getElementById('lista'), bs=[];
+  function elegir(o){bs.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.n===o.n));});
+    document.getElementById('t-t').textContent=o.n+' · '+o.s; document.getElementById('t-p').textContent=o.p;
+    var ul=document.getElementById('t-l'); ul.innerHTML=''; o.l.forEach(function(x){var li=document.createElement('li');li.textContent=x;ul.appendChild(li);});}
+  T.forEach(function(o){var b=document.createElement('button');b.type='button';b.className='tb';b.dataset.n=o.n;b.textContent=o.n;var s=document.createElement('small');s.textContent=o.s;b.appendChild(s);b.addEventListener('click',function(){elegir(o);});cont.appendChild(b);bs.push(b);});
+  elegir(T[0]);
+
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);});},{rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(e){io.observe(e);});
+  setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},3000);
+})();
+</script>
+</body>
+</html>

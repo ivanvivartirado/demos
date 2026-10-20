@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>García Beltrán · Advocats i Economistes · Santa Coloma de Gramenet</title>
+<meta name="description" content="Demo de web para García Beltrán, Advocats i Economistes, preparada por Grapa Lab.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Direccion: su monograma GB en marron y su lema "Los retos se superan, los problemas se resuelven". Despacho clasico desde 1988,
+   en tres idiomas. Blanco, marron tabaco y un laton apagado. Motivo: el monograma GB, como sello y como cabecera de cada area.
+   Lo vivo: la web cambia de idioma (castellano, catala, english) sin recargar, como su web actual pero bien hecho. */
+:root{
+  --brown:#4A2B1C; --brown-d:#341E13; --brass:#A9834B; --paper:#F7F4EF; --white:#FFFFFF; --ink:#1F1814; --muted:#6A5E56; --line:#E3DCD2;
+  --serif:"Spectral",Georgia,serif; --font:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --g:clamp(1rem,4vw,2.5rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;font-family:var(--font);font-size:1.08rem;line-height:1.6;color:var(--ink);background:var(--white)}
+a{color:inherit}
+h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;line-height:1.05;letter-spacing:-.01em;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:74rem;margin-inline:auto;padding-inline:var(--g)}
+.demo{background:var(--ink);color:#DCD3CB;font-size:.82rem;text-align:center;padding:.5rem var(--g)}
+.demo a{color:#fff;font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.95rem 1.5rem;font:inherit;font-weight:600;text-decoration:none;border:0;border-radius:2px;cursor:pointer;transition:transform .18s,background-color .18s}
+.btn:hover{transform:translateY(-2px)}
+.btn--brown{background:var(--brown);color:#fff}.btn--brown:hover{background:var(--brown-d)}
+.btn--line{box-shadow:inset 0 0 0 1.5px var(--brown);color:var(--brown)}
+.mono{font-family:var(--serif);font-size:1.5rem;color:var(--brown);display:inline-grid;place-items:center;width:2.6rem;height:2.6rem;border:1.5px solid var(--brass);border-radius:50%;line-height:1}
+
+.top{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}
+.top__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:4.4rem}
+.logo{display:flex;gap:.7rem;align-items:center;text-decoration:none;line-height:1.1}
+.logo b{display:block;font-family:var(--serif);font-weight:600;font-size:1.15rem}
+.logo small{font-size:.72rem;color:var(--muted);letter-spacing:.06em}
+.langs{display:flex;gap:.2rem;border:1px solid var(--line);border-radius:999px;padding:.2rem}
+.langs button{font:inherit;font-size:.82rem;font-weight:600;border:0;background:transparent;border-radius:999px;padding:.35rem .7rem;cursor:pointer;color:var(--muted)}
+.langs button[aria-pressed="true"]{background:var(--brown);color:#fff}
+
+.hero{background:var(--paper)}
+.hero__in{display:grid;gap:2.4rem;align-items:center;padding-block:clamp(3rem,8vw,6rem)}
+@media (min-width:900px){.hero__in{grid-template-columns:1.3fr 1fr}}
+.hero .kick{font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);font-weight:700}
+.hero h1{font-size:clamp(2.8rem,7vw,5.4rem);margin-top:1rem}
+.hero h1 em{font-style:italic;color:var(--brown)}
+.hero .p{margin-top:1.4rem;font-size:1.18rem;color:var(--muted);max-width:32em}
+.hero .cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.8rem}
+.sello{justify-self:center;width:min(20rem,70vw);aspect-ratio:1;border-radius:50%;border:2px solid var(--brass);display:grid;place-items:center;text-align:center;position:relative}
+.sello::before{content:"";position:absolute;inset:.8rem;border-radius:50%;border:1px solid var(--line)}
+.sello b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(5rem,14vw,8rem);color:var(--brown);line-height:.9}
+.sello span{display:block;font-size:.8rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-top:.6rem}
+
+.sec{padding-block:clamp(4.5rem,10vw,8rem)}
+.sec h2{font-size:clamp(2.4rem,5.5vw,3.8rem)}
+.sec .lead{margin-top:1rem;max-width:36em;font-size:1.15rem;color:var(--muted)}
+
+.areas{display:grid;gap:0;margin-top:2.6rem;border-top:1px solid var(--line)}
+@media (min-width:860px){.areas{grid-template-columns:1fr 1fr;column-gap:3rem}}
+.area{padding-block:1.8rem;border-bottom:1px solid var(--line);display:grid;gap:.6rem}
+.area h3{font-size:clamp(1.7rem,3.5vw,2.3rem);color:var(--brown)}
+.area p{color:var(--muted)}
+.area ul{margin:.4rem 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:.4rem}
+.area li{font-size:.88rem;font-weight:600;background:var(--paper);padding:.3rem .7rem;border-radius:999px}
+
+.desp{background:var(--brown);color:#fff}
+.desp h2{color:#fff}
+.desp .lead{color:#E3D4C6}
+.cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.6rem}
+.cifras b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(2.6rem,6vw,4rem);color:#E7C98F;line-height:1}
+.cifras span{color:#E3D4C6;font-size:.95rem}
+
+.cont{display:grid;gap:2.5rem}
+@media (min-width:900px){.cont{grid-template-columns:1fr 1fr;align-items:start}}
+.datos{display:grid;gap:1.1rem;margin-top:1.6rem;font-size:1.12rem}
+.datos b{display:block;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.datos a{font-weight:600;color:var(--brown)}
+.form{display:grid;gap:1rem;background:var(--paper);padding:clamp(1.4rem,4vw,2.2rem)}
+.form label{display:grid;gap:.3rem;font-weight:600}
+.form input,.form select,.form textarea{font:inherit;padding:.75rem .9rem;border:1px solid var(--line);border-radius:2px;background:#fff;min-width:0}
+.form textarea{min-height:6rem;resize:vertical}
+.form .ok{color:var(--brown);font-weight:600}
+
+.foot{background:var(--ink);color:#CFC4BA;padding:3rem 0 2rem}
+.foot__name{font-family:var(--serif);font-size:clamp(3.4rem,11vw,7.5rem);line-height:1.05;color:#fff}
+.foot__row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:1rem;font-size:.92rem}
+.foot a{color:#fff}
+
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}.btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="demo">Demo preparada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> para García Beltrán, Advocats i Economistes · No es la web oficial</div>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="logo" href="#"><span class="mono">GB</span><span><b>García Beltrán</b><small data-t="sub"></small></span></a>
+    <div class="langs" role="group" aria-label="Idioma"><button type="button" data-l="es">ES</button><button type="button" data-l="ca">CA</button><button type="button" data-l="en">EN</button></div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero__in">
+      <div>
+        <p class="kick rv" data-t="kick"></p>
+        <h1 class="rv" data-t="h1" data-html="1"></h1>
+        <p class="p rv" data-t="hp"></p>
+        <div class="cta rv"><a class="btn btn--brown" href="#contacto" data-t="cta1"></a><a class="btn btn--line" href="tel:+34933869696">93 386 96 96</a></div>
+      </div>
+      <div class="sello rv" aria-hidden="true"><div><b>1988</b><span data-t="desde"></span></div></div>
+    </div>
+  </section>
+
+  <section class="sec" id="areas">
+    <div class="wrap">
+      <h2 class="rv" data-t="ah"></h2>
+      <p class="lead rv" data-t="al"></p>
+      <div class="areas" id="areas-l"></div>
+    </div>
+  </section>
+
+  <section class="sec desp">
+    <div class="wrap">
+      <h2 class="rv" data-t="dh"></h2>
+      <p class="lead rv" data-t="dl"></p>
+      <div class="cifras rv"><p><b>1988</b><span data-t="c1"></span></p><p><b>4</b><span data-t="c2"></span></p><p><b>3</b><span data-t="c3"></span></p></div>
+    </div>
+  </section>
+
+  <section class="sec" id="contacto">
+    <div class="wrap cont">
+      <div>
+        <h2 class="rv" data-t="ch"></h2>
+        <div class="datos rv">
+          <p><b data-t="dir"></b>Rambla de Sant Sebastià, 62, 1º 2ª · 08922 Santa Coloma de Gramenet · <a href="https://www.google.com/maps/search/?api=1&query=Rambla+Sant+Sebasti%C3%A0+62+Santa+Coloma+de+Gramenet" target="_blank" rel="noopener" data-t="mapa"></a></p>
+          <p><b data-t="tel"></b><a href="tel:+34933869696">93 386 96 96</a> · <a href="tel:+34933869599">93 386 95 99</a></p>
+          <p><b data-t="mail"></b><a href="mailto:info@beltranadvocats.com">info@beltranadvocats.com</a></p>
+        </div>
+      </div>
+      <form class="form rv" id="form">
+        <label for="fn"><span data-t="fn"></span><input id="fn" required autocomplete="name"></label>
+        <label for="fe"><span data-t="fe"></span><input id="fe" required type="email" autocomplete="email"></label>
+        <label for="fa"><span data-t="fa"></span><select id="fa"></select></label>
+        <label for="fm"><span data-t="fm"></span><textarea id="fm"></textarea></label>
+        <div><button class="btn btn--brown" type="submit" data-t="enviar"></button></div>
+        <p class="ok" id="ok" hidden></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot__name">García Beltrán</p>
+    <div class="foot__row"><p data-t="pie"></p><p>Demo · <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a></p></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var T={
+    es:{sub:'Advocats i Economistes · desde 1988',kick:'Abogados y economistas en Santa Coloma',h1:'Los retos se superan. <em>Los problemas se resuelven.</em>',hp:'Despacho de referencia desde 1988 en derecho mercantil, civil y laboral, con consultoría económica y financiera para empresas y particulares.',cta1:'Pedir una primera consulta',desde:'desde',ah:'Áreas de actuación',al:'Un asesoramiento global, del ámbito más tradicional a las cuestiones nuevas de la empresa, con un compromiso de sincera honestidad.',dh:'Un despacho con oficio',dl:'Un equipo de abogados y economistas con amplia formación docente, que también forma a empresas con planes adaptados a sus necesidades.',c1:'año de fundación',c2:'áreas del derecho y la economía',c3:'idiomas de atención',ch:'Hablemos de su caso',dir:'Dirección',mapa:'Cómo llegar',tel:'Teléfonos',mail:'Correo',fn:'Nombre',fe:'Correo electrónico',fa:'Área',fm:'Cuéntenos brevemente su caso',enviar:'Enviar consulta',ok:'Gracias. Esto es una demo: en la web real, su consulta llegaría al despacho al momento.',pie:'García Beltrán, Advocats i Economistes · Rambla de Sant Sebastià, 62 · Santa Coloma de Gramenet',
+        areas:[['Derecho mercantil','Constitución de sociedades, contratos, pactos de socios y operaciones entre empresas.',['Sociedades','Contratos','Socios']],['Derecho civil','Herencias, contratos, arrendamientos, reclamaciones y conflictos entre particulares.',['Herencias','Arrendamientos','Reclamaciones']],['Derecho laboral','Despidos, contratos de trabajo, conflictos y defensa ante la jurisdicción social.',['Despidos','Contratos','Juicios']],['Consultoría económica y financiera','Planificación, viabilidad, financiación y formación económica para empresas.',['Viabilidad','Financiación','Formación']]]},
+    ca:{sub:'Advocats i Economistes · des de 1988',kick:'Advocats i economistes a Santa Coloma',h1:'Els reptes se superen. <em>Els problemes es resolen.</em>',hp:'Despatx de referència des de 1988 en dret mercantil, civil i laboral, amb consultoria econòmica i financera per a empreses i particulars.',cta1:'Demanar una primera consulta',desde:'des de',ah:'Àrees d’actuació',al:'Un assessorament global, des de l’àmbit més tradicional fins a les qüestions noves de l’empresa, amb un compromís de sincera honestedat.',dh:'Un despatx amb ofici',dl:'Un equip d’advocats i economistes amb àmplia formació docent, que també forma empreses amb plans adaptats a les seves necessitats.',c1:'any de fundació',c2:'àrees del dret i l’economia',c3:'idiomes d’atenció',ch:'Parlem del seu cas',dir:'Adreça',mapa:'Com arribar-hi',tel:'Telèfons',mail:'Correu',fn:'Nom',fe:'Correu electrònic',fa:'Àrea',fm:'Expliqui’ns breument el seu cas',enviar:'Enviar consulta',ok:'Gràcies. Això és una demo: a la web real, la seva consulta arribaria al despatx a l’instant.',pie:'García Beltrán, Advocats i Economistes · Rambla de Sant Sebastià, 62 · Santa Coloma de Gramenet',
+        areas:[['Dret mercantil','Constitució de societats, contractes, pactes de socis i operacions entre empreses.',['Societats','Contractes','Socis']],['Dret civil','Herències, contractes, arrendaments, reclamacions i conflictes entre particulars.',['Herències','Arrendaments','Reclamacions']],['Dret laboral','Acomiadaments, contractes de treball, conflictes i defensa davant la jurisdicció social.',['Acomiadaments','Contractes','Judicis']],['Consultoria econòmica i financera','Planificació, viabilitat, finançament i formació econòmica per a empreses.',['Viabilitat','Finançament','Formació']]]},
+    en:{sub:'Lawyers and Economists · since 1988',kick:'Lawyers and economists in Santa Coloma',h1:'Challenges are overcome. <em>Problems are solved.</em>',hp:'A leading firm since 1988 in commercial, civil and employment law, with economic and financial consulting for companies and individuals.',cta1:'Book a first consultation',desde:'since',ah:'Practice areas',al:'Comprehensive advice, from the most traditional matters to the newest business questions, with a commitment to honest counsel.',dh:'A firm with experience',dl:'A team of lawyers and economists with extensive teaching backgrounds, who also train companies with tailored programmes.',c1:'year founded',c2:'areas of law and economics',c3:'languages spoken',ch:'Tell us about your case',dir:'Address',mapa:'Directions',tel:'Phones',mail:'Email',fn:'Name',fe:'Email',fa:'Area',fm:'Briefly describe your case',enviar:'Send enquiry',ok:'Thank you. This is a demo: on the real site, your enquiry would reach the firm instantly.',pie:'García Beltrán, Advocats i Economistes · Rambla de Sant Sebastià, 62 · Santa Coloma de Gramenet',
+        areas:[['Commercial law','Company formation, contracts, shareholder agreements and business transactions.',['Companies','Contracts','Shareholders']],['Civil law','Inheritance, contracts, leases, claims and disputes between individuals.',['Inheritance','Leases','Claims']],['Employment law','Dismissals, employment contracts, disputes and representation in labour courts.',['Dismissals','Contracts','Court']],['Economic and financial consulting','Planning, feasibility, financing and economic training for companies.',['Feasibility','Financing','Training']]]}
+  };
+  var lang='es';
+  function pintar(){
+    var t=T[lang]; document.documentElement.lang=lang;
+    document.querySelectorAll('[data-t]').forEach(function(e){var v=t[e.dataset.t]; if(v==null)return; if(e.dataset.html)e.innerHTML=v; else e.textContent=v;});
+    var cont=document.getElementById('areas-l'); cont.innerHTML='';
+    t.areas.forEach(function(a){var d=document.createElement('div');d.className='area';var h=document.createElement('h3');h.textContent=a[0];var p=document.createElement('p');p.textContent=a[1];var ul=document.createElement('ul');a[2].forEach(function(x){var li=document.createElement('li');li.textContent=x;ul.appendChild(li);});d.appendChild(h);d.appendChild(p);d.appendChild(ul);cont.appendChild(d);});
+    var sel=document.getElementById('fa'); sel.innerHTML=''; t.areas.forEach(function(a){var o=document.createElement('option');o.textContent=a[0];sel.appendChild(o);});
+    document.querySelectorAll('.langs button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.l===lang));});
+    document.getElementById('ok').textContent=t.ok;
+  }
+  document.querySelectorAll('.langs button').forEach(function(b){b.addEventListener('click',function(){lang=b.dataset.l;pintar();});});
+  document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();document.getElementById('ok').hidden=false;});
+  pintar();
+
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);});},{rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(e){io.observe(e);});
+  setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},3000);
+})();
+</script>
+</body>
+</html>

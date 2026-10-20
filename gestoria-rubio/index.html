@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Gestoría Rubio · Gestoría y asesoría en Santa Coloma desde 1959</title>
+<meta name="description" content="Demo de web para Gestoría Rubio, preparada por Grapa Lab.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Direccion: su rotulo. "Rubio" en granate con letra gruesa, FUNDADA EN 1959 y la lista de servicios en mayusculas.
+   Blanco, granate y gris piedra (el granito de su fachada). El motivo es el ano: 1959 como cifra grande y como hilo de la pagina. */
+:root{
+  --garnet:#8C1D24; --garnet-d:#6E151B; --stone:#EDEAE6; --white:#FFFFFF; --ink:#1E1A1A; --muted:#625A58; --line:#DCD6D1;
+  --head:"DM Serif Display",Georgia,serif; --font:"Karla",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --g:clamp(1rem,4vw,2.5rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;font-family:var(--font);font-size:1.1rem;line-height:1.6;color:var(--ink);background:var(--white)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;font-family:var(--head);font-weight:400;line-height:1.02;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:76rem;margin-inline:auto;padding-inline:var(--g)}
+.caps{text-transform:uppercase;letter-spacing:.16em;font-size:.8rem;font-weight:700}
+.demo{background:var(--ink);color:#D9D2CF;font-size:.82rem;text-align:center;padding:.5rem var(--g)}
+.demo a{color:#fff;font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.95rem 1.5rem;font:inherit;font-weight:700;text-decoration:none;border:0;border-radius:4px;cursor:pointer;transition:transform .18s,background-color .18s}
+.btn:hover{transform:translateY(-2px)}
+.btn--garnet{background:var(--garnet);color:#fff}.btn--garnet:hover{background:var(--garnet-d)}
+.btn--line{box-shadow:inset 0 0 0 2px var(--garnet);color:var(--garnet)}
+.btn--wa{background:#1B9E52;color:#fff}
+
+.top{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}
+.top__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:4.4rem}
+.logo{text-decoration:none;line-height:1}
+.logo b{font-family:var(--head);font-weight:400;font-size:1.9rem;color:var(--garnet)}
+.logo small{display:block;font-size:.6rem;letter-spacing:.2em;color:var(--muted);font-weight:700;margin-top:.15rem}
+.nav{display:none;gap:1.8rem;font-weight:600}
+.nav a{text-decoration:none}.nav a:hover{color:var(--garnet)}
+.top .btn{padding:.6rem 1rem}
+@media (min-width:960px){.nav{display:flex}}
+
+.hero{background:var(--stone)}
+.hero__in{display:grid;gap:2.4rem;align-items:center;padding-block:clamp(2.5rem,7vw,5rem)}
+@media (min-width:900px){.hero__in{grid-template-columns:1.15fr 1fr}}
+.anio{font-family:var(--head);font-size:clamp(5rem,16vw,11rem);line-height:.8;color:var(--garnet)}
+.hero h1{font-size:clamp(2.6rem,6.5vw,4.6rem);margin-top:1rem}
+.hero .p{margin-top:1.2rem;font-size:1.18rem;color:var(--muted);max-width:32em}
+.hero .cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.8rem}
+.dato{display:flex;flex-wrap:wrap;gap:.3rem 1.4rem;margin-top:1.6rem;font-weight:600;font-size:.98rem}
+.dato b{color:#B88A1E}
+.estado{display:inline-flex;gap:.45rem;align-items:center}
+.estado i{width:.6rem;height:.6rem;border-radius:50%;background:var(--muted)}
+.estado.abierto i{background:#1B9E52}
+.hero__foto img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 20%;border-radius:4px}
+
+.sec{padding-block:clamp(4.5rem,10vw,8rem)}
+.sec h2{font-size:clamp(2.5rem,6vw,4.2rem)}
+.sec .lead{margin-top:1rem;max-width:34em;font-size:1.15rem;color:var(--muted)}
+
+/* que tramite necesitas: lo vivo */
+.tram{display:grid;gap:2.4rem;margin-top:2.4rem;align-items:start}
+@media (min-width:900px){.tram{grid-template-columns:1fr 1.25fr}}
+.grupo + .grupo{margin-top:1.4rem}
+.grupo p{margin-bottom:.6rem;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{font:inherit;font-weight:600;font-size:.98rem;border:1.5px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:.55rem 1rem;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--garnet);border-color:var(--garnet);color:#fff}
+.ficha{background:var(--stone);padding:clamp(1.4rem,4vw,2.4rem);border-top:6px solid var(--garnet)}
+.ficha h3{font-size:clamp(1.9rem,4vw,2.6rem)}
+.ficha .sub{margin-top:.5rem;color:var(--muted)}
+.ficha ol{margin:1.2rem 0 0;padding-left:1.3rem;display:grid;gap:.45rem}
+.ficha li{padding-left:.3rem}
+.ficha .cta{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem}
+
+/* servicios */
+.servs{display:grid;gap:1px;background:var(--line);margin-top:2.4rem;border:1px solid var(--line)}
+@media (min-width:760px){.servs{grid-template-columns:repeat(3,1fr)}}
+.serv{background:#fff;padding:1.6rem}
+.serv h3{font-size:1.6rem;color:var(--garnet)}
+.serv p{margin-top:.5rem;color:var(--muted);font-size:1rem}
+
+/* despacho */
+.desp{display:grid;gap:2.4rem;align-items:center}
+@media (min-width:900px){.desp{grid-template-columns:1fr 1fr}}
+.desp img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px}
+.cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
+.cifras b{display:block;font-family:var(--head);font-weight:400;font-size:clamp(2.2rem,5vw,3.2rem);color:var(--garnet);line-height:1}
+.cifras span{font-size:.92rem;color:var(--muted)}
+
+.ops{background:var(--garnet);color:#fff}
+.ops h2{color:#fff}
+.ops__in{display:grid;gap:2.4rem;margin-top:2.4rem;align-items:center}
+@media (min-width:860px){.ops__in{grid-template-columns:1fr 2fr}}
+.nota{font-family:var(--head);font-size:clamp(5.5rem,16vw,9rem);line-height:.85}
+.nota small{display:block;font-family:var(--font);font-size:1rem;color:#F0D3D5;font-weight:600;margin-top:.8rem}
+.quotes{display:grid;gap:1.6rem}
+.quotes p{font-family:var(--head);font-size:clamp(1.4rem,3vw,2rem);line-height:1.2}
+.quotes span{display:block;font-size:.88rem;color:#F0D3D5;margin-top:.3rem}
+
+.cont{display:grid;gap:2.5rem}
+@media (min-width:900px){.cont{grid-template-columns:1fr 1fr;align-items:start}}
+.datos{display:grid;gap:1.1rem;margin-top:1.6rem;font-size:1.12rem}
+.datos b{display:block;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.datos a{font-weight:700;color:var(--garnet)}
+.horario{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.horario td{padding:.55rem 0;border-bottom:1px solid var(--line)}
+.horario td:last-child{text-align:right;font-weight:600}
+.horario tr.hoy td{color:var(--garnet);font-weight:700}
+
+.foot{background:var(--ink);color:#CFC7C4;padding:3rem 0 2rem}
+.foot__name{font-family:var(--head);font-size:clamp(4.5rem,17vw,12rem);line-height:1.05;color:#fff}
+.foot__row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:1rem;font-size:.92rem}
+.foot a{color:#fff}
+
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}.btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="demo">Demo preparada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> para Gestoría Rubio · No es la web oficial</div>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="logo" href="#"><b>Rubio</b><small>GESTORÍA · ASESORÍA · SEGUROS</small></a>
+    <nav class="nav" aria-label="Principal"><a href="#tramite">Tu trámite</a><a href="#servicios">Servicios</a><a href="#despacho">El despacho</a><a href="#contacto">Contacto</a></nav>
+    <a class="btn btn--wa" href="https://wa.me/34608566218" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero__in">
+      <div>
+        <p class="anio rv" aria-hidden="true">1959</p>
+        <h1 class="rv">Sus trámites, en manos de siempre.</h1>
+        <p class="p rv">Gestoría administrativa, asesoría fiscal, laboral y contable, tráfico, extranjería y seguros en el Passeig de Llorenç Serra. Más de 65 años resolviendo papeles en Santa Coloma.</p>
+        <div class="cta rv"><a class="btn btn--garnet" href="#tramite">¿Qué trámite necesita?</a><a class="btn btn--line" href="tel:+34934662223">934 66 22 23</a></div>
+        <p class="dato rv"><span><b>★★★★</b> 4,3 en Google · 79 opiniones</span><span class="estado" id="estado"><i></i><span>Horario</span></span></p>
+      </div>
+      <div class="hero__foto rv"><img src="img/2.jpg" alt="Fachada de Gestoría Rubio, fundada en 1959" width="1400" height="1867"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="tramite">
+    <div class="wrap">
+      <h2 class="rv">¿Qué trámite necesita?</h2>
+      <p class="lead rv">Elíjalo y le decimos qué documentos traer. Así lo resolvemos en una sola visita, o se lo enviamos por WhatsApp.</p>
+      <div class="tram">
+        <div class="rv" id="grupos"></div>
+        <div class="ficha rv" aria-live="polite">
+          <p class="caps" id="f-cat" style="color:var(--garnet)"></p>
+          <h3 id="f-t"></h3>
+          <p class="sub" id="f-s"></p>
+          <ol id="f-l"></ol>
+          <div class="cta"><a class="btn btn--wa" id="f-wa" href="#" target="_blank" rel="noopener">Preguntar por WhatsApp</a><a class="btn btn--line" href="tel:+34934662223">Llamar</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="servicios" style="background:var(--stone)">
+    <div class="wrap">
+      <h2 class="rv">Todo en un mismo despacho</h2>
+      <div class="servs rv">
+        <div class="serv"><h3>Asesoría fiscal</h3><p>Renta, IVA, impuestos de autónomos y sociedades.</p></div>
+        <div class="serv"><h3>Asesoría laboral</h3><p>Contratos, nóminas, altas y bajas en la Seguridad Social.</p></div>
+        <div class="serv"><h3>Asesoría contable</h3><p>Contabilidad y cuentas anuales para empresas y autónomos.</p></div>
+        <div class="serv"><h3>Tráfico y vehículos</h3><p>Transferencias, duplicados, permisos de conducir, ITV y transporte.</p></div>
+        <div class="serv"><h3>Extranjería</h3><p>Permisos de residencia y trabajo, renovaciones y arraigo.</p></div>
+        <div class="serv"><h3>Seguros</h3><p>Correduría de seguros para particulares, negocios y vehículos.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="despacho">
+    <div class="wrap desp">
+      <img class="rv" src="img/3.jpg" alt="Entrada del despacho de Gestoría Rubio" loading="lazy" width="768" height="1024">
+      <div>
+        <h2 class="rv">Un despacho de familia</h2>
+        <p class="lead rv">Desde 1959 atendemos a vecinos, autónomos y empresas de Santa Coloma con el mismo trato cercano. Usted nos cuenta su caso y nosotros nos ocupamos de la Administración.</p>
+        <div class="cifras rv"><p><b>1959</b><span>año de fundación</span></p><p><b>6</b><span>áreas de servicio</span></p><p><b>79</b><span>opiniones en Google</span></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec ops">
+    <div class="wrap">
+      <h2 class="rv">Lo que dicen de Rubio</h2>
+      <div class="ops__in">
+        <div class="nota rv">4,3<small>79 opiniones en Google</small></div>
+        <div class="quotes">
+          <div class="rv"><p>«Buena atención y rápida.»</p><span>Opinión en Google</span></div>
+          <div class="rv"><p>«Experiencia muy satisfactoria. Cien por cien recomendables.»</p><span>Opinión en Google</span></div>
+          <div class="rv"><p>«Gracias por vuestro gran servicio a los clientes.»</p><span>Opinión en Google</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contacto">
+    <div class="wrap cont">
+      <div>
+        <h2 class="rv">Venga a vernos</h2>
+        <div class="datos rv">
+          <p><b>Dirección</b>Passeig de Llorenç Serra, 9 · 08922 Santa Coloma de Gramenet · <a href="https://www.google.com/maps/search/?api=1&query=Rubio+Gestors+Administratius+Santa+Coloma" target="_blank" rel="noopener">Cómo llegar</a></p>
+          <p><b>Teléfono</b><a href="tel:+34934662223">934 66 22 23</a></p>
+          <p><b>WhatsApp</b><a href="https://wa.me/34608566218" target="_blank" rel="noopener">608 56 62 18</a></p>
+          <p><b>Correo</b><a href="mailto:gestoriarubio@rubiogestoria.com">gestoriarubio@rubiogestoria.com</a></p>
+        </div>
+      </div>
+      <div class="rv"><p class="datos" style="margin:0 0 .8rem"><b>Horario</b></p><table class="horario" id="horario" aria-label="Horario"></table></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot__name">Rubio</p>
+    <div class="foot__row"><p>Gestoría administrativa · Fundada en 1959 · Passeig de Llorenç Serra, 9 · Santa Coloma de Gramenet</p><p>Demo diseñada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a></p></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var WA='34608566218';
+  var H={0:null,1:[['8:45','13:30'],['15:00','19:00']],2:[['8:45','13:30'],['15:00','19:00']],3:[['8:45','13:30'],['15:00','19:00']],4:[['8:45','13:30'],['15:00','19:00']],5:[['8:45','13:30']],6:null};
+  var NOM=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+  var m=function(t){var p=t.split(':');return +p[0]*60+ +p[1];};
+  var now=new Date(), d=now.getDay(), min=now.getHours()*60+now.getMinutes();
+  var tb=document.getElementById('horario');
+  [1,2,3,4,5,6,0].forEach(function(k){var tr=document.createElement('tr');if(k===d)tr.className='hoy';var a=document.createElement('td');a.textContent=NOM[k];var b=document.createElement('td');b.textContent=H[k]?H[k].map(function(r){return r[0]+'–'+r[1];}).join(' · '):'Cerrado';tr.appendChild(a);tr.appendChild(b);tb.appendChild(tr);});
+  var est=document.getElementById('estado'), tx=est.querySelector('span'), ab=null;
+  (H[d]||[]).forEach(function(r){if(min>=m(r[0])&&min<m(r[1]))ab=r;});
+  if(ab){est.classList.add('abierto');tx.textContent='Abierto ahora, hasta las '+ab[1];}
+  else{for(var i=0;i<8;i++){var k=(d+i)%7,r=(H[k]||[]).filter(function(x){return i>0||m(x[0])>min;})[0];if(r){tx.textContent='Cerrado · abre '+(i===0?'hoy':i===1?'mañana':'el '+NOM[k].toLowerCase())+' a las '+r[0];break;}}}
+
+  var G=[
+    {g:'Vehículos y tráfico',t:[
+      {n:'Transferencia de vehículo',s:'Cambio de titular al comprar o vender un coche o una moto.',l:['DNI del comprador y del vendedor','Permiso de circulación y ficha técnica (ITV en vigor)','Contrato de compraventa','Último recibo del impuesto de circulación']},
+      {n:'Renovar el carnet de conducir',s:'Renovación o duplicado del permiso de conducción.',l:['DNI','Certificado médico (psicotécnico) en vigor','Una foto tamaño carnet','Permiso actual o denuncia si lo has perdido']},
+      {n:'Baja de un vehículo',s:'Baja definitiva o temporal en Tráfico.',l:['DNI del titular','Permiso de circulación y ficha técnica','Certificado del desguace (si es baja definitiva)']}]},
+    {g:'Empresas y autónomos',t:[
+      {n:'Darme de alta como autónomo',s:'Alta en Hacienda y en la Seguridad Social, con la tarifa reducida si te corresponde.',l:['DNI','Número de la Seguridad Social','Cuenta bancaria para la cuota','A qué te vas a dedicar y desde qué fecha']},
+      {n:'Declaración de la renta',s:'Preparamos y presentamos tu renta, revisando deducciones.',l:['DNI','Certificados de retenciones de tu empresa','Datos de la vivienda (alquiler o hipoteca)','Borrador de Hacienda si lo tienes']},
+      {n:'Contratar a un trabajador',s:'Contrato, alta en la Seguridad Social y nóminas.',l:['DNI y número de la Seguridad Social del trabajador','Tipo de contrato y jornada','Fecha de inicio y salario','Cuenta bancaria del trabajador']}]},
+    {g:'Extranjería',t:[
+      {n:'Renovar la residencia',s:'Renovación de la autorización de residencia y trabajo.',l:['Pasaporte en vigor y TIE','Certificado de empadronamiento','Contrato de trabajo o informe de vida laboral','Tasas pagadas (te ayudamos)']},
+      {n:'Arraigo',s:'Te asesoramos sobre qué tipo de arraigo te corresponde y preparamos el expediente.',l:['Pasaporte','Empadronamiento histórico','Pruebas de permanencia en España','Contrato o formación, según el tipo']}]}
+  ];
+  var cont=document.getElementById('grupos'), bs=[];
+  function elegir(o,g){
+    bs.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.n===o.n));});
+    document.getElementById('f-cat').textContent=g; document.getElementById('f-t').textContent=o.n; document.getElementById('f-s').textContent=o.s;
+    var ol=document.getElementById('f-l'); ol.innerHTML=''; o.l.forEach(function(x){var li=document.createElement('li');li.textContent=x;ol.appendChild(li);});
+    document.getElementById('f-wa').href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hola, necesito ayuda con: '+o.n.toLowerCase()+'. ¿Cuándo puedo pasar?');
+  }
+  G.forEach(function(gr){var box=document.createElement('div');box.className='grupo';var p=document.createElement('p');p.className='caps';p.textContent=gr.g;box.appendChild(p);var ch=document.createElement('div');ch.className='chips';
+    gr.t.forEach(function(o){var b=document.createElement('button');b.type='button';b.className='chip';b.dataset.n=o.n;b.textContent=o.n;b.addEventListener('click',function(){elegir(o,gr.g);});ch.appendChild(b);bs.push(b);});
+    box.appendChild(ch);cont.appendChild(box);});
+  elegir(G[0].t[0],G[0].g);
+
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);});},{rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(e){io.observe(e);});
+  setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},3000);
+})();
+</script>
+</body>
+</html>

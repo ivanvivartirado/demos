@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Zona Fincas · Inmobiliaria en Santa Coloma de Gramenet desde 2007</title>
+<meta name="description" content="Demo de web para Zona Fincas, preparada por Grapa Lab.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Direccion: su logo. Una Z negra y una F gris que se encajan, y una casita naranja. Oficina gris oscuro con sillas blancas y cojines naranja.
+   Negro, gris, blanco y un naranja. Motivo: la casita naranja, como marca de cada paso y de cada cifra. */
+:root{
+  --black:#141414; --gray:#5B5B5B; --light:#F2F2F0; --white:#FFFFFF; --orange:#E2611B; --orange-d:#C24F12; --muted:#5E5E5E; --line:#DEDEDB;
+  --font:"Urbanist",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --g:clamp(1rem,4vw,2.5rem);
+  --casa:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 2l8 7v9H2V9z' fill='%23E2611B'/%3E%3C/svg%3E");
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;font-family:var(--font);font-size:1.1rem;line-height:1.55;color:var(--black);background:var(--white)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:800;line-height:1;letter-spacing:-.02em;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:78rem;margin-inline:auto;padding-inline:var(--g)}
+.demo{background:var(--black);color:#D6D6D3;font-size:.82rem;text-align:center;padding:.5rem var(--g)}
+.demo a{color:#fff;font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.95rem 1.5rem;font:inherit;font-weight:700;text-decoration:none;border:0;border-radius:6px;cursor:pointer;transition:transform .18s,background-color .18s}
+.btn:hover{transform:translateY(-2px)}
+.btn--orange{background:var(--orange);color:#fff}.btn--orange:hover{background:var(--orange-d)}
+.btn--black{background:var(--black);color:#fff}
+.btn--line{box-shadow:inset 0 0 0 2px var(--black)}
+
+.top{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}
+.top__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:4.3rem}
+.logo{display:flex;gap:.6rem;align-items:center;text-decoration:none}
+.logo img{width:2.4rem;height:2.4rem}
+.logo b{font-weight:800;font-size:1.3rem;letter-spacing:.06em}
+.nav{display:none;gap:1.8rem;font-weight:600}
+.nav a{text-decoration:none}.nav a:hover{color:var(--orange)}
+.top .btn{padding:.6rem 1rem}
+@media (min-width:960px){.nav{display:flex}}
+
+.hero{position:relative;color:#fff;background:var(--black)}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.45}
+.hero__in{position:relative;padding-block:clamp(5rem,12vw,9rem)}
+.hero h1{font-size:clamp(3rem,8.5vw,6.6rem);max-width:12ch}
+.hero .p{margin-top:1.4rem;font-size:1.2rem;max-width:32em;color:#E9E9E6}
+.hero .cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem}
+.hero .btn--line{box-shadow:inset 0 0 0 2px #fff;color:#fff}
+.dato{display:flex;flex-wrap:wrap;gap:.3rem 1.4rem;margin-top:1.8rem;font-weight:600}
+.dato b{color:#FFB255}
+.estado{display:inline-flex;gap:.45rem;align-items:center}
+.estado i{width:.6rem;height:.6rem;border-radius:50%;background:#bbb}
+.estado.abierto i{background:#3DD27A}
+
+.sec{padding-block:clamp(4.5rem,10vw,8rem)}
+.sec h2{font-size:clamp(2.5rem,6vw,4.4rem)}
+.sec .lead{margin-top:1rem;max-width:34em;font-size:1.15rem;color:var(--muted)}
+
+/* que necesitas */
+.needs{display:grid;gap:1rem;margin-top:2.4rem}
+@media (min-width:860px){.needs{grid-template-columns:repeat(4,1fr)}}
+.need{background:var(--light);padding:1.6rem;border-radius:10px}
+.need i{display:block;width:1.6rem;height:1.6rem;background:var(--casa) center/contain no-repeat}
+.need h3{font-size:1.5rem;margin-top:.8rem}
+.need p{margin-top:.5rem;color:var(--muted);font-size:1rem}
+
+/* hipoteca: lo vivo */
+.hipo{background:var(--black);color:#fff}
+.hipo .lead{color:#C9C9C6}
+.calc{display:grid;gap:2.4rem;margin-top:2.4rem;align-items:center}
+@media (min-width:900px){.calc{grid-template-columns:1.2fr 1fr}}
+.campo{display:grid;gap:.4rem;margin-bottom:1.4rem}
+.campo label{display:flex;justify-content:space-between;font-weight:600}
+.campo output{font-variant-numeric:tabular-nums;color:#FFB255;font-weight:800}
+.campo input[type=range]{width:100%;accent-color:var(--orange)}
+.cuota{background:var(--orange);border-radius:14px;padding:clamp(1.4rem,4vw,2.4rem)}
+.cuota p{font-weight:600}
+.cuota b{display:block;font-size:clamp(3.2rem,9vw,5.4rem);font-weight:900;line-height:1;margin-top:.4rem;font-variant-numeric:tabular-nums}
+.cuota small{display:block;margin-top:1rem;font-size:.9rem;opacity:.9}
+.cuota .btn{margin-top:1.4rem;background:#fff;color:var(--black)}
+
+/* oficina */
+.ofi{display:grid;gap:1rem;margin-top:2.4rem;grid-template-columns:1fr 1fr}
+.ofi img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px}
+.ofi figure{margin:0}
+.ofi figure:first-child{grid-column:1/-1}
+@media (min-width:900px){.ofi{grid-template-columns:2fr 1fr 1fr}.ofi figure:first-child{grid-column:auto;grid-row:1/3}.ofi figure:first-child img{height:100%;aspect-ratio:auto}}
+.ofi figcaption{font-weight:700;margin-top:.4rem}
+.cifras{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.4rem}
+.cifras b{display:block;font-size:clamp(2.4rem,6vw,3.6rem);font-weight:900;line-height:1}
+.cifras span{color:var(--muted);font-size:.95rem}
+
+.ops{background:var(--light)}
+.ops__in{display:grid;gap:2.4rem;margin-top:2.4rem;align-items:center}
+@media (min-width:860px){.ops__in{grid-template-columns:1fr 2fr}}
+.nota{font-weight:900;font-size:clamp(5.5rem,16vw,9rem);line-height:.85;color:var(--orange)}
+.nota small{display:block;font-size:1rem;color:var(--muted);font-weight:600;margin-top:.8rem}
+.quotes{display:grid;gap:1.6rem}
+.quotes p{font-size:clamp(1.35rem,2.8vw,1.8rem);font-weight:700;line-height:1.3}
+.quotes span{display:block;font-size:.88rem;color:var(--muted);margin-top:.3rem;font-weight:500}
+
+.cont{display:grid;gap:2.5rem}
+@media (min-width:900px){.cont{grid-template-columns:1fr 1fr;align-items:start}}
+.datos{display:grid;gap:1.1rem;margin-top:1.6rem;font-size:1.12rem}
+.datos b{display:block;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.datos a{font-weight:700;color:var(--orange-d)}
+.horario{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.horario td{padding:.55rem 0;border-bottom:1px solid var(--line)}
+.horario td:last-child{text-align:right;font-weight:600}
+.horario tr.hoy td{color:var(--orange-d);font-weight:800}
+
+.foot{background:var(--black);color:#C9C9C6;padding:3rem 0 2rem}
+.foot__name{font-weight:900;font-size:clamp(3.6rem,13vw,9rem);line-height:1.05;letter-spacing:.02em;color:#fff}
+.foot__name span{color:var(--orange)}
+.foot__row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:1rem;font-size:.92rem}
+.foot a{color:#fff}
+
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}.btn{transition:none}}
+</style>
+</head>
+<body>
+<div class="demo">Demo preparada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> para Zona Fincas · No es la web oficial</div>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="logo" href="#"><img src="img/7.jpg" alt="" width="1400" height="1400"><b>ZONA FINCAS</b></a>
+    <nav class="nav" aria-label="Principal"><a href="#servicios">Servicios</a><a href="#hipoteca">Calcula tu hipoteca</a><a href="#oficina">La oficina</a><a href="#contacto">Contacto</a></nav>
+    <a class="btn btn--orange" href="tel:+34934662813">934 66 28 13</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <img class="bg" src="img/1.jpg" alt="" width="1400" height="1050">
+    <div class="wrap hero__in">
+      <h1 class="rv">Tu casa en Santa Coloma, con quien conoce el barrio.</h1>
+      <p class="p rv">Compraventa, alquiler, administración de alquileres y seguros desde 2007, en el Carrer de Sant Ramon. Te acompañamos de la primera visita a la firma.</p>
+      <div class="cta rv"><a class="btn btn--orange" href="#hipoteca">Calcula tu hipoteca</a><a class="btn btn--line" href="#servicios">Quiero vender mi piso</a></div>
+      <p class="dato rv"><span><b>★★★★</b> 4,4 en Google · 250 opiniones</span><span class="estado" id="estado"><i></i><span>Horario</span></span></p>
+    </div>
+  </section>
+
+  <section class="sec" id="servicios">
+    <div class="wrap">
+      <h2 class="rv">¿Qué necesitas?</h2>
+      <div class="needs">
+        <div class="need rv"><i></i><h3>Vender</h3><p>Valoramos tu piso, lo fotografiamos y lo movemos hasta encontrar comprador.</p></div>
+        <div class="need rv"><i></i><h3>Comprar</h3><p>Te enseñamos pisos que encajan con lo que buscas y te ayudamos con la hipoteca.</p></div>
+        <div class="need rv"><i></i><h3>Alquilar</h3><p>Buscamos inquilino de confianza y gestionamos contratos y cobros.</p></div>
+        <div class="need rv"><i></i><h3>Seguros</h3><p>Agentes de Catalana Occidente: hogar, impago de alquiler y más.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec hipo" id="hipoteca">
+    <div class="wrap">
+      <h2 class="rv">Calcula tu hipoteca</h2>
+      <p class="lead rv">Mueve los valores y mira cuánto pagarías al mes. Después te ayudamos a encontrar el piso y la mejor financiación.</p>
+      <div class="calc">
+        <div class="rv">
+          <div class="campo"><label for="precio">Precio del piso <output id="o-precio" for="precio"></output></label><input id="precio" type="range" min="80000" max="500000" step="5000" value="220000"></div>
+          <div class="campo"><label for="entrada">Ahorros para la entrada <output id="o-entrada" for="entrada"></output></label><input id="entrada" type="range" min="0" max="150000" step="2500" value="44000"></div>
+          <div class="campo"><label for="anios">Años <output id="o-anios" for="anios"></output></label><input id="anios" type="range" min="10" max="35" step="1" value="30"></div>
+          <div class="campo"><label for="interes">Interés anual <output id="o-interes" for="interes"></output></label><input id="interes" type="range" min="1" max="6" step="0.1" value="3"></div>
+        </div>
+        <div class="cuota rv" aria-live="polite">
+          <p>Cuota mensual aproximada</p>
+          <b id="cuota">–</b>
+          <small id="detalle"></small>
+          <a class="btn" href="tel:+34934662813">Hablar con Zona Fincas</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="oficina">
+    <div class="wrap">
+      <h2 class="rv">Ven a la oficina</h2>
+      <p class="lead rv">En el número 27 del Carrer de Sant Ramon, con sala de reuniones para firmar tranquilo.</p>
+      <div class="ofi">
+        <figure class="rv"><img src="img/1.jpg" alt="Fachada de Zona Fincas" loading="lazy" width="1400" height="1050"><figcaption>Carrer de Sant Ramon, 27</figcaption></figure>
+        <figure class="rv"><img src="img/2.jpg" alt="Oficina con mesas de atención" loading="lazy" width="1400" height="934"><figcaption>Atención al cliente</figcaption></figure>
+        <figure class="rv"><img src="img/4.jpg" alt="Sala de reuniones" loading="lazy" width="1400" height="934"><figcaption>Sala de firmas</figcaption></figure>
+      </div>
+      <div class="cifras rv"><p><b>2007</b><span>en Santa Coloma</span></p><p><b>250</b><span>opiniones en Google</span></p><p><b>4</b><span>departamentos</span></p></div>
+    </div>
+  </section>
+
+  <section class="sec ops">
+    <div class="wrap">
+      <h2 class="rv">Lo que dicen de Zona Fincas</h2>
+      <div class="ops__in">
+        <div class="nota rv">4,4<small>250 opiniones en Google</small></div>
+        <div class="quotes">
+          <div class="rv"><p>«Han sido el empujón a empezar una nueva etapa de mi vida.»</p><span>Opinión en Google</span></div>
+          <div class="rv"><p>«Son un equipazo, les volvería a contratar sin duda.»</p><span>Opinión en Google</span></div>
+          <div class="rv"><p>«Mi experiencia ha sido muy positiva. Siempre atentas a que todo funcionase.»</p><span>Opinión en Google</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contacto">
+    <div class="wrap cont">
+      <div>
+        <h2 class="rv">Hablemos</h2>
+        <div class="datos rv">
+          <p><b>Dirección</b>Carrer de Sant Ramon, 27, local 2 · 08922 Santa Coloma de Gramenet · <a href="https://www.google.com/maps/search/?api=1&query=Zona+Fincas+Santa+Coloma" target="_blank" rel="noopener">Cómo llegar</a></p>
+          <p><b>Teléfono</b><a href="tel:+34934662813">934 66 28 13</a></p>
+          <p><b>Correo</b><a href="mailto:info@zonafincas.es">info@zonafincas.es</a></p>
+        </div>
+      </div>
+      <div class="rv"><p class="datos" style="margin:0 0 .8rem"><b>Horario</b></p><table class="horario" id="horario" aria-label="Horario"></table></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot__name">ZONA <span>FINCAS</span></p>
+    <div class="foot__row"><p>Inmobiliaria desde 2007 · Carrer de Sant Ramon, 27 · Santa Coloma de Gramenet</p><p>Demo diseñada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> con las fotos de la propia oficina</p></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var H={0:null,1:[['9:30','14:00'],['16:30','20:00']],2:[['9:30','14:00'],['16:30','20:00']],3:[['9:30','14:00'],['16:30','20:00']],4:[['9:30','14:00'],['16:30','20:00']],5:[['9:30','14:00'],['16:30','20:00']],6:null};
+  var NOM=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+  var m=function(t){var p=t.split(':');return +p[0]*60+ +p[1];};
+  var now=new Date(), d=now.getDay(), min=now.getHours()*60+now.getMinutes();
+  var tb=document.getElementById('horario');
+  [1,2,3,4,5,6,0].forEach(function(k){var tr=document.createElement('tr');if(k===d)tr.className='hoy';var a=document.createElement('td');a.textContent=NOM[k];var b=document.createElement('td');b.textContent=H[k]?H[k].map(function(r){return r[0]+'–'+r[1];}).join(' · '):'Cerrado';tr.appendChild(a);tr.appendChild(b);tb.appendChild(tr);});
+  var est=document.getElementById('estado'), tx=est.querySelector('span'), ab=null;
+  (H[d]||[]).forEach(function(r){if(min>=m(r[0])&&min<m(r[1]))ab=r;});
+  if(ab){est.classList.add('abierto');tx.textContent='Abierto ahora, hasta las '+ab[1];}
+  else{for(var i=0;i<8;i++){var k=(d+i)%7,r=(H[k]||[]).filter(function(x){return i>0||m(x[0])>min;})[0];if(r){tx.textContent='Cerrado · abre '+(i===0?'hoy':i===1?'mañana':'el '+NOM[k].toLowerCase())+' a las '+r[0];break;}}}
+
+  var eur=new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR',maximumFractionDigits:0});
+  var ids=['precio','entrada','anios','interes'], el={};
+  ids.forEach(function(i){el[i]=document.getElementById(i);el[i].addEventListener('input',calc);});
+  function calc(){
+    var P=+el.precio.value, E=Math.min(+el.entrada.value,P), n=+el.anios.value*12, r=+el.interes.value/100/12, C=P-E;
+    document.getElementById('o-precio').textContent=eur.format(P);
+    document.getElementById('o-entrada').textContent=eur.format(E);
+    document.getElementById('o-anios').textContent=el.anios.value+' años';
+    document.getElementById('o-interes').textContent=(+el.interes.value).toFixed(1).replace('.',',')+' %';
+    var q=r?C*r/(1-Math.pow(1+r,-n)):C/n;
+    document.getElementById('cuota').textContent=eur.format(q);
+    var pct=Math.round(C/P*100);
+    document.getElementById('detalle').textContent='Pides '+eur.format(C)+' ('+pct+' % del precio). Cálculo orientativo: los bancos suelen financiar hasta el 80 % y además hay que contar impuestos y gastos de compra.';
+  }
+  calc();
+
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);});},{rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(e){io.observe(e);});
+  setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},3000);
+})();
+</script>
+</body>
+</html>
