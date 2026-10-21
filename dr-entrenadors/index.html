@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>DR Entrenadors · Entrenamiento personal en Badalona</title>
+<meta name="description" content="Demo de web para Dídac Rodríguez | Entrenadors Personals, preparada por Grapa Lab.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Direccion: su fachada del Carrer de Sant Pau. Blanca, con el gran circulo rojo, cuadros morados y «TRAINING CLUB».
+   Rojo de la anilla, morado de los cuadros, negro de las maquinas. Un solo motivo: la anilla roja, que marca y rodea. */
+:root{
+  --red:#E5322D; --red-d:#C4221E; --violet:#5B4CC4; --ink:#14131C; --white:#FFFFFF; --mist:#F3F2F7; --muted:#5F5D6E; --line:#E4E2EC;
+  --head:"Barlow Condensed","Arial Narrow",Arial,sans-serif; --font:"Barlow",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --g:clamp(1rem,4vw,2.5rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;font-family:var(--font);font-size:1.08rem;line-height:1.6;color:var(--ink);background:var(--white)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;font-family:var(--head);font-weight:800;line-height:.95;letter-spacing:.005em;text-transform:uppercase;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:78rem;margin-inline:auto;padding-inline:var(--g)}
+.anilla{display:inline-block;width:1.6rem;height:1.6rem;border-radius:50%;border:.32rem solid var(--red);margin-bottom:1rem}
+.demo{background:var(--ink);color:#C9C6D8;font-size:.82rem;text-align:center;padding:.5rem var(--g)}
+.demo a{color:#fff;font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.95rem 1.5rem;font:inherit;font-weight:600;text-decoration:none;border:0;border-radius:.5rem;cursor:pointer;transition:transform .18s,background-color .18s}
+.btn:hover{transform:translateY(-2px)}
+.btn--red{background:var(--red);color:#fff}.btn--red:hover{background:var(--red-d)}
+.btn--line{box-shadow:inset 0 0 0 1.5px currentColor}
+.btn--wa{background:#1B9E52;color:#fff}
+
+.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.top__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:4.3rem}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-family:var(--head);font-weight:800;font-size:1.45rem;text-transform:uppercase;line-height:1}
+.logo i{flex:none;width:2.3rem;height:2.3rem;border-radius:50%;border:.22rem solid var(--red);display:grid;place-items:center;font-style:normal;font-family:var(--font);font-weight:600;font-size:.95rem;text-transform:none}
+.logo small{display:block;font-family:var(--font);font-weight:500;font-size:.6rem;letter-spacing:.22em;color:var(--muted);margin-top:.2rem}
+.nav{display:none;gap:1.8rem;font-weight:500}
+.nav a{text-decoration:none}.nav a:hover{color:var(--red)}
+.top .btn{padding:.6rem 1.1rem}
+@media (min-width:960px){.nav{display:flex}}
+
+.hero__in{display:grid;gap:2.6rem;align-items:center;padding-block:clamp(2.5rem,7vw,5rem)}
+@media (min-width:900px){.hero__in{grid-template-columns:1.1fr .9fr}}
+.hero h1{font-size:clamp(3.4rem,9vw,7rem)}
+.hero h1 em{font-style:normal;color:var(--red)}
+.hero .p{font-size:clamp(1.12rem,2.4vw,1.28rem);color:var(--muted);max-width:30em;margin-top:1.3rem}
+.hero .cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.8rem}
+.dato{display:flex;flex-wrap:wrap;gap:.3rem 1.4rem;margin-top:1.6rem;font-weight:600;font-size:.95rem}
+.dato b{color:var(--red)}
+.hero__foto{position:relative;isolation:isolate;max-width:30rem;justify-self:center;width:100%}
+.hero__foto::before{content:"";position:absolute;z-index:-1;width:78%;aspect-ratio:1;border-radius:50%;border:clamp(.9rem,2.4vw,1.4rem) solid var(--red);top:-6%;right:-8%}
+.hero__foto img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:.8rem}
+.hero__foto span{position:absolute;left:-.6rem;bottom:1.4rem;background:var(--violet);color:#fff;font-family:var(--head);font-weight:800;text-transform:uppercase;font-size:1.15rem;padding:.5rem .9rem;border-radius:.4rem}
+
+.sec{padding-block:clamp(4.5rem,10vw,8rem)}
+.sec h2{font-size:clamp(2.8rem,7vw,5rem)}
+.sec .lead{max-width:34em;font-size:1.12rem;color:var(--muted);margin-top:1rem}
+
+/* tu plan: lo vivo */
+.plan{background:var(--ink);color:#fff}
+.plan .lead{color:#B9B6C9}
+.plan__in{display:grid;gap:2.4rem;margin-top:2.4rem;align-items:start}
+@media (min-width:900px){.plan__in{grid-template-columns:1.25fr 1fr}}
+.preg{display:grid;gap:1.8rem}
+.preg p{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:#B9B6C9;margin-bottom:.7rem}
+.ops{display:flex;flex-wrap:wrap;gap:.5rem}
+.op{font:inherit;font-weight:600;color:#fff;background:transparent;border:1.5px solid #3A3848;border-radius:.5rem;padding:.7rem 1rem;cursor:pointer;transition:border-color .2s,background-color .2s}
+.op:hover{border-color:#6B6880}
+.op[aria-pressed="true"]{background:var(--red);border-color:var(--red)}
+.res{background:#fff;color:var(--ink);border-radius:1rem;padding:clamp(1.4rem,4vw,2.2rem);position:sticky;top:6rem;overflow:hidden;isolation:isolate}
+.res::after{content:"";position:absolute;z-index:-1;width:11rem;aspect-ratio:1;border-radius:50%;border:1rem solid var(--mist);right:-3.5rem;top:-3.5rem}
+.res .caps{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.res h3{font-size:clamp(2.2rem,6vw,3.2rem);margin-top:.5rem}
+.res ul{list-style:none;padding:0;margin:1.1rem 0 0;display:grid;gap:.55rem}
+.res li{display:flex;gap:.7rem;align-items:flex-start}
+.res li::before{content:"";flex:none;width:.85rem;height:.85rem;border-radius:50%;border:.2rem solid var(--red);margin-top:.4rem}
+.res .cita{margin-top:1.2rem;padding-top:1.1rem;border-top:1px solid var(--line);color:var(--muted);font-size:.98rem}
+.res .cta{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.4rem}
+
+/* el centro */
+.centro{display:grid;gap:.8rem;margin-top:2.4rem;grid-template-columns:repeat(2,1fr)}
+@media (min-width:900px){.centro{grid-template-columns:2fr 1fr 1fr}}
+.centro img{width:100%;height:100%;object-fit:cover;border-radius:.8rem;aspect-ratio:3/4}
+.centro img:first-child{grid-column:1/-1;aspect-ratio:16/10}
+@media (min-width:900px){.centro img:first-child{grid-column:auto;grid-row:span 2;aspect-ratio:auto}.centro img:not(:first-child){aspect-ratio:4/3}.centro img:nth-child(2){grid-column:span 2;aspect-ratio:8/3}}
+.puntos{display:grid;gap:1.4rem;margin-top:3rem}
+@media (min-width:760px){.puntos{grid-template-columns:repeat(3,1fr)}}
+.puntos b{display:block;font-family:var(--head);font-weight:800;text-transform:uppercase;font-size:1.6rem;line-height:1}
+.puntos p{color:var(--muted);margin-top:.5rem}
+.puntos .n{font-family:var(--head);font-weight:800;color:var(--red);font-size:1.1rem;letter-spacing:.1em}
+
+/* ironshop */
+.shop{background:var(--mist)}
+.shop__in{display:grid;gap:2.4rem;align-items:center}
+@media (min-width:900px){.shop__in{grid-template-columns:1fr 1fr}}
+.shop img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:.8rem}
+
+.opin{display:grid;gap:2.4rem;margin-top:2.4rem;align-items:center}
+@media (min-width:860px){.opin{grid-template-columns:1fr 2fr}}
+.nota{font-family:var(--head);font-weight:800;font-size:clamp(6rem,17vw,10rem);line-height:.8;color:var(--red)}
+.nota small{display:block;font-family:var(--font);font-weight:500;font-size:1rem;color:var(--muted);margin-top:.9rem}
+.quotes{display:grid;gap:1.6rem}
+.quotes p{font-size:clamp(1.2rem,2.6vw,1.5rem);line-height:1.35;font-weight:500}
+.quotes span{display:block;font-size:.88rem;color:var(--muted);margin-top:.3rem}
+
+.cont{display:grid;gap:2.5rem}
+@media (min-width:900px){.cont{grid-template-columns:1fr 1fr;align-items:start}}
+.datos{display:grid;gap:1.1rem;margin-top:1.6rem;font-size:1.1rem}
+.datos b{display:block;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.datos a{font-weight:600;color:var(--red-d)}
+.horario{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.horario td{padding:.55rem 0;border-bottom:1px solid var(--line)}
+.horario td:last-child{text-align:right;font-weight:600}
+.horario tr.hoy td{color:var(--red-d);font-weight:700}
+.estado{display:inline-flex;gap:.45rem;align-items:center}
+.estado i{width:.6rem;height:.6rem;border-radius:50%;background:var(--muted)}
+.estado.abierto i{background:#1B9E52}
+
+.foot{background:var(--ink);color:#B9B6C9;padding:3rem 0 2rem}
+.foot__name{font-family:var(--head);font-weight:800;text-transform:uppercase;font-size:clamp(4rem,15vw,11rem);line-height:.95;color:#fff}
+.foot__name span{color:var(--red)}
+.foot__row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:1.2rem;font-size:.92rem}
+.foot a{color:#fff}
+
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}.btn,.op{transition:none}}
+</style>
+</head>
+<body>
+<div class="demo">Demo preparada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> para DR Entrenadors · No es la web oficial</div>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="logo" href="#"><i>dr</i><span>Entrenadors<small>TRAINING CLUB · BADALONA</small></span></a>
+    <nav class="nav" aria-label="Principal"><a href="#plan">Tu plan</a><a href="#centro">El centro</a><a href="#opiniones">Opiniones</a><a href="#contacto">Contacto</a></nav>
+    <a class="btn btn--red" href="#plan">Empieza</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero__in">
+      <div>
+        <h1 class="rv">Entrena con un plan. <em>Y con alguien al lado.</em></h1>
+        <p class="p rv">Entrenamiento personal y pauta de alimentación en el Carrer de Sant Pau, en Badalona. Con un entrenador pendiente de ti en cada sesión: aquí nadie se queda solo con una máquina.</p>
+        <div class="cta rv"><a class="btn btn--red" href="#plan">Haz tu plan en 30 segundos</a><a class="btn btn--line" href="#centro">Ver el centro</a></div>
+        <p class="dato rv"><span><b>★★★★★</b> 4,8 en Google · 21 opiniones</span><span class="estado" id="estado"><i></i><span>Horario</span></span></p>
+      </div>
+      <div class="hero__foto rv">
+        <img src="img/3.jpg" alt="Fachada de DR Entrenadors Training Club en el Carrer de Sant Pau" width="1050" height="1400">
+        <span>Training Club</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec plan" id="plan">
+    <div class="wrap">
+      <span class="anilla rv" aria-hidden="true"></span>
+      <h2 class="rv">Tu plan en tres respuestas</h2>
+      <p class="lead rv">Dinos qué buscas y cuántos días puedes venir. Te enseñamos cómo lo trabajaríamos y lo hablamos por WhatsApp.</p>
+      <div class="plan__in">
+        <div class="preg rv">
+          <div><p>¿Qué quieres conseguir?</p><div class="ops" data-g="obj" role="group" aria-label="Objetivo"></div></div>
+          <div><p>¿Cuántos días a la semana?</p><div class="ops" data-g="dias" role="group" aria-label="Días por semana"></div></div>
+          <div><p>¿Dónde entrenas?</p><div class="ops" data-g="modo" role="group" aria-label="Modalidad"></div></div>
+        </div>
+        <div class="res rv" aria-live="polite">
+          <p class="caps">Así lo trabajaríamos</p>
+          <h3 id="r-t">–</h3>
+          <ul id="r-l"></ul>
+          <p class="cita" id="r-c"></p>
+          <div class="cta"><a class="btn btn--wa" id="wa" href="#" target="_blank" rel="noopener">Pedir mi plan por WhatsApp</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="centro">
+    <div class="wrap">
+      <span class="anilla rv" aria-hidden="true"></span>
+      <h2 class="rv">Un centro grande, con luz y sin agobios</h2>
+      <p class="lead rv">Techo alto, luz natural, ventanas para ventilar y muchas máquinas para trabajar a tus anchas. Vestuarios pequeños pero limpios. Y un ambiente que tus propios compañeros describen como familiar.</p>
+      <div class="centro">
+        <img class="rv" src="img/1.jpg" alt="Sala de entrenamiento con techo alto y luz natural" loading="lazy" width="1050" height="1400">
+        <img class="rv" src="img/6.jpg" alt="Rack y máquina de prensa" loading="lazy" width="1400" height="1050">
+        <img class="rv" src="img/2.jpg" alt="Zona de cardio con elípticas" loading="lazy" width="787" height="1400">
+        <img class="rv" src="img/5.jpg" alt="Zona de espera del centro" loading="lazy" width="1050" height="1400">
+      </div>
+      <div class="puntos">
+        <div class="rv"><span class="n">01</span><b>Valoración</b><p>Hablamos de tu objetivo, de tus lesiones y de tu día a día antes de empezar.</p></div>
+        <div class="rv"><span class="n">02</span><b>Plan a tu medida</b><p>Entrenamiento y pauta de alimentación, sin dietas milagro. Cada sesión es distinta.</p></div>
+        <div class="rv"><span class="n">03</span><b>Siempre supervisado</b><p>Te enseñamos a usar las máquinas, corregimos la técnica y ajustamos el esfuerzo a ti.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec shop">
+    <div class="wrap shop__in">
+      <img class="rv" src="img/4.jpg" alt="Estantería de suplementos Ironshop en el centro" loading="lazy" width="1400" height="1050">
+      <div>
+        <span class="anilla rv" aria-hidden="true"></span>
+        <h2 class="rv">Suplementos, con criterio</h2>
+        <p class="lead rv">En el mismo centro tienes la tienda Ironshop. Solo si te hace falta y siempre con la supervisión de tu entrenador: nada de tomar cosas a ciegas.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="opiniones">
+    <div class="wrap">
+      <span class="anilla rv" aria-hidden="true"></span>
+      <h2 class="rv">Lo que dicen quienes entrenan aquí</h2>
+      <div class="opin">
+        <div class="nota rv">4,8<small>21 opiniones en Google</small></div>
+        <div class="quotes">
+          <div class="rv"><p>«En apenas un par de meses he perdido 7 kg y he ganado más fuerza.»</p><span>Opinión en Google</span></div>
+          <div class="rv"><p>«Me ha quitado una lesión que tenía. Muy buen profesional y mejor persona.»</p><span>Opinión en Google</span></div>
+          <div class="rv"><p>«Antes de ir a una sesión, voy contento, y siempre salgo contento.»</p><span>Opinión en Google</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contacto" style="background:var(--mist)">
+    <div class="wrap cont">
+      <div>
+        <span class="anilla rv" aria-hidden="true"></span>
+        <h2 class="rv">Ven a probar</h2>
+        <div class="datos rv">
+          <p><b>Dirección</b>Carrer de Sant Pau, 13 · 08911 Badalona · <a href="https://www.google.com/maps/search/?api=1&query=D%C3%ADdac+Rodr%C3%ADguez+Entrenadores+Personales+Badalona" target="_blank" rel="noopener">Cómo llegar</a></p>
+          <p><b>Teléfono y WhatsApp</b><a href="https://wa.me/34692421212" target="_blank" rel="noopener">692 42 12 12</a></p>
+          <p><b>Instagram</b><a href="https://www.instagram.com/drentrenadors/" target="_blank" rel="noopener">@drentrenadors</a></p>
+          <p><b>También a distancia</b>¿No puedes venir? Plan de entrenamiento y alimentación online, con el mismo seguimiento.</p>
+        </div>
+      </div>
+      <div class="rv"><p class="datos" style="margin:0 0 .8rem"><b>Horario</b></p><table class="horario" id="horario" aria-label="Horario"></table></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot__name">DR <span>Entrenadors</span></p>
+    <div class="foot__row"><p>Training Club · Carrer de Sant Pau, 13 · Badalona</p><p>Demo diseñada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> con las fotos del propio centro</p></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var WA='34692421212';
+  var H={0:null,1:[['8:00','22:00']],2:[['8:00','22:00']],3:[['8:00','22:00']],4:[['8:00','22:00']],5:[['8:00','22:00']],6:null};
+  var NOM=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+  var m=function(t){var p=t.split(':');return +p[0]*60+ +p[1];};
+  var now=new Date(), d=now.getDay(), min=now.getHours()*60+now.getMinutes();
+  var tb=document.getElementById('horario');
+  [1,2,3,4,5,6,0].forEach(function(k){var tr=document.createElement('tr');if(k===d)tr.className='hoy';var a=document.createElement('td');a.textContent=NOM[k];var b=document.createElement('td');b.textContent=H[k]?H[k].map(function(r){return r[0]+'–'+r[1];}).join(' · '):'Cerrado';tr.appendChild(a);tr.appendChild(b);tb.appendChild(tr);});
+  var est=document.getElementById('estado'), tx=est.querySelector('span'), ab=null;
+  (H[d]||[]).forEach(function(r){if(min>=m(r[0])&&min<m(r[1]))ab=r;});
+  if(ab){est.classList.add('abierto');tx.textContent='Abierto ahora, hasta las '+ab[1];}
+  else{for(var i=0;i<8;i++){var k=(d+i)%7,r=(H[k]||[]).filter(function(x){return i>0||m(x[0])>min;})[0];if(r){tx.textContent='Cerrado · abre '+(i===0?'hoy':i===1?'mañana':'el '+NOM[k].toLowerCase())+' a las '+r[0];break;}}}
+
+  // Tu plan: objetivo + dias + modalidad
+  var G={
+    obj:[
+      {k:'peso',n:'Perder peso',t:'Perder peso sin pasar hambre',l:['Fuerza y cardio combinados en cada sesión','Pauta de alimentación natural, sin dietas milagro','Medimos el progreso cada pocas semanas'],c:'«En apenas un par de meses he perdido 7 kg y he ganado más fuerza.»'},
+      {k:'musculo',n:'Ganar músculo',t:'Ganar masa y fuerza',l:['Rutina de fuerza progresiva con las máquinas y el rack','Técnica corregida en cada repetición','Alimentación pensada para ganar, no para engordar'],c:'«Sabe muy bien lo que hace a la hora de trabajar.»'},
+      {k:'lesion',n:'Lesión o espalda',t:'Entrenar sin dolor',l:['Valoración de la lesión antes de empezar','Ejercicios adaptados y vigilados de cerca','Fortalecer para que no vuelva'],c:'«Me ha quitado una lesión que tenía.»'},
+      {k:'forma',n:'Ponerme en forma',t:'Volver a moverte y no dejarlo',l:['Sesiones variadas: cada día algo distinto','Un entrenador pendiente de ti, no una sala vacía','Ambiente familiar para que te apetezca venir'],c:'«Antes de ir a una sesión voy contento, y siempre salgo contento.»'}
+    ],
+    dias:[{k:'2',n:'2 días'},{k:'3',n:'3 días'},{k:'4',n:'4 o más'}],
+    modo:[{k:'centro',n:'En el centro'},{k:'online',n:'A distancia'}]
+  };
+  var sel={obj:0,dias:1,modo:0};
+  function pintar(){
+    var o=G.obj[sel.obj], dd=G.dias[sel.dias], mo=G.modo[sel.modo];
+    document.querySelectorAll('.ops').forEach(function(box){var g=box.getAttribute('data-g');[].forEach.call(box.children,function(b,i){b.setAttribute('aria-pressed',String(sel[g]===i));});});
+    document.getElementById('r-t').textContent=o.t;
+    var ul=document.getElementById('r-l'); ul.innerHTML='';
+    var items=o.l.concat([(mo.k==='centro'?dd.n+' a la semana en el Carrer de Sant Pau, de lunes a viernes de 8 a 22 h':dd.n+' a la semana desde casa, con plan online y seguimiento por WhatsApp')]);
+    items.forEach(function(t){var li=document.createElement('li');li.textContent=t;ul.appendChild(li);});
+    document.getElementById('r-c').textContent=o.c+' · Opinión en Google';
+    document.getElementById('wa').href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hola Dídac, quiero empezar. Mi objetivo: '+o.n.toLowerCase()+'. Podría entrenar '+dd.n+' a la semana, '+(mo.k==='centro'?'en el centro':'a distancia')+'. ¿Cuándo podemos hablarlo?');
+  }
+  document.querySelectorAll('.ops').forEach(function(box){var g=box.getAttribute('data-g');G[g].forEach(function(x,i){var b=document.createElement('button');b.type='button';b.className='op';b.textContent=x.n;b.addEventListener('click',function(){sel[g]=i;pintar();});box.appendChild(b);});});
+  pintar();
+
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);});},{rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(e){io.observe(e);});
+  setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},3000);
+})();
+</script>
+</body>
+</html>
