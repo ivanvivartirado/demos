@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Joker Tattoo BDN · Tatuajes y piercings en Badalona</title>
+<meta name="description" content="Demo de web para Joker Tattoo BDN, preparada por Grapa Lab.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Archivo:wght@400;500;600;800&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Direccion: su rotulo del Carrer de Napols. Fondo negro, letras verde Joker con aire de cartel de circo,
+   mascaras del Joker en la pared. Negro, verde acido y morado del traje. Un solo motivo: la carta del comodin (esquina con J). */
+:root{
+  --black:#0E0B12; --coal:#1A1620; --green:#8FD14F; --green-d:#6FB12F; --purple:#7A3FB8; --paper:#F4F1EA; --smoke:#A9A3B3; --line:#2C2634;
+  --head:"Rye",Georgia,serif; --font:"Archivo",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --g:clamp(1rem,4vw,2.5rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;font-family:var(--font);font-size:1.08rem;line-height:1.6;color:var(--paper);background:var(--black)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;font-family:var(--head);font-weight:400;line-height:1.05;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:78rem;margin-inline:auto;padding-inline:var(--g)}
+.demo{background:var(--green);color:var(--black);font-size:.82rem;text-align:center;padding:.5rem var(--g)}
+.demo a{font-weight:800}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.95rem 1.5rem;font:inherit;font-weight:600;text-decoration:none;border:0;border-radius:.4rem;cursor:pointer;transition:transform .18s,background-color .18s}
+.btn:hover{transform:translateY(-2px)}
+.btn--green{background:var(--green);color:var(--black)}.btn--green:hover{background:var(--green-d)}
+.btn--line{box-shadow:inset 0 0 0 1.5px currentColor}
+.btn--wa{background:#1B9E52;color:#fff}
+
+/* carta: esquina con la J del comodin */
+.carta{position:relative;isolation:isolate}
+.carta::before,.carta::after{content:"J";position:absolute;font-family:var(--head);font-size:1.6rem;line-height:1;color:var(--green);z-index:2}
+.carta::before{top:.7rem;left:.85rem}
+.carta::after{bottom:.7rem;right:.85rem;transform:rotate(180deg)}
+
+.top{position:sticky;top:0;z-index:20;background:rgba(14,11,18,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.top__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:4.3rem}
+.logo{font-family:var(--head);font-size:1.5rem;text-decoration:none;color:var(--green);line-height:1}
+.logo small{display:block;font-family:var(--font);font-weight:600;font-size:.6rem;letter-spacing:.3em;color:var(--smoke);margin-top:.25rem}
+.nav{display:none;gap:1.8rem;font-weight:500}
+.nav a{text-decoration:none}.nav a:hover{color:var(--green)}
+.top .btn{padding:.6rem 1.1rem}
+@media (min-width:960px){.nav{display:flex}}
+
+.hero__in{display:grid;gap:2.6rem;align-items:center;padding-block:clamp(2.5rem,7vw,5rem)}
+@media (min-width:900px){.hero__in{grid-template-columns:1.1fr .9fr}}
+.hero h1{font-size:clamp(3rem,8.5vw,6.2rem)}
+.hero h1 em{font-style:normal;color:var(--green)}
+.hero .p{font-size:clamp(1.12rem,2.4vw,1.28rem);color:var(--smoke);max-width:30em;margin-top:1.3rem}
+.hero .cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.8rem}
+.dato{display:flex;flex-wrap:wrap;gap:.3rem 1.4rem;margin-top:1.6rem;font-weight:600;font-size:.95rem}
+.dato b{color:var(--green)}
+.hero__foto{max-width:28rem;justify-self:center;width:100%;background:var(--paper);padding:.6rem;border-radius:1rem;transform:rotate(2.5deg);box-shadow:0 1.4rem 3rem rgba(0,0,0,.5)}
+.hero__foto img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:.6rem}
+.hero__foto.carta::before,.hero__foto.carta::after{color:var(--purple)}
+.hero__foto.carta::before{top:1.2rem;left:1.3rem}.hero__foto.carta::after{bottom:1.2rem;right:1.3rem}
+
+.sec{padding-block:clamp(4.5rem,10vw,8rem)}
+.sec h2{font-size:clamp(2.4rem,6vw,4.2rem)}
+.sec .lead{max-width:34em;font-size:1.12rem;color:var(--smoke);margin-top:1rem}
+
+/* tu idea: lo vivo */
+.idea{background:var(--coal)}
+.idea__in{display:grid;gap:2.4rem;margin-top:2.4rem;align-items:start}
+@media (min-width:900px){.idea__in{grid-template-columns:1.25fr 1fr}}
+.preg{display:grid;gap:1.8rem}
+.preg p{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--smoke);margin-bottom:.7rem}
+.ops{display:flex;flex-wrap:wrap;gap:.5rem}
+.op{font:inherit;font-weight:600;color:var(--paper);background:transparent;border:1.5px solid var(--line);border-radius:.4rem;padding:.7rem 1rem;cursor:pointer;transition:border-color .2s,background-color .2s}
+.op:hover{border-color:#4B4357}
+.op[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:var(--black)}
+.res{background:var(--paper);color:var(--black);border-radius:1rem;padding:clamp(1.6rem,4vw,2.4rem);position:sticky;top:6rem}
+.res.carta::before,.res.carta::after{color:var(--purple)}
+.res .caps{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:#6B6474;margin-left:1.6rem}
+.res h3{font-size:clamp(1.8rem,4.6vw,2.5rem);margin-top:.8rem}
+.res ul{list-style:none;padding:0;margin:1.1rem 0 0;display:grid;gap:.6rem}
+.res li{display:flex;gap:.7rem;align-items:flex-start}
+.res li::before{content:"✓";flex:none;width:1.4rem;height:1.4rem;border-radius:50%;background:var(--black);color:var(--green);display:grid;place-items:center;font-size:.8rem;font-weight:800;margin-top:.15rem}
+.res .nota-r{margin-top:1.2rem;padding-top:1.1rem;border-top:1px solid #DDD7CC;color:#6B6474;font-size:.98rem}
+.res .cta{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.4rem}
+
+/* el estudio */
+.est{display:grid;gap:2.4rem;align-items:center}
+@media (min-width:900px){.est{grid-template-columns:1fr 1fr}}
+.est__fotos{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.est__fotos img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:.8rem}
+.est__fotos img:last-child{grid-column:1/-1;aspect-ratio:16/10}
+.est ul{list-style:none;padding:0;margin:1.4rem 0 0;display:grid;gap:.6rem}
+.est li{display:flex;gap:.8rem;align-items:center;font-weight:500}
+.est li::before{content:"J";font-family:var(--head);color:var(--green);font-size:1.1rem;flex:none;width:1.4rem}
+
+.ops-g{background:var(--paper);color:var(--black)}
+.ops-g .lead{color:#6B6474}
+.opin{display:grid;gap:2.4rem;margin-top:2.4rem;align-items:center}
+@media (min-width:860px){.opin{grid-template-columns:1fr 2fr}}
+.nota{font-family:var(--head);font-size:clamp(5.5rem,16vw,9rem);line-height:.85;color:var(--purple)}
+.nota small{display:block;font-family:var(--font);font-size:1rem;color:#6B6474;margin-top:.9rem}
+.quotes{display:grid;gap:1.6rem}
+.quotes p{font-size:clamp(1.2rem,2.6vw,1.5rem);line-height:1.35;font-weight:500}
+.quotes span{display:block;font-size:.88rem;color:#6B6474;margin-top:.3rem}
+
+.cont{display:grid;gap:2.5rem}
+@media (min-width:900px){.cont{grid-template-columns:1fr 1fr;align-items:start}}
+.datos{display:grid;gap:1.1rem;margin-top:1.6rem;font-size:1.1rem}
+.datos b{display:block;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--smoke)}
+.datos a{font-weight:600;color:var(--green)}
+.horario{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.horario td{padding:.55rem 0;border-bottom:1px solid var(--line)}
+.horario td:last-child{text-align:right;font-weight:600}
+.horario tr.hoy td{color:var(--green);font-weight:700}
+.estado{display:inline-flex;gap:.45rem;align-items:center}
+.estado i{width:.6rem;height:.6rem;border-radius:50%;background:var(--smoke)}
+.estado.abierto i{background:var(--green)}
+
+.foot{background:var(--coal);color:var(--smoke);padding:3rem 0 2rem}
+.foot__name{font-family:var(--head);font-size:clamp(3.6rem,13vw,9.5rem);line-height:1;color:var(--green)}
+.foot__row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:1.2rem;font-size:.92rem}
+.foot a{color:var(--paper)}
+
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+.js .hero__foto.rv.in{transform:rotate(2.5deg)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}.js .hero__foto.rv{transform:rotate(2.5deg)}.btn,.op{transition:none}}
+</style>
+</head>
+<body>
+<div class="demo">Demo preparada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> para Joker Tattoo BDN · No es la web oficial</div>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="logo" href="#">Joker Tattoo<small>BADALONA · TATTOO &amp; PIERCING</small></a>
+    <nav class="nav" aria-label="Principal"><a href="#idea">Tu idea</a><a href="#estudio">El estudio</a><a href="#opiniones">Opiniones</a><a href="#contacto">Contacto</a></nav>
+    <a class="btn btn--green" href="#idea">Pide precio</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero__in">
+      <div>
+        <h1 class="rv">Tu idea, <em>en buenas manos.</em></h1>
+        <p class="p rv">Tatuajes, cover-ups y piercings en el Carrer de Nàpols, en Badalona. Te escuchamos, te decimos qué mejoraríamos de tu idea y te damos un precio claro antes de empezar.</p>
+        <div class="cta rv"><a class="btn btn--green" href="#idea">Cuéntanos tu idea</a><a class="btn btn--line" href="#estudio">Ver el estudio</a></div>
+        <p class="dato rv"><span><b>★★★★★</b> 4,9 en Google · 144 opiniones</span><span class="estado" id="estado"><i></i><span>Horario</span></span></p>
+      </div>
+      <div class="hero__foto carta rv">
+        <img src="img/1.jpg" alt="Tatuaje de brazo con rostro y flor en negro y gris" width="1120" height="1400">
+      </div>
+    </div>
+  </section>
+
+  <section class="sec idea" id="idea">
+    <div class="wrap">
+      <h2 class="rv">Cuéntanos tu idea</h2>
+      <p class="lead rv">Tres toques y te decimos qué necesitamos para darte precio. Nos lo mandas por WhatsApp y te contestamos.</p>
+      <div class="idea__in">
+        <div class="preg rv">
+          <div><p>¿Qué quieres hacerte?</p><div class="ops" data-g="tipo" role="group" aria-label="Qué quieres hacerte"></div></div>
+          <div><p>¿De qué tamaño?</p><div class="ops" data-g="tam" role="group" aria-label="Tamaño"></div></div>
+          <div><p>¿En qué zona?</p><div class="ops" data-g="zona" role="group" aria-label="Zona del cuerpo"></div></div>
+        </div>
+        <div class="res carta rv" aria-live="polite">
+          <p class="caps">Para darte precio</p>
+          <h3 id="r-t">–</h3>
+          <ul id="r-l"></ul>
+          <p class="nota-r" id="r-n"></p>
+          <div class="cta"><a class="btn btn--wa" id="wa" href="#" target="_blank" rel="noopener">Enviar por WhatsApp</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="estudio">
+    <div class="wrap est">
+      <div class="est__fotos">
+        <img class="rv" src="img/3.jpg" alt="Interior del estudio con máscaras del Joker en la pared" loading="lazy" width="1050" height="1400">
+        <img class="rv" src="img/4.jpg" alt="Pared con máscaras y una guitarra eléctrica" loading="lazy" width="1050" height="1400">
+        <img class="rv" src="img/5.jpg" alt="Tatuador trabajando en la nuca de una clienta" loading="lazy" width="1400" height="1050">
+      </div>
+      <div>
+        <h2 class="rv">Un estudio con personalidad</h2>
+        <p class="lead rv">El local está decorado con el Joker y el universo DC, pero aquí lo importante es el trabajo: limpio, cuidado y sin prisas. Jordi te asesora y se implica en cada diseño.</p>
+        <ul class="rv"><li>Diseños a medida, también en negro y gris</li><li>Cover-ups: tapamos tatuajes que ya no te gustan</li><li>Piercings</li><li>Te damos precio antes de empezar</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec ops-g" id="opiniones">
+    <div class="wrap">
+      <h2 class="rv">Lo que dice la gente</h2>
+      <div class="opin">
+        <div class="nota rv">4,9<small>144 opiniones en Google</small></div>
+        <div class="quotes">
+          <div class="rv"><p>«Muy profesional, me ha tapado 2 tatuajes y han quedado perfectos.»</p><span>Opinión en Google</span></div>
+          <div class="rv"><p>«Jordi es un crack! Precio calidad genial.»</p><span>Opinión en Google</span></div>
+          <div class="rv"><p>«El trato es muy cercano y agradable. Te asesoran muy bien y hacen un trabajo de 10.»</p><span>Opinión en Google</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contacto">
+    <div class="wrap cont">
+      <div>
+        <h2 class="rv">Pásate por el estudio</h2>
+        <div class="datos rv">
+          <p><b>Dirección</b>Carrer de Nàpols, 41 · 08914 Badalona · <a href="https://www.google.com/maps/search/?api=1&query=Joker+Tattoo+bdn+Badalona" target="_blank" rel="noopener">Cómo llegar</a></p>
+          <p><b>Teléfono y WhatsApp</b><a href="https://wa.me/34626015025" target="_blank" rel="noopener">626 01 50 25</a></p>
+          <p><b>¿Tienes una idea?</b>Escríbenos con una foto o una referencia y te damos día.</p>
+        </div>
+      </div>
+      <div class="rv"><p class="datos" style="margin:0 0 .8rem"><b>Horario</b></p><table class="horario" id="horario" aria-label="Horario"></table></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot__name">Joker Tattoo</p>
+    <div class="foot__row"><p>BDN · Carrer de Nàpols, 41 · Badalona</p><p>Demo diseñada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> con las fotos del propio estudio</p></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var WA='34626015025';
+  var H={0:null,1:[['17:00','20:30']],2:[['17:00','20:30']],3:[['17:00','20:30']],4:[['17:00','20:30']],5:[['17:00','20:30']],6:null};
+  var NOM=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+  var m=function(t){var p=t.split(':');return +p[0]*60+ +p[1];};
+  var now=new Date(), d=now.getDay(), min=now.getHours()*60+now.getMinutes();
+  var tb=document.getElementById('horario');
+  [1,2,3,4,5,6,0].forEach(function(k){var tr=document.createElement('tr');if(k===d)tr.className='hoy';var a=document.createElement('td');a.textContent=NOM[k];var b=document.createElement('td');b.textContent=H[k]?H[k].map(function(r){return r[0]+'–'+r[1];}).join(' · '):'Cerrado';tr.appendChild(a);tr.appendChild(b);tb.appendChild(tr);});
+  var est=document.getElementById('estado'), tx=est.querySelector('span'), ab=null;
+  (H[d]||[]).forEach(function(r){if(min>=m(r[0])&&min<m(r[1]))ab=r;});
+  if(ab){est.classList.add('abierto');tx.textContent='Abierto ahora, hasta las '+ab[1];}
+  else{for(var i=0;i<8;i++){var k=(d+i)%7,r=(H[k]||[]).filter(function(x){return i>0||m(x[0])>min;})[0];if(r){tx.textContent='Cerrado · abre '+(i===0?'hoy':i===1?'mañana':'el '+NOM[k].toLowerCase())+' a las '+r[0];break;}}}
+
+  // Tu idea: que hacerse + tamano + zona -> que mandar para pedir precio
+  var G={
+    tipo:[{k:'nuevo',n:'Tatuaje nuevo'},{k:'cover',n:'Tapar uno (cover-up)'},{k:'piercing',n:'Piercing'}],
+    tam:[{k:'p',n:'Pequeño',d:'hasta 5 cm'},{k:'m',n:'Mediano',d:'como la palma de la mano'},{k:'g',n:'Grande',d:'medio brazo o más'}],
+    zona:[{n:'Brazo'},{n:'Pierna'},{n:'Espalda'},{n:'Costillas'},{n:'Cuello o nuca'},{n:'Otra'}]
+  };
+  var ZT=G.zona, ZP=[{n:'Oreja'},{n:'Nariz'},{n:'Ceja'},{n:'Labio'},{n:'Ombligo'},{n:'Otra'}];
+  var sel={tipo:0,tam:1,zona:0};
+  function pintar(){
+    var t=G.tipo[sel.tipo], s=G.tam[sel.tam];
+    var zl=t.k==='piercing'?ZP:ZT; if(G.zona!==zl){G.zona=zl;sel.zona=0;botones('zona');}
+    var z=G.zona[sel.zona];
+    document.querySelectorAll('.ops').forEach(function(box){var g=box.getAttribute('data-g');[].forEach.call(box.children,function(b,i){b.setAttribute('aria-pressed',String(sel[g]===i));b.hidden=(g==='tam'&&t.k==='piercing');});});
+    document.querySelector('[data-g="tam"]').parentNode.hidden=(t.k==='piercing');
+    var titulo, lista, nota;
+    if(t.k==='piercing'){titulo=z.n==='Otra'?'Un piercing':'Piercing de '+z.n.toLowerCase();lista=['Dinos la zona exacta (foto si puedes)','Si es tu primer piercing ahí o es para cambiar uno','Qué día te va bien: abrimos de lunes a viernes por la tarde'];nota='Te explicamos cómo cuidarlo los primeros días.';}
+    else if(t.k==='cover'){titulo='Tapar un tatuaje en '+z.n.toLowerCase();lista=['Foto del tatuaje que quieres tapar, con buena luz','Lo que te gustaría poner encima (una idea o una referencia)','Medida aproximada: '+s.n.toLowerCase()+', '+s.d];nota='Te decimos con sinceridad qué se puede tapar y cómo quedará.';}
+    else{titulo='Tatuaje '+s.n.toLowerCase()+' en '+z.n.toLowerCase();lista=['Tu idea o una imagen de referencia','Foto de la zona: '+z.n.toLowerCase(),'Tamaño aproximado: '+s.d,'Si lo quieres en negro y gris o a color'];nota='Te comentamos qué mejoraríamos de la idea y te damos precio.';}
+    document.getElementById('r-t').textContent=titulo;
+    var ul=document.getElementById('r-l'); ul.innerHTML='';
+    lista.forEach(function(x){var li=document.createElement('li');li.textContent=x;ul.appendChild(li);});
+    document.getElementById('r-n').textContent=nota;
+    var msg=t.k==='piercing'?'Hola Joker Tattoo, quiero hacerme un piercing'+(z.n==='Otra'?'':' de '+z.n.toLowerCase())+'. ¿Qué día tenéis libre?':(t.k==='cover'?'Hola Joker Tattoo, quiero tapar un tatuaje ('+s.n.toLowerCase()+') en '+z.n.toLowerCase()+'. Os mando foto.':'Hola Joker Tattoo, quiero hacerme un tatuaje '+s.n.toLowerCase()+' en '+z.n.toLowerCase()+'. Os mando la idea.');
+    document.getElementById('wa').href='https://wa.me/'+WA+'?text='+encodeURIComponent(msg);
+  }
+  function botones(g){var box=document.querySelector('[data-g="'+g+'"]');box.innerHTML='';G[g].forEach(function(x,i){var b=document.createElement('button');b.type='button';b.className='op';b.textContent=x.n;b.addEventListener('click',function(){sel[g]=i;pintar();});box.appendChild(b);});}
+  ['tipo','tam','zona'].forEach(botones);
+  pintar();
+
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);});},{rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(e){io.observe(e);});
+  setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},3000);
+})();
+</script>
+</body>
+</html>
