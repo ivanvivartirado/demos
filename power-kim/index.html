@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Power Kim Nutrició · Dietista en Badalona</title>
+<meta name="description" content="Demo de web para Power Kim Nutrició, preparada por Grapa Lab.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;800&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Direccion: su fachada del Carrer de la Conquista. Gris antracita, letras blancas «POWER KIM» y un toque azul.
+   Dentro, consulta blanca y luminosa. Antracita, blanco y azul. Un solo motivo: la barra azul bajo «KIM», como subrayado. */
+:root{
+  --char:#1E2124; --char-2:#2A2E33; --blue:#2F7DE1; --blue-d:#1F63BC; --white:#FFFFFF; --ice:#EEF3F9; --muted:#5C6570; --line:#DDE4EC;
+  --head:"Sora",system-ui,sans-serif; --font:"Nunito Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --g:clamp(1rem,4vw,2.5rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;font-family:var(--font);font-size:1.08rem;line-height:1.6;color:var(--char);background:var(--white)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;font-family:var(--head);font-weight:800;line-height:1.05;letter-spacing:-.02em;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:78rem;margin-inline:auto;padding-inline:var(--g)}
+.raya{display:block;width:3.4rem;height:.38rem;border-radius:9px;background:var(--blue);margin:1.1rem 0}
+.demo{background:var(--char);color:#C4CBD3;font-size:.82rem;text-align:center;padding:.5rem var(--g)}
+.demo a{color:#fff;font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.95rem 1.5rem;font:inherit;font-weight:700;text-decoration:none;border:0;border-radius:.6rem;cursor:pointer;transition:transform .18s,background-color .18s}
+.btn:hover{transform:translateY(-2px)}
+.btn--blue{background:var(--blue);color:#fff}.btn--blue:hover{background:var(--blue-d)}
+.btn--dark{background:var(--char);color:#fff}
+.btn--line{box-shadow:inset 0 0 0 1.5px currentColor}
+
+.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.top__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:4.3rem}
+.logo{font-family:var(--head);font-weight:800;font-size:1.35rem;text-decoration:none;line-height:1;letter-spacing:-.01em}
+.logo span{position:relative}
+.logo span::after{content:"";position:absolute;left:0;right:0;bottom:-.3rem;height:.2rem;border-radius:9px;background:var(--blue)}
+.logo small{display:block;font-family:var(--font);font-weight:600;font-size:.62rem;letter-spacing:.24em;color:var(--muted);margin-top:.75rem}
+.nav{display:none;gap:1.8rem;font-weight:600}
+.nav a{text-decoration:none}.nav a:hover{color:var(--blue-d)}
+.top .btn{padding:.6rem 1.1rem}
+@media (min-width:960px){.nav{display:flex}}
+
+.hero{background:var(--char);color:#fff}
+.hero__in{display:grid;gap:2.6rem;align-items:center;padding-block:clamp(2.8rem,7vw,5.2rem)}
+@media (min-width:900px){.hero__in{grid-template-columns:1.05fr .95fr}}
+.hero h1{font-size:clamp(2.8rem,7.5vw,5.4rem)}
+.hero h1 em{font-style:normal;color:#7DB3F5}
+.hero .p{font-size:clamp(1.12rem,2.4vw,1.25rem);color:#C4CBD3;max-width:30em}
+.hero .cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.8rem}
+.dato{display:flex;flex-wrap:wrap;gap:.3rem 1.4rem;margin-top:1.6rem;font-weight:700;font-size:.95rem}
+.dato b{color:#7DB3F5}
+.hero__foto img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:1rem}
+.hero__foto p{margin-top:.7rem;color:#9AA4AF;font-size:.9rem}
+
+.sec{padding-block:clamp(4.5rem,10vw,8rem)}
+.sec h2{font-size:clamp(2.3rem,5.6vw,3.8rem)}
+.sec .lead{max-width:34em;font-size:1.12rem;color:var(--muted)}
+
+/* tu objetivo: lo vivo */
+.obj{background:var(--ice)}
+.obj__in{display:grid;gap:2.4rem;margin-top:2.4rem;align-items:start}
+@media (min-width:900px){.obj__in{grid-template-columns:1fr 1.2fr}}
+.objs{display:grid;gap:.7rem}
+.ob{display:flex;align-items:center;gap:1rem;width:100%;text-align:left;font:inherit;background:var(--white);border:1.5px solid var(--line);border-radius:.9rem;padding:1.05rem 1.2rem;cursor:pointer;color:inherit;transition:border-color .2s}
+.ob b{font-weight:700;flex:1}
+.ob small{color:var(--muted)}
+.ob i{flex:none;width:1.4rem;height:1.4rem;border-radius:50%;border:1.5px solid var(--line)}
+.ob[aria-pressed="true"]{border-color:var(--blue)}
+.ob[aria-pressed="true"] i{border:.42rem solid var(--blue)}
+.res{background:var(--char);color:#fff;border-radius:1.2rem;padding:clamp(1.5rem,4vw,2.4rem);position:sticky;top:6rem}
+.res .caps{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#9AA4AF}
+.res h3{font-size:clamp(1.8rem,4.4vw,2.5rem);margin-top:.5rem}
+.res ol{margin:1.4rem 0 0;padding:0;list-style:none;counter-reset:p;display:grid;gap:1rem}
+.res li{counter-increment:p;display:grid;grid-template-columns:2.2rem 1fr;gap:.8rem;align-items:start;color:#D7DDE3}
+.res li::before{content:counter(p);font-family:var(--head);font-weight:800;width:2.2rem;height:2.2rem;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-size:.95rem}
+.res li b{display:block;color:#fff}
+.res .cita{margin-top:1.4rem;padding-top:1.2rem;border-top:1px solid #3A4048;color:#C4CBD3;font-style:italic}
+.res .cta{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.4rem}
+
+/* el centro */
+.cen{display:grid;gap:2.4rem;align-items:center}
+@media (min-width:900px){.cen{grid-template-columns:1fr 1fr}}
+.cen__fotos{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.cen__fotos img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:.9rem}
+.cen__fotos img:nth-child(3){grid-column:1/-1;aspect-ratio:16/10}
+.cen ul{list-style:none;padding:0;margin:1.4rem 0 0;display:grid;gap:.7rem}
+.cen li{display:flex;gap:.8rem;align-items:baseline;font-weight:600}
+.cen li::before{content:"";flex:none;width:1.1rem;height:.28rem;border-radius:9px;background:var(--blue);transform:translateY(-.25rem)}
+
+.tienda{background:var(--char);color:#fff}
+.tienda__in{display:grid;gap:2.4rem;align-items:center}
+@media (min-width:900px){.tienda__in{grid-template-columns:1fr 1fr}}
+.tienda img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:1rem;max-height:34rem}
+.tienda .lead{color:#C4CBD3}
+
+.opin{display:grid;gap:2.4rem;margin-top:2.4rem;align-items:center}
+@media (min-width:860px){.opin{grid-template-columns:1fr 2fr}}
+.nota{font-family:var(--head);font-weight:800;font-size:clamp(5.5rem,16vw,9rem);line-height:.85;color:var(--blue);letter-spacing:-.04em}
+.nota small{display:block;font-family:var(--font);font-weight:600;font-size:1rem;color:var(--muted);margin-top:.9rem;letter-spacing:0}
+.quotes{display:grid;gap:1.6rem}
+.quotes p{font-size:clamp(1.2rem,2.6vw,1.5rem);line-height:1.35;font-weight:600}
+.quotes span{display:block;font-size:.88rem;color:var(--muted);margin-top:.3rem;font-weight:400}
+
+.cont{display:grid;gap:2.5rem}
+@media (min-width:900px){.cont{grid-template-columns:1fr 1fr;align-items:start}}
+.datos{display:grid;gap:1.1rem;margin-top:1.6rem;font-size:1.1rem}
+.datos b{display:block;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.datos a{font-weight:700;color:var(--blue-d)}
+.horario{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.horario td{padding:.55rem 0;border-bottom:1px solid var(--line)}
+.horario td:last-child{text-align:right;font-weight:700}
+.horario tr.hoy td{color:var(--blue-d);font-weight:800}
+.estado{display:inline-flex;gap:.45rem;align-items:center}
+.estado i{width:.6rem;height:.6rem;border-radius:50%;background:#9AA4AF}
+.estado.abierto i{background:#3BC07A}
+
+.foot{background:var(--char);color:#9AA4AF;padding:3rem 0 2rem}
+.foot__name{font-family:var(--head);font-weight:800;font-size:clamp(3.6rem,13vw,9.5rem);line-height:1;color:#fff;letter-spacing:-.04em}
+.foot__name span{color:var(--blue)}
+.foot__row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:1.2rem;font-size:.92rem}
+.foot a{color:#fff}
+
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}.btn,.ob{transition:none}}
+</style>
+</head>
+<body>
+<div class="demo">Demo preparada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> para Power Kim Nutrició · No es la web oficial</div>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="logo" href="#">Power <span>Kim</span><small>NUTRICIÓ · BADALONA</small></a>
+    <nav class="nav" aria-label="Principal"><a href="#objetivo">Tu objetivo</a><a href="#centro">El centro</a><a href="#opiniones">Opiniones</a><a href="#contacto">Contacto</a></nav>
+    <a class="btn btn--blue" href="tel:+34933847508">Pide cita</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero__in">
+      <div>
+        <h1 class="rv">Comer bien, <em>sin pasar hambre</em> y sin hacerlo solo.</h1>
+        <span class="raya rv" aria-hidden="true"></span>
+        <p class="p rv">Dietista en el Carrer de la Conquista, en Badalona. Kim y Kim junior te preparan un plan flexible, adaptado a ti, y te resuelven las dudas cuando las tengas.</p>
+        <div class="cta rv"><a class="btn btn--blue" href="#objetivo">¿Cuál es tu objetivo?</a><a class="btn btn--line" href="#centro">Ver el centro</a></div>
+        <p class="dato rv"><span><b>★★★★★</b> 4,9 en Google · 61 opiniones</span><span class="estado" id="estado"><i></i><span>Horario</span></span></p>
+      </div>
+      <div class="hero__foto rv">
+        <img src="img/1.jpg" alt="Fachada de Power Kim Nutrició en el Carrer de la Conquista" width="1400" height="1050">
+        <p>Carrer de la Conquista, 60 · Badalona</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec obj" id="objetivo">
+    <div class="wrap">
+      <h2 class="rv">¿Cuál es tu objetivo?</h2>
+      <span class="raya rv" aria-hidden="true"></span>
+      <p class="lead rv">Elige el tuyo y te contamos cómo serían tus primeras semanas con nosotros.</p>
+      <div class="obj__in">
+        <div class="objs rv" id="objs" role="group" aria-label="Objetivo"></div>
+        <div class="res rv" aria-live="polite">
+          <p class="caps">Así empezaríamos</p>
+          <h3 id="r-t">–</h3>
+          <ol id="r-l"></ol>
+          <p class="cita" id="r-c"></p>
+          <div class="cta"><a class="btn btn--blue" href="tel:+34933847508">Llamar · 933 84 75 08</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="centro">
+    <div class="wrap cen">
+      <div class="cen__fotos">
+        <img class="rv" src="img/3.jpg" alt="Pasillo luminoso de la consulta" loading="lazy" width="1050" height="1400">
+        <img class="rv" src="img/5.jpg" alt="Sala de espera" loading="lazy" width="1050" height="1400">
+        <img class="rv" src="img/4.jpg" alt="Sala de consulta" loading="lazy" width="1400" height="1050">
+      </div>
+      <div>
+        <h2 class="rv">Una consulta de barrio, con trato de familia</h2>
+        <span class="raya rv" aria-hidden="true"></span>
+        <p class="lead rv">Padre e hijo, en un centro amplio y luminoso. Te escuchan, se adaptan a tu vida y te lo ponen fácil, como dicen quienes ya han pasado por aquí.</p>
+        <ul class="rv"><li>Plan de alimentación adaptado a ti, nada de dietas iguales para todos</li><li>Seguimiento cercano: te resuelven las dudas cuando surgen</li><li>Para perder peso, ganar músculo o comer mejor</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tienda">
+    <div class="wrap tienda__in">
+      <img class="rv" src="img/2.jpg" alt="Tienda de productos de nutrición del centro" loading="lazy" width="1050" height="1400">
+      <div>
+        <h2 class="rv">Y la tienda, en el mismo sitio</h2>
+        <span class="raya rv" aria-hidden="true"></span>
+        <p class="lead rv">Productos de nutrición deportiva y para tu día a día. Te aconsejamos qué te conviene según tu plan, y qué no te hace falta.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="opiniones">
+    <div class="wrap">
+      <h2 class="rv">Lo que dicen de nosotros</h2>
+      <span class="raya rv" aria-hidden="true"></span>
+      <div class="opin">
+        <div class="nota rv">4,9<small>61 opiniones en Google</small></div>
+        <div class="quotes">
+          <div class="rv"><p>«Se adaptan a ti, y elaboran un plan muy flexible. Siempre escuchan tus necesidades.»</p><span>Opinión en Google</span></div>
+          <div class="rv"><p>«Muy buenos profesionales y muy detallistas. Lo hacen que sea fácil.»</p><span>Opinión en Google</span></div>
+          <div class="rv"><p>«Buena atención personalizada, muy contento!!»</p><span>Opinión en Google</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contacto" style="background:var(--ice)">
+    <div class="wrap cont">
+      <div>
+        <h2 class="rv">Ven a conocernos</h2>
+        <span class="raya rv" aria-hidden="true"></span>
+        <div class="datos rv">
+          <p><b>Dirección</b>Carrer de la Conquista, 60 · 08912 Badalona · <a href="https://www.google.com/maps/search/?api=1&query=Power+Kim+Nutrici%C3%B3+Badalona" target="_blank" rel="noopener">Cómo llegar</a></p>
+          <p><b>Teléfono</b><a href="tel:+34933847508">933 84 75 08</a></p>
+        </div>
+      </div>
+      <div class="rv"><p class="datos" style="margin:0 0 .8rem"><b>Horario</b></p><table class="horario" id="horario" aria-label="Horario"></table></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot__name">Power <span>Kim</span></p>
+    <div class="foot__row"><p>Nutrició · Carrer de la Conquista, 60 · Badalona</p><p>Demo diseñada por <a href="https://grapalab.com" target="_blank" rel="noopener">Grapa Lab</a> con las fotos del propio centro</p></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var M=[['9:00','14:00'],['17:00','21:00']];
+  var H={0:null,1:M,2:M,3:M,4:M,5:M,6:[['9:00','14:00']]};
+  var NOM=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+  var m=function(t){var p=t.split(':');return +p[0]*60+ +p[1];};
+  var now=new Date(), d=now.getDay(), min=now.getHours()*60+now.getMinutes();
+  var tb=document.getElementById('horario');
+  [1,2,3,4,5,6,0].forEach(function(k){var tr=document.createElement('tr');if(k===d)tr.className='hoy';var a=document.createElement('td');a.textContent=NOM[k];var b=document.createElement('td');b.textContent=H[k]?H[k].map(function(r){return r[0]+'–'+r[1];}).join(' · '):'Cerrado';tr.appendChild(a);tr.appendChild(b);tb.appendChild(tr);});
+  var est=document.getElementById('estado'), tx=est.querySelector('span'), ab=null;
+  (H[d]||[]).forEach(function(r){if(min>=m(r[0])&&min<m(r[1]))ab=r;});
+  if(ab){est.classList.add('abierto');tx.textContent='Abierto ahora, hasta las '+ab[1];}
+  else{for(var i=0;i<8;i++){var k=(d+i)%7,r=(H[k]||[]).filter(function(x){return i>0||m(x[0])>min;})[0];if(r){tx.textContent='Cerrado · abre '+(i===0?'hoy':i===1?'mañana':'el '+NOM[k].toLowerCase())+' a las '+r[0];break;}}}
+
+  // Tu objetivo -> como serian las primeras semanas
+  var O=[
+    {n:'Perder peso',s:'de forma sana y sin rebote',t:'Perder peso, sin pasar hambre',p:[['Primera visita','Hablamos de cómo comes, tus horarios y lo que te gusta.'],['Tu plan','Un menú flexible, que puedas seguir en casa y fuera.'],['Seguimiento','Revisamos cómo vas y ajustamos el plan cuando haga falta.']],c:'«Kim, es el mejor dietista del mundo mundial.»'},
+    {n:'Ganar músculo',s:'si entrenas o haces deporte',t:'Ganar músculo, comiendo bien',p:[['Primera visita','Vemos tu entrenamiento, tu peso y lo que comes ahora.'],['Tu plan','Comidas pensadas para ganar, con las proteínas que necesitas.'],['Seguimiento','Ajustes según cómo responde tu cuerpo, y consejo sobre suplementos solo si te hacen falta.']],c:'«Muy buenos profesionales y muy detallistas.»'},
+    {n:'Comer mejor',s:'más energía en el día a día',t:'Comer mejor, sin complicarte',p:[['Primera visita','Miramos qué cambiar sin darle la vuelta a tu vida.'],['Tu plan','Ideas sencillas para la compra, el táper y las cenas.'],['Seguimiento','Te resolvemos las dudas cuando surgen, no solo en la consulta.']],c:'«Siempre te atienden a cualquier duda que tengas.»'}
+  ];
+  var sel=0, box=document.getElementById('objs'), bs=[];
+  function pintar(){
+    var o=O[sel];
+    bs.forEach(function(b,i){b.setAttribute('aria-pressed',String(i===sel));});
+    document.getElementById('r-t').textContent=o.t;
+    var ol=document.getElementById('r-l'); ol.innerHTML='';
+    o.p.forEach(function(x){var li=document.createElement('li');var w=document.createElement('div');var b=document.createElement('b');b.textContent=x[0];w.appendChild(b);w.appendChild(document.createTextNode(x[1]));li.appendChild(w);ol.appendChild(li);});
+    document.getElementById('r-c').textContent=o.c+' · Opinión en Google';
+  }
+  O.forEach(function(o,i){var b=document.createElement('button');b.type='button';b.className='ob';var c=document.createElement('i');var n=document.createElement('b');n.textContent=o.n;var s=document.createElement('small');s.textContent=o.s;b.appendChild(c);b.appendChild(n);b.appendChild(s);b.addEventListener('click',function(){sel=i;pintar();});box.appendChild(b);bs.push(b);});
+  pintar();
+
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);});},{rootMargin:'0px 0px -6% 0px'});
+  els.forEach(function(e){io.observe(e);});
+  setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},3000);
+})();
+</script>
+</body>
+</html>
