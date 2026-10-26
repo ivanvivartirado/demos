@@ -3,20 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>¡Hola Luna! 🐶</title>
+<title>¡Hola Luna! 🦒🐱</title>
 <meta name="description" content="Una demo muy seria preparada especialmente para Luna.">
 <meta name="robots" content="noindex, nofollow">
-<meta property="og:title" content="¡Hola Luna! 🐶">
-<meta property="og:description" content="Demo exclusiva. Contiene perro bailando.">
+<meta property="og:title" content="¡Hola Luna! 🦒🐱">
+<meta property="og:description" content="Demo exclusiva. Contiene jirafa y gato bailando.">
 <meta name="theme-color" content="#1B1035">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐶%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🦒%3C/text%3E%3C/svg%3E">
 <style>
-  :root{--bg:#1B1035;--ink:#FFF7E8;--pink:#FF5FA2;--yellow:#FFD23F;--cyan:#3FE0D0;--violet:#8F87E6;--dog:#E8A85C;--dog-dark:#B9742E}
+  :root{--bg:#1B1035;--ink:#FFF7E8;--pink:#FF5FA2;--yellow:#FFD23F;--cyan:#3FE0D0;--violet:#8F87E6;
+        --jir:#F4B942;--jir-spot:#B8682A;--cat:#9A9AA8;--cat-dark:#5E5E6E}
   *{box-sizing:border-box}
   html,body{height:100%}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:"Trebuchet MS",system-ui,sans-serif;overflow-x:hidden;
        display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px 16px;min-height:100%}
-  /* luces de discoteca */
   .disco{position:fixed;inset:0;pointer-events:none;z-index:0;
     background:radial-gradient(circle at 20% 30%,#FF5FA233 0,transparent 35%),radial-gradient(circle at 80% 25%,#3FE0D033 0,transparent 35%),radial-gradient(circle at 50% 85%,#FFD23F2e 0,transparent 40%);
     animation:luces 2.4s steps(1) infinite}
@@ -26,33 +26,34 @@
   h1{font-size:clamp(3rem,15vw,6rem);line-height:1;margin:.6rem 0 .7rem;color:var(--yellow);text-shadow:4px 4px 0 var(--pink);animation:latido .48s ease-in-out infinite alternate}
   @keyframes latido{to{transform:scale(1.06) rotate(-2deg)}}
   .sub{font-size:1.15rem;margin:0 0 .5rem;opacity:.9}
-  /* perro */
-  .escena{position:relative;width:min(320px,85vw);margin:0 auto}
-  .perro{width:100%;height:auto;overflow:visible}
-  .salta{animation:salta .48s ease-in-out infinite alternate;transform-origin:150px 260px}
-  @keyframes salta{from{transform:translateY(0) rotate(-6deg)}to{transform:translateY(-18px) rotate(6deg)}}
-  .cola{animation:cola .16s ease-in-out infinite alternate;transform-origin:212px 170px}
-  @keyframes cola{from{transform:rotate(-25deg)}to{transform:rotate(25deg)}}
-  .pata-a{animation:pata .48s ease-in-out infinite alternate;transform-origin:120px 200px}
-  .pata-b{animation:pata .48s ease-in-out infinite alternate-reverse;transform-origin:180px 200px}
-  @keyframes pata{from{transform:rotate(-18deg)}to{transform:rotate(18deg)}}
-  .brazo-a{animation:brazo .48s ease-in-out infinite alternate;transform-origin:112px 150px}
-  .brazo-b{animation:brazo .48s ease-in-out infinite alternate-reverse;transform-origin:188px 150px}
-  @keyframes brazo{from{transform:rotate(-60deg)}to{transform:rotate(40deg)}}
-  .oreja{animation:oreja .24s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:top center}
-  @keyframes oreja{to{transform:rotate(14deg)}}
-  .lengua{animation:lengua .3s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:top center}
-  @keyframes lengua{to{transform:scaleY(1.3)}}
-  .gafas{animation:gafas 1.9s ease-in-out infinite}
-  @keyframes gafas{0%,70%{transform:translateY(0)}80%{transform:translateY(-6px)}100%{transform:translateY(0)}}
+  .escena{position:relative;width:min(380px,92vw);margin:0 auto}
+  svg{width:100%;height:auto;overflow:visible;display:block}
+  /* jirafa: se balancea con el cuello */
+  .jirafa{animation:balanceo .96s ease-in-out infinite alternate;transform-origin:110px 300px}
+  @keyframes balanceo{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}
+  .cuello{animation:cuello .48s ease-in-out infinite alternate;transform-origin:118px 205px}
+  @keyframes cuello{from{transform:rotate(-12deg)}to{transform:rotate(12deg)}}
+  .j-pata-a{animation:pata .48s ease-in-out infinite alternate;transform-origin:90px 235px}
+  .j-pata-b{animation:pata .48s ease-in-out infinite alternate-reverse;transform-origin:140px 235px}
+  @keyframes pata{from{transform:rotate(-16deg)}to{transform:rotate(16deg)}}
+  .j-cola{animation:cola .2s ease-in-out infinite alternate;transform-origin:160px 215px}
+  /* gato: salta y mueve los brazos */
+  .gato{animation:salta .48s ease-in-out infinite alternate;transform-origin:285px 300px}
+  @keyframes salta{from{transform:translateY(0) rotate(5deg)}to{transform:translateY(-22px) rotate(-5deg)}}
+  .g-brazo-a{animation:brazo .48s ease-in-out infinite alternate;transform-origin:262px 222px}
+  .g-brazo-b{animation:brazo .48s ease-in-out infinite alternate-reverse;transform-origin:308px 222px}
+  @keyframes brazo{from{transform:rotate(-70deg)}to{transform:rotate(30deg)}}
+  .g-cola{animation:cola .3s ease-in-out infinite alternate;transform-origin:310px 270px}
+  @keyframes cola{from{transform:rotate(-22deg)}to{transform:rotate(22deg)}}
+  .ojos{animation:parpadeo 3s infinite;transform-box:fill-box;transform-origin:center}
+  @keyframes parpadeo{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
   .nota{position:absolute;font-size:1.8rem;animation:nota 2.4s linear infinite;opacity:0}
-  .nota:nth-child(2){left:6%;top:30%;animation-delay:.4s}
-  .nota:nth-child(3){right:4%;top:20%;animation-delay:1.1s}
-  .nota:nth-child(4){left:14%;top:6%;animation-delay:1.7s}
-  .nota:nth-child(5){right:12%;top:52%;animation-delay:.8s}
+  .nota:nth-child(2){left:4%;top:40%;animation-delay:.4s}
+  .nota:nth-child(3){right:2%;top:24%;animation-delay:1.1s}
+  .nota:nth-child(4){left:40%;top:4%;animation-delay:1.7s}
+  .nota:nth-child(5){right:8%;top:58%;animation-delay:.8s}
   @keyframes nota{0%{opacity:0;transform:translateY(20px) rotate(-10deg)}20%{opacity:1}100%{opacity:0;transform:translateY(-70px) rotate(20deg)}}
-  .suelo{width:70%;height:14px;margin:-6px auto 0;border-radius:50%;background:#0006;animation:sombra .48s ease-in-out infinite alternate}
-  @keyframes sombra{to{transform:scaleX(.8);opacity:.6}}
+  .suelo{width:85%;height:14px;margin:-4px auto 0;border-radius:50%;background:#0006}
   .msg{margin:1.3rem auto 0;font-size:1.05rem;line-height:1.5;max-width:30em;background:#ffffff12;border-radius:18px;padding:1rem 1.2rem}
   button{margin-top:1.1rem;font:inherit;font-weight:700;font-size:1.05rem;border:0;border-radius:99px;padding:.85rem 1.4rem;cursor:pointer;
          background:var(--pink);color:#fff;box-shadow:0 5px 0 #b8336d;transition:transform .1s}
@@ -66,50 +67,68 @@
 <body>
 <div class="disco" aria-hidden="true"></div>
 <main>
-  <span class="tag">Demo exclusiva · v1.0</span>
+  <span class="tag">Demo exclusiva · v2.0</span>
   <h1>¡Hola Luna!</h1>
   <p class="sub">Esta web tiene un único objetivo: que sonrías.</p>
 
   <div class="escena" aria-hidden="true">
     <span class="nota">🎵</span><span class="nota">🎶</span><span class="nota">✨</span><span class="nota">🎵</span>
-    <svg class="perro" viewBox="0 0 300 290" role="img" aria-label="Un perro con gafas de sol bailando">
-      <g class="salta">
-        <!-- cola -->
-        <g class="cola"><path d="M205 175 Q250 150 240 110" fill="none" stroke="var(--dog-dark)" stroke-width="14" stroke-linecap="round"/></g>
-        <!-- patas -->
-        <g class="pata-a"><rect x="108" y="196" width="24" height="62" rx="12" fill="var(--dog-dark)"/><ellipse cx="118" cy="258" rx="18" ry="10" fill="#fff"/></g>
-        <g class="pata-b"><rect x="168" y="196" width="24" height="62" rx="12" fill="var(--dog-dark)"/><ellipse cx="182" cy="258" rx="18" ry="10" fill="#fff"/></g>
-        <!-- cuerpo -->
-        <ellipse cx="150" cy="170" rx="62" ry="52" fill="var(--dog)"/>
-        <ellipse cx="150" cy="182" rx="34" ry="32" fill="#F6D7A7"/>
-        <!-- brazos -->
-        <g class="brazo-a"><rect x="76" y="140" width="44" height="20" rx="10" fill="var(--dog)"/><circle cx="76" cy="150" r="12" fill="#fff"/></g>
-        <g class="brazo-b"><rect x="180" y="140" width="44" height="20" rx="10" fill="var(--dog)"/><circle cx="224" cy="150" r="12" fill="#fff"/></g>
-        <!-- cabeza -->
-        <path class="oreja" d="M98 48 q-26 30 -8 74 q18 -8 26 -40z" fill="var(--dog-dark)"/>
-        <path class="oreja" d="M202 48 q26 30 8 74 q-18 -8 -26 -40z" fill="var(--dog-dark)"/>
-        <circle cx="150" cy="78" r="56" fill="var(--dog)"/>
-        <ellipse cx="150" cy="98" rx="30" ry="22" fill="#F6D7A7"/>
-        <ellipse cx="150" cy="86" rx="11" ry="8" fill="#2A1B12"/>
-        <path d="M138 100 q12 12 24 0" fill="none" stroke="#2A1B12" stroke-width="4" stroke-linecap="round"/>
-        <rect class="lengua" x="143" y="104" width="14" height="16" rx="7" fill="var(--pink)"/>
-        <!-- pajarita -->
-        <path d="M150 138 l-22 -12 v24z M150 138 l22 -12 v24z" fill="var(--pink)"/><circle cx="150" cy="138" r="6" fill="var(--yellow)"/>
-        <!-- gafas de sol -->
-        <g class="gafas">
-          <rect x="108" y="54" width="36" height="22" rx="8" fill="#111"/><rect x="156" y="54" width="36" height="22" rx="8" fill="#111"/>
-          <rect x="142" y="60" width="16" height="5" fill="#111"/>
-          <rect x="114" y="58" width="10" height="5" rx="2" fill="#ffffff88"/><rect x="162" y="58" width="10" height="5" rx="2" fill="#ffffff88"/>
+    <svg viewBox="0 0 380 310" role="img" aria-label="Una jirafa y un gato bailando">
+      <!-- JIRAFA -->
+      <g class="jirafa">
+        <g class="j-cola"><path d="M160 215 q22 10 26 40" fill="none" stroke="var(--jir-spot)" stroke-width="6" stroke-linecap="round"/><circle cx="186" cy="258" r="7" fill="var(--jir-spot)"/></g>
+        <g class="j-pata-a"><rect x="80" y="225" width="18" height="72" rx="8" fill="var(--jir)"/><rect x="80" y="288" width="18" height="10" rx="3" fill="#4A2E14"/></g>
+        <g class="j-pata-b"><rect x="132" y="225" width="18" height="72" rx="8" fill="var(--jir)"/><rect x="132" y="288" width="18" height="10" rx="3" fill="#4A2E14"/></g>
+        <ellipse cx="120" cy="215" rx="58" ry="34" fill="var(--jir)"/>
+        <circle cx="96" cy="208" r="9" fill="var(--jir-spot)"/><circle cx="130" cy="200" r="11" fill="var(--jir-spot)"/><circle cx="148" cy="222" r="8" fill="var(--jir-spot)"/><circle cx="112" cy="230" r="7" fill="var(--jir-spot)"/>
+        <g class="cuello">
+          <path d="M100 205 L92 70 h28 L130 205z" fill="var(--jir)"/>
+          <circle cx="104" cy="160" r="7" fill="var(--jir-spot)"/><circle cx="114" cy="120" r="8" fill="var(--jir-spot)"/><circle cx="102" cy="92" r="6" fill="var(--jir-spot)"/>
+          <!-- cabeza -->
+          <rect x="88" y="66" width="10" height="20" rx="4" fill="var(--jir-spot)" transform="rotate(-18 93 76)"/>
+          <rect x="114" y="66" width="10" height="20" rx="4" fill="var(--jir-spot)" transform="rotate(18 119 76)"/>
+          <circle cx="90" cy="62" r="6" fill="#4A2E14"/><circle cx="122" cy="62" r="6" fill="#4A2E14"/>
+          <ellipse cx="106" cy="92" rx="30" ry="22" fill="var(--jir)"/>
+          <ellipse cx="80" cy="84" rx="12" ry="6" fill="var(--jir)" transform="rotate(-25 80 84)"/>
+          <ellipse cx="132" cy="84" rx="12" ry="6" fill="var(--jir)" transform="rotate(25 132 84)"/>
+          <ellipse cx="106" cy="104" rx="20" ry="12" fill="#F8D58A"/>
+          <circle cx="99" cy="104" r="2.5" fill="#4A2E14"/><circle cx="113" cy="104" r="2.5" fill="#4A2E14"/>
+          <g class="ojos"><circle cx="95" cy="86" r="5" fill="#2A1B12"/><circle cx="117" cy="86" r="5" fill="#2A1B12"/><circle cx="96.5" cy="84.5" r="1.6" fill="#fff"/><circle cx="118.5" cy="84.5" r="1.6" fill="#fff"/></g>
+          <path d="M99 112 q7 6 14 0" fill="none" stroke="#4A2E14" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- gafas de corazón -->
+          <path d="M84 80 c-6 -9 6 -14 11 -6 c5 -8 17 -3 11 6 l-11 10z" fill="var(--pink)" opacity=".9" transform="translate(-6 0) scale(.9)" style="transform-box:fill-box"/>
+          <path d="M84 80 c-6 -9 6 -14 11 -6 c5 -8 17 -3 11 6 l-11 10z" fill="var(--pink)" opacity=".9" transform="translate(22 0)"/>
         </g>
+      </g>
+
+      <!-- GATO -->
+      <g class="gato">
+        <g class="g-cola"><path d="M308 268 q40 -6 34 -50 q-2 -14 10 -18" fill="none" stroke="var(--cat-dark)" stroke-width="10" stroke-linecap="round"/></g>
+        <ellipse cx="270" cy="296" rx="13" ry="8" fill="var(--cat)"/><ellipse cx="300" cy="296" rx="13" ry="8" fill="var(--cat)"/>
+        <ellipse cx="285" cy="255" rx="36" ry="42" fill="var(--cat)"/>
+        <ellipse cx="285" cy="265" rx="20" ry="26" fill="#E6E6EE"/>
+        <g class="g-brazo-a"><rect x="232" y="214" width="34" height="14" rx="7" fill="var(--cat)"/><circle cx="232" cy="221" r="8" fill="#E6E6EE"/></g>
+        <g class="g-brazo-b"><rect x="304" y="214" width="34" height="14" rx="7" fill="var(--cat)"/><circle cx="338" cy="221" r="8" fill="#E6E6EE"/></g>
+        <!-- cabeza -->
+        <path d="M252 168 l6 -30 l22 20z" fill="var(--cat)"/><path d="M318 168 l-6 -30 l-22 20z" fill="var(--cat)"/>
+        <path d="M257 160 l3 -14 l10 9z" fill="var(--pink)"/><path d="M313 160 l-3 -14 l-10 9z" fill="var(--pink)"/>
+        <circle cx="285" cy="182" r="38" fill="var(--cat)"/>
+        <path d="M272 150 q13 -6 26 0" fill="none" stroke="var(--cat-dark)" stroke-width="4" stroke-linecap="round"/>
+        <g class="ojos"><ellipse cx="271" cy="180" rx="7" ry="9" fill="#9BE564"/><ellipse cx="299" cy="180" rx="7" ry="9" fill="#9BE564"/><ellipse cx="271" cy="180" rx="2.5" ry="7" fill="#111"/><ellipse cx="299" cy="180" rx="2.5" ry="7" fill="#111"/></g>
+        <path d="M281 192 h8 l-4 5z" fill="var(--pink)"/>
+        <path d="M285 197 q-5 6 -10 2 M285 197 q5 6 10 2" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+        <path d="M262 192 h-22 M262 197 l-20 5 M308 192 h22 M308 197 l20 5" stroke="#ddd" stroke-width="1.6" stroke-linecap="round"/>
         <!-- gorro de fiesta -->
-        <path d="M150 -6 L128 30 h44z" fill="var(--cyan)"/><circle cx="150" cy="-8" r="7" fill="var(--yellow)"/>
-        <path d="M137 18 h26 M132 26 h36" stroke="var(--pink)" stroke-width="4"/>
+        <path d="M285 118 L268 150 h34z" fill="var(--cyan)"/><circle cx="285" cy="116" r="6" fill="var(--yellow)"/>
+        <path d="M276 136 h18 M272 144 h26" stroke="var(--pink)" stroke-width="3.5"/>
+        <!-- pajarita -->
+        <path d="M285 220 l-16 -9 v18z M285 220 l16 -9 v18z" fill="var(--yellow)"/><circle cx="285" cy="220" r="4.5" fill="var(--pink)"/>
       </g>
     </svg>
     <div class="suelo"></div>
   </div>
 
-  <p class="msg">Después de un análisis muy profesional hemos concluido que lo que le faltaba a internet era <b>un perro bailando para ti</b>. Ya está solucionado. De nada 😎</p>
+  <p class="msg">Después de un análisis muy profesional hemos concluido que lo que le faltaba a internet era <b>una jirafa y un gato bailando para ti</b>. Ya está solucionado. De nada 😎</p>
   <button type="button" id="fiesta">Pulsa aquí si eres Luna 🎉</button>
   <p class="pie">Hecho con cariño por Ivan · 0 € · sin mantenimiento</p>
 </main>
@@ -128,7 +147,7 @@
         setTimeout(function (el) { el.remove(); }, 5500, c);
       }
     }
-    var frases = ['¡Más fuerte! 🎉', '¡Otra vez! 🕺', 'El perro está muy orgulloso de ti 🐶', '¡Fiesta total! 🪩', 'Vale, ya puedes parar 😂'];
+    var frases = ['¡Más fuerte! 🎉', '¡Otra vez! 🕺', 'La jirafa está muy orgullosa de ti 🦒', 'El gato finge que no le importa, pero sí 🐱', 'Vale, ya puedes parar 😂'];
     var k = 0, b = document.getElementById('fiesta');
     b.addEventListener('click', function () { confeti(90); b.textContent = frases[k++ % frases.length]; });
     setTimeout(function () { confeti(60); }, 500);
